@@ -14,20 +14,22 @@ function getCountOfApplications(){
 }
 
 function generateApps(){
-    let allInvokers = document.querySelectorAll("appInvoke")
-    pocetOken = allInvokers.length;
+    let appBuilds = document.querySelectorAll("appBuild")
+    pocetOken = appBuilds.length;
 
-    for (i=0; i < allInvokers.length; i++){
-        let invoker = allInvokers[i];
-        let width = invoker.getAttribute("width");
-        let height = invoker.getAttribute("height");
-        let title = invoker.getAttribute("title");
+    for (i=0; i < appBuilds.length; i++){
+        let builder = appBuilds[i];
+        let width = builder.getAttribute("width");
+        let height = builder.getAttribute("height");
+        let title = builder.getAttribute("title");
+        let icon = builder.getAttribute("icon")
+        let backgroundImage = builder.getAttribute("backgroundImage")
 
-        newApp(invoker, width, height, title, i+1);
+        newApp(builder, width, height, title, icon, backgroundImage, i+1);
     }
 }
 
-function newApp(appInvoke, width, height, title, appID){
+function newApp(appBuild, width, height, title, icon, backgroundImage, appID){
     let contentDisplay = document.getElementById("contentDisplay");
 
     /*Create application shortcut*/
@@ -36,14 +38,12 @@ function newApp(appInvoke, width, height, title, appID){
     applicationShortcut.className = "applicationShortcut";
     applicationShortcut.onclick = "moveWindow(1); openWindow(); window_z_index(1);"
     applicationShortcut.title = title;
-    applicationShortcut.addEventListener("click", function () {
-        moveWindow(appID);
-        openWindow();
-        window_z_index(appID);
-    });;
+    applicationShortcut.setAttribute("onclick", 'moveWindow('+appID+'); openWindow(); window_z_index('+appID+')');
+    applicationShortcut.setAttribute("icon", icon);
 
     /*Style*/
     applicationShortcut.style.marginLeft = (2 + ((appID-1)*6)) + "%";
+    applicationShortcut.style.backgroundImage = "url('" + icon + "')";
 
     contentDisplay.appendChild(applicationShortcut);
 
@@ -52,9 +52,7 @@ function newApp(appInvoke, width, height, title, appID){
         const window = document.createElement("div");
         window.id = "window"+appID;
         window.className = "window";
-        window.addEventListener("click", function () {
-            window_z_index(appID);
-        });;
+        window.setAttribute("onclick", 'window_z_index('+appID+')');
 
         /*Style*/
         if (width != null){
@@ -79,21 +77,20 @@ function newApp(appInvoke, width, height, title, appID){
         const windowClose = document.createElement("div");
         windowClose.className = "windowClose unselectable";
         windowClose.innerHTML = "<p>✕</p>";
-        windowClose.addEventListener("click", function () {
-            exitWindow(appID);
-        });;
+        windowClose.setAttribute("onclick", 'exitWindow('+appID+')');
         windowHeader.appendChild(windowClose);
 
         /*Create content div*/
         const main_div = document.createElement("div");
         main_div.className = "main_div";
+        main_div.style.backgroundImage = "url('" + backgroundImage + "')";
         window.appendChild(main_div);
 
     /*Move content to generated window*/
-    main_div.innerHTML = appInvoke.innerHTML;
+    main_div.innerHTML = appBuild.innerHTML;
 
     /*Delete current app invoker tag*/
-    appInvoke.remove();
+    appBuild.remove();
 }
 
 function moveWindow(windowNumber){
@@ -166,16 +163,16 @@ function openWindow(windowNumber=0){
 
 //---------------------------------------------------------------
 function repositionAllWindows(){
-    for (let number = 1; number < pocetOken+1; number++){
-        let element = document.getElementById("window"+number);
+    for (let number = 0; number < pocetOken; number++){
+        let element = document.getElementById("window"+(number+1));
         element.style.left = "130%";
     } 
 }
 
 function window_z_index(windowNumber=0){
     var windowIndexes = [];
-    for (let number = 1; number < pocetOken+1; number++){
-        var element = document.getElementById("window"+number);
+    for (let number = 0; number < pocetOken; number++){
+        var element = document.getElementById("window"+(number+1));
         windowIndexes.push(element.style.zIndex);
     }
     windowIndexes = windowIndexes.sort();
@@ -186,8 +183,8 @@ function window_z_index(windowNumber=0){
             break;
         }
     }
-    for (let number = 1; number < pocetOken+1; number++){
-        let element = document.getElementById("window"+number);
+    for (let number = 0; number < pocetOken; number++){
+        let element = document.getElementById("window"+(number+1));
         if (element.style.zIndex >= rightIndex){
             element.style.zIndex--;
         }
@@ -202,10 +199,11 @@ function window_z_index(windowNumber=0){
 
 function taskBarOpendWindows(windowNumber, action){
     if (!openedWindows[windowNumber-1] && action == "open"){
-        elementTitle = document.getElementById("windowTitle"+windowNumber);
+        let currentWindow = document.getElementById("window"+windowNumber);
+        elementTitle = currentWindow.getElementsByClassName("windowTitle")[0];
         var newDiv = document.createElement("div");
         var newImg = document.createElement("img");
-        newImg.src = "images/levelLogos/DARK/icon"+windowNumber+".png";
+        newImg.src = document.getElementById("application"+windowNumber).getAttribute("icon");
         newDiv.setAttribute("id", "icon"+windowNumber);
         if (windowNumber <= 5 || windowNumber == 9){
             newDiv.setAttribute("class", "taskBarIcon");
@@ -213,6 +211,7 @@ function taskBarOpendWindows(windowNumber, action){
         newDiv.setAttribute("title", elementTitle.innerHTML);
         newDiv.setAttribute("onclick", "window_z_index("+windowNumber+"); openWindow("+windowNumber+")");
         newDiv.style.cursor = "pointer";
+
         /*style*/
         newImg.style.height = "95%";
         newImg.style.width = "95%";

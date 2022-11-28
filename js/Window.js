@@ -19,6 +19,87 @@ function getCountOfApplications(){
     }
 }
 
+function generateApps(){
+    let allInvokers = document.querySelectorAll("appInvoke")
+
+    for (i=0; i < allInvokers.length; i++){
+        let invoker = allInvokers[i];
+        let width = invoker.getAttribute("width");
+        let height = invoker.getAttribute("height");
+        let title = invoker.getAttribute("title");
+
+        newApp(invoker, width, height, title, i+1);
+    }
+}
+
+function newApp(appInvoke, width, height, title, appID){
+    let contentDisplay = document.getElementById("contentDisplay");
+
+    /*Create application shortcut*/
+    const applicationShortcut = document.createElement("div");
+    applicationShortcut.id = "application"+appID;
+    applicationShortcut.className = "applicationShortcut";
+    applicationShortcut.onclick = "moveWindow(1); openWindow(); window_z_index(1);"
+    applicationShortcut.title = title;
+    applicationShortcut.addEventListener("click", function () {
+        moveWindow(appID);
+        openWindow();
+        window_z_index(appID);
+    });;
+
+    /*Style*/
+    applicationShortcut.style.marginLeft = (2 + (appID*6)) + "%";
+
+    contentDisplay.appendChild(applicationShortcut);
+
+    /*Generate window*/
+        /*Create main window div*/
+        const window = document.createElement("div");
+        window.id = "window"+appID;
+        window.addEventListener("click", function () {
+            window_z_index(appID);
+        });;
+
+        /*Style*/
+        if (width != null){
+            window.style.width = width;
+        }
+        if (height != null){
+            window.style.height = height;
+        }
+
+        contentDisplay.appendChild(window);
+
+        /*Create window header*/
+        const windowHeader = document.createElement("div");
+        windowHeader.className = "windowHeader";
+        window.appendChild(windowHeader);
+
+        const windowTitle = document.createElement("div");
+        windowTitle.className = "windowTitle unselectable";
+        windowTitle.innerHTML = title;
+        windowHeader.appendChild(windowTitle);
+
+        const windowClose = document.createElement("div");
+        windowClose.className = "windowClose unselectable";
+        windowClose.innerHTML = "✕";
+        windowClose.addEventListener("click", function () {
+            exitWindow(appID);
+        });;
+        windowHeader.appendChild(windowClose);
+
+        /*Create content div*/
+        const main_div = document.createElement("div");
+        main_div.className = "main_div";
+        window.appendChild(main_div);
+
+    /*Move content to generated window*/
+    main_div.innerHTML = appInvoke.innerHTML;
+
+    /*Delete current app invoker tag*/
+    appInvoke.remove();
+}
+
 function moveWindow(windowNumber){
     windowID = windowNumber;
     var screenDiv = document.getElementById("contentDisplay");

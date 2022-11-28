@@ -25,6 +25,7 @@
 }
 .windowHeader .windowTitle{
     margin-left: 5px;
+    padding: .5% 0;
 }
 .windowHeader .windowClose{
     position: absolute;

@@ -1,69 +1,346 @@
 <!DOCTYPE html>
 <html lang="cs">
-    <head>
-        <meta charset="utf-8">
-        <title>Purkiáda - Úloha 8</title>
-        <link rel="stylesheet" href="css/index.css">
-    </head>
-    <body onload="getCountOfApplications(); repositionAllWindows(); checkLoggedUser()">
-        <div id="displayFrameLeft" class="displayFrame"></div>
-        <div id="displayFrameRight" class="displayFrame"></div>
-        <div id="displayFrameTop" class="displayFrame"></div>
-        <div id="displayFrameBottom" class="displayFrame">
-        <div id="powerOffButton" onclick="turnOff()" class="unselectable" title="Power on/off"></div>
-        </div>
-        <img src="images/hand.svg" alt="hand.svg" id="hand">
-        <div id="blackscreen"><p id="generated_code"></p></div>
-        <div id="loginscreen">
-            <form id="loginContent">
-                <img id="ProfilePicture" src="images/LoginPP.png"><br>
-                <div>
-                    <p id="wrongLoginText"></p>
-                    <input type="text" id="username" name="username" onfocus='this.value=""'  value="Name"><br>
-                    <input type="text" id="userpassword" name="password" onfocus='this.value=""; this.type="password"'; value="Enter password">
-                </div>
-                <input type="submit" id="submitlogin" value="❯" onclick="checkLoginInfo()">
-                <div id="showButton">
-                    <img src="images/show.png" id="showPassword" onclick="showOrHidePassword()" title="show">
-                </div>
-            </form>
-        </div>
-        <div id="taskBar" class="unselectable">
-            <img src="images/taskbar/StartBTNlight.svg" alt="start button" id="StartBTN" class="task_btns">
-            <img src="images/taskbar/PLUSlight.svg" alt="plus" id="PLUS" class="task_btns">
-            <img src="images/taskbar/MINUSlight.svg" alt="minus " id="MINUS" class="task_btns">
-            <img src="images/taskbar/THEMElight.svg" alt="Theme changer" id="THEME" title="Theme" onclick="change_theme()">
-            <span id="getTime"> </span>
-        </div>
-        <div id="displayLeg"></div>
-        <div id="leftWall" class="wall"></div>
-        <div id="rightWall" class="wall"></div>
-        <div id="topWall" class="wall"></div>
-        <div id="bottomWall" class="wall"></div>
-        <img id="telephone" class="unselectable" src="images/telefon-off.svg"></img>
-        <img id="telephone-arrow" class="unselectable" style="rotate: 0deg;" src="images/arrow.svg" onclick="telefonNahoru()"></img>
-        <div id="telephone-button-messages" class="telephone-button" onclick="changeTelephoneScreen('Messages')"></div>
-        <div id="twoFactorCode"></div>
-        <div id="telephone-button-open-conversation" class="telephone-button" onclick="changeTelephoneScreen('MessagesEmail')"></div>
-        <div id="contentDisplay">
-            <div id="iconContainer"
-             class="iconContainer">
-              <p>Shout out to my Nazis</p>
-              <p>Hello World</p>  
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purkiáda - Úloha 8</title>
+    <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/windowDefault.css">
+    <link rel="stylesheet" href="css/screen.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body onload="getCountOfApplications(); repositionAllWindows(); checkLoggedUser()">
+    <div id="displayFrameLeft" class="displayFrame"></div>
+    <div id="displayFrameRight" class="displayFrame"></div>
+    <div id="displayFrameTop" class="displayFrame"></div>
+    <div id="displayFrameBottom" class="displayFrame">
+    <div id="powerOffButton" onclick="turnOff()" class="unselectable" title="Power on/off"></div>
+    </div>
+    <img src="images/hand.svg" alt="hand.svg" id="hand">
+    <div id="blackscreen"><p id="generated_code"></p></div>
+    <div id="loginscreen">
+        <form id="loginContent">
+            <img id="ProfilePicture" src="images/LoginPP.png"><br>
+            <div>
+                <p id="wrongLoginText"></p>
+                <input type="text" id="username" name="username" onfocus='this.value=""'  value="Name"><br>
+                <input type="text" id="userpassword" name="password" onfocus='this.value=""; this.type="password"'; value="Enter password">
             </div>
-            <p id="UserNameOnScr" class="unselectable">unlogged user</p>
+            <input type="submit" id="submitlogin" value="❯" onclick="checkLoginInfo()">
+            <div id="showButton">
+                <img src="images/show.png" id="showPassword" onclick="showOrHidePassword()" title="show">
+            </div>
+        </form>
+    </div>
+    <div id="taskBar" class="unselectable">
+        <img src="images/taskbar/StartBTNlight.svg" alt="start button" id="StartBTN" class="task_btns">
+        <img src="images/taskbar/PLUSlight.svg" alt="plus" id="PLUS" class="task_btns">
+        <img src="images/taskbar/MINUSlight.svg" alt="minus " id="MINUS" class="task_btns">
+        <img src="images/taskbar/THEMElight.svg" alt="Theme changer" id="THEME" title="Theme" onclick="change_theme()">
+        <span id="getTime"> </span>
+    </div>
+    <div id="displayLeg"></div>
+    <div id="leftWall" class="wall"></div>
+    <div id="rightWall" class="wall"></div>
+    <div id="topWall" class="wall"></div>
+    <div id="bottomWall" class="wall"></div>
+    <img id="telephone" class="unselectable" src="images/telefon-off.svg"></img>
+    <img id="telephone-arrow" class="unselectable" style="rotate: 0deg;" src="images/arrow.svg" onclick="telefonNahoru()"></img>
+    <div id="telephone-button-messages" class="telephone-button" onclick="changeTelephoneScreen('Messages')"></div>
+    <div id="twoFactorCode"></div>
+    <div id="telephone-button-open-conversation" class=telephone-button" onclick="changeTelephoneScreen('MessagesEmail')"></div>
+    <div id="contentDisplay">
+        <div id="application1" class="" onclick="moveWindow(1); openWindow(); window_z_index(1);" title="Level 1"></div>
+        <div id="window1" onclick="window_z_index(1)">
+            <div id="windowHeader1">
+                <div id="windowTitle1" class="unselectable">Level 1</div>
+                <div id="windowClose1" class="unselectable" onclick="exitWindow(1)">✕</div>                  
+            </div>
+            <div class="main_div">
+                <div class="taskDivChanger">
+                    <p class="unselectable">Ahoj, začneme něčím lehkým. Kód, který vidíte pod tímto textem musíte předělat na slovo</p>
+                    <p>011001000111011001100001011000110110010101110100</p>
+                </div>
+                <div class="Answer_div">
+                    <p class="unselectable">Tady zadejte řešení</p>
+                    <input class="Password_INP" onkeyup="if(event.keyCode===13){ButtonLvl1.click()}" id="pass1">
+                    <button class="tlacitko" id="ButtonLvl1" onclick='PASS_check(1)'>Vyhodnotit</button>
+                </div>
+            </div>
         </div>
-        <script src="js/storageManager.js"></script>
-        <script src="js/loginManager.js"></script>
-        <script src="js/Window.js"></script>
-        <script src="js/ConvertTOOL.js"></script>
-        <script src="js/sifrovaciKolo.js"></script>
-        <script src="js/PASS_kontrola.js"></script>
-        <script src="js/theme.js"></script>
-        <script src="js/turnoff.js"></script>
-        <script src="js/currentTime.js"></script>
-        <script src="js/enigmaCode.js"></script>
-        <script src="js/webBrowser.js"></script>
-        <script src="js/telefon.js"></script>
-    </body>
+        <div id="application2" class="" onclick="moveWindow(2); openWindow(); window_z_index(2);" title="Level 2"></div>
+        <div id="window2" onclick="window_z_index(2)">
+            <div id="windowHeader2">
+                <div id="windowTitle2" class="unselectable">Level 2</div>
+                <div id="windowClose2" class="unselectable" onclick="exitWindow(2)">✕</div>                  
+            </div>
+            <div class="main_div">
+                <div class="taskDivChanger">
+                    <p class="unselectable">Výborně, pokud jste dokončil/a předchozí level tak máte z půlky vyhráno. Tady je další šifra.</p>
+                    <p id="tajenka"> ᚎ Ⰴ ᚙ Ⰴ ᚠ Ⱖ ᚛ ᛈ </p>
+                    <p>00101101011011110111001101101101</p>
+                </div>
+                <div class="Answer_div">
+                    <p class="unselectable">Tady zadejte řešení</p>
+                    <input class="Password_INP" id="pass2" onkeyup="if(event.keyCode===13){ButtonLvl2.click()}">
+                    <button class="tlacitko" id="ButtonLvl2" onclick='PASS_check(2)'>Vyhodnotit</button>
+                </div>
+            </div>
+        </div>
+        <div id="application3" class="" onclick="moveWindow(3); openWindow(); window_z_index(3);" title="Level 3"></div>
+        <div id="window3" onclick="window_z_index(3)">
+            <div id="windowHeader3">
+                <div id="windowTitle3" class="unselectable">Level 3</div>
+                <div id="windowClose3" class="unselectable" onclick="exitWindow(3)">✕</div>                  
+            </div>
+            <img id="LEVEL3obrazek" src="./images/levelBackground/Level3BG.png" alt="obrazek pro solvnuti LVL 3">
+            <div class="main_div">
+                <div id="task_div" class="taskDivChanger">
+                    <p id="Level3Text" class="unselectable">Vaším úkolem je najít dva správné kódy a vytvořit z nich slovo, abyste tyto dva kódy našel/a budeš muset rozsvítit.</p>
+                </div>
+                <div class="Answer_div">
+                    <p class="unselectable">Tady zadejte řešení</p>
+                    <input class="Password_INP" id="pass3" onkeyup="if(event.keyCode===13){ButtonLvl3.click()}">
+                    <button class="tlacitko" id="ButtonLvl3" onclick='PASS_check(3)'>Vyhodnotit</button>
+                </div>
+            </div>
+        </div>
+        <div id="application4" class="" onclick="moveWindow(4); openWindow(); window_z_index(4);" title="Level 4"></div>
+        <div id="window4" onclick="window_z_index(4)">
+            <div id="windowHeader4">
+                <div id="windowTitle4" class="unselectable">Level 4</div>
+                <div id="windowClose4" class="unselectable" onclick="exitWindow(4)">✕</div>                  
+            </div>
+            <div class="main_div">
+                <div class="taskDivChanger">
+                    <p class="unselectable">Vítejte v levelu 4 :). Na email vám přišel další kód pro dokončení tohohle levelu. Tak ho otevřete a zadejte ho sem ;)</p>
+                </div>
+                <div class="Answer_div">
+                    <p class="unselectable">Tady zadejte řešení</p>
+                    <input class="Password_INP" onkeyup="if(event.keyCode===13){ButtonLvl4.click()}" id="pass4">
+                    <button class="tlacitko" id="ButtonLvl4" onclick='PASS_check(4)'>Vyhodnotit</button>
+                </div>
+            </div>
+        </div>
+        <div id="application5" onclick="moveWindow(5); openWindow(); window_z_index(5);" title="Level 5"></div>
+        <div id="window5" onclick="window_z_index(5)">
+            <div id="windowHeader5">
+                <div id="windowTitle5" class="unselectable">Level 5</div>
+                <div id="windowClose5" class="unselectable" onclick="exitWindow(5)">✕</div>                  
+            </div>
+            <div class="main_div">
+                <div class="taskDivChanger">
+                    <p class="unselectable">Pokud jste dodělal/a level 4, tak určitě uděláte i tenhle. Řešení předchozích levelů vám totiž pomůže nastavit enigmu tak, aby jste dokončil/a tenhle level.<br>P.S. Budete šifrovat heslo z levelu 4.</p>
+                </div>
+                <div class="Answer_div">
+                    <p class="unselectable">Tady zadejte řešení</p>
+                    <input class="Password_INP" onkeyup="if(event.keyCode===13){ButtonLvl5.click()}" id="pass5">
+                    <button class="tlacitko" id="ButtonLvl5" onclick='PASS_check(5)'>Vyhodnotit</button>
+                </div>
+            </div>
+        </div>
+        <div id="application6" onclick="moveWindow(6); openWindow(); window_z_index(6);" title="Konvertor"></div>
+        <div id="window6" onclick="window_z_index(6)">
+            <div id="windowHeader6">
+                <div id="windowTitle6" class="unselectable">Konvertor</div>
+                <div id="windowClose6" class="unselectable" onclick="exitWindow(6)">✕</div>
+            </div>
+            <div class="main_div_convertor">
+                <div id="background_convertor" class="taskDivChanger">
+                    <div class="INOUT">
+                        <input class="convertor_INP" onkeyup="if(event.keyCode===13){ConvertBTN.click()}" id="INp">
+                        <button id="ASCB1" onclick="choose_INP('ASCB1')">ASCII</button>
+                        <button id="HEXB1" onclick="choose_INP('HEXB1')">HEX</button>
+                        <button id="BINB1" onclick="choose_INP('BINB1')">BIN</button>
+                    </div>
+                    <div class="INOUT">
+                        <input class="convertor_INP" onkeydown="return false" value="output" id="OUTp"/>
+                        <button id="ASCB2" onclick="choose_OUT('ASCB2')">ASCII</button>
+                        <button id="HEXB2" onclick="choose_OUT('HEXB2')">HEX</button>
+                        <button id="BINB2" onclick="choose_OUT('BINB2')">BIN</button>
+
+                    </div>
+                    <button id="CopyBTN" onclick="copyToClipboard('OUTp')" >Copy</button>
+                    <button id="ConvertBTN" onclick="choose_convertor()" >Convert!</button>
+                    
+                </div>
+            </div>
+        </div>
+        <div id="application7" onclick="moveWindow(7); openWindow(); window_z_index(7);" title="Caesarova šifra"></div>
+        <div id="window7" onclick="window_z_index(7)">
+            <div id="windowHeader7">
+                <div id="windowTitle7" class="unselectable">Kolo na Caesarovu šifru</div>
+                <div id="windowClose7" class="unselectable" onclick="exitWindow(7)">✕</div>                  
+            </div>
+            <div class="main_div">
+                <div class="ceaser-wheel" style="text-align: center;">
+                    <img id="target" class="unselectable" src="images/WHEEL-MOVE.png" alt="otaceci kolo cesarovi sifry">
+                    <img id="wheel" class="unselectable" src="images/WHEEL-MAIN.png" alt="zakladni kolo cesarovi sifry">
+                    <button id="resetWheel" onclick="resetWheel()">RESET</button>
+                </div>
+                <div id="setWheel_div">
+                    <input type="number" onfocus="return false" onkeydown="return false" id="setWheelInput" max="26" min="-26" value="0">
+                    <button id="setWheelButton" onclick="setWheel()">SET</button>
+                </div>
+            </div>
+        </div>
+        <div id="application8" class="" onclick="moveWindow(8); openWindow(); window_z_index(8);"title="Enigma"></div>
+        <div id="window8" onclick="window_z_index(8)">
+            <div id="windowHeader8">
+                <div id="windowTitle8" class="unselectable">Enigma</div>
+                <div id="windowClose8" class="unselectable" onclick="exitWindow(8)">✕</div>                  
+            </div>
+            <div class="main_div" id="Enigma_mainDiv">
+                <div id="KeyboardAndLEDs" class="unselectable">
+                    <div id="LED1" class="LED-Class">
+                        <div class="LED" id="LED-Q">Q</div>
+                        <div class="LED" id="LED-W">W</div>
+                        <div class="LED" id="LED-E">E</div>
+                        <div class="LED" id="LED-R">R</div>
+                        <div class="LED" id="LED-T">T</div>
+                        <div class="LED" id="LED-Z">Z</div>
+                        <div class="LED" id="LED-U">U</div>
+                        <div class="LED" id="LED-I">I</div>
+                        <div class="LED" id="LED-O">O</div>
+                    </div>
+                    <div id="LED2" class="LED-Class">
+                        <div class="LED" id="LED-A">A</div>
+                        <div class="LED" id="LED-S">S</div>
+                        <div class="LED" id="LED-D">D</div>
+                        <div class="LED" id="LED-F">F</div>
+                        <div class="LED" id="LED-G">G</div>
+                        <div class="LED" id="LED-H">H</div>
+                        <div class="LED" id="LED-J">J</div>
+                        <div class="LED" id="LED-K">K</div>
+                    </div>
+                    <div id="LED3" class="LED-Class">
+                        <div class="LED" id="LED-P">P</div>
+                        <div class="LED" id="LED-Y">Y</div>
+                        <div class="LED" id="LED-X">X</div>
+                        <div class="LED" id="LED-C">C</div>
+                        <div class="LED" id="LED-V">V</div>
+                        <div class="LED" id="LED-B">B</div>
+                        <div class="LED" id="LED-N">N</div>
+                        <div class="LED" id="LED-M">M</div>
+                        <div class="LED" id="LED-L">L</div>
+                    </div>
+                    <hr>
+                    <div id="KB1" class="KB-Class">
+                        <button onclick="LightUpResult('Q')" class="KB" id="KbQ">Q</button>
+                        <button onclick="LightUpResult('W')" class="KB" id="KbW">W</button>
+                        <button onclick="LightUpResult('E')" class="KB" id="KbE">E</button>
+                        <button onclick="LightUpResult('R')" class="KB" id="KbR">R</button>
+                        <button onclick="LightUpResult('T')" class="KB" id="KbT">T</button>
+                        <button onclick="LightUpResult('Z')" class="KB" id="KbZ">Z</button>
+                        <button onclick="LightUpResult('U')" class="KB" id="KbU">U</button>
+                        <button onclick="LightUpResult('I')" class="KB" id="KbI">I</button>
+                        <button onclick="LightUpResult('O')" class="KB" id="KbO">O</button>
+                    </div>
+                    <div id="KB2" class="KB-Class">
+                        <button onclick="LightUpResult('A')" class="KB" id="KbA">A</button>
+                        <button onclick="LightUpResult('S')" class="KB" id="KbS">S</button>
+                        <button onclick="LightUpResult('D')" class="KB" id="KbD">D</button>
+                        <button onclick="LightUpResult('F')" class="KB" id="KbF">F</button>
+                        <button onclick="LightUpResult('G')" class="KB" id="KbG">G</button>
+                        <button onclick="LightUpResult('H')" class="KB" id="KbH">H</button>
+                        <button onclick="LightUpResult('J')" class="KB" id="KbJ">J</button>
+                        <button onclick="LightUpResult('K')" class="KB" id="KbK">K</button>
+                    </div>
+                    <div id="KB3" class="KB-Class">
+                        <button onclick="LightUpResult('P')" class="KB" id="KbP">P</button>
+                        <button onclick="LightUpResult('Y')" class="KB" id="KbY">Y</button>
+                        <button onclick="LightUpResult('X')" class="KB" id="KbX">X</button>
+                        <button onclick="LightUpResult('C')" class="KB" id="KbC">C</button>
+                        <button onclick="LightUpResult('V')" class="KB" id="KbV">V</button>
+                        <button onclick="LightUpResult('B')" class="KB" id="KbB">B</button>
+                        <button onclick="LightUpResult('N')" class="KB" id="KbN">N</button>
+                        <button onclick="LightUpResult('M')" class="KB" id="KbM">M</button>
+                        <button onclick="LightUpResult('L')" class="KB" id="KbL">L</button>
+                    </div>
+                </div>
+                <div id="EnigmaInput_div">
+                    <div id="enigmaInput1_div">
+                        <button class="arrowUP" onclick='setGearManually("up", 1)'></button>
+                        <input id="gearDisplay1" onkeydown="return false" class="EnigmaInput" value="1">
+                        <button class="arrowDOWN" onclick='setGearManually("down", 1)'></button>
+                        <select id="rotorSwap1" value="I" onchange='setGearManually("menu", 1)'>
+                            <option value="1">I.</option>
+                            <option value="2">II.</option>
+                            <option value="3">III.</option>
+                            <option value="4">IV.</option>
+                            <option value="5">V.</option>
+                        </select>
+                        <button id="showEnigmaManual" onclick="openEnigmaManual()">MANUÁL</button>
+                    </div>
+                    <div id="enigmaInput2_div">
+                        <button class="arrowUP" onclick='setGearManually("up", 2)'></button>
+                        <input id="gearDisplay2" onkeydown="return false" class="EnigmaInput" value="1"></input>
+                        <button class="arrowDOWN" onclick='setGearManually("down", 2)'></button>
+                        <select id="rotorSwap2" value="I" onchange='setGearManually("menu", 2)'>
+                            <option value="1">I.</option>
+                            <option value="2">II.</option>
+                            <option value="3">III.</option>
+                            <option value="4">IV.</option>
+                            <option value="5">V.</option>
+                        </select>
+                    </div>
+                    <div id="enigmaInput3_div">
+                        <button class="arrowUP" onclick='setGearManually("up", 3)'></button>
+                        <input id="gearDisplay3" onkeydown="return false" class="EnigmaInput" value="1"></input>
+                        <button class="arrowDOWN" onclick='setGearManually("down", 3)'></button>
+                        <select id="rotorSwap3" value="I" onchange='setGearManually("menu", 3)'>
+                            <option value="1">I.</option>
+                            <option value="2">II.</option>
+                            <option value="3">III.</option>
+                            <option value="4">IV.</option>
+                            <option value="5">V.</option>
+                        </select>
+                    </div>
+                </div>
+                <input id="typeBox" value="CLICK HERE TO START TYPING" onkeyup="HighlightOff()" onkeydown="return false">
+            </div>
+        </div>
+        <div id="application9" class="" onclick="moveWindow(9); openWindow(); window_z_index(9);" title="Webový prohlížeč"></div>
+        <div id="window9" onclick="window_z_index(9)">
+            <div id="windowHeader9">
+                <div id="windowTitle9" class="unselectable">Webový prohlížeč</div>
+                <div id="windowClose9" class="unselectable" onclick="exitWindow(9)">✕</div>                  
+            </div>
+            <div class="main_div">
+                <div id="browserHeader">
+                    <img id="controlBtn" class="unselectable" src="images/WebBrowser/controlRightArrow.png" onclick="historyDown()">
+                    <img id="controlBtn" class="unselectable" src="images/WebBrowser/controlLeftArrow.png" onclick="historyUp()">
+                    <img id="controlBtn" class="unselectable" src="images/WebBrowser/controlReload.png" onclick="searchBarControler()">
+                    <input id="browserSearchBar" onkeyup="if (event.keyCode===13){magnifierBtn.click()}" onClick="this.select();">
+                    <img id="magnifierBtn" class="unselectable" src="images/WebBrowser/magnifier.png" onclick="searchBarControler()">
+                </div>
+                <div id="browserTabs">
+                    <div id="browserTab" class="unselectable" onclick="searchBarControler('email')"><img src="images/WebBrowser/email.png"><p>Email</p></div>
+                    <!--
+                    <div id="browserTab" class="unselectable" onclick="searchBarControler('twitch')"><img src="images/WebBrowser/twitch.png"><p>venca1450</p></div>
+                    -->
+                    <div id="browserTab" class="unselectable" onclick="searchBarControler('generatecode')"><img src="images/WebBrowser/lock.png"><p>Answer code</p></div>
+                    <div id="browserTab" class="unselectable" onclick="searchBarControler('enigmaManual')"><img src="images/levelLogos/DARK/icon8.png"><p>Manuál pro enigmu</p></div>
+                </div>
+                <div id="main_webbrowser_div">
+                    
+                </div>
+            </div>
+        </div>
+        <p id="UserNameOnScr" class="unselectable">unlogged user</p>
+    </div>
+    <script src="js/storageManager.js"></script>
+    <script src="js/loginManager.js"></script>
+    <script src="js/Window.js"></script>
+    <script src="js/ConvertTOOL.js"></script>
+    <script src="js/sifrovaciKolo.js"></script>
+    <script src="js/PASS_kontrola.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/turnoff.js"></script>
+    <script src="js/currentTime.js"></script>
+    <script src="js/enigmaCode.js"></script>
+    <script src="js/webBrowser.js"></script>
+    <script src="js/telefon.js"></script>
+</body>
 </html>

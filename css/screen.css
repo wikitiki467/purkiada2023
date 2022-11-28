@@ -1,0 +1,47 @@
+
+#contentDisplay{
+    z-index: 1;
+    position: fixed;
+    margin-top: 2.5%;
+    margin-left: 13%;
+    width: 74%;
+    height: max(800px,85vh);
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/wallpaper01.jpg");
+}
+
+#taskBar{
+    z-index: 98;
+    width: 74%;
+    height: 5%;
+    margin-top: 82.25vh;
+    margin-bottom: 0;
+    position: absolute;
+    background-color:rgb(53, 52, 52);
+    margin-left: 13%;
+}
+#taskBar img{
+    border-radius: 3px;
+    vertical-align: middle;
+    z-index: 2;
+    width: 5vh;
+}
+#blackscreen {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(17, 17, 17);
+    background-position-x: center;
+    background-position-y: top;
+    background-size: cover;
+}
+#getTime{
+    color: white;
+    font-size: 1.5vh;
+    float: right;
+    text-align: center;
+    margin-right: 1%;
+    margin-top: .5vh;
+}

@@ -8,12 +8,6 @@ var positionY;
 var openedWindows = [];
 
 function getCountOfApplications(){
-    for (let number = 1; number < 100; number++){
-        if (document.getElementById("window"+number) == null){
-            pocetOken = number-1;
-            break;
-        }
-    }
     for (let number = 0; number < pocetOken; number++){
         openedWindows.push(false);
     }
@@ -21,6 +15,7 @@ function getCountOfApplications(){
 
 function generateApps(){
     let allInvokers = document.querySelectorAll("appInvoke")
+    pocetOken = allInvokers.length;
 
     for (i=0; i < allInvokers.length; i++){
         let invoker = allInvokers[i];
@@ -104,7 +99,7 @@ function moveWindow(windowNumber){
     windowID = windowNumber;
     var screenDiv = document.getElementById("contentDisplay");
     var element = document.getElementById("window"+windowID);
-    var elementControler = document.getElementById("windowTitle"+windowID);
+    var elementControler = element.getElementsByClassName("windowTitle")[0];
     var applicationButton = document.getElementById("application"+windowID);
     element.style.position = "absolute";
     applicationButton.style.cursor = "pointer";

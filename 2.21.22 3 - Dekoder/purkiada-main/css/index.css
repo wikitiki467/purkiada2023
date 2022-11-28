@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+#inp{
+    margin-top: 2%;
+    padding: 10px 100px;
+}
+
+#jmeno{
+    z-index: 100;
+    color: black;
+    font-size: 35px;
+    margin-top: 15%;
+}
+
+#points{
+    z-index: 100;
+    color: black;
+    font-size: 35px;
+    margin-top: 2%;
+}
+
+#generated_code{
+    z-index: 100;
+    color: black;
+    font-size: 35px;
+    margin-top: 5%;
+}

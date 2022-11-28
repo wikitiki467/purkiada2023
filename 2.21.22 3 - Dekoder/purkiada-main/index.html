@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="utf-8">
+        <title>Dekodér</title>
+        <link rel="stylesheet" href="css/index.css">
+    </head>
+    <body>
+        <p id="jmeno">User name</p>
+        <p id="generated_code">Input value</p>
+        <p id="points">Points</p>
+        <input id="inp" onkeyup="if(event.keyCode===13){getSafeCode(this.value)}">
+        <script src="js/enigmaCode.js"></script>
+    </body>
+</html>

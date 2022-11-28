@@ -1,0 +1,856 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#contentDisplay{
+    z-index: 1;
+    position: fixed;
+    margin-top: 2.5%;
+    margin-left: 13%;
+    width: 74%;
+    height: max(800px,85vh);
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/wallpaper01.jpg");
+}
+
+.displayFrame{
+    z-index: 102;
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+}
+
+#displayFrameLeft,
+#displayFrameRight{
+    margin-top: 1.3vh;
+    margin-left: 11%;
+    width: 2%;
+    height: 88vh;
+    border-top-left-radius: 1.9vw;
+}
+
+#displayFrameRight{
+    margin-left: 87%;
+    border-top-left-radius:0;
+    border-top-right-radius: 1.9vw;
+}
+
+#displayFrameTop{
+    margin-top: 1.3vh;
+    margin-left: 11%;
+    width: 78%;
+    height: 2vw;
+    border-top-left-radius: 1.9vw;
+    border-top-right-radius: 1.9vw;
+}
+
+#displayFrameBottom{
+    margin-top: 87vh;
+    margin-left: 11%;
+    width: 78%;
+    height: 4vw;
+    border-bottom-left-radius: 1.9vw;
+    border-bottom-right-radius: 1.9vw;
+}
+
+.wall{
+    z-index: 100;
+    position: fixed;
+    background-color: rgb(0, 142, 161);
+}
+
+#leftWall,
+#rightWall{
+    width: 12%;
+    height: 100vh;
+}
+
+#rightWall{
+    margin-left: 88%;
+}
+
+#topWall{
+    width: 100%;
+    height: 2vh;
+}
+
+#bottomWall{
+    width: 100%;
+    height: 15vh;
+    margin-top: 88vh;
+}
+
+#displayLeg{
+    z-index: 101;
+    width: 20%;
+    height: 15vh;
+    margin-top: 88vh;
+    margin-left: 40%;
+    position: fixed;
+    background-color: grey;
+}
+
+#application1,
+#application2,
+#application3,
+#application4,
+#application5,
+#application6,
+#application7,
+#application8,
+#application9,
+#application10
+{
+    z-index: 0;
+    margin: 2%;
+    width: 70PX; height: 70PX;
+    position: fixed;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(171, 171, 171, 0.3);
+    background-image: url("../images/levelLogos/LIGHT/icon1.png");
+    border-bottom-style: solid;
+    border-color: black;
+}
+
+#window1,
+#window2,
+#window3,
+#window4,
+#window5,
+#window6,
+#window7,
+#window8,
+#window9,
+#window10
+{
+    z-index: 1;
+    width: max(500px, 50%);
+    height: 400px;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: top;
+    position: absolute;
+    background-image: url("../images/levelBackground/clouds.png");
+}
+
+#windowHeader1,
+#windowHeader2,
+#windowHeader3,
+#windowHeader4,
+#windowHeader5,
+#windowHeader6,
+#windowHeader7,
+#windowHeader8,
+#windowHeader9,
+#windowHeader10{
+    width: 100%;
+    height: 35px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: rgb(7, 76, 104);
+}
+
+#windowClose1,
+#windowClose2,
+#windowClose3,
+#windowClose4,
+#windowClose5,
+#windowClose6,
+#windowClose7,
+#windowClose8,
+#windowClose9,
+#windowClose10{
+    height: 100%;
+    width: 15%;
+    margin-right: 0;
+    margin-left: auto;
+    font-size: 24px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    float: right;
+    border-top-right-radius: 15px;
+}
+#windowClose1:hover,
+#windowClose2:hover,
+#windowClose3:hover,
+#windowClose4:hover,
+#windowClose5:hover,
+#windowClose6:hover,
+#windowClose7:hover,
+#windowClose8:hover,
+#windowClose9:hover,
+#windowClose10:hover{
+    background-color: red;
+}
+
+#windowTitle1,
+#windowTitle2,
+#windowTitle3,
+#windowTitle4,
+#windowTitle5,
+#windowTitle6,
+#windowTitle7,
+#windowTitle8,
+#windowTitle9,
+#windowTitle10{
+    height: 80%;
+    width: 80%;
+    margin-top: 1%;
+    margin-left: 4%;
+    margin-right: 0%;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 24px;
+    color: white;
+}
+
+#application2{
+    margin-left: 8%;
+    background-image: url("../images/levelLogos/LIGHT/icon2.png");
+}
+
+#window2{
+    background-image: url("../images/levelBackground/pyramid.webp");
+}
+
+#application3{
+    margin-left: 14%;
+    background-image: url("../images/levelLogos/LIGHT/icon3.png");
+}
+
+#window3{
+    background-image: url("../images/levelBackground/clouds.png");
+}
+
+#application4{
+    margin-left: 20%;
+    background-image: url("../images/levelLogos/LIGHT/icon4.png");
+}
+
+#application5{
+    margin-left: 26%;
+    background-image: url("../images/levelLogos/LIGHT/icon5.png");
+}
+
+#application6{
+    margin-left: 32%;
+    background-image: url("../images/levelLogos/LIGHT/icon6.png");
+}
+
+#window6{
+    background-image: url("../images/levelBackground/clouds.png");
+}
+
+#application7{
+    margin-left: 38%;
+    background-image: url("../images/levelLogos/LIGHT/icon7.png");
+}
+
+#window7{
+    width: 360px; height: 360px;
+    background-image: url("../images/levelBackground/BigBrain.png");
+}
+
+#application8{
+    margin-left: 44%;
+    background-image: url("../images/levelLogos/LIGHT/icon8.png");
+}
+
+#window8{
+    background-image: url("../images/levelBackground/enigma-wallpaper.jpg");
+    background-color: #faf876;
+    width: 700px;
+    height: 400px;
+}
+
+#application9{
+    margin-left: 50%;
+    background-image: url("../images/levelLogos/LIGHT/icon9.png");
+}
+
+#window9{
+    background-image: none;
+    background-color: #D6D6D6;
+}
+#application10{
+    margin-left: 56%;
+    background-image: url("../images/levelLogos/LIGHT/icon10.png");
+}
+
+#window10{
+    background-image: url("../images/levelBackground/clouds.png");
+}
+
+#taskBar{
+    z-index: 98;
+    width: 74%;
+    height: 5%;
+    margin-top: 82.25vh;
+    margin-bottom: 0;
+    position: absolute;
+    background-color:rgb(53, 52, 52);
+    margin-left: 13%;
+}
+#taskBar img{
+    border-radius: 3px;
+    vertical-align: middle;
+    z-index: 2;
+    width: 5vh;
+}
+button{
+    width: 80px;
+    height: 40px;
+    color: white;
+    background-color: rgb(58, 58, 58);
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+}
+#powerOffButton{
+    position: absolute;
+    z-index: 999;
+    width: 1.5vw;
+    height: 1.5vw;
+    background-image: url("../images/MONITORoff.svg");
+    background-size: cover;
+    margin-left: 94%;
+    margin-top: 2.5vh;
+    filter: hue-rotate(15turn);
+}
+#hand{
+    transition: 500ms;
+    position: fixed;
+    z-index: 1000;
+    height: 10%;
+    right: 14.25vw;
+    bottom: -30vh; /*0*/
+}
+#blackscreen {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(17, 17, 17);
+    background-position-x: center;
+    background-position-y: top;
+    background-size: cover;
+}
+#getTime{
+    color: white;
+    font-size: 1.5vh;
+    float: right;
+    text-align: center;
+    margin-right: 1%;
+    margin-top: .5vh;
+}
+
+.unselectable{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* LEVEL 1 / 2 */
+.main_div{
+    /*background-image: url("../images/wallpaper01.jpg");*/
+    z-index: 0;
+    position: absolute;
+    color: White;
+    font-size: 18px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.taskDivChanger{
+    width: 90%;
+    overflow-wrap:break-word;
+    margin: 8% auto 1% auto;
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+.Answer_div{
+    display: block;
+    margin: 8% 4px 0 4px;
+}
+.Answer_div p{
+    display: inline-block;
+}
+
+.Password_INP{
+    padding: 10px;
+    margin: 0 5%;
+    border: none;
+    border-radius: 3px;
+    color:grey;
+    width: 25%;
+}
+
+#LEVEL3obrazek{
+    z-index: 7;
+    position:absolute;
+    display: none;
+    width: 100%;
+    height: 91%;
+    margin: 0;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+}
+
+
+  /*///////////*/
+ /* Convertor */
+/*///////////*/
+
+.main_div_convertor{
+    display: flex;
+    margin: 4%;
+    text-align: center;
+}
+
+.INOUT{
+    margin: 30px auto 20px auto;
+}
+
+
+.INOUT button{
+    width: 12%;
+    padding: 10px 0;
+    border-radius: 2px;
+    border: none;
+}
+.convertor_INP{
+    background-color: rgb(58, 58, 58);
+    color: white;
+    border: none;
+    width: 50%;
+    padding: 10px 5px;
+    display: inline;
+}
+#background_convertor{
+    border-radius: 5px;
+    height: 80%;
+    padding: 0;
+    margin: auto;
+}
+#ConvertBTN,#CopyBTN{
+    margin: 3%;
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 2px;
+}
+/*WHEEL*/
+#resetWheel {
+    z-index: 12;
+    width: 80px;
+    height: 80px;
+    color: white;
+    background-color: rgba(0,0,0,.1);
+    border-radius: 40px;
+    text-decoration: none;
+    border: none;
+}
+#setWheel_div{
+    z-index: 12;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: -31px;
+    position: absolute;
+    margin-left: 275px;
+}
+#setWheelInput{
+    z-index: 13;
+    width: 40px;
+    height: 20px;
+    color: black;
+    background-color: White;
+    border-radius: 1px;
+    text-decoration: none;
+    border: none;
+}
+#setWheelButton{
+    z-index: 13;
+    width: 30px;
+    height: 20px;
+    color: white;
+    background-color: #b0916e;
+    border-radius: 1px;
+}
+#target:hover, #resetWheel:hover {
+    cursor: pointer;
+}
+
+.ceaser-wheel {
+    margin: 3% 38px 2% auto;
+    display: flex;
+    justify-content: center;
+    /*background-color: black;*/
+    width: 300px;
+    height: 300px;
+    align-items: center;
+}
+.ceaser-wheel #wheel{
+    z-index: 10;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+}
+.ceaser-wheel #target {
+    z-index: 11;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+}
+/*Login screen*/
+#loginscreen {
+    z-index: 99;
+    text-align: center;
+    position: fixed;
+    margin-top: 2.5%;
+    margin-left: 13%;
+    width: 74%;
+    height: 85vh;
+    background-size: cover;
+    background-image: url("../images/LoginBackground.png");
+}
+#loginContent{
+    margin-top: 15%;
+}
+#loginContent img{
+    margin-bottom: 10px;
+    border-radius: 500px;
+    height: 150px;
+}
+#username,
+#userpassword{
+    margin-top: 5px;
+    padding: 10px;
+    background-color: rgba(137, 137, 137, 0.8);
+    border: hidden;
+    border-radius: 10px;
+    color: rgba(226, 226, 226, 0.7);
+}
+#username:hover,
+#userpassword:hover{
+    background-color: rgba(226, 226, 226, 0.8);
+    color: rgba(48, 48, 48, 0.7);
+}
+#submitlogin{
+    margin-top: 5px;
+    padding: 5px 14px;
+    background-color: rgba(226, 226, 226, 0.5);
+    border: hidden;
+    position: relative;
+    top: -41.5px;
+    left: 115px;
+    font-size: 20px;
+    color: rgb(61, 61, 61);
+    border-radius: 100px;
+}
+#submitlogin:hover{
+    background-color: rgba(137, 137, 137, 0.8);
+    color: rgba(226, 226, 226, 0.7);
+}
+#showButton{
+    margin-top: 5px;
+    height: 25px;
+    width: 25px;
+    position: relative;
+    top: -76.5px;
+    left: 54%;
+    border-radius: 2px;
+}
+#showButton:hover{
+    cursor: pointer;
+}
+#showButton img{
+    height: 100%;
+    width: auto;
+}
+#wrongLoginText{
+    margin-top: 15px;
+    position: relative;
+    color: white;
+}
+#UserNameOnScr{
+    padding: 3px 12px;
+    margin-top: 11px;
+    margin-right: 5px;
+    font-size: 32px;
+    float: right;
+    color: white;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 5px;
+}
+#tajenka{
+    font-size: 20px;
+}
+/*web browser*/
+#browserHeader{
+    width: 100%;
+    height: 10%;
+    background-color: rgba(147, 147, 147, 0.5);
+}
+#controlBtn,
+#magnifierBtn{
+    height: 80%;
+    float: left;
+    margin: 4px 10px 0 10px;
+    cursor: pointer;
+}
+#magnifierBtn{
+    float: right;
+}
+#browserSearchBar{
+    margin-top: 1%;
+    height: 60%;
+    width: 60%;
+    border: none;
+    border-radius: 2px;
+}
+#browserTabs{
+    width: 100%;
+    height: 5%;
+    background-color: rgba(147, 147, 147, 0.5);
+}
+#browserTab{
+    height: 100%;
+    margin-left: 5px;
+    width: auto;
+    cursor: pointer;
+    float: left;
+}
+#browserTab img{
+    margin: 1px 10px;
+    height: 90%;
+    float: left;
+}
+#browserTab p{
+    color: black;
+    font-size: smaller;
+    float: left;
+}
+#main_webbrowser_div{
+    height: 80%;
+    width: 100%;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: white;
+}
+
+/*ENIGMA*/
+#Enigma_mainDiv{
+    text-align: left;
+}
+.LED-Class, .KB-Class{
+    margin-top: 10px;
+    width: 95%;
+    height: 30px;
+    display: inline-flex;
+}
+.LED, .KB, .neonText, .KB-Pressed {
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 50%;
+    font-size: 15px;
+    color: white;
+    background: black;
+    margin: auto; 
+}
+
+#LED2, #KB2 { width: 85%;}
+#LED1 { margin-top: 10px;}
+#KB1 { margin-top: 10px;}
+
+.neonText, .LED {
+    border: 1px solid black;
+}
+
+.KB {
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-width: 4px;
+}
+.KB-Pressed{
+    background-color: #000000;
+    border: 1px solid white;
+    /*border-top: 3px solid white;*/ /*chtěl bych aby to tam bylo, ale kazí to vzhled, pokud se ti chce, podívej se na to*/
+}
+#KeyboardAndLEDs{
+    width: 450px;
+    height: 280px;
+    display: inline-block;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 20px 15px auto 10px;
+    border-radius: 5%;
+    border: 1px solid #F51F84;
+}
+#KeyboardAndLEDs hr{
+    margin-top: 20px;
+    border: 1px solid black;
+}
+.neonText {
+    background: #e86da8;
+    color: white;
+    font-weight: bolder;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow:
+            0 0 7px #fff,
+            0 0 10px #fff,
+            0 0 21px #fff,
+            0 0 42px #0fa,
+            0 0 82px #0fa,
+            0 0 92px #0fa,
+            0 0 102px #0fa,
+            0 0 151px #0fa;
+}
+#typeBox{
+    width: 300px;
+    height: 30px;
+    background: transparent;
+    text-decoration: none;
+    border: none;
+    color: white;
+    text-align: center;
+}
+input:focus, select:focus {
+    outline: none;
+}
+#EnigmaInput_div{
+    width:175px;
+    margin: 100px auto;
+    display: inline-flex;
+    text-align: center;
+    vertical-align: middle;
+    position: fixed;
+    /*flex: left;*/ /*HÁZÍ ERROR*/
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5%;
+    border: 1px solid #2271BA;
+}
+
+.arrowUP, .arrowDOWN{
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border: solid 25px;
+    border-color: transparent transparent #5c6ab6;
+    margin-bottom: 5px;
+}
+.arrowDOWN{
+    border-color: #5c6ab6 transparent transparent transparent;
+}
+.EnigmaInput{
+    width: 25px; height: 25px;
+    border-radius: 4px;
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    background-color: white;
+    margin: 5px auto;
+    align-items: center;
+}
+#rotorSwap1, #rotorSwap2, #rotorSwap3{
+    background-color: black;
+    margin-bottom: 10px;
+    position: absolute;
+    z-index: 3;
+    border-color: #2271ba;
+    color: white;
+}
+#rotorSwap1{
+    bottom: -1%;
+    left: 9%;
+}
+#rotorSwap2{
+    bottom: -1%;
+    right: 41.5%;
+}
+
+#rotorSwap3{
+    bottom: -1%;
+    right: 9%;
+}
+
+#telephone{
+    transition: 200ms;
+    z-index: 100;
+    position: fixed;
+    width: 200px;
+    bottom: -370px;
+    right: -10px;
+}
+#telephone-arrow{
+    transition: 500ms;
+    z-index: 100;
+    position: fixed;
+    bottom: 25px;
+    right: 65px;
+    height: 50px;
+    opacity: 30%;
+}
+#telephone-button-messages{
+    position: fixed;
+    bottom: 15px;
+    right: 119px;
+    width: 39px;
+    height: 39px;
+}
+#telephone-button-messages-back{
+    z-index: 103;
+    position: fixed;
+    bottom: 11px;
+    right: 18px;
+    width: 193px;
+    height: 48px;
+}
+#telephone-button-none{
+    position: fixed;
+    opacity: 0;
+    z-index: 0;
+}
+#telephone-button-open-conversation{
+    z-index: 0;
+    position: fixed;
+    bottom: 312px;
+    right: 10px;
+    width: 210px;
+    height: 50px;
+}
+#twoFactorCode{
+    position: fixed;
+    bottom: 91px;
+    right: 50px;
+    z-index: 103;
+    color: white;
+    font-size: 12px;
+}
+#showEnigmaManual{
+    position: absolute;
+    top: 160px;
+}
+#generated_code{
+    position: absolute;
+    z-index: 100;
+    color: white;
+    width: 100%;
+    text-align: center;
+    top: max(380px,50%);
+    font-size: 35px;
+}

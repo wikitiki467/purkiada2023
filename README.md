@@ -11,7 +11,7 @@ Tento tag **musí** obsahovat atribut `title=""`, který je nutný k vytvoření
 ```
 <div id="contentDisplay">
 
-  <appBuild title=""><appBuild>
+  <appBuild title="moje aplikace 1"><appBuild>
   
 </div>
 ```

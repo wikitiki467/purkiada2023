@@ -4,8 +4,8 @@
   <head></head>
   <body>
     <header>DOKUMENTACE</header>
+    <center>appBuild</center>
     
-    appBuild
     
     <appBuild title=""><appBuild>
   </body>

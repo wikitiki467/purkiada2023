@@ -24,7 +24,7 @@
     border-color: black;
 }
 
-#window1,
+/* #window1,
 #window2,
 #window3,
 #window4,
@@ -43,7 +43,7 @@
     background-position: top;
     position: absolute;
     background-image: url("../images/levelBackground/clouds.png");
-}
+} */
 
 #windowHeader1,
 #windowHeader2,

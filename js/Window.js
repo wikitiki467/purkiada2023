@@ -51,6 +51,7 @@ function newApp(appInvoke, width, height, title, appID){
         /*Create main window div*/
         const window = document.createElement("div");
         window.id = "window"+appID;
+        window.className = "window";
         window.addEventListener("click", function () {
             window_z_index(appID);
         });;

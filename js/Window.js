@@ -43,7 +43,7 @@ function newApp(appInvoke, width, height, title, appID){
     });;
 
     /*Style*/
-    applicationShortcut.style.marginLeft = (2 + (appID*6)) + "%";
+    applicationShortcut.style.marginLeft = (2 + ((appID-1)*6)) + "%";
 
     contentDisplay.appendChild(applicationShortcut);
 
@@ -77,7 +77,7 @@ function newApp(appInvoke, width, height, title, appID){
 
         const windowClose = document.createElement("div");
         windowClose.className = "windowClose unselectable";
-        windowClose.innerHTML = "✕";
+        windowClose.innerHTML = "<p>✕</p>";
         windowClose.addEventListener("click", function () {
             exitWindow(appID);
         });;

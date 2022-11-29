@@ -11,11 +11,11 @@ Tento tag **musí** obsahovat atribut `title=""`, který je nutný k vytvoření
 ```
 <div id="contentDisplay">
 
-  <appBuild title="moje aplikace 1"><appBuild>
+  <appBuild title="moje aplikace 1"></appBuild>
   
 </div>
 ```
-Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obsah aplikace <appBuild>`.
+Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obsah aplikace </appBuild>`.
 
 **Příklad použití obsahu aplikace:**
 ```
@@ -37,7 +37,7 @@ Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obs
         ⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠠⣄⣉⣙⡉⠓⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿
         ⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
         ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⣀⣀⠀⣀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿</p>
-  <appBuild>
+  </appBuild>
   
 </div>
 ```

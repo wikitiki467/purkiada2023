@@ -8,6 +8,7 @@
     background-position: top;
     position: absolute;
     background-image: url("../images/levelBackground/clouds.png");
+    left: 130%;
 }
 .window .main_div[scroll="XY"], .window .main_div[scroll="YX"]{
     overflow: scroll;
@@ -20,6 +21,7 @@
 }
 .applicationShortcut{
     position: relative;
+    cursor: pointer;
 }
 .windowHeader{
     position: relative;
@@ -61,3 +63,17 @@
 /* #window2 .main_div{
     overflow: scroll;
 } */
+
+.applicationShortcut{
+    z-index: 0;
+    margin: 2%;
+    width: 70PX; height: 70PX;
+    position: fixed;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(171, 171, 171, 0.3);
+    background-image: url("../images/levelLogos/LIGHT/icon1.png");
+    border-bottom-style: solid;
+    border-color: black;
+}

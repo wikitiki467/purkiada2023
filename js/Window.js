@@ -22,14 +22,16 @@ function generateApps(){
         let width = builder.getAttribute("width");
         let height = builder.getAttribute("height");
         let title = builder.getAttribute("title");
-        let icon = builder.getAttribute("icon")
-        let backgroundImage = builder.getAttribute("backgroundImage")
+        let icon = builder.getAttribute("icon");
+        let backgroundImage = builder.getAttribute("backgroundImage");
+        let backgroundColor = builder.getAttribute("backgroundColor");
+        let scroll = builder.getAttribute("scroll");
 
-        newApp(builder, width, height, title, icon, backgroundImage, i+1);
+        newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, i+1);
     }
 }
 
-function newApp(appBuild, width, height, title, icon, backgroundImage, appID){
+function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, appID){
     let contentDisplay = document.getElementById("contentDisplay");
 
     /*Create application shortcut*/
@@ -84,6 +86,10 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, appID){
         const main_div = document.createElement("div");
         main_div.className = "main_div";
         main_div.style.backgroundImage = "url('" + backgroundImage + "')";
+        main_div.style.background = backgroundColor;
+        if (scroll != null){
+            main_div.setAttribute("scroll", `${scroll}`);
+        }
         window.appendChild(main_div);
 
     /*Move content to generated window*/

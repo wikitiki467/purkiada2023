@@ -9,6 +9,15 @@
     position: absolute;
     background-image: url("../images/levelBackground/clouds.png");
 }
+.window .main_div[scroll="XY"], .window .main_div[scroll="YX"]{
+    overflow: scroll;
+}
+.window .main_div[scroll="Y"]{
+    overflow-y: scroll;
+}
+.window .main_div[scroll="X"]{
+    overflow-x: scroll;
+}
 .applicationShortcut{
     position: relative;
 }
@@ -46,3 +55,9 @@
     width: 100%;
     line-height: 30px;
 }
+#window1 .main_div{
+    text-align: left;
+}
+/* #window2 .main_div{
+    overflow: scroll;
+} */

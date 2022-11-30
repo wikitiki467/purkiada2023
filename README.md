@@ -52,6 +52,7 @@ Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obs
 | `width`                   | `Size with unit`| Nastaví šířku okna aplikace                    |
 | `height`                  | `Size with unit`| Nastaví výšku okna aplikace                    |
 
+> [ ! ] Pro nastavení jakéhokoliv obrázku v aplikaci mužete používat **pouze** obrázky uložené v patřičné složce!
 
 ## Contributors 🙏
 

@@ -43,12 +43,14 @@ Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obs
 ```
 
 ### Další použitelné atributy v tomto tagu:
-- `title`               Nastaví jméno aplikace.
-- `icon`                Nastaví ikonu aplikace.
-- `backgroundImage`     Nastaví obrázek na pozadí aplikace.
-- `backgroundColor`     Nastaví barvu na pozadí aplikace.
-- `width`               Nastaví šířku okna aplikace.
-- `height`              Nastaví výšku okna aplikace.
+| Atribut                   |      Typ        | Popis atributu                                 |
+| :------------------------ | :-------------: | :--------------------------------------------- |
+| `title`                   |    `String`     | Nastaví jméno aplikace                         |
+| `icon`                    |   `file name`   | Nastaví ikonu aplikace                         |
+| `backgroundImage`         |   `file name`   | Nastaví obrázek na pozadí aplikace             |
+| `backgroundColor`         |    `Color`      | Nastaví barvu na pozadí aplikace               |
+| `width`                   | `Size with unit`| Nastaví šířku okna aplikace                    |
+| `height`                  | `Size with unit`| Nastaví výšku okna aplikace                    |
 
 
 ## Contributors 🙏

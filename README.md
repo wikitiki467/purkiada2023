@@ -49,6 +49,7 @@ Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obs
 | `icon`                    |   `file name`   | Nastaví ikonu aplikace                         |
 | `backgroundImage`         |   `file name`   | Nastaví obrázek na pozadí aplikace             |
 | `backgroundColor`         |    `Color`      | Nastaví barvu na pozadí aplikace               |
+| `scroll`                  |  `X, Y, XY, YX` | Přídá oknu aplikace možnost scrollovat         |
 | `width`                   | `Size with unit`| Nastaví šířku okna aplikace                    |
 | `height`                  | `Size with unit`| Nastaví výšku okna aplikace                    |
 

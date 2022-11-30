@@ -49,3 +49,11 @@ Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obs
 - `backgroundColor`     Nastaví barvu na pozadí aplikace.
 - `width`               Nastaví šířku okna aplikace.
 - `height`              Nastaví výšku okna aplikace.
+
+
+## Contributors 🙏
+
+[<img alt="wikitiki467" src="https://avatars.githubusercontent.com/u/48698941?v=4" width="80">](https://github.com/wikitiki467)
+[<img alt="TheKomkry" src="https://avatars.githubusercontent.com/u/78811061?v=4" width="80">](https://github.com/TheKomkry)
+[<img alt="rousek26" src="https://avatars.githubusercontent.com/u/119334621?v=4" width="80">](https://github.com/rousek26)
+[<img alt="Venca1450" src="https://avatars.githubusercontent.com/u/119332065?v=4" width="80">](https://github.com/Venca1450)

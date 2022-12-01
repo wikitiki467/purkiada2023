@@ -1,4 +1,6 @@
 var screenDiv = document.getElementById("contentDisplay");
+var taskBar = document.getElementById("taskBar");
+var lastKnownWindowPosition;
 var pocetOken;
 var dragValue;
 var dragResizeValue;
@@ -152,11 +154,13 @@ function moveWindow(windowID){
     resizeBtn.onmousedown = function(e){
         dragResizeValue = window;
         window.className = "window unselectable";
+        document.body.style.cursor = "nwse-resize";
         window_z_index(windowID);
     } 
 }
 
 document.onmouseup = function(e){
+    document.body.style.cursor = "auto";
     if (dragResizeValue != null){
         dragResizeValue.className = "window selectable";
     }
@@ -176,16 +180,20 @@ document.onmousemove = function(e){
         let newWidth = dragResizeValue.clientWidth + (x - (dragResizeValue.offsetLeft + dragResizeValue.clientWidth))
         let newHeight = dragResizeValue.clientHeight + (y - (dragResizeValue.offsetTop + dragResizeValue.clientHeight))
 
-        if (newWidth > 400){
-            dragResizeValue.style.width = newWidth + "px";
-        }else{
+        if (newWidth < 400){
             dragResizeValue.style.width = "400px";
+        }else if(newWidth > screenDiv.clientWidth){
+            dragResizeValue.style.width = screenDiv.clientWidth + "px";
+        }else{
+            dragResizeValue.style.width = newWidth + "px";
         }
 
-        if (newHeight > 100){
-            dragResizeValue.style.height = newHeight + "px";
-        }else{
+        if (newHeight < 100){
             dragResizeValue.style.height = "100px";
+        }else if(newHeight > screenDiv.clientHeight){
+            dragResizeValue.style.height = screenDiv.clientHeight + "px";
+        }else{
+            dragResizeValue.style.height = newHeight + "px";
         }
 
     }else if (document.getElementById("window"+windowID) != null){
@@ -200,12 +208,28 @@ document.onmousemove = function(e){
         let x = e.pageX - screenPositionX;
         let y = e.pageY - screenPositionY;
         
+        
+        
+        screenX = x - mouseOnWindowX;
+        screenY = y - mouseOnWindowY;
+
         screenX = x / screenWidth - mouseOnWindowX / screenWidth;
         screenY = y / screenHeight - mouseOnWindowY / screenHeight;
         
         if (dragValue != null){
-            dragValue.style.left = screenX + "%";
-            dragValue.style.top = screenY + "%";
+            if (y - mouseOnWindowY < 0){
+                dragValue.style.top = "0%";
+            }else if(y - mouseOnWindowY + screenPositionY > taskBar.offsetTop - dragValue.getElementsByClassName("windowHeader")[0].clientHeight){
+                dragValue.style.top = taskBar.offsetTop - screenPositionY - dragValue.getElementsByClassName("windowHeader")[0].clientHeight + "px";
+            }else{
+                dragValue.style.top = screenY + "%";
+            }
+            if (x < 0 || x > screenDiv.clientWidth){
+                dragValue.style.left = lastKnownWindowPosition;
+            }else{
+                lastKnownWindowPosition = screenX + "%"
+                dragValue.style.left = lastKnownWindowPosition;
+            }
         }
     } 
 }
@@ -241,7 +265,7 @@ function openWindow(window_ID){
 function maximizeWindow(window_ID){
     let window = document.getElementById("window"+window_ID);
 
-    if (window.clientWidth != screenDiv.clientWidth && window.clientHeight != screenDiv.clientHeight){
+    if (window.clientWidth != screenDiv.clientWidth || window.clientHeight != screenDiv.clientHeight || window.offsetLeft != 0 || window.offsetTop != 0){
         window.style.left = 0;
         window.style.top = 0;
         window.style.width = "100%";
@@ -300,7 +324,7 @@ function taskBarOpendWindows(window_ID, action){
         newImg.style.borderRadius = "3px";
         newImg.src = document.getElementById("application"+window_ID).getAttribute("icon");
         
-        document.getElementById("taskBar").appendChild(newDiv);
+        taskBar.appendChild(newDiv);
         document.getElementById("icon"+window_ID).appendChild(newImg);
 
         openedWindows[window_ID-1] = true;

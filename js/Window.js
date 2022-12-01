@@ -1,3 +1,4 @@
+var screenDiv = document.getElementById("contentDisplay");
 var pocetOken;
 var dragValue;
 var mouseOnWindowX;
@@ -6,8 +7,15 @@ var windowID;
 var positionX;
 var positionY;
 var openedWindows = [];
+var listOfAllWindows = [];
+
 
 function getCountOfApplications(){
+    let htmlListOfAllWindows = document.getElementsByClassName("window")
+    for (let i = 0; i < htmlListOfAllWindows.length; i++){
+        listOfAllWindows.push(htmlListOfAllWindows[i]);
+    }
+
     for (let number = 0; number < pocetOken; number++){
         openedWindows.push(false);
     }
@@ -38,9 +46,8 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
     const applicationShortcut = document.createElement("div");
     applicationShortcut.id = "application"+appID;
     applicationShortcut.className = "applicationShortcut";
-    applicationShortcut.onclick = "moveWindow(1); openWindow(); window_z_index(1);"
     applicationShortcut.title = title;
-    applicationShortcut.setAttribute("onclick", 'moveWindow('+appID+'); openWindow(); window_z_index('+appID+')');
+    applicationShortcut.setAttribute("onclick", 'moveWindow('+appID+'); openWindow('+appID+'); window_z_index('+appID+')');
     applicationShortcut.setAttribute("icon", icon);
 
     /*Style*/
@@ -99,18 +106,14 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
     appBuild.remove();
 }
 
-function moveWindow(windowNumber){
-    windowID = windowNumber;
-    var screenDiv = document.getElementById("contentDisplay");
-    var element = document.getElementById("window"+windowID);
-    var elementControler = element.getElementsByClassName("windowTitle")[0];
-    var applicationButton = document.getElementById("application"+windowID);
-    element.style.position = "absolute";
-    applicationButton.style.cursor = "pointer";
-    elementControler.onmousedown = function(e){
-        dragValue = element;
-        mouseOnWindowX = Math.abs((e.pageX-screenDiv.offsetLeft)-element.offsetLeft);
-        mouseOnWindowY = Math.abs((e.pageY-screenDiv.offsetTop)-element.offsetTop);
+function moveWindow(windowID){
+    let window = document.getElementById("window"+windowID);
+    let windowControler = window.getElementsByClassName("windowTitle")[0];
+
+    windowControler.onmousedown = function(e){
+        dragValue = window;
+        mouseOnWindowX = Math.abs((e.pageX-screenDiv.offsetLeft)-window.offsetLeft);
+        mouseOnWindowY = Math.abs((e.pageY-screenDiv.offsetTop)-window.offsetTop);
         window_z_index();
     }
 }
@@ -123,126 +126,103 @@ document.onmouseup = function(e){
 
 document.onmousemove = function(e){
     if (document.getElementById("window"+windowID) != null){
-        var screenDiv = document.getElementById("contentDisplay");
+
         /*screen*/
-        var screenPositionX = screenDiv.offsetLeft;
-        var screenPositionY = screenDiv.offsetTop;
-        var screenWidth = screenDiv.clientWidth / 100;
-        var screenHeight = screenDiv.clientHeight / 100;
+        let screenPositionX = screenDiv.offsetLeft;
+        let screenPositionY = screenDiv.offsetTop;
+        let screenWidth = screenDiv.clientWidth / 100;
+        let screenHeight = screenDiv.clientHeight / 100;
+        
         /*mouse*/
-        var x = e.pageX - screenPositionX;
-        var y = e.pageY - screenPositionY;
+        let x = e.pageX - screenPositionX;
+        let y = e.pageY - screenPositionY;
         
         screenX = x / screenWidth - mouseOnWindowX / screenWidth;
         screenY = y / screenHeight - mouseOnWindowY / screenHeight;
         
-        try{
+        if (dragValue != null){
             dragValue.style.left = screenX + "%";
             dragValue.style.top = screenY + "%";
-        } catch(error){}
+        }
     } 
 }
 
-function exitWindow(windowNumber){
-    var element = document.getElementById("window"+windowNumber);
-    element.style.left = "130%";
+function exitWindow(window_ID){
+    let window = document.getElementById("window"+window_ID);
+    window.style.left = "130%";
     
-    taskBarOpendWindows(windowNumber, "close");
+    taskBarOpendWindows(windowID, "close");
 }
 
-function openWindow(windowNumber=0){
-    if (windowNumber > 0){
-        windowID = windowNumber;
+function openWindow(window_ID=0){
+    if (window_ID > 0){
+        windowID = window_ID;
     }
-    var screenDiv = document.getElementById("contentDisplay");
-    var element = document.getElementById("window"+windowID);
-    var screenWidth = screenDiv.clientWidth / 100;
-    var screenHeight = screenDiv.clientHeight / 100;
-    var windowWidth = element.clientWidth / 2;
-    var windowHeight = element.clientHeight / 2;
+
+    let window = document.getElementById("window"+windowID);
+
+    let screenWidth = screenDiv.clientWidth / 100;
+    let screenHeight = screenDiv.clientHeight / 100;
+    let windowWidth = window.clientWidth / 2;
+    let windowHeight = window.clientHeight / 2;
     
-    element.style.left = 50 - windowWidth / screenWidth + "%";
-    element.style.top = 50 - windowHeight / screenHeight + "%";
+    window.style.left = 50 - windowWidth / screenWidth + "%";
+    window.style.top = 50 - windowHeight / screenHeight + "%";
     
     taskBarOpendWindows(windowID, "open");
 }
 
 //---------------------------------------------------------------
-function repositionAllWindows(){
-    for (let number = 0; number < pocetOken; number++){
-        let element = document.getElementById("window"+(number+1));
-        element.style.left = "130%";
-    } 
+
+var sortByZIndex = function(a, b) {
+    return a.style.zIndex - b.style.zIndex;
 }
 
-function window_z_index(windowNumber=0){
-    var windowIndexes = [];
-    for (let number = 0; number < pocetOken; number++){
-        var element = document.getElementById("window"+(number+1));
-        windowIndexes.push(element.style.zIndex);
-    }
-    windowIndexes = windowIndexes.sort();
-    var rightIndex = 1;
-    for (let index = 0; index < windowIndexes.length; index++){
-        if (windowIndexes[index] != index++){
-            rightIndex = index++;
-            break;
+function window_z_index(window_ID){
+    if (dragValue != null){
+        
+   
+        listOfAllWindows.sort(sortByZIndex);
+
+        for (let i = 0; i < listOfAllWindows.length; i++){
+            listOfAllWindows[i].style.zIndex = i + 1;
         }
-    }
-    for (let number = 0; number < pocetOken; number++){
-        let element = document.getElementById("window"+(number+1));
-        if (element.style.zIndex >= rightIndex){
-            element.style.zIndex--;
-        }
-    }
-    if (windowNumber == 0){
-        dragValue.style.zIndex = pocetOken;
-    }
-    else{
-        document.getElementById("window"+windowNumber).style.zIndex = pocetOken;
+
+        dragValue.style.zIndex = listOfAllWindows.length + 1;
+    }else if(window_ID != null){
+        document.getElementById("window" + window_ID).style.zIndex = listOfAllWindows.length + 1;
     }
 }
 
-function taskBarOpendWindows(windowNumber, action){
-    if (!openedWindows[windowNumber-1] && action == "open"){
-        let currentWindow = document.getElementById("window"+windowNumber);
+function taskBarOpendWindows(window_ID, action){
+    if (!openedWindows[window_ID-1] && action == "open"){
+
+        let currentWindow = document.getElementById("window"+window_ID);
         elementTitle = currentWindow.getElementsByClassName("windowTitle")[0];
-        var newDiv = document.createElement("div");
-        var newImg = document.createElement("img");
-        newImg.src = document.getElementById("application"+windowNumber).getAttribute("icon");
-        newDiv.setAttribute("id", "icon"+windowNumber);
-        if (windowNumber <= 5 || windowNumber == 9){
-            newDiv.setAttribute("class", "taskBarIcon");
-        }
-        newDiv.setAttribute("title", elementTitle.innerHTML);
-        newDiv.setAttribute("onclick", "window_z_index("+windowNumber+"); openWindow("+windowNumber+")");
-        newDiv.style.cursor = "pointer";
 
-        /*style*/
+        let newDiv = document.createElement("div");
+        newDiv.setAttribute("id", "icon"+window_ID);
+        newDiv.setAttribute("class", "taskBarIcon");
+        newDiv.setAttribute("title", elementTitle.innerHTML);
+        newDiv.setAttribute("onclick", "window_z_index("+window_ID+"); openWindow("+window_ID+")");
+
+        let newImg = document.createElement("img");
         newImg.style.height = "95%";
         newImg.style.width = "95%";
-        newDiv.style.textAlign = "center";
-        newDiv.style.height = "80%";
-        newDiv.style.width = "3%";
-        newDiv.style.marginLeft = "5px";
-        newDiv.style.marginRight = "5px";
-        newDiv.style.display = "inline-block";
-        newDiv.style.borderBottom = "2px solid grey";
         newImg.style.borderRadius = "3px";
+        newImg.src = document.getElementById("application"+window_ID).getAttribute("icon");
+        
         document.getElementById("taskBar").appendChild(newDiv);
-        document.getElementById("icon"+windowNumber).appendChild(newImg);
-        openedWindows[windowNumber-1] = true;
-        let taskBarDiv = document.getElementById("icon"+windowNumber);
+        document.getElementById("icon"+window_ID).appendChild(newImg);
+
+        openedWindows[window_ID-1] = true;
+
+        let taskBarDiv = document.getElementById("icon"+window_ID);
         taskBarDiv.style.width = taskBarDiv.clientHeight + "px";
-    }else if (openedWindows[windowNumber-1] && action == "close"){
-        var icon = document.getElementById("icon"+windowNumber);
+
+    }else if (openedWindows[window_ID-1] && action == "close"){
+        let icon = document.getElementById("icon"+window_ID);
         icon.parentNode.removeChild(icon);
-        openedWindows[windowNumber-1] = false;
+        openedWindows[window_ID-1] = false;
     }
-    if (theme_set==1){
-    var all = document.getElementsByClassName("taskBarIcon");
-    for (var i = 0; i < all.length; i++) {
-        all[i].style.filter = "invert(100)";
-    }
-}
 }

@@ -52,6 +52,34 @@
     margin-left: 5px;
     padding: .5% 0;
 }
+
+.windowHeader .windowMaximize{
+    position: absolute;
+    text-align: center;
+    top: 0;
+    right: 50px;
+    height: 100%;
+    width: 50px;
+    cursor: pointer;
+}
+.windowHeader .windowMaximize p, .windowHeader .windowMinimize p, .windowHeader .windowClose p {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    line-height: 30px;
+}
+
+.windowHeader .windowMinimize{
+    position: absolute;
+    text-align: center;
+    top: 0;
+    right: 50px;
+    height: 100%;
+    width: 50px;
+    cursor: pointer;
+}
+
 .windowHeader .windowClose{
     position: absolute;
     text-align: center;
@@ -64,13 +92,7 @@
 .windowHeader .windowClose:hover{
     background-color: #ff0000;
 }
-.windowHeader .windowClose p {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    line-height: 30px;
-}
+
 #window1 .main_div{
     text-align: left;
 }

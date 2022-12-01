@@ -9,7 +9,6 @@ var positionY;
 var openedWindows = [];
 var listOfAllWindows = [];
 
-
 function getCountOfApplications(){
     let htmlListOfAllWindows = document.getElementsByClassName("window")
     for (let i = 0; i < htmlListOfAllWindows.length; i++){
@@ -30,16 +29,17 @@ function generateApps(){
         let width = builder.getAttribute("width");
         let height = builder.getAttribute("height");
         let title = builder.getAttribute("title");
-        let icon = builder.getAttribute("icon");
-        let backgroundImage = builder.getAttribute("backgroundImage");
+        let icon = "../images/levelLogos/" + builder.getAttribute("icon");
+        let backgroundImage = "../images/levelBackground/" + builder.getAttribute("backgroundImage");
         let backgroundColor = builder.getAttribute("backgroundColor");
         let scroll = builder.getAttribute("scroll");
+        let maximize = builder.getAttribute("maximize");
 
-        newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, i+1);
+        newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, i+1);
     }
 }
 
-function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, appID){
+function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, appID){
     let contentDisplay = document.getElementById("contentDisplay");
 
     /*Create application shortcut*/
@@ -70,6 +70,8 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
         if (height != null){
             window.style.height = height;
         }
+        window.setAttribute("defaultWidth", `${window.style.width}`);
+        window.setAttribute("defaultHeight", `${window.style.height}`);
 
         contentDisplay.appendChild(window);
 
@@ -82,6 +84,22 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
         windowTitle.className = "windowTitle unselectable";
         windowTitle.innerHTML = title;
         windowHeader.appendChild(windowTitle);
+
+        const windowMinimize = document.createElement("div");
+        windowMinimize.className = "windowMinimize unselectable";
+        windowMinimize.innerHTML = "<p>_</p>";
+        windowMinimize.setAttribute("onclick", 'minimizeWindow('+appID+')');
+        windowHeader.appendChild(windowMinimize);
+
+        if (maximize != "false"){
+            windowMinimize.style.right = "100px";
+
+            const windowMaximize = document.createElement("div");
+            windowMaximize.className = "windowMaximize unselectable";
+            windowMaximize.innerHTML = "<p>▢</p>";
+            windowMaximize.setAttribute("onclick", 'maximizeWindow('+appID+')');
+            windowHeader.appendChild(windowMaximize);
+        }
 
         const windowClose = document.createElement("div");
         windowClose.className = "windowClose unselectable";
@@ -114,7 +132,16 @@ function moveWindow(windowID){
         dragValue = window;
         mouseOnWindowX = Math.abs((e.pageX-screenDiv.offsetLeft)-window.offsetLeft);
         mouseOnWindowY = Math.abs((e.pageY-screenDiv.offsetTop)-window.offsetTop);
-        window_z_index();
+        window_z_index(windowID);
+
+        if (window.clientWidth == screenDiv.clientWidth && window.clientHeight == screenDiv.clientHeight){
+            window.style.width = window.getAttribute("defaultWidth");
+            window.style.height = window.getAttribute("defaultHeight");
+
+            window.style.left = e.pageX - screenDiv.offsetLeft - (window.clientWidth / 2) + "px";
+            mouseOnWindowX = window.clientWidth / 2;
+        }
+        
     }
 }
 
@@ -151,10 +178,10 @@ function exitWindow(window_ID){
     let window = document.getElementById("window"+window_ID);
     window.style.left = "130%";
     
-    taskBarOpendWindows(windowID, "close");
+    taskBarOpendWindows(window_ID, "close");
 }
 
-function openWindow(window_ID=0){
+function openWindow(window_ID){
     if (window_ID > 0){
         windowID = window_ID;
     }
@@ -172,6 +199,34 @@ function openWindow(window_ID=0){
     taskBarOpendWindows(windowID, "open");
 }
 
+function maximizeWindow(window_ID){
+    let window = document.getElementById("window"+window_ID);
+
+    if (window.clientWidth != screenDiv.clientWidth && window.clientHeight != screenDiv.clientHeight){
+        window.style.left = 0;
+        window.style.top = 0;
+        window.style.width = "100%";
+        window.style.height = "100%";
+    }else{
+        window.style.width = window.getAttribute("defaultWidth");
+        window.style.height = window.getAttribute("defaultHeight");
+
+        let screenWidth = screenDiv.clientWidth / 100;
+        let screenHeight = screenDiv.clientHeight / 100;
+        let windowWidth = window.clientWidth / 2;
+        let windowHeight = window.clientHeight / 2;
+    
+        window.style.left = 50 - windowWidth / screenWidth + "%";
+        window.style.top = 50 - windowHeight / screenHeight + "%";
+    }
+}
+
+function minimizeWindow(window_ID){
+    let window = document.getElementById("window"+window_ID);
+
+    window.style.left = "130%";
+}
+
 //---------------------------------------------------------------
 
 var sortByZIndex = function(a, b) {
@@ -179,19 +234,13 @@ var sortByZIndex = function(a, b) {
 }
 
 function window_z_index(window_ID){
-    if (dragValue != null){
-        
-   
-        listOfAllWindows.sort(sortByZIndex);
+    listOfAllWindows.sort(sortByZIndex);
 
-        for (let i = 0; i < listOfAllWindows.length; i++){
-            listOfAllWindows[i].style.zIndex = i + 1;
-        }
-
-        dragValue.style.zIndex = listOfAllWindows.length + 1;
-    }else if(window_ID != null){
-        document.getElementById("window" + window_ID).style.zIndex = listOfAllWindows.length + 1;
+    for (let i = 0; i < listOfAllWindows.length; i++){
+        listOfAllWindows[i].style.zIndex = i + 1;
     }
+
+    document.getElementById("window" + window_ID).style.zIndex = listOfAllWindows.length + 1;
 }
 
 function taskBarOpendWindows(window_ID, action){

@@ -1,6 +1,7 @@
 var screenDiv = document.getElementById("contentDisplay");
 var pocetOken;
 var dragValue;
+var dragResizeValue;
 var mouseOnWindowX;
 var mouseOnWindowY;
 var windowID;
@@ -107,6 +108,10 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
         windowClose.setAttribute("onclick", 'exitWindow('+appID+')');
         windowHeader.appendChild(windowClose);
 
+        const sizeChanger = document.createElement("div");
+        sizeChanger.className = "sizeChanger";
+        window.appendChild(sizeChanger);
+
         /*Create content div*/
         const main_div = document.createElement("div");
         main_div.className = "main_div";
@@ -121,12 +126,13 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
     main_div.innerHTML = appBuild.innerHTML;
 
     /*Delete current app invoker tag*/
-    appBuild.remove();
+    appBuild.remove();  
 }
 
 function moveWindow(windowID){
     let window = document.getElementById("window"+windowID);
     let windowControler = window.getElementsByClassName("windowTitle")[0];
+    let resizeBtn = window.getElementsByClassName("sizeChanger")[0];
 
     windowControler.onmousedown = function(e){
         dragValue = window;
@@ -141,18 +147,48 @@ function moveWindow(windowID){
             window.style.left = e.pageX - screenDiv.offsetLeft - (window.clientWidth / 2) + "px";
             mouseOnWindowX = window.clientWidth / 2;
         }
-        
     }
+
+    resizeBtn.onmousedown = function(e){
+        dragResizeValue = window;
+        window.className = "window unselectable";
+        window_z_index(windowID);
+    } 
 }
 
 document.onmouseup = function(e){
+    if (dragResizeValue != null){
+        dragResizeValue.className = "window selectable";
+    }
+
     positionX = e.pageX;
     positionY = e.pageY;
     dragValue = null;
+    dragResizeValue = null;
 }
 
 document.onmousemove = function(e){
-    if (document.getElementById("window"+windowID) != null){
+    if (dragResizeValue != null){
+
+        let x = e.pageX - screenDiv.offsetLeft;
+        let y = e.pageY - screenDiv.offsetTop;
+
+        let newWidth = dragResizeValue.clientWidth + (x - (dragResizeValue.offsetLeft + dragResizeValue.clientWidth))
+        let newHeight = dragResizeValue.clientHeight + (y - (dragResizeValue.offsetTop + dragResizeValue.clientHeight))
+
+        if (newWidth > 400){
+            dragResizeValue.style.width = newWidth + "px";
+        }else{
+            dragResizeValue.style.width = "400px";
+        }
+
+        if (newHeight > 100){
+            dragResizeValue.style.height = newHeight + "px";
+        }else{
+            dragResizeValue.style.height = "100px";
+        }
+
+    }else if (document.getElementById("window"+windowID) != null){
 
         /*screen*/
         let screenPositionX = screenDiv.offsetLeft;
@@ -177,6 +213,9 @@ document.onmousemove = function(e){
 function exitWindow(window_ID){
     let window = document.getElementById("window"+window_ID);
     window.style.left = "130%";
+
+    window.style.width = window.getAttribute("defaultWidth");
+    window.style.height = window.getAttribute("defaultHeight");
     
     taskBarOpendWindows(window_ID, "close");
 }

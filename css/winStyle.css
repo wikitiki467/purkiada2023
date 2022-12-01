@@ -37,6 +37,20 @@
 .window .main_div[scroll="X"]{
     overflow-x: scroll;
 }
+
+.window .sizeChanger{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    z-index: 100;
+}
+
+.window .sizeChanger:hover{
+    cursor: nwse-resize;
+}
+
 .windowHeader{
     position: relative;
     height: 20px;

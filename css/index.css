@@ -31,6 +31,15 @@ button{
     user-select: none;
 }
 
+.selectable{
+    -webkit-touch-callout: auto;
+    -webkit-user-select: auto;
+    -khtml-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+}
+
 /* LEVEL 1 / 2 */
 .main_div{
     /*background-image: url("../images/wallpaper01.jpg");*/

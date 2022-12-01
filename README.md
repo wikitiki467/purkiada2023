@@ -43,16 +43,17 @@ Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obs
 ```
 
 ### Další použitelné atributy v tomto tagu:
-| Atribut                   |      Typ        |Výchozí nastavení| Popis atributu                                 |
-| :------------------------ | :-------------: | :-------------: | :--------------------------------------------- |
-| `title`                   |    `String`     |     `NULL`      | Nastaví jméno aplikace                         |
-| `icon`                    |   `file name`   |     `NULL`      | Nastaví ikonu aplikace                         |
-| `backgroundImage`         |   `file name`   |     `NULL`      | Nastaví obrázek na pozadí aplikace             |
-| `backgroundColor`         |    `Color`      |     `NULL`      | Nastaví barvu na pozadí aplikace               |
-| `scroll`                  |  `X, Y, XY, YX` |      `OFF`      | Přidá oknu aplikace možnost scrollovat         |
-| `width`                   | `Size with unit`|    `500px`      | Nastaví šířku okna aplikace                    |
-| `height`                  | `Size with unit`|    `400px`      | Nastaví výšku okna aplikace                    |
-| `maximize`                |    `boolean`    |     `true`      | Zapne/Vypne možnost maximalizovat okno aplikace|
+| Atribut                   |      Typ        |Výchozí nastavení| Popis atributu                                                     |
+| :------------------------ | :-------------: | :-------------: | :----------------------------------------------------------------- |
+| `title`                   |    `String`     |     `NULL`      | Nastaví jméno aplikace                                             |
+| `icon`                    |   `file name`   |     `NULL`      | Nastaví ikonu aplikace                                             |
+| `backgroundImage`         |   `file name`   |     `NULL`      | Nastaví obrázek na pozadí aplikace                                 |
+| `backgroundColor`         |    `Color`      |     `NULL`      | Nastaví barvu na pozadí aplikace                                   |
+| `scroll`                  |  `X, Y, XY, YX` |      `OFF`      | Přidá oknu aplikace možnost scrollovat                             |
+| `width`                   | `Size with unit`|    `500px`      | Nastaví šířku okna aplikace                                        |
+| `height`                  | `Size with unit`|    `400px`      | Nastaví výšku okna aplikace                                        |
+| `maximize`                |    `boolean`    |     `true`      | Zapne/Vypne možnost maximalizovat okno aplikace                    |
+| `resize`                  |    `boolean`    |     `true`      | Zapne/Vypne možnost uživateli manipulovat s velikostí okna aplikace|
 
 > [ ! ] Pro nastavení jakéhokoliv obrázku v aplikaci mužete používat **pouze** obrázky uložené v patřičné složce!
 

@@ -37,12 +37,13 @@ function generateApps(){
         let backgroundColor = builder.getAttribute("backgroundColor");
         let scroll = builder.getAttribute("scroll");
         let maximize = builder.getAttribute("maximize");
+        let resize = builder.getAttribute("resize");
 
-        newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, i+1);
+        newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, i+1);
     }
 }
 
-function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, appID){
+function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, appID){
     let contentDisplay = document.getElementById("contentDisplay");
 
     /*Create application shortcut*/
@@ -75,6 +76,7 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
         }
         window.setAttribute("defaultWidth", `${window.style.width}`);
         window.setAttribute("defaultHeight", `${window.style.height}`);
+        window.setAttribute("resize", `${resize}`);
 
         contentDisplay.appendChild(window);
 
@@ -152,10 +154,12 @@ function moveWindow(windowID){
     }
 
     resizeBtn.onmousedown = function(e){
-        dragResizeValue = window;
-        window.className = "window unselectable";
-        document.body.style.cursor = "nwse-resize";
-        window_z_index(windowID);
+        if(window.getAttribute("resize") != "false"){
+            dragResizeValue = window;
+            window.className = "window unselectable";
+            document.body.style.cursor = "nwse-resize";
+            window_z_index(windowID);
+        }
     } 
 }
 

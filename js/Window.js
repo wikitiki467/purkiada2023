@@ -87,7 +87,7 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
 
         const windowMinimize = document.createElement("div");
         windowMinimize.className = "windowMinimize unselectable";
-        windowMinimize.innerHTML = "<p>_</p>";
+        windowMinimize.innerHTML = "<p>－</p>";
         windowMinimize.setAttribute("onclick", 'minimizeWindow('+appID+')');
         windowHeader.appendChild(windowMinimize);
 

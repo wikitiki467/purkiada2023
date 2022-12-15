@@ -129,7 +129,7 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
     /*Move content to generated window*/
     main_div.innerHTML = appBuild.innerHTML;
 
-    /*Delete current app invoker tag*/
+    /*Delete current app builder tag*/
     appBuild.remove();  
 }
 

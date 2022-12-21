@@ -8,17 +8,17 @@
     background-position: center;
     background-size: cover;
     background-image: url("../images/wallpaper01.jpg");
+    filter: brightness(0);
 }
 
 #taskBar{
     z-index: 98;
-    width: 74%;
-    height: 5%;
-    margin-top: 82.25vh;
-    margin-bottom: 0;
+    width: 100%;
+    height: 6%;
     position: absolute;
-    background-color:rgb(53, 52, 52);
-    margin-left: 13%;
+    background-color: rgb(53, 52, 52);
+    bottom: 0;
+    filter: brightness(0);
 }
 #taskBar img{
     border-radius: 3px;

@@ -12,58 +12,60 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
-    <div id="loginscreen">
-        <form id="loginContent">
-            <img draggable="false" id="ProfilePicture" src="images/LoginPP.png"><br>
-            <div>
-                <p id="wrongLoginText"></p>
-                <input type="text" id="username" name="username" onfocus='this.value=""'  value="Name"><br>
-                <input type="text" id="userpassword" name="password" onfocus='this.value=""; this.type="password"'; value="Enter password">
-            </div>
-            <input type="submit" id="submitlogin" value="❯" onclick="checkLoginInfo()">
-            <div id="showButton">
-                <img draggable="false" src="images/show.png" id="showPassword" onclick="showOrHidePassword()" title="show">
-            </div>
-        </form>
-    </div>
     <canvas id="gradient-canvas" data-transition-in></canvas>
-    <div id="taskBar" class="unselectable">
-        <img draggable="false" src="images/taskbar/StartBTNlight.svg" alt="start button" id="StartBTN" class="task_btns">
-        <img draggable="false" src="images/taskbar/PLUSlight.svg" alt="plus" id="PLUS" class="task_btns">
-        <img draggable="false" src="images/taskbar/MINUSlight.svg" alt="minus " id="MINUS" class="task_btns">
-        <img draggable="false" src="images/taskbar/THEMElight.svg" alt="Theme changer" id="THEME" title="Theme" onclick="change_theme()">
-        <span id="getTime"> </span>
-    </div>
     <!-- <div id="leftWall" class="wall"></div>
-    <div id="rightWall" class="wall"></div>
-    <div id="topWall" class="wall"></div>
-    <div id="bottomWall" class="wall"></div> -->
-    <img draggable="false" id="telephone" class="unselectable" src="images/telefon-off.svg"></img>
-    <img draggable="false" id="telephone-arrow" class="unselectable" style="rotate: 0deg;" src="images/arrow.svg" onclick="telefonNahoru()"></img>
-    <div id="telephone-button-messages" class="telephone-button" onclick="changeTelephoneScreen('Messages')"></div>
-    <div id="twoFactorCode"></div>
-    <div id="telephone-button-open-conversation" class="telephone-button" onclick="changeTelephoneScreen('MessagesEmail')"></div>
-    <div class="monitor">
-        <!-- <div id="displayFrameLeft" class="displayFrame"></div>
-        <div id="displayFrameRight" class="displayFrame"></div>
-        <div id="displayFrameTop" class="displayFrame"></div>
-        <div id="displayFrameBottom" class="displayFrame">
+        <div id="rightWall" class="wall"></div>
+        <div id="topWall" class="wall"></div>
+        <div id="bottomWall" class="wall"></div> -->
+        <img draggable="false" id="telephone" class="unselectable" src="images/telefon-off.svg"></img>
+        <img draggable="false" id="telephone-arrow" class="unselectable" style="rotate: 0deg;" src="images/arrow.svg" onclick="telefonNahoru()"></img>
+        <div id="telephone-button-messages" class="telephone-button" onclick="changeTelephoneScreen('Messages')"></div>
+        <div id="twoFactorCode"></div>
+        <div id="telephone-button-open-conversation" class="telephone-button" onclick="changeTelephoneScreen('MessagesEmail')"></div>
+        <div class="monitor">
+            <div id="loginscreen">
+                <form id="loginContent">
+                    <img draggable="false" id="ProfilePicture" src="images/LoginPP.png"><br>
+                    <div>
+                        <p id="wrongLoginText"></p>
+                        <input type="text" id="username" name="username" onfocus='this.value=""'  value="Name"><br>
+                        <input type="text" id="userpassword" name="password" onfocus='this.value=""; this.type="password"'; value="Enter password">
+                    </div>
+                    <input type="submit" id="submitlogin" value="❯" onclick="checkLoginInfo()">
+                    <div id="showButton">
+                        <img draggable="false" src="images/show.png" id="showPassword" onclick="showOrHidePassword()" title="show">
+                    </div>
+                </form>
+            </div>
+            <div id="taskBar" class="unselectable">
+                <img draggable="false" src="images/taskbar/StartBTNlight.svg" alt="start button" id="StartBTN" class="task_btns">
+                <img draggable="false" src="images/taskbar/PLUSlight.svg" alt="plus" id="PLUS" class="task_btns">
+                <img draggable="false" src="images/taskbar/MINUSlight.svg" alt="minus " id="MINUS" class="task_btns">
+                <img draggable="false" src="images/taskbar/THEMElight.svg" alt="Theme changer" id="THEME" title="Theme" onclick="change_theme()">
+                <span id="getTime"> </span>
+            </div>
+            <div id="displayLeg"></div>
+            <div class="displayFrame"></div>
             <div id="powerOffButton" onclick="turnOff()" class="unselectable" title="Power on/off"></div>
-        </div> -->
-        <div id="displayLeg"></div>
-        <img draggable="false" src="images/hand.svg" alt="hand.svg" id="hand">
-        <div id="contentDisplay">
-            <appBuild title="It's About Drive, It's About Power" icon="LIGHT/icon1.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
-                <p>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠛⠛⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿
-                    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠉⠻⣿⣿⣿⣿⣿⣿
-                    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿
-                    ⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿
-                    ⣿⣿⣿⣿⣿⣿⣿⠋⠈⠀⠀⠀⠀⠐⠺⣖⢄⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿
-                    ⣿⣿⣿⣿⣿⣿⡏⢀⡆⠀⠀⠀⢋⣭⣽⡚⢮⣲⠆⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿
-                    ⣿⣿⣿⣿⣿⣿⡇⡼⠀⠀⠀⠀⠈⠻⣅⣨⠇⠈⠀⠰⣀⣀⣀⡀⠀⢸⣿⣿⣿⣿
-                    ⣿⣿⣿⣿⣿⣿⡇⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣟⢷⣶⠶⣃⢀⣿⣿⣿⣿⣿
-                    ⣿⣿⣿⣿⣿⣿⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⠀⠈⠓⠚⢸⣿⣿⣿⣿⣿
-                    ⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⢀⡠⠀⡄⣀⠀⠀⠀⢻⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿
+            <!-- <div id="displayFrameLeft" class="displayFrame"></div>
+                <div id="displayFrameRight" class="displayFrame"></div>
+                <div id="displayFrameTop" class="displayFrame"></div>
+                <div id="displayFrameBottom" class="displayFrame">
+                    <div id="powerOffButton" onclick="turnOff()" class="unselectable" title="Power on/off"></div>
+                </div> -->
+                <img draggable="false" src="images/hand.svg" alt="hand.svg" id="hand">
+                <div id="contentDisplay">
+                    <appBuild title="It's About Drive, It's About Power" icon="LIGHT/icon1.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
+                        <p>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠛⠛⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿
+                            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠉⠻⣿⣿⣿⣿⣿⣿
+                            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿
+                            ⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿
+                            ⣿⣿⣿⣿⣿⣿⣿⠋⠈⠀⠀⠀⠀⠐⠺⣖⢄⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿
+                            ⣿⣿⣿⣿⣿⣿⡏⢀⡆⠀⠀⠀⢋⣭⣽⡚⢮⣲⠆⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿
+                            ⣿⣿⣿⣿⣿⣿⡇⡼⠀⠀⠀⠀⠈⠻⣅⣨⠇⠈⠀⠰⣀⣀⣀⡀⠀⢸⣿⣿⣿⣿
+                            ⣿⣿⣿⣿⣿⣿⡇⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣟⢷⣶⠶⣃⢀⣿⣿⣿⣿⣿
+                            ⣿⣿⣿⣿⣿⣿⡅⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⠀⠈⠓⠚⢸⣿⣿⣿⣿⣿
+                            ⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⢀⡠⠀⡄⣀⠀⠀⠀⢻⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿
                     ⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠐⠉⠀⠀⠙⠉⠀⠠⡶⣸⠁⠀⣠⣿⣿⣿⣿⣿⣿⣿
                     ⣿⣿⣿⣿⣿⣿⣿⣦⡆⠀⠐⠒⠢⢤⣀⡰⠁⠇⠈⠘⢶⣿⣿⣿⣿⣿⣿⣿⣿⣿
                     ⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠠⣄⣉⣙⡉⠓⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿
@@ -110,7 +112,6 @@
             
             <p id="UserNameOnScr" class="unselectable">unlogged user</p>
         </div>
-        <div class="displayFrame"></div>
     </div>
     <script src="js/Gradient.js"></script>
     <!-- <script src="js/storageManager.js"></script> -->

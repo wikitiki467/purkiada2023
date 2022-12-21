@@ -107,7 +107,6 @@
     height: 1.5vw;
     background-image: url("../images/MONITORoff.svg");
     background-size: cover;
-    margin-left: 94%;
-    margin-top: 2.5vh;
-    filter: hue-rotate(15turn);
+    right: 14px;
+    bottom: -4.5vh;
 }

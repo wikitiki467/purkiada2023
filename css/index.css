@@ -210,11 +210,9 @@ button{
 #loginscreen {
     z-index: 99;
     text-align: center;
-    position: fixed;
-    margin-top: 2.5%;
-    margin-left: 13%;
-    width: 74%;
-    height: 85vh;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-image: url("../images/LoginBackground.png");
 }

@@ -1,26 +1,29 @@
-var set=0;
-var end = false;
+let set = 0;
+let end = false;
 const powerOffButton = document.getElementById("powerOffButton");
-const blackscreen_ = document.getElementById("blackscreen");
+const monitorScreen = document.getElementById("contentDisplay");
+let monitorTaskBar = document.getElementById("taskBar");
 const hand = document.getElementById("hand");
-var generated_code_text = document.getElementById("generated_code");
+let generated_code_text = document.getElementById("generated_code");
 function turnOff(){
     if (set==1){
-        if (end){
-            setTimeout(() => { generated_code_text.innerHTML = "Tento kód napište: „"+generateSafeCode(true)+"“"; }, 200);
-        }
+        // if (end){
+        //     setTimeout(() => { generated_code_text.innerHTML = "Tento kód napište: „"+generateSafeCode(true)+"“"; }, 200);
+        // }
         powerOffButton.style.backgroundImage = 'url("./images/MONITORoff.svg")';
-        blackscreen_.style.zIndex = "100";
+        monitorTaskBar.style.filter = "brightness(0)";
+        monitorScreen.style.filter = "brightness(0)";
         set = 0;
     } else{
-        generated_code_text.innerHTML = "";
+        // generated_code_text.innerHTML = "";
         powerOffButton.style.backgroundImage = 'url("./images/MONITORon.svg")';
-        blackscreen_.style.zIndex = "1";
+        monitorTaskBar.style.filter = "brightness(1)";
+        monitorScreen.style.filter = "brightness(1)";
         set = 1;
     }
 }
 function firstTurnOn(){
-    setTimeout(() => {hand.style.bottom = "0";}, 500);
+    setTimeout(() => {hand.style.bottom = "-1.5vh";}, 500);
     setTimeout(() => {powerOffButton.click()}, 1000);
     setTimeout(() => {hand.style.bottom = "-30vh";}, 1500);
 

@@ -1,11 +1,10 @@
 
 #contentDisplay{
     z-index: 1;
-    position: fixed;
-    margin-top: 2.5%;
-    margin-left: 13%;
-    width: 74%;
-    height: max(800px,85vh);
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
     background-position: center;
     background-size: cover;
     background-image: url("../images/wallpaper01.jpg");

@@ -47,6 +47,9 @@
 .window .main_div[scroll] :first-child{
     padding-top: calc(20px + 2%);
 }
+.windowMaximize:hover, .windowMinimize:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
 #notepad :focus{
     outline: none;
 }

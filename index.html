@@ -18,11 +18,11 @@
     <div id="displayFrameBottom" class="displayFrame">
     <div id="powerOffButton" onclick="turnOff()" class="unselectable" title="Power on/off"></div>
     </div>
-    <img src="images/hand.svg" alt="hand.svg" id="hand">
+    <img draggable="false" src="images/hand.svg" alt="hand.svg" id="hand">
     <div id="blackscreen"><p id="generated_code"></p></div>
     <div id="loginscreen">
         <form id="loginContent">
-            <img id="ProfilePicture" src="images/LoginPP.png"><br>
+            <img draggable="false" id="ProfilePicture" src="images/LoginPP.png"><br>
             <div>
                 <p id="wrongLoginText"></p>
                 <input type="text" id="username" name="username" onfocus='this.value=""'  value="Name"><br>
@@ -30,15 +30,15 @@
             </div>
             <input type="submit" id="submitlogin" value="❯" onclick="checkLoginInfo()">
             <div id="showButton">
-                <img src="images/show.png" id="showPassword" onclick="showOrHidePassword()" title="show">
+                <img draggable="false" src="images/show.png" id="showPassword" onclick="showOrHidePassword()" title="show">
             </div>
         </form>
     </div>
     <div id="taskBar" class="unselectable">
-        <img src="images/taskbar/StartBTNlight.svg" alt="start button" id="StartBTN" class="task_btns">
-        <img src="images/taskbar/PLUSlight.svg" alt="plus" id="PLUS" class="task_btns">
-        <img src="images/taskbar/MINUSlight.svg" alt="minus " id="MINUS" class="task_btns">
-        <img src="images/taskbar/THEMElight.svg" alt="Theme changer" id="THEME" title="Theme" onclick="change_theme()">
+        <img draggable="false" src="images/taskbar/StartBTNlight.svg" alt="start button" id="StartBTN" class="task_btns">
+        <img draggable="false" src="images/taskbar/PLUSlight.svg" alt="plus" id="PLUS" class="task_btns">
+        <img draggable="false" src="images/taskbar/MINUSlight.svg" alt="minus " id="MINUS" class="task_btns">
+        <img draggable="false" src="images/taskbar/THEMElight.svg" alt="Theme changer" id="THEME" title="Theme" onclick="change_theme()">
         <span id="getTime"> </span>
     </div>
     <div id="displayLeg"></div>
@@ -46,8 +46,8 @@
     <div id="rightWall" class="wall"></div>
     <div id="topWall" class="wall"></div>
     <div id="bottomWall" class="wall"></div>
-    <img id="telephone" class="unselectable" src="images/telefon-off.svg"></img>
-    <img id="telephone-arrow" class="unselectable" style="rotate: 0deg;" src="images/arrow.svg" onclick="telefonNahoru()"></img>
+    <img draggable="false" id="telephone" class="unselectable" src="images/telefon-off.svg"></img>
+    <img draggable="false" id="telephone-arrow" class="unselectable" style="rotate: 0deg;" src="images/arrow.svg" onclick="telefonNahoru()"></img>
     <div id="telephone-button-messages" class="telephone-button" onclick="changeTelephoneScreen('Messages')"></div>
     <div id="twoFactorCode"></div>
     <div id="telephone-button-open-conversation" class="telephone-button" onclick="changeTelephoneScreen('MessagesEmail')"></div>

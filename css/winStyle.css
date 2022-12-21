@@ -50,10 +50,11 @@
 .windowMaximize:hover, .windowMinimize:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
-#notepad :focus{
+#notepad:focus{
     outline: none;
 }
 #notepad {
+    color: black;
     text-align: left;
     padding-left: 10px;
     white-space: pre-wrap;

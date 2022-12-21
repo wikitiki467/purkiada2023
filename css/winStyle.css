@@ -28,14 +28,32 @@
     background-image: url("../images/levelBackground/clouds.png");
     left: 130%;
 }
-.window .main_div[scroll="XY"], .window .main_div[scroll="YX"]{
-    overflow: scroll;
+.window .main_div[scroll]{
+    top: 0;
+    scrollbar-color: rgba(7, 60, 104, .6) rgba(0,0,0,.2);
+    scrollbar-width: thin;
+}
+.window .main_div[scroll="XY"], .window .main_div[scroll="YX"] {
+    overflow: auto;
 }
 .window .main_div[scroll="Y"]{
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 .window .main_div[scroll="X"]{
     overflow-x: scroll;
+    overflow-y: hidden;
+}
+.window .main_div[scroll] :first-child{
+    padding-top: calc(20px + 2%);
+}
+#notepad :focus{
+    outline: none;
+}
+#notepad {
+    text-align: left;
+    padding-left: 10px;
+    white-space: pre-wrap;
 }
 
 .window .sizeChanger{
@@ -61,6 +79,7 @@
     padding: 5px;
     cursor: move;
     overflow: hidden;
+    z-index: 5;
 }
 .windowHeader .windowTitle{
     margin-left: 5px;

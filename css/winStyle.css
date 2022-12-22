@@ -47,6 +47,11 @@
 .window .main_div[scroll] :first-child{
     padding-top: calc(20px + 2%);
 }
+
+.window .main_div{
+    height: calc(100% - 30px);
+}
+
 .windowMaximize:hover, .windowMinimize:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }

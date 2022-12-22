@@ -1,4 +1,5 @@
 var screenDiv = document.getElementById("contentDisplay");
+var monitor = document.getElementsByClassName("monitor")[0];
 var taskBar = document.getElementById("taskBar");
 var lastKnownWindowPosition;
 var pocetOken;
@@ -140,16 +141,16 @@ function moveWindow(windowID){
 
     windowControler.onmousedown = function(e){
         dragValue = window;
-        mouseOnWindowX = Math.abs((e.pageX-screenDiv.offsetLeft)-window.offsetLeft);
-        mouseOnWindowY = Math.abs((e.pageY-screenDiv.offsetTop)-window.offsetTop);
+        mouseOnWindowX = Math.abs(e.pageX-window.offsetLeft);
+        mouseOnWindowY = Math.abs(e.pageY-window.offsetTop);
         window_z_index(windowID);
 
         if (window.clientWidth == screenDiv.clientWidth && window.clientHeight == screenDiv.clientHeight){
             window.style.width = window.getAttribute("defaultWidth");
             window.style.height = window.getAttribute("defaultHeight");
 
-            window.style.left = e.pageX - screenDiv.offsetLeft - (window.clientWidth / 2) + "px";
-            mouseOnWindowX = window.clientWidth / 2;
+            window.style.left = e.pageX - monitor.offsetLeft - (window.clientWidth / 2) + "px";
+            mouseOnWindowX = Math.abs(e.pageX-window.offsetLeft);
         }
     }
 
@@ -177,13 +178,12 @@ document.onmouseup = function(e){
 
 document.onmousemove = function(e){
     if (dragResizeValue != null){
-
-        let x = e.pageX - screenDiv.offsetLeft;
-        let y = e.pageY - screenDiv.offsetTop;
+        let x = e.pageX - monitor.offsetLeft;
+        let y = e.pageY - monitor.offsetTop;
 
         let newWidth = dragResizeValue.clientWidth + (x - (dragResizeValue.offsetLeft + dragResizeValue.clientWidth))
         let newHeight = dragResizeValue.clientHeight + (y - (dragResizeValue.offsetTop + dragResizeValue.clientHeight))
-
+        
         if (newWidth < 400){
             dragResizeValue.style.width = "400px";
         }else if(newWidth > screenDiv.clientWidth){
@@ -201,7 +201,6 @@ document.onmousemove = function(e){
         }
 
     }else if (document.getElementById("window"+windowID) != null){
-
         /*screen*/
         let screenPositionX = screenDiv.offsetLeft;
         let screenPositionY = screenDiv.offsetTop;
@@ -212,14 +211,12 @@ document.onmousemove = function(e){
         let x = e.pageX - screenPositionX;
         let y = e.pageY - screenPositionY;
         
-        
-        
         screenX = x - mouseOnWindowX;
         screenY = y - mouseOnWindowY;
 
         screenX = x / screenWidth - mouseOnWindowX / screenWidth;
         screenY = y / screenHeight - mouseOnWindowY / screenHeight;
-        
+
         if (dragValue != null){
             if (y - mouseOnWindowY < 0){
                 dragValue.style.top = "0%";
@@ -228,7 +225,7 @@ document.onmousemove = function(e){
             }else{
                 dragValue.style.top = screenY + "%";
             }
-            if (x < 0 || x > screenDiv.clientWidth){
+            if (x-monitor.offsetLeft < 0 || x > screenDiv.clientWidth+monitor.offsetLeft){
                 dragValue.style.left = lastKnownWindowPosition;
             }else{
                 lastKnownWindowPosition = screenX + "%"

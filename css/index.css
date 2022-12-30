@@ -275,16 +275,6 @@ button{
     position: relative;
     color: white;
 }
-#UserNameOnScr{
-    padding: 3px 12px;
-    margin-top: 11px;
-    margin-right: 5px;
-    font-size: 32px;
-    float: right;
-    color: white;
-    background-color: rgba(0,0,0,.5);
-    border-radius: 5px;
-}
 #tajenka{
     font-size: 20px;
 }

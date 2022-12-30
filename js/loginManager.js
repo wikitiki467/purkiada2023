@@ -80,3 +80,8 @@ function changePngValue(file, value) {
         });
     return textoutp;
 }
+
+document.getElementById("AccountBTN").onclick = function(e){
+    localStorage.clear();
+    location.reload();
+}

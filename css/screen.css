@@ -19,6 +19,7 @@
     background-color: rgb(53, 52, 52);
     bottom: 0;
     filter: brightness(0);
+    overflow: hidden;
 }
 #taskBar img{
     border-radius: 3px;
@@ -43,4 +44,76 @@
     text-align: center;
     margin-right: 1%;
     margin-top: .5vh;
+}
+
+#startMenu{
+    z-index: -1;
+    position: fixed;
+    height: 1200%;
+    width: 40%;
+    bottom: -1200%;
+    background-color: #074c68;
+}
+
+#startMenu #sideBar{
+    height: 100%;
+    width: 5vh;
+    background-color: #05465e;
+    transition: .2s;
+}
+
+#startMenu #sideBar:hover{
+    width: 40%;
+}
+
+#sideBar:hover .start_text{
+    transition: .4s;
+    visibility: visible;
+}
+
+#startMenu #PowerBTN{
+    bottom: 0;
+}
+
+#startMenu #SettingsBTN{
+    bottom: 0;
+}
+
+#startMenu #AccountBTN{
+    bottom: 0;
+}
+
+#StartBTN:hover{
+    filter: invert(55%) sepia(100%) hue-rotate(160deg);
+}
+
+.start_text{
+    position: absolute;
+    color: white;
+    font-size: large;
+    visibility: hidden;
+    left: 12%;
+}
+
+.start_sidebar_btns{
+    position: relative;
+}
+
+.start_sidebar_btns:hover{
+    background-color: #04394d;
+}
+
+.start_sidebar_btns p{
+    position: absolute;
+    left: 30%;
+    bottom: 27%;
+}
+
+#MoreBTN p{
+    font-weight: bold;
+}
+
+.blank_space{
+    position: relative;
+    height: 67%;
 }

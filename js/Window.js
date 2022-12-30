@@ -1,6 +1,7 @@
 var screenDiv = document.getElementById("contentDisplay");
 var monitor = document.getElementsByClassName("monitor")[0];
 var taskBar = document.getElementById("taskBar");
+var startBTN = document.getElementById("StartBTN");
 var lastKnownWindowPosition;
 var pocetOken;
 var dragValue;
@@ -12,6 +13,8 @@ var positionX;
 var positionY;
 var openedWindows = [];
 var listOfAllWindows = [];
+
+document.getElementById("taskBar").style.overflow = "hidden";
 
 function getCountOfApplications(){
     let htmlListOfAllWindows = document.getElementsByClassName("window")
@@ -337,5 +340,15 @@ function taskBarOpendWindows(window_ID, action){
         let icon = document.getElementById("icon"+window_ID);
         icon.parentNode.removeChild(icon);
         openedWindows[window_ID-1] = false;
+    }
+}
+
+startBTN.onclick = function(e){
+    if (document.getElementById("taskBar").style.overflow == "hidden"){
+        document.getElementById("startMenu").style.bottom = "100%";
+        document.getElementById("taskBar").style.overflow = "visible";
+    }else{
+        document.getElementById("startMenu").style.bottom = "-1200%";
+        document.getElementById("taskBar").style.overflow = "hidden";
     }
 }

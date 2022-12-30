@@ -67,7 +67,6 @@
 }
 
 #sideBar:hover .start_text{
-    transition: .4s;
     visibility: visible;
 }
 

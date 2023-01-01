@@ -2,6 +2,7 @@ var screenDiv = document.getElementById("contentDisplay");
 var monitor = document.getElementsByClassName("monitor")[0];
 var taskBar = document.getElementById("taskBar");
 var startBTN = document.getElementById("StartBTN");
+var appList = document.getElementById("appList");
 var lastKnownWindowPosition;
 var pocetOken;
 var dragValue;
@@ -43,12 +44,19 @@ function generateApps(){
         let maximize = builder.getAttribute("maximize");
         let resize = builder.getAttribute("resize");
 
+        if (builder.getAttribute("icon") == null){
+            icon = "../images/levelLogos/DARK/fileDefault.png";
+        }
+
         newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, i+1);
     }
 }
 
 function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, appID){
     let contentDisplay = document.getElementById("contentDisplay");
+
+    /*Add app to list*/
+    addAppToList(title, icon, appID);
 
     /*Create application shortcut*/
     const applicationShortcut = document.createElement("div");
@@ -135,6 +143,25 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
 
     /*Delete current app builder tag*/
     appBuild.remove();  
+}
+
+function addAppToList(title, icon, appID){
+    const appContainer = document.createElement("div");
+    appContainer.className = "start_sidebar_btns";
+    appContainer.setAttribute("onclick", 'moveWindow('+appID+'); openWindow('+appID+'); window_z_index('+appID+'); openStartMenu()');
+
+    const appImg = document.createElement("img");
+    appImg.className = "task_btns";
+    appImg.src = icon;
+    appImg.draggable = false;
+    appContainer.appendChild(appImg);
+
+    const appText = document.createElement("p");
+    appText.className = "appList_text";
+    appText.innerText = title;
+    appContainer.appendChild(appText);
+
+    appList.appendChild(appContainer);
 }
 
 function moveWindow(windowID){
@@ -343,7 +370,7 @@ function taskBarOpendWindows(window_ID, action){
     }
 }
 
-startBTN.onclick = function(e){
+function openStartMenu(){
     if (document.getElementById("taskBar").style.overflow == "hidden"){
         document.getElementById("startMenu").style.bottom = "100%";
         document.getElementById("taskBar").style.overflow = "visible";
@@ -351,4 +378,8 @@ startBTN.onclick = function(e){
         document.getElementById("startMenu").style.bottom = "-1200%";
         document.getElementById("taskBar").style.overflow = "hidden";
     }
+}
+
+startBTN.onclick = function(e){
+    openStartMenu();
 }

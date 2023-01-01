@@ -56,6 +56,8 @@
 }
 
 #startMenu #sideBar{
+    z-index: 2;
+    position: absolute;
     height: 100%;
     width: 5vh;
     background-color: #05465e;
@@ -108,6 +110,13 @@
     bottom: 27%;
 }
 
+.appList_text{
+    position: absolute;
+    color: white;
+    font-size: medium;
+    left: 12%;
+}
+
 #MoreBTN p{
     font-weight: bold;
 }
@@ -115,4 +124,14 @@
 .blank_space{
     position: relative;
     height: 67%;
+}
+
+#appList{
+    z-index: 1;
+    position: absolute;
+    left: 5vh;
+    height: 100%;
+    width: 45%;
+    top: 0;
+    overflow-y: scroll;
 }

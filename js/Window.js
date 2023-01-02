@@ -53,7 +53,7 @@ function generateApps(){
 }
 
 function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, appID){
-    let contentDisplay = document.getElementById("contentDisplay");
+    let contentDisplay = document.getElementById("app_container");
 
     /*Add app to list*/
     addAppToList(title, icon, appID);
@@ -67,7 +67,7 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
     applicationShortcut.setAttribute("icon", icon);
 
     /*Style*/
-    applicationShortcut.style.marginLeft = (2 + ((appID-1)*6)) + "%";
+    // applicationShortcut.style.marginLeft = (2 + ((appID-1)*6)) + "%";
     applicationShortcut.style.backgroundImage = "url('" + icon + "')";
 
     contentDisplay.appendChild(applicationShortcut);

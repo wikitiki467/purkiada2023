@@ -41,16 +41,7 @@ button{
 }
 
 /* LEVEL 1 / 2 */
-.main_div{
-    /*background-image: url("../images/wallpaper01.jpg");*/
-    z-index: 0;
-    position: absolute;
-    color: White;
-    font-size: 18px;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-}
+
 
 .taskDivChanger{
     width: 90%;

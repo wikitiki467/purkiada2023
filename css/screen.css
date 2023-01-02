@@ -151,12 +151,13 @@
     height: 67%;
 }
 
-#appList{
-    z-index: 1;
-    position: absolute;
-    left: 5vh;
-    height: 100%;
-    width: 45%;
-    top: 0;
-    overflow-y: scroll;
+#appList {
+	z-index: 1;
+	position: absolute;
+	left: 5vh;
+	height: calc(100% - 10px);
+	width: 50%;
+	top: 0;
+	overflow-y: scroll;
+	padding: 5px;
 }

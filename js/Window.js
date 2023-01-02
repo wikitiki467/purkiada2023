@@ -147,8 +147,9 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
 
 function addAppToList(title, icon, appID){
     const appContainer = document.createElement("div");
-    appContainer.className = "start_sidebar_btns";
+    appContainer.className = "start_sidebar_btns start_apps";
     appContainer.setAttribute("onclick", 'moveWindow('+appID+'); openWindow('+appID+'); window_z_index('+appID+'); openStartMenu()');
+    appContainer.setAttribute("title", title);
 
     const appImg = document.createElement("img");
     appImg.className = "task_btns";

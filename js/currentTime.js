@@ -8,15 +8,17 @@ function display_ct() {
     let hours = date.getHours();
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
+    let day = date.getDay()+1;
     let month = (date.getMonth()+1);
     let year = date.getFullYear();
     if (hours < 10) {hours = `0${hours}`};
     if (minutes < 10) {minutes = `0${minutes}`};
     if (seconds < 10) {seconds = `0${seconds}`};
+    if (day < 10) {day = `0${day}`};
     if (month < 10) {month = `0${month}`};
 
     let x1=hours+ ":" +  minutes + ":" +  seconds;
-    x1 = x1 + " <br> " + date.getDate() + "." + month + "." + year;/*date.getFullYear()*/
+    x1 = x1 + " <br> " + day + "." + month + "." + year;/*date.getFullYear()*/
     document.getElementById('getTime').innerHTML = x1;
     display_c();
 }display_ct();

@@ -101,9 +101,10 @@
 	margin: auto 0;
 }
 
-.start_sidebar_btns{
-    position: relative;
-    display: flex;
+.start_sidebar_btns {
+	position: relative;
+	display: flex;
+	cursor: pointer;
 }
 
 .start_sidebar_btns:hover{

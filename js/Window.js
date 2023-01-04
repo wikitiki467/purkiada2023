@@ -104,7 +104,7 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
 
         const windowMinimize = document.createElement("div");
         windowMinimize.className = "windowMinimize unselectable";
-        windowMinimize.innerHTML = "<p>—</p>";
+        windowMinimize.innerHTML = "<p class='winControls'>—</p>";
         windowMinimize.setAttribute("onclick", 'minimizeWindow('+appID+')');
         windowHeader.appendChild(windowMinimize);
 
@@ -113,14 +113,14 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
 
             const windowMaximize = document.createElement("div");
             windowMaximize.className = "windowMaximize unselectable";
-            windowMaximize.innerHTML = "<p>▢</p>";
+            windowMaximize.innerHTML = "<p class='winControls'>▢</p>";
             windowMaximize.setAttribute("onclick", 'maximizeWindow('+appID+')');
             windowHeader.appendChild(windowMaximize);
         }
 
         const windowClose = document.createElement("div");
         windowClose.className = "windowClose unselectable";
-        windowClose.innerHTML = "<p>✕</p>";
+        windowClose.innerHTML = "<p class='winControls'>✕</p>";
         windowClose.setAttribute("onclick", 'exitWindow('+appID+')');
         windowHeader.appendChild(windowClose);
 

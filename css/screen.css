@@ -108,7 +108,10 @@
 }
 
 #sideBar:hover .start_text{
-    visibility: visible;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 #startMenu #PowerBTN{
@@ -131,10 +134,10 @@
 	/* position: absolute; */
 	color: white;
 	font-size: large;
-	visibility: hidden;
 	/* left: 12%; */
-	display: block;
+	display: none;
 	margin: auto 0;
+    display: none;
 }
 
 .start_sidebar_btns {

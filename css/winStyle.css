@@ -103,6 +103,11 @@
 .windowHeader .windowTitle{
     margin-left: 5px;
     padding: .2em 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-right: 30%;
 }
 
 .windowHeader .windowMaximize{

@@ -51,7 +51,7 @@
     overflow-y: hidden;
 }
 .window .main_div[scroll] :first-child{
-    padding-top: calc(20px + 2%);
+    /* padding-top: calc(20px + 2%); */
 }
 
 .window .main_div{

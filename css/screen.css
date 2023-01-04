@@ -5,11 +5,30 @@
     overflow: hidden;
     width: 100%;
     height: 100%;
-    background-position: center;
+    background-image: url("../images/purkiada2023.png");
+    background-color: #555;
     background-size: cover;
-    background-image: url("../images/wallpaper01.jpg");
+    background-position: center;
+    background-size: min(25vh, 50vw);
+    background-repeat: no-repeat;
     filter: brightness(0);
 }
+/* #contentDisplay::after{
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 106%;
+    background-image: url("../images/purkiada2023.png");
+    background-color: rgb(11, 119, 70);
+    background-size: cover;
+    background-position: center;
+    background-size: 25%;
+    background-repeat: no-repeat;
+    z-index: 999;
+    display:none;
+} */
 
 #taskBar{
     z-index: 98;

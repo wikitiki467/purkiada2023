@@ -11,6 +11,9 @@ function changeLang(lang_) {
             document.querySelectorAll("p").forEach(element => {
                 changeThisTextToAscii(element);
             });
+            document.querySelectorAll("label").forEach(element => {
+                changeThisTextToAscii(element);
+            });
             changeClassAsciiToText("winControls"); // change windows controls to normal
             break;
         default:
@@ -18,6 +21,9 @@ function changeLang(lang_) {
             changeClassTextToAscii("winControls"); // change windows controls to ascii (temporarily)
             changeClassAsciiToText("windowTitle");
             document.querySelectorAll("p").forEach(element => {
+                changeThisAsciiToText(element);
+            });
+            document.querySelectorAll("label").forEach(element => {
                 changeThisAsciiToText(element);
             });
             break;

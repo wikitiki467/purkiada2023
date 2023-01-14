@@ -28,9 +28,10 @@ function changeClassTextToAscii(classname){
 function changeThisTextToAscii(elem){
     let asciiCodesList = convertToAscii(getTextFromElement(elem));
     let result = "";
-    asciiCodesList.forEach(code => {
-        result += code + " ";
-    });
+    for (let i = 0; i < asciiCodesList.length - 1; i++){
+        result += asciiCodesList[i] + " ";
+    }
+    result += asciiCodesList[asciiCodesList.length-1];
     elem.innerText = result;
 }
 function changeClassAsciiToText(classname){

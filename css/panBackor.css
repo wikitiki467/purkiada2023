@@ -1,0 +1,28 @@
+#PanBackorGUI{
+    position: absolute;
+    right: -28vw;
+    bottom: 10%;
+    height: 15%;
+    width: 20vw;
+    background-color: black;
+    transition: linear 1.5s;
+}
+
+#PanBackorGUI img{
+    position: absolute;
+    bottom: -15%;
+    left: -3vw;
+    height: 160%;
+    user-select: none;
+}
+
+#PanBackorGUI div{
+    position: absolute;
+    display: block;
+    margin: 3% 20%;
+    text-align: center;
+}
+
+#PanBackorGUI a{
+    color: white;
+}

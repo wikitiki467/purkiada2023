@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/winStyle.css">
     <link rel="stylesheet" href="css/screen.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/panBackor.css">
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
     <canvas id="gradient-canvas" data-transition-in></canvas>
@@ -64,9 +65,10 @@
                     
                 </div>
                 <img draggable="false" src="images/taskbar/StartBTNlight.svg" alt="start button" id="StartBTN" class="task_btns">
-                <img draggable="false" src="images/taskbar/PLUSlight.svg" alt="plus" id="PLUS" class="task_btns">
+                <img draggable="false" src="images/BackorIcon.png" alt="Pan Bačkor button" id="PanBackorBTN" class="task_btns" onclick="panBackorBTN()">
+                <!--<img draggable="false" src="images/taskbar/PLUSlight.svg" alt="plus" id="PLUS" class="task_btns">
                 <img draggable="false" src="images/taskbar/MINUSlight.svg" alt="minus " id="MINUS" class="task_btns">
-                <img draggable="false" src="images/taskbar/THEMElight.svg" alt="Theme changer" id="THEME" title="Theme" onclick="change_theme()">
+                <img draggable="false" src="images/taskbar/THEMElight.svg" alt="Theme changer" id="THEME" title="Theme" onclick="change_theme()">-->
                 <span id="getTime"> </span>
             </div>
             <div id="displayLeg"></div>
@@ -133,7 +135,6 @@
             <appBuild title="Notepad" icon="DARK/notepad.png" scroll="XY" backgroundColor="white">
                 <p contenteditable="true" id="notepad" class="unselectable" style="width:100%;height:100%"></p>
             </appBuild>
-            <appBuild title="Only two genders"></appBuild>
             <appBuild title="???" backgroundColor="black">
                 <video width="100%" height="100%" onclick="if(paused){play()}else{pause()}">
                     <source src="images/NeverGonnaGiveYouUp.mp4" type="video/mp4">
@@ -143,12 +144,19 @@
             <appBuild title="settings">
                 <label for="sys-lang">System language:</label>
                 <select name="sys-lang" id="sys-lang-options" onchange="changeLang(this.value)">
-                <option value="default">Default</option>
-                <option value="ascii">Ascii</option>
-</select>
+                    <option value="default">Default</option>
+                    <option value="ascii">Ascii</option>
+                </select>
             </appBuild>
+            <div id="PanBackorGUI">
+                <img draggable="false" src="images/Backor.png" title="Ahoj jsem pan Bačkor!">
+                <div>
+                    <a>Jsem pan Bačkor!</a>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="js/PanBackor.js"></script>
     <script src="js/Gradient.js"></script>
     <!-- <script src="js/storageManager.js"></script> -->
     <script src="js/loginManager.js"></script>

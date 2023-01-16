@@ -215,6 +215,10 @@ button{
     border-radius: 500px;
     height: 150px;
 }
+#ProfilePicture{
+    border: #5187b5 solid 2px;
+    background: rgba(0,0,0,.35);
+}
 #username,
 #userpassword{
     margin-top: 5px;

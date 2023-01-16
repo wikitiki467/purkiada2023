@@ -157,3 +157,87 @@
     overflow: scroll;
 } */
 
+/* SETTINGS WINDOW */
+.settings_main{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.settings_nav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 30%;
+    background-color: #1f1f1f;
+    height: 100%;
+    overflow: auto;
+}
+.settings_nav > li{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px 2px;
+    border: solid 1px transparent;
+}
+.settings_nav > li p{
+    display: block;
+    color: white;
+    text-decoration: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: left;
+}
+.settings_nav > li.active {
+    background-color: #074c68;
+    color: white;
+    border-top:  1px solid #555;
+    border-bottom:  1px solid #555;
+}
+  
+.settings_nav > li:not(.active):hover {
+    background-color: #555;
+    color: white;
+}
+.settings_ico{
+    width: 25px;
+    aspect-ratio: 1/1;
+    margin-left: 5px;
+}
+.tab_container{
+    position: absolute;
+    left: 30%;
+    width: 70%;
+    height: 92.5%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* .settings_nav{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.settings_nav > div{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 5px;
+}
+.tab_general{
+    position: absolute;
+    left: 25%;
+} */
+

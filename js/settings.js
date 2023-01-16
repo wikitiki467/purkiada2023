@@ -1,3 +1,20 @@
+//change tabs
+function changeTab(tabID) {
+    let allTabs = document.querySelectorAll(".tab_container");
+    allTabs.forEach(element => {
+        element.style.display = "none";
+    });
+    document.getElementById(tabID).style.display = "block";
+}
+function activateTab(self, tabID) {
+    document.querySelectorAll(".active").forEach(element => {
+        element.classList.remove("active");
+    });
+    self.classList.add("active");
+    changeTab(tabID);
+}
+
+
 let lang = "default";
 function changeLang(lang_) {
     console.log(lang_);

@@ -46,6 +46,7 @@ function showOrHidePassword(){
 //-------------------------------------------------------------------------------
 
 function changePPandSetText(){
+    // document.getElementById("ProfilePicture").src="https://unsplash.it/500/500";  
     document.getElementById("ProfilePicture").src="images/profilePictures/LoginPP"+(Math.floor(Math.random() * 7)+1)+".jpg";     
     document.getElementById("wrongLoginText").innerHTML = localStorage.getItem("warningTextKey");
 }

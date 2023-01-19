@@ -1,4 +1,5 @@
-let panBackoraGUI = document.getElementById("PanBackorGUI")
+let panBackorGUI = document.getElementById("PanBackorGUI")
+let panBackorDialogText = document.getElementById("PanBackorDialogText");
 let shown = false
 
 function panBackorBTN(){
@@ -12,9 +13,15 @@ function panBackorBTN(){
 }
 
 function showPanBackor(){
-    panBackoraGUI.style.right = "0";
+    panBackorGUI.style.right = "0";
 }
 
 function hidePanBackor(){
-    panBackoraGUI.style.right = "-28vw";
+    panBackorGUI.style.right = "-28vw";
 }
+
+function changePanBackorDialog(text){
+    panBackorDialogText.innerHTML = text;
+}
+
+changePanBackorDialog("ma uprimna reakce");

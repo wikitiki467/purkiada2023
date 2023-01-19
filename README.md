@@ -54,6 +54,8 @@ Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obs
 | `height`                  | `Size with unit`|    `400px`      | Nastaví výšku okna aplikace                                        |
 | `maximize`                |    `boolean`    |     `true`      | Zapne/Vypne možnost maximalizovat okno aplikace                    |
 | `resize`                  |    `boolean`    |     `true`      | Zapne/Vypne možnost uživateli manipulovat s velikostí okna aplikace|
+| `shortcut`                |    `boolean`    |     `true`      | Zapne/Vypne shortcut na ploše                                      |
+| `startMenu`               |    `boolean`    |     `true`      | Zapne/Vypne shortcut v start menu                                  |
 
 > [ ! ] Pro nastavení jakéhokoliv obrázku v aplikaci mužete používat **pouze** obrázky uložené v patřičné složce!
 

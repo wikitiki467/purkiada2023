@@ -44,27 +44,27 @@ function generateApps(){
         let maximize = builder.getAttribute("maximize");
         let resize = builder.getAttribute("resize");
         let shortcut = builder.getAttribute("shortcut");
-        let mainMenu = builder.getAttribute("mainMenu");
+        let startMenu = builder.getAttribute("startMenu");
 
         if (builder.getAttribute("shortcut") == null){
             shortcut = true;
         }
-        if (builder.getAttribute("mainMenu") == null){
-            mainMenu = true;
+        if (builder.getAttribute("startMenu") == null){
+            startMenu = true;
         }
 
         if (builder.getAttribute("icon") == null){
             icon = "../images/levelLogos/DARK/fileDefault.png";
         }
 
-        newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, mainMenu, i+1);
+        newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, startMenu, i+1);
     }
 }
 
-function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, mainMenu, appID){
+function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, startMenu, appID){
     let contentDisplay = document.getElementById("app_container");
 
-    if (mainMenu != "false"){
+    if (startMenu != "false"){
         /*Add app to list*/
         addAppToList(title, icon, appID);
     }

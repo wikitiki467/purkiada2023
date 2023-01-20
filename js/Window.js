@@ -173,7 +173,7 @@ function addAppToList(title, icon, appID){
     appContainer.appendChild(appImg);
 
     const appText = document.createElement("p");
-    appText.className = "appList_text";
+    appText.className = "appList_text textOverflow2Line";
     appText.innerText = title;
     appContainer.appendChild(appText);
 

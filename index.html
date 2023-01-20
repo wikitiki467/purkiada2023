@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/screen.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/panBackor.css">
+    <link rel="stylesheet" href="css/apps/usc.css">
+    <link rel="stylesheet" href="css/apps/level1.css">
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
     <canvas id="gradient-canvas" data-transition-in></canvas>
@@ -52,7 +54,7 @@
                                 <img draggable="false" src="images/taskbar/accountlight.svg" alt="account button" class="task_btns">
                                 <p id="UserNameOnScr" class="start_text">Unlogged user</p>
                             </div>
-                            <div id="SettingsBTN" class="start_sidebar_btns" onclick="moveWindow(5); openWindow(5); window_z_index(5)">
+                            <div id="SettingsBTN" class="start_sidebar_btns" onclick="moveWindow(6); openWindow(6); window_z_index(6)">
                                 <img draggable="false" src="images/taskbar/Settingslight.svg" alt="settings button" class="task_btns">
                                 <p class="start_text">Settings</p>
                             </div>
@@ -83,7 +85,12 @@
                 <img draggable="false" src="images/hand.svg" alt="hand.svg" id="hand">
                 <div id="contentDisplay">
                     <div class="app_container" id="app_container" style="display: flex;margin: 2%;"></div>
-                    <appBuild title="It's About Drive, It's About Power" icon="LIGHT/icon1.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
+                    <appBuild title="LEVEL1.exe" icon="LIGHT/icon1.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
+                        <div class="levelStart level1start">
+                            <button onclick="moveWindow(7); openWindow(7); setTimeout(() => {window_z_index(7)}, 100);">START THE LEVEL</button>
+                        </div>
+                    </appBuild>
+                    <appBuild title="It's About Drive, It's About Power" icon="LIGHT/icon2.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
                         <p>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠛⠛⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿
                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠉⠻⣿⣿⣿⣿⣿⣿
                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿
@@ -100,7 +107,7 @@
                             ⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⣀⣀⠀⣀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿</p>
             </appBuild>
-            <appBuild title="Chad" icon="LIGHT/icon2.png" backgroundColor="darkslategray" scroll="YX">
+            <appBuild title="Chad" icon="LIGHT/icon3.png" backgroundColor="darkslategray" scroll="YX">
                 <p>
                 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣤⣶⣤⣤⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
                 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -174,6 +181,42 @@
                         </div>
                     </div>
                 </div>
+            </appBuild>
+            <appBuild title="User Account Control" width="446px" height="300px" startMenu="false" shortcut="false">
+                <div class="uac">
+                    <div class="header">
+                      <div class="question">
+                        Do you want to allow this app from an unknown publisher to make changes to your device?
+                      </div>
+                    </div>
+                    <div class="content">
+                        <div class="name">
+                          <!-- Uninstall Name of the Program.exe -->
+                          LEVEL1.exe
+                        </div>
+                      <div class="details">
+                        <div class="textOverflow1Line">Publisher: <span class="asciiHash">Unknown</span></div>
+                        <br>
+                        <div class="textOverflow1Line">File origin: <span class="asciiHash">Hard drive on this computer</span></div>
+                      </div>
+                      <div class="moredetails" onclick="this.style.opacity = this.style.opacity==''?'.9':this.style.opacity-.1">
+                        Show more details
+                      </div>
+                    </div>
+                      <div class="buttons">
+                        <div class="btnwrap btnyes">
+                          <div class="yes">
+                            Yes
+                          </div>
+                        </div>
+                        <div class="btnwrap btnno">
+                          <div class="no">
+                            No
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+
             </appBuild>
             <div id="PanBackorGUI">
                 <img draggable="false" src="images/Backor.png" title="Ahoj jsem pan Bačkor!">

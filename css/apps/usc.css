@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+body {
+    background-color: #b5b5b5;
+}
+.uac {
+    cursor: default;
+    font-family: 'Open Sans', sans-serif;
+    width: 446px;
+    position: absolute;
+}
+.header {
+    background-color: #074c68;
+}
+.question {
+    padding: 3px 20px 10px 20px;
+    display: block;
+    font-size: 19px;
+}
+.content {
+    background-color: #444;
+    padding: 20px;
+}
+.name {
+    font-size: 17px;
+}
+.details {
+    font-size: 14px;
+    margin: 20px 0;
+}
+.moredetails {
+    font-size: 14px;
+    color: #407de5;
+    display: inline-block;
+}
+.moredetails::selection {
+    background-color: transparent;
+}
+.moredetails:hover {
+    color: #666666;
+}
+.buttons {
+    background-color: #444;
+    padding: 0 18px 18px 18px;
+}
+.btnwrap {
+    width: 198px;
+    display: inline-block;
+    border: 2px solid #E6E6E6;
+}
+.btnwrap div {
+    background-color: #666;
+    padding: 6px 0;
+    text-align: center;
+    border: 1px solid #222;
+}
+.btnno {
+    border: 2px solid #E6E6E6;
+}
+.no div {
+    border: 1px solid #E6E6E6;
+}
+.btnwrap:hover div {
+    outline: 2px solid #222;
+    outline-offset: -3px;
+}
+.btnwrap:active div {
+    background-color: #DDDDDD;
+}

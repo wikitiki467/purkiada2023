@@ -28,6 +28,9 @@ function changeLang(lang_) {
             document.querySelectorAll("p").forEach(element => {
                 changeThisTextToAscii(element);
             });
+            document.querySelectorAll(".asciiHash").forEach(element => {
+                changeThisTextToAscii(element);
+            });
             document.querySelectorAll("label").forEach(element => {
                 changeThisTextToAscii(element);
             });
@@ -38,6 +41,9 @@ function changeLang(lang_) {
             changeClassTextToAscii("winControls"); // change windows controls to ascii (temporarily)
             changeClassAsciiToText("windowTitle");
             document.querySelectorAll("p").forEach(element => {
+                changeThisAsciiToText(element);
+            });
+            document.querySelectorAll(".asciiHash").forEach(element => {
                 changeThisAsciiToText(element);
             });
             document.querySelectorAll("label").forEach(element => {

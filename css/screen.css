@@ -150,21 +150,21 @@
     background-color: #04394d;
 }
 
-.start_sidebar_btns p{
-    /* position: absolute;
+/* .start_sidebar_btns p{
+    position: absolute;
     left: 30%;
-    bottom: 27%; */
-}
+    bottom: 27%;
+} */
 .start_apps:not(:last-child){
     margin-bottom: 5px;
 }
 .start_apps p{
     /* border: solid 1px red; */
     /* max-height: 7vh; */
-    display: -webkit-box;
+    /* display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    overflow: hidden; */
     /* text-align: center; */
     width: 100%;
     height: 100%;
@@ -199,4 +199,13 @@
 	top: 0;
 	overflow-y: scroll;
 	padding: 5px;
+}
+.textOverflow1Line, .textOverflow2Line{
+    display: -webkit-inline-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.textOverflow2Line{
+    -webkit-line-clamp: 2;
 }

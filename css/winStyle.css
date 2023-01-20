@@ -241,3 +241,66 @@
     left: 25%;
 } */
 
+/*---------System Permission popup----------*/
+.spp_window{
+    overflow: hidden;
+    z-index: 1;
+    width: max(500px, 50%);
+    height: 400px;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: top;
+    position: absolute;
+    left: 130%;
+}
+
+.spp_window .spp_main_div{
+    color: White;
+    font-size: 18px;
+    height: calc(100% - 30px);
+    width: 100%;
+    text-align: center;
+}
+
+.spp_windowHeader{
+    position: relative;
+    height: 20px;
+    background-color: #074c68;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+    overflow: hidden;
+    z-index: 5;
+}
+.spp_windowHeader .spp_windowTitle{
+    margin-left: 5px;
+    padding: .2em 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-right: 30%;
+}
+
+.spp_windowHeader .spp_windowClose{
+    position: absolute;
+    text-align: center;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50px;
+    cursor: pointer;
+}
+.spp_windowHeader .spp_windowClose:hover{
+    background-color: #ff0000;
+}
+
+.spp_windowHeader .spp_windowClose p {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    line-height: 30px;
+}
+

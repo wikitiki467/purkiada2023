@@ -15,8 +15,8 @@ class SystemPermissionPopup{
             window.className = "spp_window";
             window.style.width = "446px";
             window.style.height = "300px";
-            window.style.left = "28.5988%";
-            window.style.top = "30.9645%";
+            window.style.left = "calc(50% - 223px)";
+            window.style.top = "calc(50% - 150px)";
             window.style.zIndex = 999999999;
 
             contentDisplay.appendChild(window);
@@ -113,9 +113,11 @@ class SystemPermissionPopup{
             const yes = document.createElement("div");
             yes.className = "yes";
             yes.innerHTML = "Yes";
-            yes.setAttribute("onclick", 'moveWindow('+this.appID+'); openWindow('+this.appID+'); window_z_index('+this.appID+')');
+            yes.setAttribute("onclick", 'moveWindow('+this.appID+'); openWindow('+this.appID+'); window_z_index('+this.appID+'); closeSysPermissionPopup()');
 
             btnyes.appendChild(yes);
+
+            buttons.innerHTML += "‎ ";
 
             const btnno = document.createElement("div");
             btnno.className = "btnwrap btnno";
@@ -125,7 +127,7 @@ class SystemPermissionPopup{
             const no = document.createElement("div");
             no.className = "no";
             no.innerHTML = "No";
-            no.setAttribute("onclick", 'moveWindow('+this.appID+'); openWindow('+this.appID+'); window_z_index('+this.appID+')');
+            no.setAttribute("onclick", 'closeSysPermissionPopup()');
 
             btnno.appendChild(no);
         }

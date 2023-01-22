@@ -1,7 +1,7 @@
 class SystemPermissionPopup{
-    constructor(appName, appID){
+    constructor(appName, onClickFunction){
         this.appName = appName;
-        this.appID = appID;
+        this.onClickFunction = onClickFunction;
         this.title = "Do you want to allow this app from an unknown publisher to make changes to your device?";
         this.publisher = "Unknown";
         this.fileOrigin = "Hard drive on this computer";
@@ -113,7 +113,7 @@ class SystemPermissionPopup{
             const yes = document.createElement("div");
             yes.className = "yes";
             yes.innerHTML = "Yes";
-            yes.setAttribute("onclick", 'moveWindow('+this.appID+'); openWindow('+this.appID+'); window_z_index('+this.appID+'); closeSysPermissionPopup()');
+            yes.setAttribute("onclick", this.onClickFunction);
 
             btnyes.appendChild(yes);
 

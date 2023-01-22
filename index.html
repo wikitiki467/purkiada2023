@@ -88,7 +88,7 @@
                     <div class="app_container" id="app_container" style="display: flex;margin: 2%;"></div>
                     <appBuild title="LEVEL1.exe" icon="LIGHT/icon1.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
                         <div class="levelStart level1start">
-                            <button onclick="let popup = new SystemPermissionPopup('moje aplikace 1', 1); popup.show();">START THE LEVEL</button>
+                            <button onclick="let popup = new SystemPermissionPopup('moje aplikace 1', 'console.log(\'ahoj\')'); popup.show();">START THE LEVEL</button>
                         </div>
                     </appBuild>
                     <appBuild title="It's About Drive, It's About Power" icon="LIGHT/icon2.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
@@ -228,7 +228,14 @@
                     <p>Purktivirus</p>
                 </div>
                 <div id="av_sideBar">
-                    <div class="av_button"></div>
+                    <div class="av_button">
+                        <img src="/images/WebBrowser/magnifier.png" style="filter: invert();">
+                        <p>Scan</p>
+                    </div>
+                    <div class="av_button">
+                        <img src="/images/taskbar/Settingslight.svg">
+                        <p>Settings</p>
+                    </div>
                 </div>
                 <div id="av_footer">
                     <button id="av_scanBTN">Fast scan</button>

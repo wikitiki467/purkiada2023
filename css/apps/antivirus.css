@@ -56,6 +56,15 @@
     width: 100%;
 }
 
+.av_button img{
+    height: 60%;
+}
+
+.av_button p{
+    font-size: small;
+    font-weight: bold;
+}
+
 .av_button:hover{
     background-color: rgb(70, 70, 70);
 }

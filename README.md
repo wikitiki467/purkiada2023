@@ -61,19 +61,19 @@ Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obs
 
 ## Vyvolání systémového popupu pro speciální oprávnění (SystemPermissionPopup):
 Pro vyvolání systémového popupu pro speciální oprávnění slouží třída `SystemPermissionPopup`.
-Tato třída **musí** obsahovat 2 vstupní proměnné `appName` a `appID`, které jsou nutné k vyvolání systémového popupu pro speciální oprávnění!
+Tato třída **musí** obsahovat 2 vstupní proměnné `appName` a `onClickFunction`, které jsou nutné k vyvolání systémového popupu pro speciální oprávnění!
 
 **Příklad použití základní formy této třídy:**
 ```
-let popup = new SystemPermissionPopup("moje aplikace 1", 1);
+let popup = new SystemPermissionPopup("moje aplikace 1", "moveWindow(1); openWindow(1); window_z_index(1)");
 popup.show();
 ```
 Pro vstupní proměnnou `appName` pužijte jméno aplikace/processu.
-Pro vstupní proměnnou `appID` použijte indetifikační číslo aplikace (appID), která se spustí poté, co uživatel zaklikne tlačítko 'Yes' v systémovém popupu pro speciální oprávnění.
+Pro vstupní proměnnou `onClickFunction` použijte vlastní funkci ve Stringu, která se spustí poté, co uživatel zaklikne tlačítko 'Yes' v systémovém popupu pro speciální oprávnění.
 
 **Přenastavení textu v systémovém popupu pro speciální oprávnění pak funguje následovně:**
 ```
-let popup = new SystemPermissionPopup("moje aplikace 1", 1);
+let popup = new SystemPermissionPopup("moje aplikace 1", "moveWindow(1); openWindow(1); window_z_index(1)");
 popup.title = "Do you want to allow this app from an unknown publisher to make changes to your device?";
 popup.publisher = "Unknown";
 popup.fileOrigin = "Hard drive on this computer";
@@ -91,7 +91,7 @@ popup.show();
 | Proměnná                  |      Typ        |  Výchozí nastavení  | Popis atributu                                                     |
 | :------------------------ | :-------------: | :-----------------: | :----------------------------------------------------------------- |
 | `appName`                 |    `String`     |`1. vstupní proměnná`| Nastaví text jména aplikace                                        |
-| `appID`                   |     `int`       |`2. vstupní proměnná`| Nastaví identifikační číslo aplikace (appID), která se má spustit po zakliknutí tlačítka 'Yes'                                            |
+| `onClickFunction`         |    `String`     |`2. vstupní proměnná`| Nastaví vlastní funkci, která se má spustit po zakliknutí tlačítka 'Yes'                                            |
 | `title`                   |    `String`     |   `Default text`    | Nastaví hlavní text                                                |
 | `publisher`               |    `String`     |   `Default text`    | Nastaví text tvůrce aplikace/processu                              |
 | `fileOrigin`              |    `String`     |   `Default text`    | Nastaví text umístění aplikace/processu                            |

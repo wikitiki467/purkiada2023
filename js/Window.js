@@ -153,6 +153,7 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
         main_div.className = "main_div";
         if (backgroundImage != null){
             main_div.style.backgroundImage = "url('" + backgroundImage + "')";
+            main_div.style.backgroundSize = "cover";
         }
         if (backgroundColor != null){
             main_div.style.background = backgroundColor;

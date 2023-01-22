@@ -183,62 +183,35 @@
                     </div>
                 </div>
             </appBuild>
-            <!--
-            <appBuild title="User Account Control" width="446px" height="300px" startMenu="false" shortcut="false">
-                <div class="uac">
-                    <div class="header">
-                      <div class="question">
-                        Do you want to allow this app from an unknown publisher to make changes to your device?
-                      </div>
-                    </div>
-                    <div class="content">
-                        <div class="name">-->
-                          <!-- Uninstall Name of the Program.exe -->
-                          <!--
-                          LEVEL1.exe
-                        </div>
-                      <div class="details">
-                        <div class="textOverflow1Line">Publisher: <span class="asciiHash">Unknown</span></div>
-                        <br>
-                        <div class="textOverflow1Line">File origin: <span class="asciiHash">Hard drive on this computer</span></div>
-                      </div>
-                      <div class="moredetails" onclick="this.style.opacity = this.style.opacity==''?'.9':this.style.opacity-.1">
-                        Show more details
-                      </div>
-                    </div>
-                      <div class="buttons">
-                        <div class="btnwrap btnyes">
-                          <div class="yes">
-                            Yes
-                          </div>
-                        </div>
-                        <div class="btnwrap btnno">
-                          <div class="no">
-                            No
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-                  
-            </appBuild>
-            -->
-            <appBuild title="Antivirus" icon="antivirusLogo.png" backgroundImage="antivirus-background.jpg" resize="false">
+            <appBuild title="Antivirus" icon="antivirusLogo.png" backgroundImage="antivirus-background.jpg" resize="false" maximize="false">
                 <div id="av_header">
-                    <img src="/images/levelLogos/antivirusLogo.png">
-                    <p>Purktivirus</p>
+                    <img src="/images/levelLogos/antivirusLogo.png" draggable="false" class="unselectable">
+                    <p class="unselectable">Purktivirus</p>
                 </div>
                 <div id="av_sideBar">
-                    <div class="av_button">
-                        <img src="/images/WebBrowser/magnifier.png" style="filter: invert();">
-                        <p>Scan</p>
+                    <div class="av_button" onclick="document.getElementById('av_settings').style.display = 'none'">
+                        <img src="/images/WebBrowser/magnifier.png" style="filter: invert();" draggable="false" class="unselectable">
+                        <p class="unselectable">Scan</p>
                     </div>
-                    <div class="av_button">
-                        <img src="/images/taskbar/Settingslight.svg">
-                        <p>Settings</p>
+                    <div class="av_button" onclick="document.getElementById('av_settings').style.display = 'unset'; stopScan()">
+                        <img src="/images/taskbar/Settingslight.svg" draggable="false" class="unselectable">
+                        <p class="unselectable">Settings</p>
                     </div>
                 </div>
                 <div id="av_footer">
-                    <button id="av_scanBTN">Fast scan</button>
+                    <button id="av_scanBTN" onclick="startScan()">Fast scan</button>
+                    <div id="av_scanInfo" style="display: none;">
+                        <div id="av_scanInfo_text" class="unselectable"></div>
+                        <div id="av_scanInfo_status" class="unselectable"></div>
+                        <button id="av_scanInfoBTN" style="cursor: default;"></button>
+                    </div>
+                </div>
+                <div id="av_settings">
+                    <label for="scan-type">Scanning type:</label>
+                    <select name="scan-type" id="scan-type-options" onchange="changeScanningType(this.value)">
+                        <option value="Fast">Fast</option>
+                        <option value="Full">Full</option>
+                    </select>
                 </div>
             </appBuild>
             
@@ -268,6 +241,6 @@
     <script src="js/telefon.js"></script> 
     <script src="js/ransomware.js"></script>
     <script src="js/settings.js"></script>
-
+    <script src="js/antivirus.js"></script>
 </body>
 </html>

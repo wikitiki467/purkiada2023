@@ -27,6 +27,16 @@
     background-color: rgb(80, 80, 80);
 }
 
+#av_settings{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+    height: calc(80% - 2px);;
+    background-color: rgb(80, 80, 80);
+}
+
 #av_footer{
     position: absolute;
     bottom: 0;
@@ -34,6 +44,7 @@
     width: 80%;
     height: 20%;
     background-color: rgb(22, 22, 22);
+    transition: ease-out 3s;
 }
 
 #av_footer #av_scanBTN{
@@ -67,4 +78,29 @@
 
 .av_button:hover{
     background-color: rgb(70, 70, 70);
+}
+
+#av_scanInfo{
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 80px;
+    left: 50px;
+}
+
+#av_scanInfo_text{
+    text-align: left;
+}
+
+#av_scanInfo_status{
+    font-size: medium;
+}
+
+#av_scanInfo button{
+    position: absolute;
+    display: none;
+    width: auto;
+    bottom: 50px;
+    padding: 5px;
+    background-color: rgb(59, 221, 59);
+    border-radius: 0;
 }

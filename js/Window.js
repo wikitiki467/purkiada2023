@@ -38,7 +38,7 @@ function generateApps(){
         let height = builder.getAttribute("height");
         let title = builder.getAttribute("title");
         let icon = "../images/levelLogos/" + builder.getAttribute("icon");
-        let backgroundImage = "../images/levelBackground/" + builder.getAttribute("backgroundImage");
+        let backgroundImage = builder.getAttribute("backgroundImage");
         let backgroundColor = builder.getAttribute("backgroundColor");
         let scroll = builder.getAttribute("scroll");
         let maximize = builder.getAttribute("maximize");
@@ -53,11 +53,16 @@ function generateApps(){
             startMenu = true;
         }
 
+        if (backgroundImage != null){
+            backgroundImage = "../images/levelBackground/" + backgroundImage;
+        }
         if (builder.getAttribute("icon") == null){
             icon = "../images/levelLogos/DARK/fileDefault.png";
         }
 
-        newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, startMenu, i+1);
+        if (title != null){
+            newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, startMenu, i+1);
+        }
     }
 }
 
@@ -146,8 +151,12 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
         /*Create content div*/
         const main_div = document.createElement("div");
         main_div.className = "main_div";
-        main_div.style.backgroundImage = "url('" + backgroundImage + "')";
-        main_div.style.background = backgroundColor;
+        if (backgroundImage != null){
+            main_div.style.backgroundImage = "url('" + backgroundImage + "')";
+        }
+        if (backgroundColor != null){
+            main_div.style.background = backgroundColor;
+        }
         if (scroll != null){
             main_div.setAttribute("scroll", `${scroll}`);
         }

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/panBackor.css">
     <link rel="stylesheet" href="css/apps/usc.css">
     <link rel="stylesheet" href="css/apps/level1.css">
+    <link rel="stylesheet" href="css/apps/antivirus.css">
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
     <canvas id="gradient-canvas" data-transition-in></canvas>
@@ -87,7 +88,7 @@
                     <div class="app_container" id="app_container" style="display: flex;margin: 2%;"></div>
                     <appBuild title="LEVEL1.exe" icon="LIGHT/icon1.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
                         <div class="levelStart level1start">
-                            <button onclick="moveWindow(7); openWindow(7); setTimeout(() => {window_z_index(7)}, 100);">START THE LEVEL</button>
+                            <button onclick="let popup = new SystemPermissionPopup('moje aplikace 1', 1); popup.show();">START THE LEVEL</button>
                         </div>
                     </appBuild>
                     <appBuild title="It's About Drive, It's About Power" icon="LIGHT/icon2.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
@@ -182,6 +183,7 @@
                     </div>
                 </div>
             </appBuild>
+            <!--
             <appBuild title="User Account Control" width="446px" height="300px" startMenu="false" shortcut="false">
                 <div class="uac">
                     <div class="header">
@@ -190,8 +192,9 @@
                       </div>
                     </div>
                     <div class="content">
-                        <div class="name">
+                        <div class="name">-->
                           <!-- Uninstall Name of the Program.exe -->
+                          <!--
                           LEVEL1.exe
                         </div>
                       <div class="details">
@@ -216,8 +219,22 @@
                         </div>
                       </div>
                   </div>
-
+                  
             </appBuild>
+            -->
+            <appBuild title="Antivirus" icon="antivirusLogo.png" backgroundImage="antivirus-background.jpg" resize="false">
+                <div id="av_header">
+                    <img src="/images/levelLogos/antivirusLogo.png">
+                    <p>Purktivirus</p>
+                </div>
+                <div id="av_sideBar">
+                    <div class="av_button"></div>
+                </div>
+                <div id="av_footer">
+                    <button id="av_scanBTN">Fast scan</button>
+                </div>
+            </appBuild>
+            
             <div id="PanBackorGUI">
                 <img draggable="false" src="images/Backor.png" title="Ahoj jsem pan Bačkor!">
                 <div>
@@ -245,9 +262,5 @@
     <script src="js/ransomware.js"></script>
     <script src="js/settings.js"></script>
 
-    <script>
-        let popup = new SystemPermissionPopup("moje aplikace 1", 1);
-        popup.show();
-    </script>
 </body>
 </html>

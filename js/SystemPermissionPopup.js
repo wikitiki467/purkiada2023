@@ -113,7 +113,7 @@ class SystemPermissionPopup{
             const yes = document.createElement("div");
             yes.className = "yes";
             yes.innerHTML = "Yes";
-            yes.setAttribute("onclick", this.onClickFunction);
+            yes.setAttribute("onclick", this.onClickFunction + "; closeSysPermissionPopup();");
 
             btnyes.appendChild(yes);
 

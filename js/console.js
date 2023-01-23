@@ -6,8 +6,12 @@ function consoleInput(event) {
         input.value = "";
         if (command == "help") {
             addConsoleLine("Nah, to zvladneš sam");
-        } else if (command == "clear") {
+        } else if (command == "clear" || command == "cls") {
             clearConsole();
+        } else if (command.startsWith("echo")) {
+            addConsoleLine(command.substring(5));
+        } else if (command == "" || command == " ") {
+            addConsoleLine("");
         } else {
             addConsoleLine(`'${command}' is not recognized as an internal or external command,
             operable program or batch file.`);
@@ -20,5 +24,6 @@ function addConsoleLine(text) {
     output.innerText += `\n${text}`;
 }
 function clearConsole() {
-    document.getElementById("console").innerHTML = "&nbsp;";
+    let output = document.getElementById("console_output_text")
+    output.innerHTML = "&nbsp;";
 }

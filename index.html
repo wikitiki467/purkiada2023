@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/winStyle.css">
     <link rel="stylesheet" href="css/screen.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/apps/fileExplorer.css">
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
     <canvas id="gradient-canvas" data-transition-in></canvas>
@@ -170,9 +171,9 @@
             <appBuild title="Notepad" icon="DARK/notepad.png" scroll="XY" backgroundColor="white">
                 <p contenteditable="true" id="notepad" class="unselectable" style="width:100%;height:100%"></p>
             </appBuild>
-            <appBuild title="???" backgroundColor="black">
+            <appBuild title="Video přehrávač" backgroundColor="black" shortcut="false" icon="vlc.png">
                 <video width="100%" height="100%" onclick="if(paused){play()}else{pause()}">
-                    <source src="images/NeverGonnaGiveYouUp.mp4" type="video/mp4">
+                    <source src="images/NeverGonnaGiveYouUp.mp4" type="video/mp4" id="videoPlayer">
                     Your browser does not support the video tag.
                 </video>
             </appBuild>
@@ -253,13 +254,32 @@
                             &nbsp;&nbsp;
                         </div>
                         <div class="console_input">
-                            <div class="console_input_text"><!--
+                            <div class="console_input_text">
                                 <span id="console_input_text">C:\LevelProgress> </span>
-                                <input type="text" id="console_input" onkeydown="consoleInput(event)" autofocus>-->
+                                <input type="text" id="console_input" onkeydown="consoleInput(event)">
                             </div>
                         </div>
                     </div>  
                 </div>       
+            </appBuild>
+            <appBuild title="File explorer" backgroundImage="fileExplorer-background.jpg" icon="file_explorer.png">
+                <div id="fe_header">
+                    <img id="fe_icon" src="images/levelLogos/file_explorer.png">
+                    <img id="fe_hide" src="images/fileHide.png">
+                </div>
+                <div id="fe_sideBar">
+                    <div class="side_folder"><img src="images/icons/about.svg"><p>huh</p></div>
+                    <div class="side_folder"></div>
+                </div>
+                <div id="fe_main">
+                    <div class="fe_folders" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png"><p>Rick roluje</p></div>
+                    <div class="fe_folders"></div>
+                    <div class="fe_folders"></div>
+                    <div class="fe_folders"></div>
+                    <div class="fe_folders"></div>
+                    <div class="fe_folders"></div>
+                    
+                </div>
             </appBuild>
             
             <div id="PanBackorGUI">
@@ -277,6 +297,7 @@
     <!-- <script src="js/storageManager.js"></script> -->
     <script src="js/loginManager.js"></script>
     <script src="js/Window.js"></script>
+    <script src="js/video.js"></script>
     <script src="js/ConvertTOOL.js"></script>
     <!-- <script src="js/sifrovaciKolo.js"></script>
     <script src="js/PASS_kontrola.js"></script> -->

@@ -1,0 +1,79 @@
+#fe_header{
+    background-color: rgba(0, 0, 0, 0.692);
+    height: 60px;
+    width: 100%;
+}
+
+#fe_header img{
+    position: absolute;
+    height: 55px;
+    top: 35px;
+}
+
+#fe_icon{
+    left: 10px;
+}
+
+#fe_hide{
+    right: 10px;
+    cursor: pointer;
+}
+
+#fe_sideBar{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.692);
+    height: calc(100% - 60px);
+    width: 180px;
+    overflow-y: scroll;
+}
+
+#fe_main{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - 180px);
+    height: calc(100% - 90px);
+    background-color: #18181886;
+    overflow-y: scroll;
+}
+
+.side_folder{
+    justify-content: left;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding-left: 15%;
+    left: 5px;
+    height: 45px;
+    width: 85%;
+    cursor: pointer;
+}
+
+.side_folder:hover{
+    background-color: rgba(7, 77, 104, 0.801);
+}
+
+.side_folder img{
+    height: 30px;
+    width: 30px;
+}
+
+.fe_folders{
+    margin: 5px;
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.fe_folders:hover{
+    background-color: rgba(34, 52, 59, 0.418);
+}
+
+.fe_folders img{
+    height: 120px;
+    margin-top: 5px;
+}

@@ -1,0 +1,27 @@
+/* @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap'); */
+
+.console *{
+    font-size: 15px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: lighter;
+}
+.console{
+    color: rgb(242, 242, 242);
+    text-align: left;
+    padding: 5px;
+    background-color: #0c0c0c;
+}
+.console .copyright{
+    padding-bottom: 15px;
+}
+.console .console_input_text input{
+    color: white;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: 40ch;
+}
+.console .console_input_text input:not(:focus){
+    color: rgb(242, 242, 242);
+    border-bottom: 1px solid rgb(242, 242, 242);
+}

@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Purkiáda - Úloha 8</title>
+    <link rel="stylesheet" href="css/panBackor.css">
+    <link rel="stylesheet" href="css/apps/usc.css">
+    <link rel="stylesheet" href="css/apps/level1.css">
+    <link rel="stylesheet" href="css/apps/antivirus.css">
+    <link rel="stylesheet" href="css/apps/console.css">
     <link rel="stylesheet" href="css/background.css">
     <link rel="stylesheet" href="css/windowDefault.css">
     <link rel="stylesheet" href="css/winStyle.css">
     <link rel="stylesheet" href="css/screen.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/panBackor.css">
-    <link rel="stylesheet" href="css/apps/usc.css">
-    <link rel="stylesheet" href="css/apps/level1.css">
-    <link rel="stylesheet" href="css/apps/antivirus.css">
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
     <canvas id="gradient-canvas" data-transition-in></canvas>
@@ -86,9 +87,35 @@
                 <img draggable="false" src="images/hand.svg" alt="hand.svg" id="hand">
                 <div id="contentDisplay">
                     <div class="app_container" id="app_container" style="display: flex;margin: 2%;"></div>
-                    <appBuild title="LEVEL1.exe" icon="LIGHT/icon1.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
+                    <appBuild title="LEVEL1.exe" icon="LIGHT/icon1.png" backgroundColor="radial-gradient(circle at 10% 20%, rgb(151, 10, 130) 0%, rgb(33, 33, 33) 100.2%)">
                         <div class="levelStart level1start">
-                            <button onclick="let popup = new SystemPermissionPopup('moje aplikace 1', 'console.log(\'ahoj\')'); popup.show();">START THE LEVEL</button>
+                            <button onclick="new SystemPermissionPopup('moje aplikace 1', 'document.querySelector(\'.level1start\').style.display = \'none\'').show();">START THE LEVEL</button>
+                        </div>
+                        <div class="levelContent">
+                            <h1 class="asciiHash textOverflow1Line levelHeader">LEVEL1</h1>
+
+                            <!-- <button>Získat podrobnosti</button> <br>
+
+                            <div><button>ZÍKAT NÁPOVĚDU</button> <span> - X bodů</span> <br></div>
+                            <div><button>ZÍKAT NÁPOVĚDU</button> <span> - X bodů</span> <br></div> -->
+
+                            <!-- template:
+                            Zíkat podrobnosti: ZDE
+                            Zíkat nápovědu: ZDE - X bodů
+                            Zíkat nápovědu: ZDE - X bodů -->
+                            <div class="levelDetails">
+                                <h4>Získat podrobnosti: </h4><button>ZDE</button>
+                            </div>
+                            <div class="levelHint">
+                                <div>
+                                    <h4>Získat nápovědu: </h4><button>ZDE</button><span> - X bodů</span>
+                                </div>
+                                <div>
+                                    <h4>Získat nápovědu: </h4><button>ZDE</button><span> - X bodů</span>
+                                </div>
+                            </div>
+
+                            <h3 class="levelStatus" isCompleted="false">Level dokončen: </h3>
                         </div>
                     </appBuild>
                     <appBuild title="It's About Drive, It's About Power" icon="LIGHT/icon2.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
@@ -214,6 +241,26 @@
                     </select>
                 </div>
             </appBuild>
+            <appBuild title="*jmeno_uzivatele*@spspurkynova" backgroundColor="#0c0c0c" scroll="Y">
+                <div class="console">
+                    <div class="copyright">
+                        Backora OS [Version 10.0.19045.2486] <br>
+                        (c) Purkiada Uloha -1. All rights reserved.
+                    </div>
+                    <div class="console_output">
+                        <div class="console_output_text" id="console_output_text">
+                            <!-- ZDE JE OUTPUT A ZAPISUJÍ SE TU POUŽITÉ COMMANDY -->
+                            &nbsp;&nbsp;
+                        </div>
+                    <div class="console_input">
+                        <div class="console_input_text">
+                            <span id="console_input_text">C:\LevelProgress> </span>
+                            <input type="text" id="console_input" onkeydown="consoleInput(event)" autofocus>
+                        </div>
+                    </div>
+
+                </div>            
+            </appBuild>
             
             <div id="PanBackorGUI">
                 <img draggable="false" src="images/Backor.png" title="Ahoj jsem pan Bačkor!">
@@ -223,8 +270,8 @@
             </div>
         </div>
     </div>
-
     <script src="js/PanBackor.js"></script>
+    <script src="js/console.js"></script>
     <script src="js/SystemPermissionPopup.js"></script>
     <script src="js/Gradient.js"></script>
     <!-- <script src="js/storageManager.js"></script> -->

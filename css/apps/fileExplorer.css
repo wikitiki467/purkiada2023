@@ -41,6 +41,7 @@
     scrollbar-width: thin;
     scrollbar-color: white #18181886;
     overflow-x: clip;
+    padding-right: 2.5px;
 }
 
 .side_folder{
@@ -69,10 +70,16 @@
     height: 150px;
     width: 150px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .fe_folders:hover{
     background-color: rgba(34, 52, 59, 0.418);
+    border: 1px solid #074c68;
+    box-sizing: border-box;
 }
 
 .fe_folders img{
@@ -83,6 +90,17 @@
     display: none;
 }
 .showHiddenFiles{
-    display: block;
+    display: flex;
     opacity: .75;
+    /* background-color: white; */
+    /* add 1s animation where the background color turns two white then back to default */
+    animation: showHiddenFiles .5s linear;
+}
+@keyframes showHiddenFiles{
+    0%{
+        background-color: rgba(186, 205, 212, 0.418);  
+    }
+    100%{
+        background-color: rgba(34, 52, 59, 0.418);
+    }
 }

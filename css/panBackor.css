@@ -1,22 +1,21 @@
-#PanBackorGUI{
-    position: absolute;
-    right: -28vw;
-    bottom: 10%;
+/* #PanBackorGUI{
+    position: relative;
+    right: -54vw;
+    bottom: -55%;
     height: 15%;
     width: 20vw;
     background-color: black;
-    transition: linear 1.5s;
-}
+    transition: right 1.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 #PanBackorGUI img{
-    position: absolute;
-    bottom: -15%;
-    left: -3vw;
-    height: 160%;
-    user-select: none;
+    height: 100%;
 }
 
-#PanBackorGUI div{
+#PanBackorGUI div.text{
     position: absolute;
     display: block;
     margin: 3% 20%;
@@ -26,3 +25,52 @@
 #PanBackorGUI a{
     color: white;
 }
+#PanBackorGUI .eye:after { /*pupil*/
+    position: absolute;
+    bottom: 55%;
+    right: 29%;
+    width: 40%;
+    aspect-ratio: 1;
+    background: #000;
+    border-radius: 50%;
+    content: " ";
+}
+#PanBackorGUI {
+
+    position: relative;
+    right: -90vw;
+    bottom: -55%;
+    height: 15%;
+    width: 20vw;
+    background-color: black;
+    transition: right 1.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .Backor {
+    position: absolute;
+    left: -3vw;
+    height: 160%;
+    user-select: none;
+  }
+  #PanBackorGUI .eye {
+  
+      position: absolute;
+      display: inline-block;
+      border-radius: 50%;
+      height: 22%;
+      aspect-ratio: 1;
+      background: white;
+      top: 16%;
+      left: 11%;
+      scale: 0.75;
+  
+  }
+  #eye2 {
+  
+  top: 23% !important;
+  left: 39% !important;
+  
+  }

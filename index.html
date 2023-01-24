@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/screen.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/apps/fileExplorer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
     <canvas id="gradient-canvas" data-transition-in></canvas>
@@ -265,7 +266,7 @@
             <appBuild title="File explorer" backgroundImage="fileExplorer-background.jpg" icon="file_explorer.png">
                 <div id="fe_header">
                     <img id="fe_icon" src="images/levelLogos/file_explorer.png">
-                    <img id="fe_hide" src="images/fileHide.png" onclick="toggleHiddenFiles()">
+                    <img id="fe_hide" title="show hidden files ✗" src="images/fileHide.png" onclick="toggleHiddenFiles();this.title=(this.title=='show hidden files ✓')?'show hidden files ✗':'show hidden files ✓'">
                 </div>
                 <div id="fe_sideBar">
                     <div class="side_folder"><img src="images/icons/about.svg"><p>huh</p></div>
@@ -286,8 +287,12 @@
             </appBuild>
             
             <div id="PanBackorGUI">
-                <img draggable="false" src="images/Backor.png" title="Ahoj jsem pan Bačkor!">
-                <div>
+                <div class="Backor">
+                    <img class="PanBackorImg" draggable="false" src="images/Backor.png" title="Ahoj jsem pan Bačkor!">
+                    <div class="eye" id="eye1"></div>
+                    <div class="eye" id="eye2"></div>
+                </div>
+                <div class="text">
                     <a id="PanBackorDialogText">Jsem pan Bačkor!</a>
                 </div>
             </div>

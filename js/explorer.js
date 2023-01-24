@@ -1,4 +1,4 @@
-let hiddenFilesShown = false;
+let hiddenFilesShown = true;
 function toggleHiddenFiles() {
     if (hiddenFilesShown) {
         var hiddenFiles = document.querySelectorAll('.hiddenFiles');

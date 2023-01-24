@@ -30,15 +30,17 @@
 
 #fe_main{
     position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     right: 0;
     bottom: 0;
     width: calc(100% - 180px);
     height: calc(100% - 90px);
     background-color: #18181886;
     overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: white #18181886;
+    overflow-x: clip;
 }
 
 .side_folder{
@@ -76,4 +78,11 @@
 .fe_folders img{
     height: 120px;
     margin-top: 5px;
+}
+.hiddenFiles{
+    display: none;
+}
+.showHiddenFiles{
+    display: block;
+    opacity: .75;
 }

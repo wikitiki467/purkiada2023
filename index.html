@@ -265,7 +265,7 @@
             <appBuild title="File explorer" backgroundImage="fileExplorer-background.jpg" icon="file_explorer.png">
                 <div id="fe_header">
                     <img id="fe_icon" src="images/levelLogos/file_explorer.png">
-                    <img id="fe_hide" src="images/fileHide.png">
+                    <img id="fe_hide" src="images/fileHide.png" onclick="toggleHiddenFiles()">
                 </div>
                 <div id="fe_sideBar">
                     <div class="side_folder"><img src="images/icons/about.svg"><p>huh</p></div>
@@ -273,11 +273,14 @@
                 </div>
                 <div id="fe_main">
                     <div class="fe_folders" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png"><p>Rick roluje</p></div>
-                    <div class="fe_folders"></div>
-                    <div class="fe_folders"></div>
-                    <div class="fe_folders"></div>
-                    <div class="fe_folders"></div>
-                    <div class="fe_folders"></div>
+                    <div class="fe_folders">A</div>
+                    <div class="fe_folders hiddenFiles">B</div>
+                    <div class="fe_folders">C</div>
+                    <div class="fe_folders">D</div>
+                    <div class="fe_folders">E</div>
+                    <div class="fe_folders">F</div>
+                    <div class="fe_folders">G</div>
+
                     
                 </div>
             </appBuild>
@@ -291,6 +294,7 @@
         </div>
     </div>
     <script src="js/PanBackor.js"></script>
+    <script src="js/explorer.js"></script>
     <script src="js/console.js"></script>
     <script src="js/SystemPermissionPopup.js"></script>
     <script src="js/Gradient.js"></script>

@@ -24,7 +24,7 @@ function changePanBackorDialog(text){
     panBackorDialogText.innerHTML = text;
 }
 
-changePanBackorDialog("ma uprimna reakce");
+changePanBackorDialog("Zdravím, jsem pan Bačkor. Vypadá to že tento/tvůj počítač byl 'zavirován', ale není se čeho bát. Společnými silami se pokusíme dát vše do pořádku.");
 
 // move eyes with mouse
 

@@ -18,8 +18,9 @@
 #PanBackorGUI div.text{
     position: absolute;
     display: block;
-    margin: 3% 20%;
-    text-align: center;
+    margin: -10% 2% -10% 22%;
+    text-align: left;
+    font-size: 15px;
 }
 
 #PanBackorGUI a{

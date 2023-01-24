@@ -1,6 +1,11 @@
 let panBackorGUI = document.getElementById("PanBackorGUI")
 let panBackorDialogText = document.getElementById("PanBackorDialogText");
-let shown = false
+let shown = false;
+let PanBackorDialogy = [
+    "Zdravím, jsem pan Bačkor. Vypadá to že tvůj počítač byl 'zavirován', ale není se čeho bát. Společnými silami se pokusíme dát vše do pořádku. Klikni na mě!",
+    "Zvláštní... Zdá se že žádný text nedává smysl. Je možné, že virus záměrně změnil systémový jazyk počítače, aby bylo těžší se ho zbavit.<br>Tím bych asi začal..."
+];
+let currentPanBackorDialog = PanBackorDialogy[0];
 
 function panBackorBTN(){
     if (shown){
@@ -24,7 +29,14 @@ function changePanBackorDialog(text){
     panBackorDialogText.innerHTML = text;
 }
 
-changePanBackorDialog("ma uprimna reakce");
+function nextPanBackorDialog(){
+    if (currentPanBackorDialog == PanBackorDialogy[0]){
+        currentPanBackorDialog = PanBackorDialogy[1];
+        changePanBackorDialog(currentPanBackorDialog)
+    }
+}
+
+changePanBackorDialog(currentPanBackorDialog);
 
 // move eyes with mouse
 

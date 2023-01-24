@@ -49,6 +49,12 @@ function changeLang(lang_) {
             document.querySelectorAll("label").forEach(element => {
                 changeThisAsciiToText(element);
             });
+            nextLevel();
             break;
+        
     }
+}
+
+function returnLang(){
+    return lang;
 }

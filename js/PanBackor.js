@@ -29,6 +29,7 @@ function changePanBackorDialog(text){
     panBackorDialogText.innerHTML = text;
 }
 
+
 function nextPanBackorDialog(){
     if (currentPanBackorDialog == PanBackorDialogy[0]){
         currentPanBackorDialog = PanBackorDialogy[1];
@@ -37,6 +38,7 @@ function nextPanBackorDialog(){
 }
 
 changePanBackorDialog(currentPanBackorDialog);
+
 
 // move eyes with mouse
 

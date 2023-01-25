@@ -355,7 +355,7 @@ function focusWindow(windowTitle){
     if (appID != null){
         moveWindow(appID);
         openWindow(appID);
-        window_z_index(appID);
+        setTimeout(() => {window_z_index(appID);}, 50);
     }else{
         console.error("[window.js] App '" + windowTitle +"' not found in system register");
     }

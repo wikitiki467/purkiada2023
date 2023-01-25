@@ -304,3 +304,9 @@
     line-height: 30px;
 }
 
+.spp_blackOverlay{
+    background: black;
+    background: linear-gradient(180deg, rgba(95,133,116,1) 0%, rgba(17,39,29,1) 100%);
+    background-blend-mode: multiply,multiply;
+    filter: brightness(.5);
+}

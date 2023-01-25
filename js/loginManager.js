@@ -57,6 +57,7 @@ function checkLoggedUser(){
         let loginscreen = document.getElementById("loginscreen");
         document.getElementById("UserNameOnScr").innerHTML = localStorage.getItem("loginDetail");
         loginscreen.parentNode.removeChild(loginscreen);
+        startVirusGame();
     }else{
         changePPandSetText();
     }

@@ -76,6 +76,10 @@
                 <!--<img draggable="false" src="images/taskbar/PLUSlight.svg" alt="plus" id="PLUS" class="task_btns">
                 <img draggable="false" src="images/taskbar/MINUSlight.svg" alt="minus " id="MINUS" class="task_btns">
                 <img draggable="false" src="images/taskbar/THEMElight.svg" alt="Theme changer" id="THEME" title="Theme" onclick="change_theme()">-->
+                <div id="backor_controls">
+                    <div class="arrows arrow-left" onclick="switchPanBackorDialog(-1)"></div>
+                    <div class="arrows arrow-right" onclick="switchPanBackorDialog(1)"></div>
+                </div>
                 <span id="getTime"> </span>
             </div>
             <div id="displayLeg"></div>
@@ -354,9 +358,6 @@
                 </div>
                 <div class="text">
                     <a id="PanBackorDialogText" class="unselectable">Jsem pan Bačkor!</a>
-                    <!-- arrow left arrow right -->
-                    <div class="arrows arrow-left"></div>
-                    <div class="arrows arrow-right"></div>
                 </div>
             </div>
         </div>

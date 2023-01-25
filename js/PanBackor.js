@@ -21,11 +21,13 @@ function panBackorBTN(){
 function showPanBackor(){
     shown = true;
     panBackorGUI.style.right = "-54vw";
+    document.getElementById("backor_controls").style.display = "flex";
 }
 
 function hidePanBackor(){
     shown = false;
     panBackorGUI.style.right = "-90vw";
+    document.getElementById("backor_controls").style.display = "none";
 }
 
 function changePanBackorDialog(text){
@@ -35,7 +37,7 @@ function changePanBackorDialog(text){
 changePanBackorDialog(panBackorDialogy[currentDialog])
 
 function switchPanBackorDialog(direction){
-    if (currentDialog < panBackorDialogy.length && direction == 1) currentDialog++, changePanBackorDialog(panBackorDialogy[currentDialog])
+    if (currentDialog < panBackorDialogy.length-1 && direction == 1) currentDialog++, changePanBackorDialog(panBackorDialogy[currentDialog])
     if (currentDialog > 0 && direction == -1) currentDialog--, changePanBackorDialog(panBackorDialogy[currentDialog])
 }
 
@@ -63,6 +65,18 @@ $("#contentDisplay").mouseleave(function(event) {
     });
 });
 $("#contentDisplay").mouseenter(function(event) {
+    var eye = $(".eye");
+    eye.css({
+        'display': 'block'
+    });
+});
+$(".Backor").mouseenter(function(event) {
+    var eye = $(".eye");
+    eye.css({
+        'display': 'none'
+    });
+});
+$(".Backor").mouseleave(function(event) {
     var eye = $(".eye");
     eye.css({
         'display': 'block'

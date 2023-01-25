@@ -406,6 +406,11 @@ function openStartMenu(){
     }
 }
 
+let startMenu = document.getElementById("startMenu");
+startMenu.addEventListener('blur', function(e){openStartMenu(); console.log('blur MENU')});
+
 startBTN.onclick = function(e){
     openStartMenu();
+    startMenu.focus();
+    
 }

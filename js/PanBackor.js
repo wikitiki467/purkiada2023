@@ -42,7 +42,7 @@ changePanBackorDialog(currentPanBackorDialog);
 
 // move eyes with mouse
 
-$("body").mousemove(function(event) {
+$("#contentDisplay").mousemove(function(event) {
     var eye = $(".eye");
     // console.log('eye', eye);
     var x = (eye.offset().left) + (eye.width() / 2);
@@ -54,5 +54,17 @@ $("body").mousemove(function(event) {
         '-moz-transform': 'rotate(' + rot + 'deg)',
         '-ms-transform': 'rotate(' + rot + 'deg)',
         'transform': 'rotate(' + rot + 'deg)'
+    });
+});
+$("#contentDisplay").mouseleave(function(event) {
+    var eye = $(".eye");
+    eye.css({
+        'display': 'none'
+    });
+});
+$("#contentDisplay").mouseenter(function(event) {
+    var eye = $(".eye");
+    eye.css({
+        'display': 'block'
     });
 });

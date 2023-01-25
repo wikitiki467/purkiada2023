@@ -89,6 +89,7 @@
     width: 40%;
     bottom: -1200%;
     background-color: #074c68;
+    outline: none;
 }
 
 #startMenu #sideBar{

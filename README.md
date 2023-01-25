@@ -95,6 +95,7 @@ popup.show();
 | `title`                   |    `String`     |   `Default text`    | Nastaví hlavní text                                                |
 | `publisher`               |    `String`     |   `Default text`    | Nastaví text tvůrce aplikace/processu                              |
 | `fileOrigin`              |    `String`     |   `Default text`    | Nastaví text umístění aplikace/processu                            |
+| `canClose`                |    `Bolean`     |       `true`        | Povolí/Zakáže možnost uzavřít popup pro speciální oprávnění        |
 
 
 ## Contributors 🙏

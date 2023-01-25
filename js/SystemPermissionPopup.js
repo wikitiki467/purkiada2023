@@ -28,6 +28,7 @@ class SystemPermissionPopup{
             window.style.left = "calc(50% - 223px)";
             window.style.top = "calc(50% - 150px)";
             window.style.zIndex = 999999999;
+            window.setAttribute("canClose", this.canClose)
 
             monitor.appendChild(window);
 
@@ -150,8 +151,8 @@ class SystemPermissionPopup{
 
 function closeSysPermissionPopup(){
     let popupWindow = document.querySelectorAll("sysPermissionPopup");
-
-    if (popupWindow.length == 1 && popupWindow[0].canClose){
+    
+    if (popupWindow.length == 1 && popupWindow[0].getAttribute("canClose") == "true"){
         forceCloseSysPermissionPopup()
     }
 }

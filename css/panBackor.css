@@ -20,7 +20,8 @@ align-items: center;
     display: block;
     margin: -10% 2% -10% 22%;
     text-align: left;
-    font-size: 15px;
+    font-size: 1.8vh;
+    /* text-shadow:#863027 .01em .01em 0, #863027 .02em .02em 0, #863027 .03em .03em 0, #863027 .04em .04em 0, #863027 .05em .05em 0, #863027 .06em .06em 0, #863027 .07em .07em 0, #863027 .08em .08em 0, #863027 .09em .09em 0, #863027 .1em .1em 0 */
 }
 
 #PanBackorGUI a {

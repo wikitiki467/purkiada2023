@@ -1,11 +1,12 @@
 let panBackorGUI = document.getElementById("PanBackorGUI")
 let panBackorDialogText = document.getElementById("PanBackorDialogText");
 let shown = false;
-let PanBackorDialogy = [
+let panBackorDialogy = [
     "Zdravím, jsem pan Bačkor. Vypadá to že tvůj počítač byl 'zavirován', ale není se čeho bát. Společnými silami se pokusíme dát vše do pořádku. Klikni na mě!",
-    "Zvláštní... Zdá se že žádný text nedává smysl. Je možné, že virus záměrně změnil systémový jazyk počítače, aby bylo těžší se ho zbavit.<br>Tím bych asi začal..."
+    "Zvláštní... Zdá se že žádný text nedává smysl. Je možné, že virus záměrně změnil systémový jazyk počítače, aby bylo těžší se ho zbavit.<br>Tím bych asi začal...",
+    "Skvěle! To jednoduché máme za sebou. Vypadá to že ještě nemusíme natáhnout bačkory.;)"
 ];
-let currentPanBackorDialog = PanBackorDialogy[0];
+let currentDialog = 0;
 
 function panBackorBTN(){
     if (shown){
@@ -18,10 +19,12 @@ function panBackorBTN(){
 }
 
 function showPanBackor(){
+    shown = true;
     panBackorGUI.style.right = "-54vw";
 }
 
 function hidePanBackor(){
+    shown = false;
     panBackorGUI.style.right = "-90vw";
 }
 
@@ -29,15 +32,12 @@ function changePanBackorDialog(text){
     panBackorDialogText.innerHTML = text;
 }
 
+changePanBackorDialog(panBackorDialogy[currentDialog])
 
-function nextPanBackorDialog(){
-    if (currentPanBackorDialog == PanBackorDialogy[0]){
-        currentPanBackorDialog = PanBackorDialogy[1];
-        changePanBackorDialog(currentPanBackorDialog)
-    }
+function switchPanBackorDialog(direction){
+    if (currentDialog < panBackorDialogy.length && direction == 1) currentDialog++, changePanBackorDialog(panBackorDialogy[currentDialog])
+    if (currentDialog > 0 && direction == -1) currentDialog--, changePanBackorDialog(panBackorDialogy[currentDialog])
 }
-
-changePanBackorDialog(currentPanBackorDialog);
 
 
 // move eyes with mouse

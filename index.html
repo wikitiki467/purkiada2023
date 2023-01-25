@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purkiáda - Úloha 8</title>
+    <title>Purkiáda 2023</title>
     <link rel="stylesheet" href="css/panBackor.css">
     <link rel="stylesheet" href="css/apps/store.css">
     <link rel="stylesheet" href="css/apps/usc.css">
@@ -275,18 +275,18 @@
                 </div>
                 <div id="fe_main">
                     <div class="fe_folders" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png"><p class="textOverflow1Line">Rick roluje</p></div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('A')">A</div>
-                    <div class="fe_folders hiddenFiles" onclick="focusWindow('Folder'); changeFolderText('B')">B</div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('C')">C</div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('D')">D</div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('E')">E</div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('F')">F</div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('G')">G</div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('A')"><img src="images/levelLogos/DARK/fileDefault.png"><p>A</p></div>
+                    <div class="fe_folders hiddenFiles" onclick="focusWindow('Folder'); changeFolderText('B')"><img src="images/levelLogos/DARK/fileDefault.png"><p>B</p></div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('C')"><img src="images/levelLogos/DARK/fileDefault.png"><p>C</p></div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('D')"><img src="images/levelLogos/DARK/fileDefault.png"><p>D</p></div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('E')"><img src="images/levelLogos/DARK/fileDefault.png"><p>E</p></div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('F')"><img src="images/levelLogos/DARK/fileDefault.png"><p>F</p></div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('G')"><img src="images/levelLogos/DARK/fileDefault.png"><p>G</p></div>
 
                 </div>
             </appBuild>
 
-            <appBuild title="Folder" backgroundColor="gray" scroll="XY" shortcut="false">
+            <appBuild title="Folder" backgroundColor="gray" scroll="XY" shortcut="false" startmenu="false">
                 <p id="folderText"></p>
             </appBuild>
 
@@ -344,7 +344,7 @@
             
             </appBuild>
             
-            <div id="PanBackorGUI" onclick="nextPanBackorDialog()">
+            <div id="PanBackorGUI">
                 <div class="Backor">
                     <img class="PanBackorImg" draggable="false" src="images/Backor.png" title="Ahoj jsem pan Bačkor!">
                     <div class="eye" id="eye1"></div>
@@ -353,7 +353,7 @@
                     <div class="eyeLid" id="eyeLid2"></div>
                 </div>
                 <div class="text">
-                    <a id="PanBackorDialogText">Jsem pan Bačkor!</a>
+                    <a id="PanBackorDialogText" class="unselectable">Jsem pan Bačkor!</a>
                     <!-- arrow left arrow right -->
                     <div class="arrows arrow-left"></div>
                     <div class="arrows arrow-right"></div>
@@ -368,6 +368,7 @@
     <script src="js/SystemPermissionPopup.js"></script>
     <script src="js/Gradient.js"></script>
     <!-- <script src="js/storageManager.js"></script> -->
+    <script src="js/gameFlowController.js"></script>
     <script src="js/loginManager.js"></script>
     <script src="js/Window.js"></script>
     <script src="js/video.js"></script>

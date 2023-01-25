@@ -5,21 +5,32 @@ class SystemPermissionPopup{
         this.title = "Do you want to allow this app from an unknown publisher to make changes to your device?";
         this.publisher = "Unknown";
         this.fileOrigin = "Hard drive on this computer";
+        this.canClose = true;
     }
 
     show() {
         if (document.querySelectorAll("sysPermissionPopup").length == 0){
-            let contentDisplay = document.getElementById("app_container");
+            let monitor = document.getElementsByClassName("monitor")[0];
+
+            const blackOverlay = document.createElement("div");
+            blackOverlay.className = "spp_blackOverlay";
+            blackOverlay.style.position = "absolute";
+            blackOverlay.style.zIndex = 999999998;
+            blackOverlay.style.width = "100%";
+            blackOverlay.style.height = "100%";
+
+            monitor.appendChild(blackOverlay);
 
             const window = document.createElement("sysPermissionPopup");
-            window.className = "spp_window";
+            window.className = "spp_window unselectable";
             window.style.width = "446px";
             window.style.height = "300px";
             window.style.left = "calc(50% - 223px)";
             window.style.top = "calc(50% - 150px)";
             window.style.zIndex = 999999999;
+            window.setAttribute("canClose", this.canClose)
 
-            contentDisplay.appendChild(window);
+            monitor.appendChild(window);
 
             const windowHeader = document.createElement("div");
             windowHeader.className = "spp_windowHeader";
@@ -113,7 +124,7 @@ class SystemPermissionPopup{
             const yes = document.createElement("div");
             yes.className = "yes";
             yes.innerHTML = "Yes";
-            yes.setAttribute("onclick", this.onClickFunction + "; closeSysPermissionPopup();");
+            yes.setAttribute("onclick", this.onClickFunction + "; forceCloseSysPermissionPopup();");
 
             btnyes.appendChild(yes);
 
@@ -140,8 +151,17 @@ class SystemPermissionPopup{
 
 function closeSysPermissionPopup(){
     let popupWindow = document.querySelectorAll("sysPermissionPopup");
+    
+    if (popupWindow.length == 1 && popupWindow[0].getAttribute("canClose") == "true"){
+        forceCloseSysPermissionPopup()
+    }
+}
+
+function forceCloseSysPermissionPopup(){
+    let popupWindow = document.querySelectorAll("sysPermissionPopup");
 
     if (popupWindow.length == 1){
         popupWindow[0].remove();
+        document.getElementsByClassName("spp_blackOverlay")[0].remove();
     }
 }

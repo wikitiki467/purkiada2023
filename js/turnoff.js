@@ -35,3 +35,7 @@ function endingScreen() {
     powerOffButton.click();
 
 }
+function restart() {
+    turnOff();
+    firstTurnOn();
+}

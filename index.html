@@ -62,7 +62,7 @@
                                 <img draggable="false" src="images/taskbar/Settingslight.svg" alt="settings button" class="task_btns">
                                 <p class="start_text">Settings</p>
                             </div>
-                            <div id="PowerBTN" class="start_sidebar_btns" onclick="turnOff();openStartMenu();firstTurnOn();">
+                            <div id="PowerBTN" class="start_sidebar_btns" onclick="restart();openStartMenu();">
                                 <img draggable="false" src="images/taskbar/PowerBTNlight.svg" alt="power button" class="task_btns">
                                 <p class="start_text">Power</p>
                             </div>
@@ -181,7 +181,7 @@
             <appBuild title="settings" shortcut="false" startMenu="false">
                 <div class="settings_main">
                     <ul class="settings_nav">
-                        <li onclick="activateTab(this, 'tab_general')"><img class="settings_ico" src="images/icons/settings-cog.svg" alt=""><p>General</p></li>
+                        <li onclick="activateTab(this, 'tab_general')" id="defaultSettingsTab"><img class="settings_ico" src="images/icons/settings-cog.svg" alt=""><p>General</p></li>
                         <li onclick="activateTab(this, 'tab_appearance')"><img class="settings_ico" src="images/icons/appearance.svg" alt=""><p>Appearance</p></li>
                         <li onclick="activateTab(this, 'tab_about')"><img class="settings_ico" src="images/icons/about.svg" alt=""><p>About</p></li>
                         <li onclick="activateTab(this, 'tab_bug')"><img class="settings_ico" src="images/icons/bug.svg" alt=""><p>Report Bug</p></li>
@@ -284,6 +284,9 @@
 
                     
                 </div>
+            </appBuild>
+            <appBuild>
+                
             </appBuild>
             
             <div id="PanBackorGUI" onclick="nextPanBackorDialog()">

@@ -58,3 +58,4 @@ function changeLang(lang_) {
 function returnLang(){
     return lang;
 }
+activateTab(document.getElementById('defaultSettingsTab'), 'tab_general')

@@ -37,10 +37,23 @@ function changePanBackorDialog(text){
 changePanBackorDialog(panBackorDialogy[currentDialog])
 
 function switchPanBackorDialog(direction){
-    if (currentDialog < panBackorDialogy.length-1 && direction == 1) currentDialog++, changePanBackorDialog(panBackorDialogy[currentDialog])
-    if (currentDialog > 0 && direction == -1) currentDialog--, changePanBackorDialog(panBackorDialogy[currentDialog])
+    // if (currentDialog < panBackorDialogy.length-1 && direction == 1) currentDialog++, changePanBackorDialog(panBackorDialogy[currentDialog])
+    // if (currentDialog > 0 && direction == -1) currentDialog--, changePanBackorDialog(panBackorDialogy[currentDialog])
+    if (currentDialog + direction < panBackorDialogy.length && currentDialog + direction >= 0) {
+        currentDialog += direction;
+        changePanBackorDialog(panBackorDialogy[currentDialog]);
+    } else {
+        changePanBackorDialog(panBackorDialogy[direction > 0 ? panBackorDialogy.length - 1 : 0]);
+    }
 }
-
+// switch dialog on arrows press
+document.addEventListener("keydown", function(event) {
+    if (event.key == "ArrowLeft") {
+        switchPanBackorDialog(-1);
+    } else if (event.key == "ArrowRight") {
+        switchPanBackorDialog(1);
+    }
+});
 
 // move eyes with mouse
 

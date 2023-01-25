@@ -19,10 +19,12 @@ function panBackorBTN(){
 }
 
 function showPanBackor(){
+    shown = true;
     panBackorGUI.style.right = "-54vw";
 }
 
 function hidePanBackor(){
+    shown = false;
     panBackorGUI.style.right = "-90vw";
 }
 

@@ -68,6 +68,8 @@ function generateApps(){
 
 function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, startMenu, appID){
     let contentDisplay = document.getElementById("app_container");
+    /*add to system register*/
+    addToSystemRegister(appID, title);
 
     if (startMenu != "false"){
         /*Add app to list*/
@@ -345,6 +347,18 @@ function minimizeWindow(window_ID){
     let window = document.getElementById("window"+window_ID);
 
     window.style.left = "130%";
+}
+
+function focusWindow(windowTitle){
+    /*Get window id from system register*/
+    let appID = getFromSystemRegister(windowTitle);
+    if (appID != null){
+        moveWindow(appID);
+        openWindow(appID);
+        window_z_index(appID);
+    }else{
+        console.error("[window.js] App '" + windowTitle +"' not found in system register");
+    }
 }
 
 //---------------------------------------------------------------

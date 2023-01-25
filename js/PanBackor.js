@@ -48,6 +48,7 @@ function switchPanBackorDialog(direction){
 }
 // switch dialog on arrows press
 document.addEventListener("keydown", function(event) {
+    if (!shown) return;
     if (event.key == "ArrowLeft") {
         switchPanBackorDialog(-1);
     } else if (event.key == "ArrowRight") {

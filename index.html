@@ -275,15 +275,21 @@
                 </div>
                 <div id="fe_main">
                     <div class="fe_folders" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png"><p class="textOverflow1Line">Rick roluje</p></div>
-                    <div class="fe_folders">A</div>
-                    <div class="fe_folders hiddenFiles">B</div>
-                    <div class="fe_folders">C</div>
-                    <div class="fe_folders">D</div>
-                    <div class="fe_folders">E</div>
-                    <div class="fe_folders">F</div>
-                    <div class="fe_folders">G</div>  
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('A')">A</div>
+                    <div class="fe_folders hiddenFiles" onclick="focusWindow('Folder'); changeFolderText('B')">B</div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('C')">C</div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('D')">D</div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('E')">E</div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('F')">F</div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFolderText('G')">G</div>
+
                 </div>
             </appBuild>
+
+            <appBuild title="Folder" backgroundColor="gray" scroll="XY" shortcut="false">
+                <p id="folderText"></p>
+            </appBuild>
+
             <appBuild title="BACKOR Store" icon="store.png" backgroundColor="#a0a5b7" scroll="">
                 <div id="store_header">
                     <img id="store_icon" src="images/levelLogos/store.png" draggable="false">
@@ -352,6 +358,7 @@
             </div>
         </div>
     </div>
+    <script src="js/register.js"></script>
     <script src="js/PanBackor.js"></script>
     <script src="js/explorer.js"></script>
     <script src="js/console.js"></script>
@@ -374,5 +381,6 @@
     <script src="js/settings.js"></script>
     <script src="js/antivirus.js"></script>
     <script src="js/level.js"></script>
+    <script src="js/folder.js"></script>
 </body>
 </html>

@@ -87,9 +87,10 @@
     position: fixed;
     height: 1200%;
     width: 40%;
-    bottom: -1200%;
+    bottom: 100%;
     background-color: #074c68;
     outline: none;
+    display: none;
 }
 
 #startMenu #sideBar{

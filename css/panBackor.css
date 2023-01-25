@@ -132,3 +132,16 @@
         background: linear-gradient(180deg, rgba(75,82,92,1) 0%, rgba(75,82,92,1) 1%, transparent 2%, transparent 100%);
     }
   }
+.arrows{
+    width: 33px;
+    height: 33px;
+    border: 2px solid white;
+    border-left: 0;
+    border-top: 0;
+}
+.arrow-left {
+    transform: rotate(135deg);
+}
+.arrow-right {
+    transform: rotate(315deg);
+}

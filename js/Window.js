@@ -409,22 +409,29 @@ function taskBarOpendWindows(window_ID, action){
         openedWindows[window_ID-1] = false;
     }
 }
-
+let startMenu = document.getElementById("startMenu");
 function openStartMenu(){
-    if (document.getElementById("taskBar").style.overflow == "hidden"){
-        document.getElementById("startMenu").style.bottom = "100%";
+    if (document.getElementById("startMenu").style.display == "none" && !startMenuIsOpen){
+        document.getElementById("startMenu").style.display = "block";
         document.getElementById("taskBar").style.overflow = "visible";
+        startMenu.focus();
+        startMenuIsOpen = true;
     }else{
-        document.getElementById("startMenu").style.bottom = "-1200%";
-        document.getElementById("taskBar").style.overflow = "hidden";
+        setTimeout(() => {
+            document.getElementById("startMenu").style.display = "none";
+            document.getElementById("taskBar").style.overflow = "hidden";
+        }, 50);
     }
 }
-
-let startMenu = document.getElementById("startMenu");
-startMenu.addEventListener('blur', function(e){openStartMenu(); console.log('blur MENU')});
-
-startBTN.onclick = function(e){
+let startMenuIsOpen = false;
+startMenu.addEventListener('blur', function(e){
     openStartMenu();
-    startMenu.focus();
-    
-}
+    setTimeout(() => 
+    {
+        startMenuIsOpen = false;
+    }, 200);
+});
+
+startBTN.addEventListener('click', function(e){
+    openStartMenu();
+});

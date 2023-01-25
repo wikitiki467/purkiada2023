@@ -38,6 +38,7 @@ function changeLang(lang_) {
             break;
         default:
             lang = "default";
+            completeLevel(1);
             changeClassTextToAscii("winControls"); // change windows controls to ascii (temporarily)
             changeClassAsciiToText("windowTitle");
             document.querySelectorAll("p").forEach(element => {

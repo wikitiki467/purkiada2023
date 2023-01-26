@@ -12,6 +12,7 @@ function checkLoginInfo(){
             document.getElementById("UserNameOnScr").innerHTML = username;
             localStorage.setItem("warningTextKey", "");
             validUser = true;
+            startVirusGame();
         }
     }
     if (!validUser){

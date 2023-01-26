@@ -4,10 +4,10 @@ function startVirusGame(){
     popup.show();
 }
 
-var currentActiveLevel = 1;
+
 function completeLevel(levelNumber){
-    if (levelNumber == currentActiveLevel){
-        currentActiveLevel += 1;
-        switchPanBackorDialog(1);
+    if (levelNumber == getCurrentActiveLevel()+1){
+        incrementCurrentActiveLevel();
     }
 }
+

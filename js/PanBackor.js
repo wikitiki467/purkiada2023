@@ -1,12 +1,23 @@
 let panBackorGUI = document.getElementById("PanBackorGUI")
 let panBackorDialogText = document.getElementById("PanBackorDialogText");
 let shown = false;
-let panBackorDialogy = [
-    "Zdravím, jsem pan Bačkor. Vypadá to že tvůj počítač byl 'zavirován', ale není se čeho bát. Společnými silami se pokusíme dát vše do pořádku. Klikni na mě!",
-    "Zvláštní... Zdá se že žádný text nedává smysl. Je možné, že virus záměrně změnil systémový jazyk počítače, aby bylo těžší se ho zbavit.<br>Tím bych asi začal...",
-    "Skvěle! To jednoduché máme za sebou. Vypadá to že ještě nemusíme natáhnout bačkory.;)"
-];
+let panBackorDialogy = [["Zdravím, jsem pan Bačkor. Vypadá to že tvůj počítač byl 'zavirován', ale není se čeho bát. Společnými silami se pokusíme dát vše do pořádku. Klikni na mě!",
+"Zvláštní... Zdá se že žádný text nedává smysl. Je možné, že virus záměrně změnil systémový jazyk počítače, aby bylo těžší se ho zbavit.<br>Tím bych asi začal..."],
+["Skvěle! To jednoduché máme za sebou. Vypadá to že ještě nemusíme natáhnout bačkory.;)"]];
+
 let currentDialog = 0;
+/*Current level*/
+var currentActiveLevel = 0;
+
+function getCurrentActiveLevel(){
+    return currentActiveLevel;
+}
+
+function incrementCurrentActiveLevel(){
+    currentActiveLevel += 1;
+    currentDialog = 0;
+    changePanBackorDialog(panBackorDialogy[currentActiveLevel][currentDialog]);
+}
 
 function panBackorBTN(){
     if (shown){
@@ -34,16 +45,16 @@ function changePanBackorDialog(text){
     panBackorDialogText.innerHTML = text;
 }
 
-changePanBackorDialog(panBackorDialogy[currentDialog])
+changePanBackorDialog(panBackorDialogy[currentActiveLevel][currentDialog])
 
 function switchPanBackorDialog(direction){
     // if (currentDialog < panBackorDialogy.length-1 && direction == 1) currentDialog++, changePanBackorDialog(panBackorDialogy[currentDialog])
     // if (currentDialog > 0 && direction == -1) currentDialog--, changePanBackorDialog(panBackorDialogy[currentDialog])
-    if (currentDialog + direction < panBackorDialogy.length && currentDialog + direction >= 0) {
+    if (currentDialog + direction < panBackorDialogy[currentActiveLevel].length && currentDialog + direction >= 0) {
         currentDialog += direction;
-        changePanBackorDialog(panBackorDialogy[currentDialog]);
+        changePanBackorDialog(panBackorDialogy[currentActiveLevel][currentDialog]);
     } else {
-        changePanBackorDialog(panBackorDialogy[direction > 0 ? panBackorDialogy.length - 1 : 0]);
+        changePanBackorDialog(panBackorDialogy[currentActiveLevel][direction > 0 ? panBackorDialogy[currentActiveLevel].length - 1 : 0]);
     }
 }
 // switch dialog on arrows press

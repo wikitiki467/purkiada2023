@@ -1,5 +1,6 @@
 function convertToAscii(text) {
     let asciiCodes = [];
+    if (text === "") return asciiCodes;
     for (let i = 0; i < text.length; i++) {
       asciiCodes.push(text.charCodeAt(i));
     }
@@ -27,6 +28,7 @@ function changeClassTextToAscii(classname){
 }
 function changeThisTextToAscii(elem){
     let asciiCodesList = convertToAscii(getTextFromElement(elem));
+    if (asciiCodesList.length === 0) return;
     let result = "";
     for (let i = 0; i < asciiCodesList.length - 1; i++){
         result += asciiCodesList[i] + " ";

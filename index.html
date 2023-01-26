@@ -94,7 +94,7 @@
                 <img draggable="false" src="images/hand.svg" alt="hand.svg" id="hand">
                 <div id="contentDisplay">
                     <div class="app_container" id="app_container" style="display: flex;margin: 2%;"></div>
-                    <appBuild title="LEVEL1.exe" icon="LIGHT/icon1.png" backgroundColor="radial-gradient(circle at 10% 20%, rgb(151, 10, 130) 0%, rgb(33, 33, 33) 100.2%)">
+                    <appBuild title="LEVEL1.exe" icon="LIGHT/icon1.png" backgroundColor="radial-gradient(circle at 10% 20%, rgb(151, 10, 130) 0%, rgb(33, 33, 33) 100.2%)" isInstalled="false">
                         <div class="levelStart level1start">
                             <button onclick="new SystemPermissionPopup('moje aplikace 1', 'document.querySelector(\'.level1start\').style.display = \'none\';changeLang(\'ascii\');').show()">START THE LEVEL</button>
                         </div>
@@ -217,7 +217,7 @@
                     </div>
                 </div>
             </appBuild>
-            <appBuild title="Antivirus" icon="antivirusLogo.png" backgroundImage="antivirus-background.jpg" resize="false" maximize="false">
+            <appBuild title="Antivirus" icon="antivirusLogo.png" backgroundImage="antivirus-background.jpg" resize="false" maximize="false" isInstalled="false">
                 <div id="av_header">
                     <img src="/images/levelLogos/antivirusLogo.png" draggable="false" class="unselectable">
                     <p class="unselectable">Purktivirus</p>
@@ -248,7 +248,7 @@
                     </select>
                 </div>
             </appBuild>
-            <appBuild title="*jmeno_uzivatele*@spspurkynova" backgroundColor="#0c0c0c" scroll="Y" icon="terminal.png">
+            <appBuild title="*jmeno_uzivatele*@spspurkynova" backgroundColor="#0c0c0c" scroll="Y" icon="terminal.png" isInstalled="false">
                 <div class="console">
                     <div class="copyright">
                         Backora OS [Version 10.0.19045.2486] <br>
@@ -268,7 +268,7 @@
                     </div>  
                 </div>       
             </appBuild>
-            <appBuild title="File explorer" backgroundImage="fileExplorer-background.jpg" icon="file_explorer.png">
+            <appBuild title="File explorer" backgroundImage="fileExplorer-background.jpg" icon="file_explorer.png" isInstalled="false">
                 <div id="fe_header">
                     <img id="fe_icon" src="images/levelLogos/file_explorer.png">
                     <img id="fe_hide" title="show hidden files ✗" src="images/fileHide.png" onclick="toggleHiddenFiles();this.title=(this.title=='show hidden files ✓')?'show hidden files ✗':'show hidden files ✓'">
@@ -303,45 +303,17 @@
                 </div>
                 <div id="store_content">
                     <div id="store_content_left">
-                        <div class="store_content_left_item" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')">
-                            <img src="images/levelLogos/vlc.png">
-                            <p class="textOverflow1Line">Rick roluje</p>
+                        <div class="store_content_left_item" onclick="installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova'));this.style.display = 'none'">
+                            <img src="images/levelLogos/terminal.png">
+                            <p class="textOverflow1Line">Terminal</p>
                         </div>
-                        <div class="store_content_left_item">
-                            <img src="images/levelLogos/vlc.png">
-                            <p class="textOverflow1Line">Rick roluje</p>
+                        <div class="store_content_left_item" onclick="installApp(getFromSystemRegister('File explorer'));this.style.display = 'none'">
+                            <img src="images/levelLogos/file_explorer.png">
+                            <p class="textOverflow1Line">File explorer</p>
                         </div>
-                        <div class="store_content_left_item">
-                            <img src="images/levelLogos/vlc.png">
-                            <p class="textOverflow1Line">Rick roluje</p>
-                        </div>
-                        <div class="store_content_left_item">
-                            <img src="images/levelLogos/vlc.png">
-                            <p class="textOverflow1Line">Rick roluje</p>
-                        </div>
-                        <div class="store_content_left_item">
-                            <img src="images/levelLogos/vlc.png">
-                            <p class="textOverflow1Line">Rick roluje</p>
-                        </div>
-                        <div class="store_content_left_item">
-                            <img src="images/levelLogos/vlc.png">
-                            <p class="textOverflow1Line">Rick roluje</p>
-                        </div>
-                        <div class="store_content_left_item">
-                            <img src="images/levelLogos/vlc.png">
-                            <p class="textOverflow1Line">Rick roluje</p>
-                        </div>
-                        <div class="store_content_left_item">
-                            <img src="images/levelLogos/vlc.png">
-                            <p class="textOverflow1Line">Rick roluje</p>
-                        </div>
-                        <div class="store_content_left_item">
-                            <img src="images/levelLogos/vlc.png">
-                            <p class="textOverflow1Line">Rick roluje</p>
-                        </div>
-                        <div class="store_content_left_item">
-                            <img src="images/levelLogos/vlc.png">
-                            <p class="textOverflow1Line">Rick roluje</p>
+                        <div class="store_content_left_item" onclick="installApp(getFromSystemRegister('Antivirus'));this.style.display = 'none'">
+                            <img src="images/levelLogos/antivirusLogo.png">
+                            <p class="textOverflow1Line">Antivirus</p>
                         </div>
                     </div>
                 </div>

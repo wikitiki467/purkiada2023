@@ -8,6 +8,6 @@ var currentActiveLevel = 1;
 function completeLevel(levelNumber){
     if (levelNumber == currentActiveLevel){
         currentActiveLevel += 1;
-        /*Prepnuti dialogu pana Backora*/
+        switchPanBackorDialog(1);
     }
 }

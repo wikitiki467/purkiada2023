@@ -45,6 +45,7 @@ function generateApps(){
         let resize = builder.getAttribute("resize");
         let shortcut = builder.getAttribute("shortcut");
         let startMenu = builder.getAttribute("startMenu");
+        let isInstalled = builder.getAttribute("isInstalled");
 
         if (builder.getAttribute("shortcut") == null){
             shortcut = true;
@@ -61,12 +62,12 @@ function generateApps(){
         }
 
         if (title != null){
-            newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, startMenu, i+1);
+            newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, startMenu, isInstalled, i+1);
         }
     }
 }
 
-function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, startMenu, appID){
+function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, startMenu, isInstalled, appID){
     let contentDisplay = document.getElementById("app_container");
     /*add to system register*/
     addToSystemRegister(appID, title);
@@ -168,6 +169,11 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
     /*Move content to generated window*/
     main_div.innerHTML = appBuild.innerHTML;
 
+    /*Hide app if not installed*/
+    if (isInstalled == "false"){
+        uninstallApp(appID);
+    }
+
     /*Delete current app builder tag*/
     appBuild.remove();  
 }
@@ -175,6 +181,7 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
 function addAppToList(title, icon, appID){
     const appContainer = document.createElement("div");
     appContainer.className = "start_sidebar_btns start_apps";
+    appContainer.id = "appList"+appID;
     appContainer.setAttribute("onclick", 'moveWindow('+appID+'); openWindow('+appID+'); window_z_index('+appID+'); openStartMenu()');
     appContainer.setAttribute("title", title);
 
@@ -359,6 +366,21 @@ function focusWindow(windowTitle){
     }else{
         console.error("[window.js] App '" + windowTitle +"' not found in system register");
     }
+}
+
+function installApp(appID){
+    let app = document.getElementById("application"+appID);
+    let appList = document.getElementById("appList"+appID);
+    app.style.display = "unset";
+    appList.style.display = "flex";
+    console.log("App installed: " + appID)
+}
+
+function uninstallApp(appID){
+    let app = document.getElementById("application"+appID);
+    let appList = document.getElementById("appList"+appID);
+    app.style.display = "none";
+    appList.style.display = "none";
 }
 
 //---------------------------------------------------------------

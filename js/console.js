@@ -12,8 +12,6 @@ function consoleInput(event) {
     let output = document.getElementById("console_output_text");
     if (event.keyCode == 13) {
         let command = stripSpacesFromStart(input.value);
-        console.log(command);
-        console.log(command.trim().length === 0);
         input.value = "";
         addConsoleLine(`C:\\LevelProgress> ${command}`);
         const commandLowerCase = command.toLowerCase();

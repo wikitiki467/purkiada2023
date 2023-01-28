@@ -51,6 +51,7 @@ function changeLang(lang_) {
                 changeThisAsciiToText(element);
             });
             nextLevel();
+            installApp(getFromSystemRegister('BACKOR Store'));
             break;
         
     }

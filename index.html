@@ -268,7 +268,7 @@
                     </div>  
                 </div>       
             </appBuild>
-            <appBuild title="File explorer" backgroundImage="fileExplorer-background.jpg" icon="file_explorer.png" isInstalled="false">
+            <appBuild title="File explorer" backgroundImage="fileExplorer-background.jpg" icon="file_explorer.png">
                 <div id="fe_header">
                     <img id="fe_icon" src="images/levelLogos/file_explorer.png">
                     <img id="fe_hide" title="show hidden files ✗" src="images/fileHide.png" onclick="toggleHiddenFiles();this.title=(this.title=='show hidden files ✓')?'show hidden files ✗':'show hidden files ✓'">
@@ -278,14 +278,14 @@
                     <div class="side_folder"></div>
                 </div>
                 <div id="fe_main">
-                    <div class="fe_folders" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png"><p class="textOverflow1Line">Rick roluje</p></div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('A')"><img src="images/levelLogos/DARK/fileDefault.png"><p>A</p></div>
-                    <div class="fe_folders hiddenFiles" onclick="focusWindow('Folder'); changeFileText('B')"><img src="images/levelLogos/DARK/fileDefault.png"><p>B</p></div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('C')"><img src="images/levelLogos/DARK/fileDefault.png"><p>C</p></div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('D')"><img src="images/levelLogos/DARK/fileDefault.png"><p>D</p></div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('E')"><img src="images/levelLogos/DARK/fileDefault.png"><p>E</p></div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('F')"><img src="images/levelLogos/DARK/fileDefault.png"><p>F</p></div>
-                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('G')"><img src="images/levelLogos/DARK/fileDefault.png"><p>G</p></div>
+                    <div class="fe_folders" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png" class="fe_folder_img"><p class="textOverflow1Line">Rick roluje</p></div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('A')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_folder_img"><p>A</p></div>
+                    <div class="fe_folders hiddenFiles" onclick="focusWindow('Folder'); changeFileText('B')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_folder_img"><p>B</p></div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('C')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_folder_img"><p>C</p></div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('D')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_folder_img"><p>D</p></div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('E')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_folder_img"><p>E</p></div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('F')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_folder_img"><p>F</p></div>
+                    <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('G')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_folder_img"><p>G</p></div>
 
                 </div>
             </appBuild>
@@ -294,7 +294,7 @@
                 <p id="folderText"></p>
             </appBuild>
 
-            <appBuild title="BACKOR Store" icon="store.png" backgroundColor="#a0a5b7" scroll="">
+            <appBuild title="BACKOR Store" icon="store.png" backgroundColor="#a0a5b7" scroll="" isInstalled="false">
                 <div id="store_header">
                     <img id="store_icon" src="images/levelLogos/store.png" draggable="false">
                     <div id="store_header_text">
@@ -307,17 +307,17 @@
                             <img src="images/levelLogos/terminal.png">
                             <p class="textOverflow1Line">Terminal</p>
                         </div>
-                        <div class="store_content_left_item" onclick="installApp(getFromSystemRegister('File explorer'));this.style.display = 'none'">
-                            <img src="images/levelLogos/file_explorer.png">
-                            <p class="textOverflow1Line">File explorer</p>
-                        </div>
-                        <div class="store_content_left_item" onclick="installApp(getFromSystemRegister('Antivirus'));this.style.display = 'none'">
+                        <div class="store_content_left_item" onclick="installApp(getFromSystemRegister('wizard'));this.style.display = 'none'; completeLevel(2)">
                             <img src="images/levelLogos/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>
                     </div>
                 </div>
             
+            </appBuild>
+
+            <appBuild title="wizard" isInstalled="false">
+                <button onclick="installApp(getFromSystemRegister('Antivirus')); uninstallApp(getFromSystemRegister('wizard'));">Install</button>
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">

@@ -54,6 +54,12 @@ function switchPanBackorDialog(direction){
     if (currentDialog + direction < panBackorDialogy[currentActiveLevel].length && currentDialog + direction >= 0) {
         currentDialog += direction;
         changePanBackorDialog(panBackorDialogy[currentActiveLevel][currentDialog]);
+        /*make PanBackorPointer visible*/
+        if(currentActiveLevel == 0 && currentDialog == 1){
+            document.getElementById("PanBackorPointer").style.display = "block";
+        }else{
+            document.getElementById("PanBackorPointer").style.display = "none";
+        }
     } else {
         changePanBackorDialog(panBackorDialogy[currentActiveLevel][direction > 0 ? panBackorDialogy[currentActiveLevel].length - 1 : 0]);
     }

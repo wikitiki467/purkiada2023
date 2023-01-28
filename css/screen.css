@@ -63,6 +63,24 @@
     z-index: 2;
     width: 5vh;
 }
+#PanBackorPointer{
+    display: none;
+    position: absolute;
+    height: 6%;
+    left: 5.5vh;
+    bottom: 6%;
+    animation: 1.5s infinite linear PanBackorPointerMovement;
+}
+
+@keyframes PanBackorPointerMovement{
+    0%{
+        bottom: 6%;
+    }
+    50%{
+        bottom: 8%;
+    }
+}
+
 #blackscreen {
     z-index: 100;
     position: fixed;

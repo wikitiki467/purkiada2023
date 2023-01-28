@@ -17,9 +17,9 @@ function activateTab(self, tabID) {
 
 let lang = "default";
 function changeLang(lang_) {
-    console.log(lang_);
-    console.log(lang);
-    console.log(lang_ === lang);
+    // console.log(lang_);
+    // console.log(lang);
+    // console.log(lang_ === lang);
     if (lang_ === lang) return;
     switch (lang_) {
         case "ascii":

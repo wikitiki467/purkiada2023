@@ -1,6 +1,6 @@
 
 
-function changeFolderText(newText) {
+function changeFileText(newText) {
     document.getElementById("folderText").innerHTML = newText;
 };
 

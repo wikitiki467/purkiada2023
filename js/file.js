@@ -57,3 +57,35 @@ if (document.addEventListener) {
         window.event.returnValue = false;
     });
   }
+if (localStorage.getItem("loginDetail") != "admin") {
+    // disable inspect element
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key == "F12") {
+            event.preventDefault();
+        }
+        if (event.ctrlKey && event.shiftKey && event.key == "I") {
+            event.preventDefault();
+        }
+        if (event.ctrlKey && event.shiftKey && event.key == "J") {
+            event.preventDefault();
+        }
+        if (event.ctrlKey && event.shiftKey && event.key == "C") {
+            event.preventDefault();
+        }
+        if (event.ctrlKey && event.key == "U") {
+            event.preventDefault();
+        }
+        
+    });
+}
+// var devToolsOpened = false;
+// if (performance.navigation.type == 1 && !devToolsOpened) {
+//     // developer tools are open
+//     var overlay = document.createElement("div");
+//     overlay.setAttribute("id", "overlay");
+//     overlay.innerHTML = "<h1>Please do not open developer tools</h1>";
+//     document.body.appendChild(overlay);
+//     overlay.style.cssText = "position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: red; color: white; text-align: center; padding-top: 20%; z-index: 99999;";
+// }

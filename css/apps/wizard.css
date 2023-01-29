@@ -1,0 +1,43 @@
+.wizard_title{
+    text-align: left;
+    font-size: 24px;
+
+}
+
+.wizard_text{
+    text-align: left;
+    font-size: 16;
+    margin-top: 1%;
+}
+
+.wizard_button_install{
+    position: absolute;
+    bottom: 5%;
+    left: calc(50% - 50px);
+    width: 100px;
+}
+
+.progress_bar{
+    background-color: lightgreen;
+    position: absolute;
+    bottom: 20%;
+    transition: ease-in-out 5s;
+    width: 0px;
+    height: 20px;
+    left: calc(50% - 150px);
+    z-index: 1;
+}
+.progress_bar_bg{
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    bottom: 20%;
+    width: 300px;
+    height: 20px;
+    left: calc(50% - 150px);
+    display: none;
+    z-index: 0;
+}
+.wizard_error_title{
+    margin-top: 5%;
+    font-size: 20px;
+}

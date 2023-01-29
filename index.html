@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/screen.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/apps/fileExplorer.css">
+    <link rel="stylesheet" href="css/apps/wizard.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
@@ -307,7 +308,7 @@
                             <img src="images/levelLogos/terminal.png">
                             <p class="textOverflow1Line">Terminal</p>
                         </div>
-                        <div class="store_content_left_item" onclick="installApp(getFromSystemRegister('wizard'));this.style.display = 'none'; completeLevel(2)">
+                        <div class="store_content_left_item" onclick="installApp(getFromSystemRegister('AV Wizard'));this.style.display = 'none'; completeLevel(2)">
                             <img src="images/levelLogos/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>
@@ -316,8 +317,24 @@
             
             </appBuild>
 
-            <appBuild title="wizard" isInstalled="false">
-                <button onclick="installApp(getFromSystemRegister('Antivirus')); uninstallApp(getFromSystemRegister('wizard'));">Install</button>
+            <appBuild title="AV Wizard" isInstalled="false" icon="wizardIcon.png">
+                <div class="wizard_title">
+                    Vítejte v Purkvirusovém instalačním čaroději!
+                </div>
+                <div class="wizard_text">
+                    Pro pokračování v instalaci stačí kliknout na tlačítko a já vše zařídím..
+                </div>
+                <button onclick="AVInstall()" class="wizard_button_install">Installovat AV</button>
+                <div class="wizard_error_title">
+                    <a id="wizardErrorTitle"></a>
+                </div>
+                <div class="wizard_error_text">
+                    <a id="wizardErrorText"></a>
+                </div>
+                <div class="progress_bar_bg"></div>
+                <div class="progress_bar"></div>
+                
+                
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">
@@ -360,5 +377,6 @@
     <script src="js/antivirus.js"></script>
     <script src="js/level.js"></script>
     <script src="js/file.js"></script>
+    <script src="js/wizard.js"></script>
 </body>
 </html>

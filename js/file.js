@@ -15,11 +15,7 @@ function contextMenu(e) {
     if (target.className == "fe_folders" || target.className == "textOverflow1Line" || target.className == "fe_folder_img"){
         const div = document.createElement('div');
         div.className = 'fileContextMenu';
-        div.style.position = 'absolute';
-        div.style.width = '150px';
-        div.style.height = '100px';
-        div.style.background = 'white';
-        div.style.zIndex = '1000';
+        div.id = 'fileContextMenu';
 
         let screenDiv = document.getElementsByClassName("monitor")[0];
         /*screen*/
@@ -32,15 +28,18 @@ function contextMenu(e) {
 
         div.style.left = x + 'px';
         div.style.top = y + 'px';
+        div.tabIndex = -1;
+        div.addEventListener('blur', function(){
+            document.getElementById('contentDisplay').removeChild(document.getElementById('fileContextMenu'));
+        });
 
         document.getElementById('contentDisplay').appendChild(div);
-
-        const option = document.createElement('div');
-        option.className = 'fileContextMenuOption';
-        option.style.width = '100%';
-        option.style.height = '25px';
+        div.focus();
 
         for (let i = 0; i < 4; i++) {
+            const option = document.createElement('li');
+            option.className = 'fileContextMenuOption';
+            option.innerText = 'Option ' + i;
             div.appendChild(option);
         }
 

@@ -310,3 +310,29 @@
     background-blend-mode: multiply,multiply;
     filter: brightness(.5);
 }
+/* context menu */
+.fileContextMenu{
+    position: absolute;
+    z-index: 1000;
+    background-color: #1f1f1f; /*  pokud chcete bílé pozadí tak toto nastavte na white */
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0 0 5px #000;
+    color: white;
+    min-width: 100px;
+    outline: none;
+}
+.fileContextMenu > li{
+    list-style-type: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px;
+}
+.fileContextMenu > li:hover{
+    background-color: #555;
+    color: white;
+}
+.fileContextMenu:hover > li:not(:hover) {
+    /* kdybychom chtěli stylovat itemy, které nejsou hoverované */
+}

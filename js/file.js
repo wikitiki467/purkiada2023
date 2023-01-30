@@ -1,7 +1,13 @@
+var countDeletedFiles = 0;
+
+function getCountDeletedFiles() {
+    return countDeletedFiles;
+}
 
 function deleteFileInFE(target) {
     if(document.getElementById(target)){
         document.getElementById(target).remove();
+        countDeletedFiles++;
     }
 }
 

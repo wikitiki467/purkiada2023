@@ -1,4 +1,9 @@
 
+function deleteFileInFE(target) {
+    if(document.getElementById(target)){
+        document.getElementById(target).remove();
+    }
+}
 
 function changeFileText(newText) {
     document.getElementById("folderText").innerHTML = newText;
@@ -40,6 +45,15 @@ function contextMenu(e) {
             const option = document.createElement('li');
             option.className = 'fileContextMenuOption';
             option.innerText = 'Option ' + i;
+            if (i == 3){
+                if (target.className != "fe_folders"){
+                    target = target.parentElement.id;
+                }else{
+                    target = target.id;
+                }
+                option.setAttribute("onclick", "deleteFileInFE('"+target+"')");
+                console.log(option);
+            }
             div.appendChild(option);
         }
 

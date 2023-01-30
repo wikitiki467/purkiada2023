@@ -279,7 +279,7 @@
                     <div class="side_folder"></div>
                 </div>
                 <div id="fe_main">
-                    <div class="fe_folders" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png" class="fe_folder_img"><p class="textOverflow1Line">Rick roluje</p></div>
+                    <div class="fe_folders" id="file1" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png" class="fe_folder_img"><p class="textOverflow1Line">Rick roluje</p></div>
                     <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('A')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_folder_img"><p>A</p></div>
                     <div class="fe_folders hiddenFiles" onclick="focusWindow('Folder'); changeFileText('B')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_folder_img"><p>B</p></div>
                     <div class="fe_folders" onclick="focusWindow('Folder'); changeFileText('C')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_folder_img"><p>C</p></div>
@@ -357,6 +357,7 @@
     <script src="js/explorer.js"></script>
     <script src="js/console.js"></script>
     <script src="js/SystemPermissionPopup.js"></script>
+    <script src="js/SystemPopup.js"></script>
     <script src="js/Gradient.js"></script>
     <!-- <script src="js/storageManager.js"></script> -->
     <script src="js/gameFlowController.js"></script>
@@ -378,5 +379,9 @@
     <script src="js/level.js"></script>
     <script src="js/file.js"></script>
     <script src="js/wizard.js"></script>
+
+    <script>
+        /*popup("huh", "huh");*/
+    </script>
 </body>
 </html>

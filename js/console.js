@@ -2,7 +2,7 @@ let ipconfigText = `BackoraOS IP Configuration
 
 Wireless LAN adapter Wi-Fi:
 
-Connection-specific DNS Suffix  . : facebok.ru
+Connection-specific DNS Suffix. . : facebok.ru
 IPv4 Address. . . . . . . . . . . : 192.168.420.69
 Subnet Mask . . . . . . . . . . . : 255.255.252.0
 Default Gateway . . . . . . . . . : 192.168.0.1`

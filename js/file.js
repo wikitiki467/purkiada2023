@@ -13,7 +13,25 @@ function deleteFileInFE(target) {
 
 function changeFileText(newText) {
     document.getElementById("fileText").innerHTML = newText;
-};
+}
+
+function changeFolderTab(tabID) {
+    let allTabs = document.querySelectorAll(".fe_tab");
+    allTabs.forEach(element => {
+        element.style.display = "none";
+    });
+    document.getElementById(tabID).style.display = "grid";
+}
+
+function activateFolderTab(self, tabID) {
+    document.querySelectorAll(".active").forEach(element => {
+        element.classList.remove("active");
+    });
+    self.classList.add("active");
+    changeFolderTab(tabID);
+}
+
+activateFolderTab(document.getElementById('defaultFolderTab'), 'fe_main')
 
 function contextMenu(e) {
     if (document.getElementsByClassName("fileContextMenu").length > 0){

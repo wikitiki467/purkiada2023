@@ -27,8 +27,7 @@
     width: 180px;
     overflow-y: scroll;
 }
-
-#fe_main{
+.fe_tab{
     position: absolute;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

@@ -97,6 +97,19 @@ popup.show();
 | `fileOrigin`              |    `String`     |   `Default text`    | Nastaví text umístění aplikace/processu                            |
 | `canClose`                |    `Bolean`     |       `true`        | Povolí/Zakáže možnost uzavřít popup pro speciální oprávnění        |
 
+## Vyvolání popupu (SystemPopup):
+Pro vyvolání popupu slouží funkce `popup()`.
+Tato funkce **musí** obsahovat 2 vstupní proměnné `title` a `text`, které jsou nutné k vyvolání popupu!
+
+**Příklad použití základní formy této funkce:**
+```
+popup("Virus", "Haha tvůj počítač je zavirován!");
+```
+
+| Vstupní proměnná          |      Typ        | Popis proměnné                                                     |
+| :------------------------ | :-------------: | :----------------------------------------------------------------- |
+| `title`                   |    `String`     | Nastaví text v hlavičce popupu                                     |
+| `text`                    |    `String`     | Nastaví text v těle popupu                                         |
 
 ## Contributors 🙏
 

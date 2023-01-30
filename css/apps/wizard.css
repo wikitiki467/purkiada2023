@@ -21,11 +21,11 @@
     background-color: lightgreen;
     position: absolute;
     bottom: 20%;
-    transition: ease-in-out 5s;
     width: 0px;
     height: 20px;
     left: calc(50% - 150px);
     z-index: 1;
+    transition: ease-in-out 0s;
 }
 .progress_bar_bg{
     background-color: rgb(255, 255, 255);
@@ -40,4 +40,9 @@
 .wizard_error_title{
     margin-top: 5%;
     font-size: 20px;
+    display: none;
+}
+
+.wizard_error_text{
+    display: none;
 }

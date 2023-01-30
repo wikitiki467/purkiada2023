@@ -6,7 +6,7 @@ function deleteFileInFE(target) {
 }
 
 function changeFileText(newText) {
-    document.getElementById("folderText").innerHTML = newText;
+    document.getElementById("fileText").innerHTML = newText;
 };
 
 function contextMenu(e) {
@@ -17,7 +17,7 @@ function contextMenu(e) {
     /*get mouse target*/
     let target = e.target;
 
-    if (target.className == "fe_folders" || target.className == "textOverflow1Line" || target.className == "fe_folder_img"){
+    if (target.className == "fe_files" || target.className == "textOverflow1Line" || target.className == "fe_file_img"){
         const div = document.createElement('div');
         div.className = 'fileContextMenu';
         div.id = 'fileContextMenu';
@@ -46,7 +46,7 @@ function contextMenu(e) {
             option.className = 'fileContextMenuOption';
             option.innerText = 'Option ' + i;
             if (i == 3){
-                if (target.className != "fe_folders"){
+                if (target.className != "fe_files"){
                     target = target.parentElement.id;
                 }else{
                     target = target.id;

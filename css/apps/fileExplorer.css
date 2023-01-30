@@ -65,7 +65,7 @@
     width: 30px;
 }
 
-.fe_folders{
+.fe_files{
     margin: 5px;
     height: 150px;
     width: 150px;
@@ -76,13 +76,13 @@
     align-items: center;
 }
 
-.fe_folders:hover{
+.fe_files:hover{
     background-color: rgba(34, 52, 59, 0.418);
     border: 1px solid #074c68;
     box-sizing: border-box;
 }
 
-.fe_folders img{
+.fe_files img{
     height: 120px;
     margin-top: 5px;
 }

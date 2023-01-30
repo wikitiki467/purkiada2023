@@ -27,24 +27,7 @@
     width: 180px;
     overflow-y: scroll;
 }
-
-#fe_main{
-    position: absolute;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    right: 0;
-    bottom: 0;
-    width: calc(100% - 180px);
-    height: calc(100% - 90px);
-    background-color: #18181886;
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: white #18181886;
-    overflow-x: clip;
-    padding-right: 2.5px;
-}
-
-#fe_disk{
+.fe_tab{
     position: absolute;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

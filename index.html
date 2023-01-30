@@ -277,6 +277,7 @@
                 </div>
                 <div id="fe_sideBar">
                     <div class="side_folder" id="defaultFolderTab" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png"><p>folder</p></div>
+                    <div class="side_folder" onclick="activateFolderTab(this, 'fe_downloads')"><img src="images/icons/folder.png"><p>Downloads</p></div>
                     <div class="side_folder" onclick="activateFolderTab(this, 'fe_disk')"><img src="images/icons/hard-drive.png"><p>disk</p></div>
                 </div>
                 <div id="fe_main" class="fe_tab">
@@ -291,10 +292,13 @@
                 </div>
                 <div id="fe_disk" class="fe_tab">
                     <div class="fe_files" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Folder</p></div>
-                </div>    
+                </div>  
+                <div id="fe_downloads" class="fe_tab">
+                    <div class="fe_files" onclick="focusWindow('AV Wizard')"><img src="images/levelLogos/wizardIcon.png"><p>AV_installer.exe</p></div>
+                </div>  
             </appBuild>
 
-            <appBuild title="File" backgroundColor="gray" scroll="XY" shortcut="false" startmenu="false">
+            <appBuild title="File" backgroundColor="gray" scroll="XY" shortcut="false" startMenu="false">
                 <p id="fileText"></p>
             </appBuild>
 
@@ -320,7 +324,7 @@
             
             </appBuild>
 
-            <appBuild title="AV Wizard" isInstalled="false" icon="wizardIcon.png">
+            <appBuild title="AV Wizard" icon="wizardIcon.png" shortcut="false" startMenu="false">
                 <div class="wizard_title">
                     Vítejte v Purkvirusovém instalačním čaroději!
                 </div>

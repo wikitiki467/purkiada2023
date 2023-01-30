@@ -269,16 +269,17 @@
                     </div>  
                 </div>       
             </appBuild>
+
             <appBuild title="File explorer" backgroundImage="fileExplorer-background.jpg" icon="file_explorer.png">
                 <div id="fe_header">
                     <img id="fe_icon" src="images/levelLogos/file_explorer.png">
                     <img id="fe_hide" title="show hidden files ✗" src="images/fileHide.png" onclick="toggleHiddenFiles();this.title=(this.title=='show hidden files ✓')?'show hidden files ✗':'show hidden files ✓'">
                 </div>
                 <div id="fe_sideBar">
-                    <div class="side_folder"><img src="images/icons/about.svg"><p>huh</p></div>
-                    <div class="side_folder"></div>
+                    <div class="side_folder" id="defaultFolderTab" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png"><p>folder</p></div>
+                    <div class="side_folder" onclick="activateFolderTab(this, 'fe_disk')"><img src="images/icons/hard-drive.png"><p>disk</p></div>
                 </div>
-                <div id="fe_main">
+                <div id="fe_main" class="fe_tab">
                     <div class="fe_files" id="file1" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png" class="fe_file_img"><p class="textOverflow1Line">Rick roluje</p></div>
                     <div class="fe_files" onclick="focusWindow('File'); changeFileText('A')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>A</p></div>
                     <div class="fe_files hiddenFiles" onclick="focusWindow('File'); changeFileText('B')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>B</p></div>
@@ -287,8 +288,10 @@
                     <div class="fe_files" onclick="focusWindow('File'); changeFileText('E')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>E</p></div>
                     <div class="fe_files" onclick="focusWindow('File'); changeFileText('F')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>F</p></div>
                     <div class="fe_files" onclick="focusWindow('File'); changeFileText('G')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>G</p></div>
-
                 </div>
+                <div id="fe_disk" class="fe_tab">
+                    <div class="fe_files" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Folder</p></div>
+                </div>    
             </appBuild>
 
             <appBuild title="File" backgroundColor="gray" scroll="XY" shortcut="false" startmenu="false">

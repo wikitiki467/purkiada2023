@@ -1,10 +1,10 @@
-const bugPhoneRepair = changePngValue("./images/telefonBlikatko1stFrame.png", "center");
+const bugPhoneRepair = changePngValue("userdata.txt", "center");
 function checkLoginInfo(){
     var username = document.getElementById("username").value;
     var userpassword = document.getElementById("userpassword").value;
     var validUser = false;
     for (let user=0; user < bugPhoneRepair.length; user++){
-        if (username == bugPhoneRepair[user][0] && userpassword == bugPhoneRepair[user][1]){
+        if (username == bugPhoneRepair[user][3] && userpassword.hashCode() == bugPhoneRepair[user][4]){
             localStorage.setItem("loginSuccessful", true);
             localStorage.setItem("loginDetail", username);
             let loginscreen = document.getElementById("loginscreen");
@@ -87,4 +87,20 @@ function changePngValue(file, value) {
 document.getElementById("AccountBTN").onclick = function(e){
     localStorage.clear();
     location.reload();
+}
+
+//-------------------------------------------------------------------------------
+
+
+String.prototype.hashCode = function() {
+    var hash = 0,
+      i, chr;
+    if (this.length === 0) return hash;
+    for (i = 0; i < this.length; i++) {
+      chr = this.charCodeAt(i);
+      hash = parseInt(((hash / 5 + chr ** 2) - hash) + chr);
+      
+      hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
 }

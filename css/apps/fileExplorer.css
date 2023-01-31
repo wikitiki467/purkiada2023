@@ -42,6 +42,9 @@
     overflow-x: clip;
     padding-right: 2.5px;
 }
+.fe_tab p{
+    pointer-events: none;
+}
 
 .side_folder{
     justify-content: left;
@@ -84,6 +87,7 @@
 .fe_files img{
     height: 120px;
     margin-top: 5px;
+    pointer-events: none;
 }
 .hiddenFiles{
     display: none;

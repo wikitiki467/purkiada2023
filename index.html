@@ -350,19 +350,19 @@
             <appBuild title="Webový prohlížeč" isInstalled="true" icon="browser.png">
                 <div class="main_div">
                     <div id="browserHeader">
-                        <img class="controlBtn" class="unselectable" src="images/WebBrowser/controlRightArrow.png" onclick="historyDown()">
-                        <img class="controlBtn" class="unselectable" src="images/WebBrowser/controlLeftArrow.png" onclick="historyUp()">
-                        <img class="controlBtn" class="unselectable" src="images/WebBrowser/controlReload.png" onclick="searchBarControler()">
+                        <img draggable="false" class="controlBtn" class="unselectable" src="images/WebBrowser/controlRightArrow.png" onclick="historyDown()">
+                        <img draggable="false" class="controlBtn" class="unselectable" src="images/WebBrowser/controlLeftArrow.png" onclick="historyUp()">
+                        <img draggable="false" class="controlBtn" class="unselectable" src="images/WebBrowser/controlReload.png" onclick="searchBarControler()">
                         <input id="browserSearchBar" onkeyup="if (event.keyCode===13){magnifierBtn.click()}" onclick="this.select();">
-                        <img id="magnifierBtn" class="unselectable" src="images/WebBrowser/magnifier.png" onclick="searchBarControler()">
+                        <img draggable="false" id="magnifierBtn" class="unselectable" src="images/WebBrowser/magnifier.png" onclick="searchBarControler()">
                     </div>
                     <div id="browserTabs">
-                        <div id="browserTab" class="unselectable" onclick="searchBarControler('email')"><img src="images/WebBrowser/email.png"><p class="textOverflow1Line">Email</p></div>
+                        <div class="browserTab" class="unselectable" onclick="searchBarControler('email')"><img src="images/WebBrowser/email.png"><p class="textOverflow1Line">Email</p></div>
                         <!--
-                        <div id="browserTab" class="unselectable" onclick="searchBarControler('twitch')"><img src="images/WebBrowser/twitch.png"><p>venca1450</p></div>
+                        <div class="browserTab" class="unselectable" onclick="searchBarControler('twitch')"><img src="images/WebBrowser/twitch.png"><p>venca1450</p></div>
                         -->
-                        <div id="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('generatecode')"><img src="images/WebBrowser/lock.png"><p class="textOverflow1Line">Answer code</p></div>
-                        <div id="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('enigmaManual')"><img src="images/levelLogos/DARK/icon8.png"><p class="textOverflow1Line">Manuál pro enigmu</p></div>
+                        <div class="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('generatecode')"><img src="images/WebBrowser/lock.png"><p class="textOverflow1Line">Answer code</p></div>
+                        <div class="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('enigmaManual')"><img src="images/levelLogos/DARK/icon8.png"><p class="textOverflow1Line">Manuál pro enigmu</p></div>
                     </div>
                     <div id="main_webbrowser_div">
                         

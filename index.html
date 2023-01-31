@@ -128,7 +128,7 @@
                             <h3 class="levelStatus" isCompleted="false">Level dokončen: </h3>
                         </div>
                     </appBuild>
-                    <appBuild title="It's About Drive, It's About Power" icon="LIGHT/icon2.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)">
+                    <appBuild title="It's About Drive, It's About Power" icon="LIGHT/icon2.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)" isInstalled="false">
                         <p>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠛⠛⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿
                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠉⠻⣿⣿⣿⣿⣿⣿
                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢿⣿⣿⣿⣿
@@ -145,7 +145,7 @@
                             ⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⣀⣀⠀⣀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿</p>
             </appBuild>
-            <appBuild title="Chad" icon="LIGHT/icon3.png" backgroundColor="darkslategray" scroll="YX">
+            <appBuild title="Chad" icon="LIGHT/icon3.png" backgroundColor="darkslategray" scroll="YX" isInstalled="false">
                 <p>
                 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣤⣶⣤⣤⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
                 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -298,7 +298,7 @@
                     <div class="fe_files" onclick="activateFolderTab(this, 'fe_downloads')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Downloads</p></div>
                 </div>  
                 <div id="fe_downloads" class="fe_tab">
-                    <div class="fe_files" onclick="focusWindow('AV Wizard')"><img src="images/levelLogos/wizardIcon.png"><p>AV_installer.exe</p></div>
+                    <div class="fe_files" id="aw_installer_file" onclick="focusWindow('AV Wizard')" style="display: none;"><img src="images/levelLogos/wizardIcon.png"><p>AV_installer.exe</p></div>
                 </div>  
             </appBuild>
 
@@ -319,7 +319,7 @@
                             <img src="images/levelLogos/Console.png">
                             <p class="textOverflow1Line">Terminal</p>
                         </div>
-                        <div class="store_content_left_item" onclick="installApp(getFromSystemRegister('AV Wizard'));this.style.display = 'none'">
+                        <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('aw_installer_file').style.display = 'block'">
                             <img src="images/levelLogos/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>

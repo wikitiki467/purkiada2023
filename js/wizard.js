@@ -34,9 +34,6 @@ function AVInstall(){
     }
     //je místo
     else if(ongoing == false && deletedCount >= 6 && AVInstalled == false){
-        document.getElementById("wizardErrorTitle").innerHTML = "Instalace dokončena!";
-        document.getElementById("wizardErrorText").innerHTML = "Nyní můžete zavřít čaroděje..";
-        
         setTimeout(()=>{
         document.getElementsByClassName("progress_bar")[0].style.transition="ease-in-out 5s";
         document.getElementsByClassName("progress_bar_bg")[0].style.display="block";
@@ -44,15 +41,15 @@ function AVInstall(){
         }, 15);
         
         setTimeout(()=>{
+        document.getElementById("wizardErrorTitle").innerHTML = "Instalace dokončena!";
+        document.getElementById("wizardErrorText").innerHTML = "Nyní můžete zavřít čaroděje..";
         document.getElementsByClassName("wizard_error_title")[0].style.display="block";
         document.getElementsByClassName("wizard_error_text")[0].style.display="block";
-        console.log(getFromSystemRegister('AV Wizard'))
-        uninstallApp(getFromSystemRegister('AV Wizard'));
         installApp(getFromSystemRegister('Antivirus'));
         AVInstalled = true;
         completeLevel(2); //skip
         completeLevel(3);
         ongoing = false;
-        }, 5000);
+        }, 1000);
     }
 }

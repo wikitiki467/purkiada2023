@@ -1,0 +1,24 @@
+.help {
+    height: 96%;
+    width: 96%;
+    padding: 2%;
+}
+.help li{
+    list-style-type: disc;
+    margin-left: 20px;
+    text-align: left;
+    display: list-item;
+    margin-block-start: .5rem;
+}
+/* add <li> spacing */
+
+
+.help h2{
+    text-align: left;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}

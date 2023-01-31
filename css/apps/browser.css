@@ -1,0 +1,78 @@
+#browserHeader{
+    width: 100%;
+    height: 10%;
+    max-height: 32px;
+    min-height: 20px;
+    background-color: rgba(147, 147, 147, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#browserHeader > *{
+    margin: 0 10px;
+}
+.controlBtn,
+#magnifierBtn{
+    height: 80%;
+    float: left;
+    cursor: pointer;
+}
+#magnifierBtn{
+    float: right;
+}
+#browserSearchBar{
+    height: 60%;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    background-color: rgba(147, 147, 147, 0.5);
+    padding: 0 5px;
+}
+#browserSearchBar:focus, #browserSearchBar:active{
+    outline: 1px solid #000000;
+    background-color: white;
+}
+
+#browserTabs{
+    width: 100%;
+    height: 5%;
+    max-height: 20px;
+    min-height: 15px;
+    background-color: rgba(147, 147, 147, 0.5);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px black solid;
+    border-top: 1px rgba(0,0,0,.1) solid;
+    padding: 2px 0;
+}
+.browserTab{
+    height: 100%;
+    max-width: 25%;
+    cursor: pointer;
+    float: left;
+    display: flex;
+
+}
+.browserTab:hover{
+    background-color: rgba(147, 147, 147, 0.5);
+}
+.browserTab img{
+    margin: 1px 10px;
+    height: 90%;
+    float: left;
+}
+.browserTab p{
+    color: black;
+    font-size: smaller;
+    float: left;
+    overflow: clip;
+}
+#main_webbrowser_div{
+    height: 93%;
+    width: 100%;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    background-color: #2b2a33;
+}

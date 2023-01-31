@@ -5,8 +5,8 @@ function getCountDeletedFiles() {
 }
 
 function deleteFileInFE(target) {
-    if(document.getElementById(target)){
-        document.getElementById(target).remove();
+    if(document.getElementById(target.id)){
+        document.getElementById(target.id).remove();
         countDeletedFiles++;
     }
 }
@@ -31,7 +31,7 @@ function activateFolderTab(self, tabID) {
     changeFolderTab(tabID);
 }
 
-activateFolderTab(document.getElementById('defaultFolderTab'), 'fe_disk')
+activateFolderTab(document.getElementById('defaultFolderTab'), 'fe_main')
 
 function contextMenu(e) {
     if (document.getElementsByClassName("fileContextMenu").length > 0){
@@ -41,7 +41,7 @@ function contextMenu(e) {
     /*get mouse target*/
     let target = e.target;
 
-    if (target.className == "fe_files" || target.className == "textOverflow1Line" || target.className == "fe_file_img"){
+    if (target.className == "fe_files" || target.className == "fe_file_img"){
         const div = document.createElement('div');
         div.className = 'fileContextMenu';
         div.id = 'fileContextMenu';
@@ -64,24 +64,21 @@ function contextMenu(e) {
 
         document.getElementById('contentDisplay').appendChild(div);
         div.focus();
-
-        for (let i = 0; i < 4; i++) {
+        options = {
+            // 'NAME': 'ONCLICK'
+            "Option 1": "console.log('Option 1')",
+            "Option 2": "console.log('Option 2')",
+            "Rename": "console.log('Rename')",
+            "Delete": "deleteFileInFE(" + target.id + ");",
+        };
+        e.preventDefault();
+        for (const [name, onclick] of Object.entries(options)) {
             const option = document.createElement('li');
             option.className = 'fileContextMenuOption';
-            option.innerText = 'Option ' + i;
-            if (i == 3){
-                if (target.className != "fe_files"){
-                    target = target.parentElement.id;
-                }else{
-                    target = target.id;
-                }
-                option.setAttribute("onclick", "deleteFileInFE('"+target+"')");
-                console.log(option);
-            }
+            option.innerText = name;
+            option.setAttribute("onclick", `${onclick.replace("\"", "\'")};document.getElementById("fileContextMenu").blur();`);
             div.appendChild(option);
         }
-
-        e.preventDefault();
     }
 }
 

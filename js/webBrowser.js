@@ -11,24 +11,19 @@ var emailcode = changePngValue("./images/wallpaper.png", "center");
 
 //control web content
 function searchBarControler(site=""){ //jediná funkce, která se volá mimo tento script
+    webContent = document.getElementById("main_webbrowser_div");
     //currentPage = site;
     if (site == ""){
+        searchBar = document.getElementById("browserSearchBar");
         currentPage = searchBar.value;
     }else{
         currentPage = site;
     }
-    if (currentPage.includes("www.") && (currentPage.includes(".cz") || currentPage.includes(".com") || currentPage.includes(".tv"))){
-        if (currentPage.includes(".cz") || currentPage.includes(".tv")){
-            currentPage = currentPage.slice(4,currentPage.length-3);
-        }else{
-            currentPage = currentPage.slice(4,currentPage.length-4);
-        }     
-    }else if (!currentPage.includes("www.") && (currentPage.includes(".cz") || currentPage.includes(".com") || currentPage.includes(".tv"))){
-        if (currentPage.includes(".cz") || currentPage.includes(".tv")){
-            currentPage = currentPage.slice(0,currentPage.length-3);
-        }else{
-            currentPage = currentPage.slice(0,currentPage.length-4);
-        } 
+    if (currentPage.includes("www.") || (currentPage.includes(".cz") || currentPage.includes(".com") || currentPage.includes(".tv"))){
+        currentPage = currentPage.replace("www.", "");
+        currentPage = currentPage.replace(".cz", "");
+        currentPage = currentPage.replace(".com", "");
+        currentPage = currentPage.replace(".tv", "");
     }
     for (let i = historyPage; i>pageHistory.length -1;i--){
         pageHistory.pop();
@@ -40,12 +35,14 @@ function searchBarControler(site=""){ //jediná funkce, která se volá mimo ten
 
 function deleteContent(){
     webContent.style.backgroundImage = "none";
-    webContent.style.color = "white";
+    webContent.style.color = "#2b2a33";
     webContent.innerHTML = "";
 
 }
 
 async function loadSite(){
+    webContent = document.getElementById("main_webbrowser_div");
+    searchBar = document.getElementById("browserSearchBar");
     deleteContent();
     webContent.style.backgroundColor = "white";
     await sleep(500);
@@ -62,9 +59,9 @@ function findSite(){
         case "email":
             email();
             break;
-        case "generatecode":
-            generatecode();
-            break;
+        // case "generatecode":
+        //     generatecode();
+        //     break;
         case "enigmaManual":
             enigmaManual();
             break;
@@ -90,13 +87,11 @@ function historyDown(){
 }
 //sites content
 function nonExistingSite(){
-    webContent.style.backgroundColor = "white";
+    webContent.style.backgroundColor = "#2b2a33";
     let newText = document.createElement("p");
     newText.innerHTML = "We did not find this page: '"+currentPage+"'";
-    newText.style.color = "black";
-    newText.style.position = "absolute";
-    newText.style.marginTop = (webContent.clientHeight/2-5)+"px";
-    newText.style.marginLeft = (webContent.clientWidth/4+20)+"px";
+    newText.style.color = "white";
+    webContent.style.cssText = "display: flex; justify-content: center; align-items: center;"
     webContent.appendChild(newText);
 }
 

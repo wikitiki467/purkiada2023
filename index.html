@@ -276,9 +276,10 @@
                     <img id="fe_hide" title="show hidden files ✗" src="images/fileHide.png" onclick="toggleHiddenFiles();this.title=(this.title=='show hidden files ✓')?'show hidden files ✗':'show hidden files ✓'">
                 </div>
                 <div id="fe_sideBar">
-                    <div class="side_folder" id="defaultFolderTab" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png"><p>folder</p></div>
+                    <div class="side_folder" id="defaultFolderTab" onclick="activateFolderTab(this, 'fe_disk')"><img src="images/icons/hard-drive.png"><p>Disk (C:)</p></div>
+                    <div class="side_folder" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png"><p>Program Files</p></div>
                     <div class="side_folder" onclick="activateFolderTab(this, 'fe_downloads')"><img src="images/icons/folder.png"><p>Downloads</p></div>
-                    <div class="side_folder" onclick="activateFolderTab(this, 'fe_disk')"><img src="images/icons/hard-drive.png"><p>disk</p></div>
+                    
                 </div>
                 <div id="fe_main" class="fe_tab">
                     <div class="fe_files" id="file1" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png" class="fe_file_img"><p class="textOverflow1Line">Rick roluje</p></div>
@@ -291,7 +292,8 @@
                     <div class="fe_files" onclick="focusWindow('File'); changeFileText('G')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>G</p></div>
                 </div>
                 <div id="fe_disk" class="fe_tab">
-                    <div class="fe_files" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Folder</p></div>
+                    <div class="fe_files" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Program Files</p></div>
+                    <div class="fe_files" onclick="activateFolderTab(this, 'fe_downloads')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Downloads</p></div>
                 </div>  
                 <div id="fe_downloads" class="fe_tab">
                     <div class="fe_files" onclick="focusWindow('AV Wizard')"><img src="images/levelLogos/wizardIcon.png"><p>AV_installer.exe</p></div>

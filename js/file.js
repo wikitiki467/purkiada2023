@@ -31,7 +31,7 @@ function activateFolderTab(self, tabID) {
     changeFolderTab(tabID);
 }
 
-activateFolderTab(document.getElementById('defaultFolderTab'), 'fe_main')
+activateFolderTab(document.getElementById('defaultFolderTab'), 'fe_disk')
 
 function contextMenu(e) {
     if (document.getElementsByClassName("fileContextMenu").length > 0){

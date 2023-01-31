@@ -2,7 +2,7 @@ let panBackorGUI = document.getElementById("PanBackorGUI")
 let panBackorDialogText = document.getElementById("PanBackorDialogText");
 let shown = false;
 let panBackorDialogy = [["Zdravím, jsem pan Bačkor. Vypadá to že tvůj počítač byl 'zavirován', ale není se čeho bát. Společnými silami se pokusíme dát vše do pořádku. Klikni na mě!", "Pode mnou najdeš šipky pro posouvání dialogu a kdykoliv mě můžeš zavolat tímto tlačítkem.",
-"Zvláštní... Zdá se že žádný text nedává smysl. Je možné, že virus záměrně změnil systémový jazyk počítače, aby bylo těžší se ho zbavit.<br>Tím bych asi začal..."],
+"Zvláštní... Zdá se že spostu textu nedává smysl. Je možné, že virus záměrně změnil systémový jazyk počítače, aby bylo těžší se ho zbavit.<br>Tím bych asi začal..."],
 ["Skvěle! To jednoduché máme za sebou. Vypadá to že ještě nemusíme natáhnout bačkory.;)", "Vidím že tvuj počítač není chráněn antivirem. Nevadí, jeden se dá rychle stáhnout z BACKOR Storu™."],
 ["Ale né! Zdá se, že virus zaplnil disk soubory a bez volného místa antivir nenainstalujeme. Rychle, musíme se všech těch souborů zbavit!"],
 ["Výborně! Teď spusť antivirus!"]]; //teď nvm xdd

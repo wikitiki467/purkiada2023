@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/apps/fileExplorer.css">
     <link rel="stylesheet" href="css/apps/wizard.css">
+    <link rel="stylesheet" href="css/apps/help.css">
+    <link rel="stylesheet" href="css/apps/browser.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
@@ -249,7 +251,7 @@
                     </select>
                 </div>
             </appBuild>
-            <appBuild title="*jmeno_uzivatele*@spspurkynova" backgroundColor="#0c0c0c" scroll="Y" icon="terminal.png" isInstalled="false">
+            <appBuild title="*jmeno_uzivatele*@spspurkynova" backgroundColor="#0c0c0c" scroll="Y" icon="Console.png" isInstalled="false">
                 <div class="console">
                     <div class="copyright">
                         Backora OS [Version 10.0.19045.2486] <br>
@@ -276,19 +278,19 @@
                     <img id="fe_hide" title="show hidden files ✗" src="images/fileHide.png" onclick="toggleHiddenFiles();this.title=(this.title=='show hidden files ✓')?'show hidden files ✗':'show hidden files ✓'">
                 </div>
                 <div id="fe_sideBar">
-                    <div class="side_folder" id="defaultFolderTab" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png"><p>folder</p></div>
-                    <div class="side_folder" onclick="activateFolderTab(this, 'fe_downloads')"><img src="images/icons/folder.png"><p>Downloads</p></div>
-                    <div class="side_folder" onclick="activateFolderTab(this, 'fe_disk')"><img src="images/icons/hard-drive.png"><p>disk</p></div>
+                    <div class="side_folder" id="defaultFolderTab" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png"><p class="textOverflow1Line">folder</p></div>
+                    <div class="side_folder" onclick="activateFolderTab(this, 'fe_downloads')"><img src="images/icons/folder.png"><p class="textOverflow1Line">Downloads</p></div>
+                    <div class="side_folder" onclick="activateFolderTab(this, 'fe_disk')"><img src="images/icons/hard-drive.png"><p class="textOverflow1Line">disk</p></div>
                 </div>
                 <div id="fe_main" class="fe_tab">
                     <div class="fe_files" id="file1" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png" class="fe_file_img"><p class="textOverflow1Line">Rick roluje</p></div>
-                    <div class="fe_files" onclick="focusWindow('File'); changeFileText('A')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>A</p></div>
-                    <div class="fe_files hiddenFiles" onclick="focusWindow('File'); changeFileText('B')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>B</p></div>
-                    <div class="fe_files" onclick="focusWindow('File'); changeFileText('C')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>C</p></div>
-                    <div class="fe_files" onclick="focusWindow('File'); changeFileText('D')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>D</p></div>
-                    <div class="fe_files" onclick="focusWindow('File'); changeFileText('E')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>E</p></div>
-                    <div class="fe_files" onclick="focusWindow('File'); changeFileText('F')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>F</p></div>
-                    <div class="fe_files" onclick="focusWindow('File'); changeFileText('G')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>G</p></div>
+                    <div class="fe_files" id="file2" onclick="focusWindow('File'); changeFileText('A')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>A</p></div>
+                    <div class="fe_files hiddenFiles" id="file3" onclick="focusWindow('File'); changeFileText('B')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>B</p></div>
+                    <div class="fe_files" id="file4" onclick="focusWindow('File'); changeFileText('C')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>C</p></div>
+                    <div class="fe_files" id="file5" onclick="focusWindow('File'); changeFileText('D')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>D</p></div>
+                    <div class="fe_files" id="file6" onclick="focusWindow('File'); changeFileText('E')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>E</p></div>
+                    <div class="fe_files" id="file7" onclick="focusWindow('File'); changeFileText('F')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>F</p></div>
+                    <div class="fe_files" id="file8" onclick="focusWindow('File'); changeFileText('G')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>G</p></div>
                 </div>
                 <div id="fe_disk" class="fe_tab">
                     <div class="fe_files" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Folder</p></div>
@@ -312,7 +314,7 @@
                 <div id="store_content">
                     <div id="store_content_left">
                         <div class="store_content_left_item" onclick="installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova'));this.style.display = 'none'">
-                            <img src="images/levelLogos/terminal.png">
+                            <img src="images/levelLogos/Console.png">
                             <p class="textOverflow1Line">Terminal</p>
                         </div>
                         <div class="store_content_left_item" onclick="installApp(getFromSystemRegister('AV Wizard'));this.style.display = 'none'">
@@ -342,6 +344,48 @@
                 <div class="progress_bar"></div>
                 
                 
+            </appBuild>
+            <appBuild title="Webový prohlížeč" isInstalled="true" icon="browser.png">
+                <div class="main_div">
+                    <div id="browserHeader">
+                        <img class="controlBtn" class="unselectable" src="images/WebBrowser/controlRightArrow.png" onclick="historyDown()">
+                        <img class="controlBtn" class="unselectable" src="images/WebBrowser/controlLeftArrow.png" onclick="historyUp()">
+                        <img class="controlBtn" class="unselectable" src="images/WebBrowser/controlReload.png" onclick="searchBarControler()">
+                        <input id="browserSearchBar" onkeyup="if (event.keyCode===13){magnifierBtn.click()}" onclick="this.select();">
+                        <img id="magnifierBtn" class="unselectable" src="images/WebBrowser/magnifier.png" onclick="searchBarControler()">
+                    </div>
+                    <div id="browserTabs">
+                        <div id="browserTab" class="unselectable" onclick="searchBarControler('email')"><img src="images/WebBrowser/email.png"><p class="textOverflow1Line">Email</p></div>
+                        <!--
+                        <div id="browserTab" class="unselectable" onclick="searchBarControler('twitch')"><img src="images/WebBrowser/twitch.png"><p>venca1450</p></div>
+                        -->
+                        <div id="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('generatecode')"><img src="images/WebBrowser/lock.png"><p class="textOverflow1Line">Answer code</p></div>
+                        <div id="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('enigmaManual')"><img src="images/levelLogos/DARK/icon8.png"><p class="textOverflow1Line">Manuál pro enigmu</p></div>
+                    </div>
+                    <div id="main_webbrowser_div">
+                        
+                    </div>
+                </div>
+            
+            </appBuild>
+            <appBuild title="Jak použivat" icon="info.png" isInstalled="true" backgroundColor="#222" scroll="Y">
+                <div class="help">
+                    <h1 class="asciiHash textOverflow1Line">Info k úloze</h1>
+                    <h2>Ovládání</h2>
+                    <ul>
+                        <li>Snažili jsme se simulovat běžný operační systém</li>
+                        <li>Táhnutím kurzoru po vrchu okna ho můžete přesunout</li>
+                        <li>Táhnutím kurzoru po pravém dolním okraji můžete některým oknům změnit velikost podle potřeby.</li>
+                        <li>Okna jinak můžete samozřejmě zavřít, minimalizovat i maximalizovat</li>
+                    </ul>
+                    <h2>Pan Bačkor</h2>
+                    <ul>
+                        <li>Pan Bačkor je tvůj rádce pro tyto úlohy</li>
+                        <li>Aby jsi si ho zobrazil/a, dole vlevo klikni na jeho ikonu (bílý kruh a bačkorou uvnitř)</li>
+                        <li>Kliknutím na text → zobrazí se následující dialog (pokud možný)</li>
+                        <li>Šipky v pravo dole na taskbaru → mění dialog na předchozí nebo následující (pokud možné)</li>
+                    </ul>
+                </div>
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">
@@ -377,8 +421,8 @@
     <script src="js/theme.js"></script>
     <script src="js/turnoff.js"></script>
     <script src="js/currentTime.js"></script>
-    <!-- <script src="js/enigmaCode.js"></script>
-    <script src="js/webBrowser.js"></script> -->
+    <!-- <script src="js/enigmaCode.js"></script> -->
+    <script src="js/webBrowser.js"></script>
     <script src="js/telefon.js"></script> 
     <script src="js/ransomware.js"></script>
     <script src="js/settings.js"></script>

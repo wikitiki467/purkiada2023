@@ -24,10 +24,17 @@ function startScan(){
         status.innerHTML = "<p>...</p>";
 
         setTimeout(() => {text.innerHTML += "<p>Scanning registers</p>"; status.innerHTML = "<p>✓</p><p>...</p>";}, 2000);
-        setTimeout(() => {text.innerHTML += "<p>Scanning memory</p>"; status.innerHTML = "<p>✓</p><p>✓</p><p>...</p>";}, 4000);
-        setTimeout(() => {text.innerHTML += "<p>Turning on Firewall</p>"; status.innerHTML = "<p>✓</p><p>✓</p><p>✓</p><p>...</p>";}, 6000);
-        setTimeout(() => {status.innerHTML = "<p>✓</p><p>✓</p><p>✓</p><p>✓</p>";}, 8000);
-        setTimeout(() => {button.innerHTML = "Everything is OK"; button.style.display = "unset"; document.getElementById("av_scanBTN").innerHTML = document.getElementById("scan-type-options").value + " scan"; scanInProgress = false;}, 8500); /*✓✗*/
+        if (document.getElementById("scan-type-options").value == "Fast"){
+            setTimeout(() => {text.innerHTML += "<p>Scanning memory</p>"; status.innerHTML = "<p>✓</p><p>✓</p><p>...</p>";}, 4000);
+            setTimeout(() => {text.innerHTML += "<p>Turning on Firewall</p>"; status.innerHTML = "<p>✓</p><p>✓</p><p>✓</p><p>...</p>";}, 6000);
+            setTimeout(() => {status.innerHTML = "<p>✓</p><p>✓</p><p>✓</p><p>✓</p>";}, 8000);
+            setTimeout(() => {button.innerHTML = "Everything is OK"; button.style.background = "rgb(59, 221, 59)"; button.style.display = "unset"; document.getElementById("av_scanBTN").innerHTML = document.getElementById("scan-type-options").value + " scan"; scanInProgress = false;}, 8500); /*✓✗*/
+        }else{
+            setTimeout(() => {text.innerHTML += "<p>Scanning memory</p>"; status.innerHTML = "<p>✓</p><p>✓</p><p>...</p>";}, 4000);
+            setTimeout(() => {status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p>";}, 8000);
+            setTimeout(() => {button.innerHTML = "Virus found!"; button.style.background = "red"; button.style.display = "unset"; document.getElementById("av_scanBTN").innerHTML = document.getElementById("scan-type-options").value + " scan"; scanInProgress = false;}, 8500); /*✓✗*/
+        }
+        
         }, 3200);
     }
 }

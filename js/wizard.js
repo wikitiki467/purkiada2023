@@ -40,7 +40,7 @@ function AVInstall(){
             for (let i = 0; i < 6; i++){
                 const file = document.createElement("div");
                 file.className = "fe_files";
-                file.id = "file"+i;
+                file.id = "file"+i+10;
                 file.setAttribute("onclick", "focusWindow('File'); changeFileText('"+i+"')");
                 
                 document.getElementById("fe_main").appendChild(file);

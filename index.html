@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/apps/wizard.css">
     <link rel="stylesheet" href="css/apps/help.css">
     <link rel="stylesheet" href="css/apps/browser.css">
+    <link rel="stylesheet" href="css/apps/properties.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
@@ -343,6 +344,7 @@
             </appBuild>
             <appBuild title="Properties" minimize="false" maximize="false" shortcut="false" startMenu="false">
                 <div id="properties_optimizition">
+                    <img id="defragmentation_img" src="images/icons/defragmentation.png">
                     <button id="optimizeBTN" onclick="focusWindow('Optimize Drives')">Optimize</button>
                 </div>
             </appBuild>

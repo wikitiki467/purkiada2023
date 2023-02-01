@@ -226,6 +226,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-align: left;
+    pointer-events: none;
 }
 .textOverflow2Line{
     -webkit-line-clamp: 2;

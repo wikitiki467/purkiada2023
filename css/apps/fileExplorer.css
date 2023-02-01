@@ -65,6 +65,7 @@
 .side_folder img{
     height: 30px;
     width: 30px;
+    pointer-events: none;
 }
 
 .fe_files{

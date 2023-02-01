@@ -52,6 +52,7 @@ Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obs
 | `scroll`                  |  `X, Y, XY, YX` |      `OFF`      | Přidá oknu aplikace možnost scrollovat                             |
 | `width`                   | `Size with unit`|    `500px`      | Nastaví šířku okna aplikace                                        |
 | `height`                  | `Size with unit`|    `400px`      | Nastaví výšku okna aplikace                                        |
+| `minimize`                |    `boolean`    |     `true`      | Zapne/Vypne možnost minimalizovat okno aplikace                    |
 | `maximize`                |    `boolean`    |     `true`      | Zapne/Vypne možnost maximalizovat okno aplikace                    |
 | `resize`                  |    `boolean`    |     `true`      | Zapne/Vypne možnost uživateli manipulovat s velikostí okna aplikace|
 | `shortcut`                |    `boolean`    |     `true`      | Zapne/Vypne shortcut na ploše                                      |

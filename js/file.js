@@ -41,7 +41,7 @@ function contextMenu(e) {
     /*get mouse target*/
     let target = e.target;
 
-    if (target.className == "fe_files" || target.className == "fe_file_img"){
+    if (target.className.includes("fe_files")){
         const div = document.createElement('div');
         div.className = 'fileContextMenu';
         div.id = 'fileContextMenu';

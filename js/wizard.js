@@ -25,7 +25,6 @@ function AVInstall(){
             completeLevel(2); //skip
             completeLevel(3); //skip
             completeLevel(4);
-            console.log("nemam rad negry");
             ongoing = false}, 5000);
        
     }
@@ -50,12 +49,12 @@ function AVInstall(){
         document.getElementsByClassName("wizard_error_text")[0].style.display="block";
         document.getElementsByClassName("wizard_error_text")[0].innerHTML="Nyní můžete zavřít čaroděje..";
         ongoing = false;
-        console.log("smazal hidden a defragmentoval");
         completeLevel(2); //skip
         completeLevel(3); //skip
         completeLevel(4); //skip
         completeLevel(5);
         ongoing = false
+        installApp(getFromSystemRegister('Antivirus'));
         }, 5000);
         
     }else if(ongoing == true){ //spamuje

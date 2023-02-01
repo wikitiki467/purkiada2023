@@ -1,6 +1,13 @@
-
-function optimizeDrives() {
-    for (var i = 0; i < 101; i++) {
-        setTimeout(function () {document.getElementById("optimizitionPercentage").innerHTML = i + "%";}, 100);
-    }
-}
+function optimizeDrives(obj, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.innerHTML = Math.floor(progress * (end - start) + start) + "%";
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+    completeLevel(4);
+} 

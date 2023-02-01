@@ -342,15 +342,15 @@
                     </ul>
                 </div>
             </appBuild>
-            <appBuild title="Properties" minimize="false" maximize="false" shortcut="false" startMenu="false">
+            <appBuild title="Properties" minimize="false" maximize="false" shortcut="false" startMenu="false" taskBarHidden="true">
                 <div id="properties_optimizition">
                     <img id="defragmentation_img" src="images/icons/defragmentation.png">
                     <button id="optimizeBTN" onclick="focusWindow('Optimize Drives')">Optimize</button>
                 </div>
             </appBuild>
-            <appBuild title="Optimize Drives" minimize="false" maximize="false" shortcut="false" startMenu="false">
+            <appBuild title="Optimize Drives" minimize="false" maximize="false" shortcut="false" startMenu="false" taskBarHidden="true">
                 <p id="optimizitionPercentage"></p>
-                <button id="optimizeStartBTN" onclick="optimizeDrives()">Optimize</button>
+                <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizitionPercentage'), 0, 100, 5000)">Optimize</button>
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">

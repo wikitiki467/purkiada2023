@@ -46,6 +46,7 @@ function generateApps(){
         let resize = builder.getAttribute("resize");
         let shortcut = builder.getAttribute("shortcut");
         let startMenu = builder.getAttribute("startMenu");
+        let taskBarHidden = builder.getAttribute("taskBarHidden");
         let isInstalled = builder.getAttribute("isInstalled");
 
         if (builder.getAttribute("shortcut") == null){
@@ -63,12 +64,12 @@ function generateApps(){
         }
 
         if (title != null){
-            newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, minimize, maximize, resize, shortcut, startMenu, isInstalled, i+1);
+            newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, minimize, maximize, resize, shortcut, startMenu, taskBarHidden, isInstalled, i+1);
         }
     }
 }
 
-function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, minimize, maximize, resize, shortcut, startMenu, isInstalled, appID){
+function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, minimize, maximize, resize, shortcut, startMenu, taskBarHidden, isInstalled, appID){
     let contentDisplay = document.getElementById("app_container");
     /*add to system register*/
     addToSystemRegister(appID, title);
@@ -113,6 +114,9 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
         window.setAttribute("defaultHeight", `${window.style.height}`);
         window.setAttribute("resize", `${resize}`);
         window.setAttribute("icon", icon);
+        if (taskBarHidden == "true"){
+            window.setAttribute("taskBarHidden", true);
+        }
 
         contentDisplay.appendChild(window);
 
@@ -310,7 +314,9 @@ function exitWindow(window_ID){
     window.style.width = window.getAttribute("defaultWidth");
     window.style.height = window.getAttribute("defaultHeight");
     
-    taskBarOpendWindows(window_ID, "close");
+    if (!window.getAttribute("taskBarHidden")){
+        taskBarOpendWindows(window_ID, "close");
+    }
 }
 
 function openWindow(window_ID){
@@ -327,8 +333,10 @@ function openWindow(window_ID){
     
     window.style.left = 50 - windowWidth / screenWidth + "%";
     window.style.top = 50 - windowHeight / screenHeight + "%";
-    
-    taskBarOpendWindows(windowID, "open");
+
+    if (!window.getAttribute("taskBarHidden")){
+        taskBarOpendWindows(windowID, "open");
+    }
 }
 
 function maximizeWindow(window_ID){

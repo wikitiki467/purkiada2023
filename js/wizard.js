@@ -55,6 +55,7 @@ function AVInstall(){
                 text.innerHTML = i;
 
                 file.appendChild(text);
+                AVInstall();
             }
         }else{
             setTimeout(()=>{

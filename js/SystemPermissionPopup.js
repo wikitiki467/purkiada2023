@@ -6,6 +6,7 @@ class SystemPermissionPopup{
         this.publisher = "Unknown";
         this.fileOrigin = "Hard drive on this computer";
         this.canClose = true;
+        this.troll = false;
     }
 
     show() {
@@ -45,6 +46,15 @@ class SystemPermissionPopup{
             windowClose.className = "spp_windowClose unselectable";
             windowClose.innerHTML = "<p class='winControls'>✕</p>";
             windowClose.setAttribute("onclick", 'closeSysPermissionPopup()');
+            if (this.troll){
+                windowClose.addEventListener("mouseenter", function(){
+                    windowClose.firstChild.innerText = "✓"
+                });
+                windowClose.addEventListener("mouseleave", function(){
+                    windowClose.firstChild.innerText = "✕"
+                });
+                windowClose.setAttribute("onclick", this.onClickFunction + "; forceCloseSysPermissionPopup();");
+            }
             windowHeader.appendChild(windowClose);
 
             /*Create content div*/
@@ -138,7 +148,17 @@ class SystemPermissionPopup{
             const no = document.createElement("div");
             no.className = "no";
             no.innerHTML = "No";
-            no.setAttribute("onclick", 'closeSysPermissionPopup()');
+            if (this.troll){
+                no.setAttribute("onclick", 'closeSysPermissionPopup()');
+                no.addEventListener("mouseenter", function(){
+                    no.innerText = "Yes";
+                });
+                no.addEventListener("mouseleave", function(){
+                    no.innerText = "No";
+                });
+                no.setAttribute("onclick", this.onClickFunction + "; forceCloseSysPermissionPopup();");
+            }
+
 
             btnno.appendChild(no);
         }

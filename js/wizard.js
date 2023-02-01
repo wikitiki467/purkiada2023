@@ -9,42 +9,59 @@ function AVInstall(){
     //nesmaže hidden
     if(ongoing == false && AVInstalled == false && countDeletedFiles == 6){ //smaže všechny soubory - rickroll se necheckuje
 
-        failInstall();
+        failInstall("250px");
 
         setTimeout(()=>{
         resetFiles();
+        resetDriverOptimization();
         completeLevel(2);
         completeLevel(3);
         }, 5000);
     }
     //všechny a smaže hidden
-    else if(ongoing == false && AVInstalled == false && countDeletedFiles == 7){
+    else if(ongoing == false && AVInstalled == false && countDeletedFiles == 7 && driverOptimized() != true){
+        failInstall("280px");
         setTimeout(()=>{
-            document.getElementsByClassName("progress_bar")[0].style.transition="ease-in-out 5s";
-            document.getElementsByClassName("progress_bar_bg")[0].style.display="block";
-            document.getElementsByClassName("progress_bar")[0].style.width="300px";
+            completeLevel(2); //skip
+            completeLevel(3); //skip
+            completeLevel(4);
+            console.log("nemam rad negry");
+            ongoing = false}, 5000);
+       
+    }
+    //smaže všechno a defragmentuje
+    else if(ongoing == false && AVInstalled == false && countDeletedFiles == 7 && driverOptimized() == true){
+        document.getElementsByClassName("wizard_error_title")[0].style.display="none";
+        document.getElementsByClassName("wizard_error_text")[0].style.display="none";
+
+        document.getElementsByClassName("progress_bar")[0].style.transition="ease-in-out 0s";
+        document.getElementsByClassName("progress_bar")[0].style.width="0px";
+
+        ongoing = true;
+        setTimeout(()=>{
+        document.getElementsByClassName("progress_bar")[0].style.transition="ease-in-out 5s";
+        document.getElementsByClassName("progress_bar_bg")[0].style.display="block";
+        document.getElementsByClassName("progress_bar")[0].style.width="300px";
         }, 15);
-                
-        setTimeout(()=>{
-        document.getElementById("wizardErrorTitle").innerHTML = "Instalace dokončena!";
-        document.getElementById("wizardErrorText").innerHTML = "Nyní můžete zavřít čaroděje..";
-        document.getElementsByClassName("wizard_error_title")[0].style.display="block";
-        document.getElementsByClassName("wizard_error_text")[0].style.display="block";
-
-        installApp(getFromSystemRegister('Antivirus'));
-
-        AVInstalled = true;
         
+        setTimeout(()=>{
+        document.getElementsByClassName("wizard_error_title")[0].style.display="block";
+        document.getElementsByClassName("wizard_error_title")[0].innerHTML="Instalace dokončena!";
+        document.getElementsByClassName("wizard_error_text")[0].style.display="block";
+        document.getElementsByClassName("wizard_error_text")[0].innerHTML="Nyní můžete zavřít čaroděje..";
+        ongoing = false;
+        console.log("smazal hidden a defragmentoval");
         completeLevel(2); //skip
         completeLevel(3); //skip
-        completeLevel(4);
-
-        ongoing = false;
+        completeLevel(4); //skip
+        completeLevel(5);
+        ongoing = false
         }, 5000);
+        
     }else if(ongoing == true){ //spamuje
         console.log("spam!!");
     }else if(countDeletedFiles < 6){ //nesmaže všechny
-        failInstall();
+        failInstall("250px");
         setTimeout(()=>{completeLevel(2)}, 5000);
     }else{
         console.log("neumíš podmínkovat");
@@ -75,25 +92,25 @@ function resetFiles(){
     }
 }
 
-function failInstall(){
+function failInstall(width){
     document.getElementsByClassName("wizard_error_title")[0].style.display="none";
-        document.getElementsByClassName("wizard_error_text")[0].style.display="none";
+    document.getElementsByClassName("wizard_error_text")[0].style.display="none";
 
-        document.getElementsByClassName("progress_bar")[0].style.transition="ease-in-out 0s";
-        document.getElementsByClassName("progress_bar")[0].style.width="0px";
+    document.getElementsByClassName("progress_bar")[0].style.transition="ease-in-out 0s";
+    document.getElementsByClassName("progress_bar")[0].style.width="0px";
 
-        ongoing = true;
-        setTimeout(()=>{
-        document.getElementsByClassName("progress_bar")[0].style.transition="ease-in-out 5s";
-        document.getElementsByClassName("progress_bar_bg")[0].style.display="block";
-        document.getElementsByClassName("progress_bar")[0].style.width="250px";
-        }, 15);
+    ongoing = true;
+    setTimeout(()=>{
+    document.getElementsByClassName("progress_bar")[0].style.transition="ease-in-out 5s";
+    document.getElementsByClassName("progress_bar_bg")[0].style.display="block";
+    document.getElementsByClassName("progress_bar")[0].style.width=width;
+    }, 15);
         
-        setTimeout(()=>{
-        document.getElementsByClassName("wizard_error_title")[0].style.display="block";
-        document.getElementsByClassName("wizard_error_text")[0].style.display="block";
-        ongoing = false;
-        }, 5000);
+    setTimeout(()=>{
+    document.getElementsByClassName("wizard_error_title")[0].style.display="block";
+    document.getElementsByClassName("wizard_error_text")[0].style.display="block";
+    ongoing = false;
+    }, 5000);
 }
 /*for (let i = 0; i < 6; i++){
     const file = document.createElement("div");

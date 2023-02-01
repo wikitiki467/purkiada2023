@@ -6,6 +6,7 @@ let panBackorDialogy = [["Zdravím, jsem pan Bačkor. Vypadá to že tvůj poč�
 ["Skvěle! To jednoduché máme za sebou. Vypadá to že ještě nemusíme natáhnout bačkory.;)", "Vidím že tvuj počítač není chráněn antivirem. Nevadí, jeden se dá rychle stáhnout z BACKOR Storu™."],
 ["Ale né! Zdá se, že virus zaplnil disk soubory a bez volného místa antivir nenainstalujeme. Rychle, musíme se všech těch souborů zbavit!"],
 ["Zajímavé. Installer stále hlásí nedostatek uložistě. Asi se musíme ještě porozhlédnout po File Exploreru..."],
+["Na počítači už nejsou žádné velké soubory co by stály za smazání... Možná je něco se samotným diskem?"],
 ["Výborně! Teď spusť antivirus!"]]; //teď nvm xdd
 
 let currentDialog = 0;

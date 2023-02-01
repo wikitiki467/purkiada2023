@@ -1,3 +1,5 @@
+let optimized = false;
+
 function optimizeDrives(obj, start, end, duration) {
     let startTimestamp = null;
     const step = (timestamp) => {
@@ -9,5 +11,14 @@ function optimizeDrives(obj, start, end, duration) {
       }
     };
     window.requestAnimationFrame(step);
-    completeLevel(4);
-} 
+    optimized = true;
+}
+
+function driverOptimized(){
+  return optimized;
+}
+
+function resetDriverOptimization(){
+    document.getElementById("optimizationPercentage").innerHTML = "";
+    optimized = false;
+}

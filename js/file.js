@@ -12,8 +12,9 @@ function deleteFileInFE(target) {
     if(document.getElementById(target.id)){
         if(target.id == "fileRick"){
             document.getElementById(target.id).remove();
-            console.log("se poseru");
         } //nevezme rickroll
+        if(target.id == "av_installer_file"){    
+        }
         else{
             document.getElementById(target.id).remove();
             countDeletedFiles++;

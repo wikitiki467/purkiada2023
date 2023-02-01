@@ -254,7 +254,7 @@
                     <div class="fe_files" onclick="activateFolderTab(this, 'fe_downloads')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Downloads</p></div>
                 </div>  
                 <div id="fe_downloads" class="fe_tab">
-                    <div class="fe_files" id="aw_installer_file" onclick="focusWindow('AV Wizard')" style="display: none;"><img src="images/levelLogos/wizardIcon.png"><p>AV_installer.exe</p></div>
+                    <div class="fe_files" id="av_installer_file" onclick="focusWindow('AV Wizard')" style="display: none;"><img src="images/levelLogos/wizardIcon.png"><p>AV_installer.exe</p></div>
                 </div>  
             </appBuild>
 
@@ -275,7 +275,7 @@
                             <img src="images/levelLogos/Console.png">
                             <p class="textOverflow1Line">Terminal</p>
                         </div>
-                        <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('aw_installer_file').style.display = 'block'">
+                        <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('av_installer_file').style.display = 'block'">
                             <img src="images/levelLogos/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>
@@ -368,7 +368,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="properties_optimizition">
+                    <div id="properties_optimization">
                         <img id="defragmentation_img" src="images/icons/defragmentation.png">
                         <button id="optimizeBTN" onclick="focusWindow('Optimize Drives')" role="button">
                             <span class="asciiHash textOverflow1Line">Optimize disk</span>
@@ -377,8 +377,8 @@
                 </div>
             </appBuild>
             <appBuild title="Optimize Drives" minimize="false" maximize="false" shortcut="false" startMenu="false" taskBarHidden="true">
-                <p id="optimizitionPercentage"></p>
-                <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizitionPercentage'), 0, 100, 5000)">Optimize</button>
+                <p id="optimizationPercentage"></p>
+                <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizationPercentage'), 0, 100, 5000)">Optimize</button>
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">

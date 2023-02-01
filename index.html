@@ -23,10 +23,6 @@
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
     <canvas id="gradient-canvas" data-transition-in></canvas>
-    <!-- <div id="leftWall" class="wall"></div>
-        <div id="rightWall" class="wall"></div>
-        <div id="topWall" class="wall"></div>
-        <div id="bottomWall" class="wall"></div> -->
         <img draggable="false" id="telephone" class="unselectable" src="images/telefon-off.svg"></img>
         <img draggable="false" id="telephone-arrow" class="unselectable" style="rotate: 0deg;" src="images/arrow.svg" onclick="telefonNahoru()"></img>
         <div id="telephone-button-messages" class="telephone-button" onclick="changeTelephoneScreen('Messages')"></div>
@@ -55,7 +51,6 @@
                             <img draggable="false" src="images/taskbar/morelight.svg" alt="more button" class="task_btns">
                             <p class="start_text">START</p>
                         </div>
-                        <!-- <div class="blank_space"></div> -->
                         <div class="sideBar_bottom">
                             <div id="AccountBTN" class="start_sidebar_btns">
                                 <img draggable="false" src="images/taskbar/accountlight.svg" alt="account button" class="task_btns">
@@ -75,9 +70,6 @@
                 </div>
                 <img draggable="false" src="images/taskbar/StartBTNlight.svg" alt="start button" id="StartBTN" class="task_btns">
                 <img draggable="false" src="images/BackorIcon.png" alt="Pan Bačkor button" id="PanBackorBTN" class="task_btns" onclick="panBackorBTN()">
-                <!--<img draggable="false" src="images/taskbar/PLUSlight.svg" alt="plus" id="PLUS" class="task_btns">
-                <img draggable="false" src="images/taskbar/MINUSlight.svg" alt="minus " id="MINUS" class="task_btns">
-                <img draggable="false" src="images/taskbar/THEMElight.svg" alt="Theme changer" id="THEME" title="Theme" onclick="change_theme()">-->
                 <div id="backor_controls">
                     <div class="arrows arrow-left" onclick="switchPanBackorDialog(-1)"></div>
                     <div class="arrows arrow-right" onclick="switchPanBackorDialog(1)"></div>
@@ -87,47 +79,10 @@
             <div id="displayLeg"></div>
             <div class="displayFrame"></div>
             <div id="powerOffButton" onclick="turnOff()" class="unselectable" title="Power on/off"></div>
-            <!-- <div id="displayFrameLeft" class="displayFrame"></div>
-                <div id="displayFrameRight" class="displayFrame"></div>
-                <div id="displayFrameTop" class="displayFrame"></div>
-                <div id="displayFrameBottom" class="displayFrame">
-                    <div id="powerOffButton" onclick="turnOff()" class="unselectable" title="Power on/off"></div>
-                </div> -->
                 <img draggable="false" src="images/hand.svg" alt="hand.svg" id="hand">
                 <div id="contentDisplay">
                     <div class="app_container" id="app_container" style="display: flex;margin: 2%;"></div>
                     <img draggable="false" src="images/backorArrow.png" alt="Pan Bačkor pointer" id="PanBackorPointer">
-                    <appBuild title="LEVEL1.exe" icon="LIGHT/icon1.png" backgroundColor="radial-gradient(circle at 10% 20%, rgb(151, 10, 130) 0%, rgb(33, 33, 33) 100.2%)" isInstalled="false">
-                        <div class="levelStart level1start">
-                            <button onclick="new SystemPermissionPopup('moje aplikace 1', 'document.querySelector(\'.level1start\').style.display = \'none\';changeLang(\'ascii\');').show()">START THE LEVEL</button>
-                        </div>
-                        <div class="levelContent">
-                            <h1 class="asciiHash textOverflow1Line levelHeader">LEVEL1</h1>
-
-                            <!-- <button>Získat podrobnosti</button> <br>
-
-                            <div><button>ZÍKAT NÁPOVĚDU</button> <span> - X bodů</span> <br></div>
-                            <div><button>ZÍKAT NÁPOVĚDU</button> <span> - X bodů</span> <br></div> -->
-
-                            <!-- template:
-                            Zíkat podrobnosti: ZDE
-                            Zíkat nápovědu: ZDE - X bodů
-                            Zíkat nápovědu: ZDE - X bodů -->
-                            <div class="levelDetails">
-                                <h4>Získat podrobnosti: </h4><button>ZDE</button>
-                            </div>
-                            <div class="levelHint">
-                                <div>
-                                    <h4>Získat nápovědu: </h4><button>ZDE</button><span> - X bodů</span>
-                                </div>
-                                <div>
-                                    <h4>Získat nápovědu: </h4><button>ZDE</button><span> - X bodů</span>
-                                </div>
-                            </div>
-
-                            <h3 class="levelStatus" isCompleted="false">Level dokončen: </h3>
-                        </div>
-                    </appBuild>
                     <appBuild title="It's About Drive, It's About Power" icon="LIGHT/icon2.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)" isInstalled="false">
                         <p>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠛⠛⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿
                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠉⠻⣿⣿⣿⣿⣿⣿
@@ -358,9 +313,6 @@
                     </div>
                     <div id="browserTabs">
                         <div class="browserTab" class="unselectable" onclick="searchBarControler('email')"><img src="images/WebBrowser/email.png"><p class="textOverflow1Line">Email</p></div>
-                        <!--
-                        <div class="browserTab" class="unselectable" onclick="searchBarControler('twitch')"><img src="images/WebBrowser/twitch.png"><p>venca1450</p></div>
-                        -->
                         <div class="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('generatecode')"><img src="images/WebBrowser/lock.png"><p class="textOverflow1Line">Answer code</p></div>
                         <div class="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('enigmaManual')"><img src="images/levelLogos/DARK/icon8.png"><p class="textOverflow1Line">Manuál pro enigmu</p></div>
                     </div>
@@ -388,6 +340,12 @@
                         <li>Šipky v pravo dole na taskbaru → mění dialog na předchozí nebo následující (pokud možné)</li>
                     </ul>
                 </div>
+            </appBuild>
+            <appBuild title="Properties" shortcut="false" startMenu="false">
+
+            </appBuild>
+            <appBuild title="Optimize Drives" shortcut="false" startMenu="false">
+
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">

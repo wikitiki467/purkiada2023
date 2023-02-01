@@ -342,10 +342,38 @@
                     </ul>
                 </div>
             </appBuild>
-            <appBuild title="Properties" minimize="false" maximize="false" shortcut="false" startMenu="false" taskBarHidden="true">
-                <div id="properties_optimizition">
-                    <img id="defragmentation_img" src="images/icons/defragmentation.png">
-                    <button id="optimizeBTN" onclick="focusWindow('Optimize Drives')">Optimize</button>
+            <appBuild title="Properties" minimize="false" maximize="false" shortcut="false" startMenu="false" backgroundColor="gray" width="250px" height="300px" resize="false">
+
+                <div id="properties_container">
+                    <!-- create template for disk properties -->
+                    <div id="properties_disk">
+                        <div id="disk_name">
+                            <img id="disk_img" src="images/icons/hard-drive.png">
+                            <input type="text" value="OS" readonly>
+                        </div>
+                        <div id="disk_type">
+                            <div>
+                                <p class="textOverflow1Line">Type: </p><p class="textOverflow1Line">Local Disk</p>
+                            </div>
+                            <div>
+                                <p class="textOverflow1Line">File system: </p><p class="textOverflow1Line">NTFS</p>
+                            </div>
+                        </div>
+                        <div id="disk_storage">
+                            <div>
+                                <p class="textOverflow1Line">Total size: </p><p class="textOverflow1Line">X.XX GB</p>
+                            </div>
+                            <div>
+                                <p class="textOverflow1Line">Free space: </p><p class="textOverflow1Line">X.XX GB</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="properties_optimizition">
+                        <img id="defragmentation_img" src="images/icons/defragmentation.png">
+                        <button id="optimizeBTN" onclick="focusWindow('Optimize Drives')" role="button">
+                            <span class="asciiHash textOverflow1Line">Optimize disk</span>
+                        </button>
+                    </div>
                 </div>
             </appBuild>
             <appBuild title="Optimize Drives" minimize="false" maximize="false" shortcut="false" startMenu="false" taskBarHidden="true">

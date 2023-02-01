@@ -1,4 +1,4 @@
-const randWallpaper = changePngValue("./images/wallpaper.png", "center");
+//const randWallpaper = changePngValue("./images/wallpaper.png", "center");
 
 function PASS_check(id){
   var EnteredPASS = document.getElementById("pass"+id);

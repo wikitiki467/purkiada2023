@@ -56,7 +56,7 @@
                                 <img draggable="false" src="images/taskbar/accountlight.svg" alt="account button" class="task_btns">
                                 <p id="UserNameOnScr" class="start_text">Unlogged user</p>
                             </div>
-                            <div id="SettingsBTN" class="start_sidebar_btns" onclick="moveWindow(6); openWindow(6); window_z_index(6)">
+                            <div id="SettingsBTN" class="start_sidebar_btns" onclick="focusWindow('settings')">
                                 <img draggable="false" src="images/taskbar/Settingslight.svg" alt="settings button" class="task_btns">
                                 <p class="start_text">Settings</p>
                             </div>
@@ -342,10 +342,12 @@
                 </div>
             </appBuild>
             <appBuild title="Properties" shortcut="false" startMenu="false">
-
+                <div id="properties_optimizition">
+                    <button id="optimizeBTN" onclick="focusWindow('Optimize Drives')">Optimize</button>
+                </div>
             </appBuild>
-            <appBuild title="Optimize Drives" shortcut="false" startMenu="false">
-
+            <appBuild title="Optimize Drives" minimize="false" maximize="false" shortcut="false" startMenu="false">
+                <button id="optimizeStartBTN" onclick="focusWindow('Optimize Drives')">Optimize</button>
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">

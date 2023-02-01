@@ -76,3 +76,6 @@
     border-bottom-right-radius: unset;
     background-color: #2b2a33;
 }
+.virusTab{
+    display: none;
+}

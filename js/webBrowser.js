@@ -19,11 +19,12 @@ function searchBarControler(site=""){ //jediná funkce, která se volá mimo ten
     }else{
         currentPage = site;
     }
-    if (currentPage.includes("www.") || (currentPage.includes(".cz") || currentPage.includes(".com") || currentPage.includes(".tv"))){
+    if (currentPage.includes("www.") || (currentPage.includes(".cz") || currentPage.includes(".com") || currentPage.includes(".tv")) || currentPage.includes(".ru")){
         currentPage = currentPage.replace("www.", "");
         currentPage = currentPage.replace(".cz", "");
         currentPage = currentPage.replace(".com", "");
         currentPage = currentPage.replace(".tv", "");
+        currentPage = currentPage.replace(".ru", "");
     }
     for (let i = historyPage; i>pageHistory.length -1;i--){
         pageHistory.pop();
@@ -65,6 +66,14 @@ function findSite(){
         case "enigmaManual":
             enigmaManual();
             break;
+        case "antivirus":
+            antivirus();
+            break;
+        // case "virus":
+        //     if (virusWinEnabled){
+        //         virus();
+        //         break;
+        //     }
         default:
             nonExistingSite();
     }
@@ -176,11 +185,6 @@ function generatecode(){
     div.style.marginLeft = (webContent.clientWidth/2-div.clientWidth/2)+"px";
 }
 
-//other things
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 function twoFactorEmail(){
     let userInput = document.getElementById("emailPasswordInput");
     if (userInput.value.toUpperCase() == emailcode[5]){
@@ -207,3 +211,102 @@ function loadEmailData(){
 }
 
 loadEmailData();
+
+let purktivirusCode = "";
+function getPurktivirusCode(){
+    return purktivirusCode;
+}
+function antivirus(){
+    webContent.style.backgroundColor = "red";
+    webContent.style.display = "flex";
+    webContent.style.flexDirection = "column";
+    webContent.style.justifyContent = "center";
+    webContent.style.alignItems = "center";
+    let mainText = document.createElement("h1");
+    mainText.innerText = "PurktiVirus";
+    mainText.style.color = "white";
+    mainText.style.fontSize = "50px";
+    mainText.style.margin = "0";
+    let newDiv = document.createElement("div");
+    let header = document.createElement("h1");
+    let text = document.createElement("p");
+    let button = document.createElement("button");
+    let code = document.createElement("p");
+    
+    header.innerText = "VAROVÁNÍ";
+    text.innerText = "Vaše předplatné PurktiVirus vypršelo. Chcete-li PurktiVirus používat i nadále, obnovte prosím své předplatné.";
+    button.innerText = "PRODLOUŽIT PŘEDPLATNÉ";
+
+    newDiv.style.display = "flex";
+    newDiv.style.flexDirection = "column";
+    newDiv.style.justifyContent = "center";
+    newDiv.style.alignItems = "center";
+    newDiv.style.width = "85%";
+    newDiv.style.maxWidth = "500px";
+    newDiv.style.padding = "5%";
+    newDiv.style.backgroundColor = "white";
+    newDiv.style.borderRadius = "10px";
+    newDiv.style.boxShadow = "0px 0px 10px black";
+    newDiv.style.textAlign = "center";
+    newDiv.setAttribute("id", "antivirusDiv");
+    header.style.marginTop = "10px";
+    text.style.marginTop = "10px";
+    button.style.marginTop = "10px";
+    button.style.cursor = "pointer";
+    button.style.width = "unset";
+    button.style.padding = "10px 20px";
+    button.id = "antivirusButton";
+    button.setAttribute("onclick", 'purktivirusCode = purktivirusCode==""?Math.random().toString(36).substring(5):purktivirusCode;document.getElementById("antivirusButton").remove();document.getElementById("antivirusCode").innerText = purktivirusCode;');
+    code.style.marginTop = "10px";
+    code.style.color = "red";
+    code.id = "antivirusCode";
+
+    newDiv.appendChild(header);
+    newDiv.appendChild(text);
+    newDiv.appendChild(button);
+    newDiv.appendChild(code);
+
+    webContent.appendChild(mainText);
+    webContent.appendChild(newDiv);
+}
+
+// browser virus
+let virusTabEnabled = false;
+function browserTabVirus(){
+    
+    $('.browserTab.virusTab').each(function(){
+        $(this).css('display', virusTabEnabled?'none':'flex');
+        // get <p> element and change text
+        $(this).children('p').text(Math.random().toString(36).substring(7));
+    });
+    $('.browserTab:not(.virusTab)').each(function(){
+        $(this).css('display', virusTabEnabled?'flex':'none');
+    });
+    virusTabEnabled = !virusTabEnabled;
+
+}
+let virusWinEnabled = false;
+async function browserWinVirus(){
+    virusWinEnabled = !virusWinEnabled;
+    virIMGs = ["virus1.png", "twitchBackground.png", "milfs.png", "ram.png", "free-yPod.png"]
+    defaultPath = "images/WebBrowser/"
+    while (virusWinEnabled){
+        // random from virIMGs
+        let currentImg = virIMGs[Math.floor(Math.random()*virIMGs.length)];
+        webContent = document.getElementById("main_webbrowser_div");
+        searchBar = document.getElementById("browserSearchBar");
+        searchBar.value = Math.random().toString(36).substring(2);
+        let randomDomain = ["ru", "online", "com", "net", "org", "info", "biz", "us", "uk", "co.uk", "ca", "eu", "ru", "com.ru", "net.ru", "org.ru"];
+        searchBar.value += "." + randomDomain[Math.floor(Math.random()*randomDomain.length)];
+        deleteContent();
+        webContent.style.backgroundColor = "white";
+        await sleep(500);
+        deleteContent();
+        webContent.style.backgroundColor = "black";
+        webContent.style.backgroundImage = "url('" + defaultPath + currentImg + "')";
+        webContent.style.backgroundSize = "100% 100%";
+        // random sleep 1-5s
+        await sleep(Math.floor(Math.random()*5000)+1000);
+    }
+    
+}

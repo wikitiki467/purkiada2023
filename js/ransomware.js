@@ -8,9 +8,12 @@ function convertToAscii(text) {
 }
 function convertAsciiToText(asciiCodes){
     let result = "";
+    // check if the asciiCodes are Array
+    if (!Array.isArray(asciiCodes)) return asciiCodes;
     asciiCodes.forEach(code => {
         result += String.fromCharCode(code);
     });
+    if (result === "\u0000") return asciiCodes.join(" ");
     return result;
 }
 function getTextFromElement(element){
@@ -47,6 +50,7 @@ function changeThisAsciiToText(elem){
     let asciiCodesList = getTextFromElement(elem).split(" ");
     let result = convertAsciiToText(asciiCodesList);
     elem.innerText = result;
+    convertAsciiToText(getTextFromElement(elem).split(" "));
 }
 
   

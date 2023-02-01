@@ -35,6 +35,9 @@
     aspect-ratio: 1/1;
     pointer-events: none;
 }
+#disk_name input[type="text"] {
+    padding: 0 5px;
+}
 
 #disk_type,
 #disk_storage {

@@ -104,3 +104,36 @@
     background-color: rgb(59, 221, 59);
     border-radius: 0;
 }
+
+#av_redemption{   
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    bottom: 0;
+    background-color: rgb(80, 80, 80);
+    justify-content: center;
+    align-items: center;
+}
+
+#av_redemption p{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+#av_redemption button{
+    position: absolute;
+    bottom: 50px;
+    left: calc(50% - 75px);
+    width: 150px;
+    height: 40px;
+    border-radius: 100px;
+    background-color: rgb(59, 221, 59);
+}
+
+#av_redemption input{
+    position: absolute;
+    bottom: 110px;
+    left: calc(50% - 90px);
+    width: 180px;
+    height: 20px;
+}

@@ -206,6 +206,12 @@
                         <option value="Full">Full</option>
                     </select>
                 </div>
+                <div id="av_redemption">
+                    <p class="unselectable">Vaše bezplatná zkušební verze právě skončila. Kupte si plnou verzi!</p>
+                    <p class="unselectable">Status: neaktivní</p>
+                    <input type="text" id="av_redemptionCode" placeholder="Redemption code">
+                    <button style="cursor: default;" onclick="(document.getElementById('av_redemptionCode').value === getPurktivirusCode())? document.getElementById('av_redemption').remove():document.getElementById('av_redemptionCode').value = ''">Redem</button>
+                </div>
             </appBuild>
             <appBuild title="*jmeno_uzivatele*@spspurkynova" backgroundColor="#0c0c0c" scroll="Y" icon="Console.png" isInstalled="false">
                 <div class="console">

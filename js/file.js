@@ -1,6 +1,6 @@
 var countDeletedFiles = 0;
 
-function getCountDeletedFiles() {
+function getCountDeletedFiles(){
     return countDeletedFiles;
 }
 
@@ -10,8 +10,15 @@ function resetCountDeletedFiles() {
 
 function deleteFileInFE(target) {
     if(document.getElementById(target.id)){
-        document.getElementById(target.id).remove();
-        countDeletedFiles++;
+        if(target.id == "fileRick"){
+            document.getElementById(target.id).remove();
+        } //nevezme rickroll
+        if(target.id == "av_installer_file"){    
+        }
+        else{
+            document.getElementById(target.id).remove();
+            countDeletedFiles++;
+        }
     }
 }
 

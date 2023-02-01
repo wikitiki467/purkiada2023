@@ -206,6 +206,12 @@
                         <option value="Full">Full</option>
                     </select>
                 </div>
+                <div id="av_redemption">
+                    <p class="unselectable">Vaše bezplatná zkušební verze právě skončila. Kupte si plnou verzi!</p>
+                    <p class="unselectable">Status: neaktivní</p>
+                    <input type="text" id="av_redemptionCode" placeholder="Redemption code">
+                    <button style="cursor: default;" onclick="(document.getElementById('av_redemptionCode').value === getPurktivirusCode())? document.getElementById('av_redemption').remove():document.getElementById('av_redemptionCode').value = ''">Redem</button>
+                </div>
             </appBuild>
             <appBuild title="*jmeno_uzivatele*@spspurkynova" backgroundColor="#0c0c0c" scroll="Y" icon="Console.png" isInstalled="false">
                 <div class="console">
@@ -240,9 +246,9 @@
                     
                 </div>
                 <div id="fe_main" class="fe_tab">
-                    <div class="fe_files" id="file1" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png" class="fe_file_img"><p class="textOverflow1Line">Rick roluje</p></div>
+                    <div class="fe_files" id="fileRick" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png" class="fe_file_img"><p class="textOverflow1Line">Rick roluje</p></div>
                     <div class="fe_files" id="file2" onclick="focusWindow('File'); changeFileText('A')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>A</p></div>
-                    <div class="fe_files hiddenFiles" id="file3" onclick="focusWindow('File'); changeFileText('B')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>B</p></div>
+                    <div class="fe_files hiddenFiles" id="fileHidden" onclick="focusWindow('File'); changeFileText('B')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>B</p></div>
                     <div class="fe_files" id="file4" onclick="focusWindow('File'); changeFileText('C')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>C</p></div>
                     <div class="fe_files" id="file5" onclick="focusWindow('File'); changeFileText('D')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>D</p></div>
                     <div class="fe_files" id="file6" onclick="focusWindow('File'); changeFileText('E')"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p>E</p></div>
@@ -254,7 +260,7 @@
                     <div class="fe_files" onclick="activateFolderTab(this, 'fe_downloads')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Downloads</p></div>
                 </div>  
                 <div id="fe_downloads" class="fe_tab">
-                    <div class="fe_files" id="aw_installer_file" onclick="focusWindow('AV Wizard')" style="display: none;"><img src="images/levelLogos/wizardIcon.png"><p>AV_installer.exe</p></div>
+                    <div class="fe_files" id="av_installer_file" onclick="focusWindow('AV Wizard')" style="display: none;"><img src="images/levelLogos/wizardIcon.png"><p>AV_installer.exe</p></div>
                 </div>  
             </appBuild>
 
@@ -275,7 +281,7 @@
                             <img src="images/levelLogos/Console.png">
                             <p class="textOverflow1Line">Terminal</p>
                         </div>
-                        <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('aw_installer_file').style.display = 'block'">
+                        <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('av_installer_file').style.display = 'block'">
                             <img src="images/levelLogos/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>
@@ -379,7 +385,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="properties_optimizition">
+                    <div id="properties_optimization">
                         <img id="defragmentation_img" src="images/icons/defragmentation.png">
                         <button id="optimizeBTN" onclick="focusWindow('Optimize Drives')" role="button">
                             <span class="asciiHash textOverflow1Line">Optimize disk</span>
@@ -388,8 +394,8 @@
                 </div>
             </appBuild>
             <appBuild title="Optimize Drives" minimize="false" maximize="false" shortcut="false" startMenu="false" taskBarHidden="true">
-                <p id="optimizitionPercentage"></p>
-                <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizitionPercentage'), 0, 100, 5000)">Optimize</button>
+                <p id="optimizationPercentage"></p>
+                <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizationPercentage'), 0, 100, 5000)">Optimize</button>
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">

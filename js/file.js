@@ -41,7 +41,7 @@ function contextMenu(e) {
     /*get mouse target*/
     let target = e.target;
 
-    if (target.className.includes("fe_files")){
+    if (target.className.includes("fe_files") || target.className.includes("side_folder")){
         const div = document.createElement('div');
         div.className = 'fileContextMenu';
         div.id = 'fileContextMenu';
@@ -64,13 +64,25 @@ function contextMenu(e) {
 
         document.getElementById('contentDisplay').appendChild(div);
         div.focus();
-        options = {
+        if (target.className.includes("fe_files")) {
+            options = {
             // 'NAME': 'ONCLICK'
             "Option 1": "console.log('Option 1')",
             "Option 2": "console.log('Option 2')",
             "Rename": "console.log('Rename')",
             "Delete": "deleteFileInFE(" + target.id + ");",
-        };
+            };
+        }
+        else {
+            options = {
+                // 'NAME': 'ONCLICK'
+                "Option 1": "console.log('Option 1')",
+                "Option 2": "console.log('Option 2')",
+                "Rename": "console.log('Rename')",
+                "Properties": "focusWindow('Properties')",
+                };
+        }
+        
         e.preventDefault();
         for (const [name, onclick] of Object.entries(options)) {
             const option = document.createElement('li');

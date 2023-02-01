@@ -7,7 +7,7 @@ var historyPage = 0;
 var emailShow = false;
 /*const twoFactorCode = generateTwoFactorCode();*/
 var sendSms = false;
-var emailcode = changePngValue("./images/wallpaper.png", "center");
+//var emailcode = changePngValue("./images/wallpaper.png", "center");
 
 //control web content
 function searchBarControler(site=""){ //jediná funkce, která se volá mimo tento script

@@ -41,6 +41,7 @@ function generateApps(){
         let backgroundImage = builder.getAttribute("backgroundImage");
         let backgroundColor = builder.getAttribute("backgroundColor");
         let scroll = builder.getAttribute("scroll");
+        let minimize = builder.getAttribute("minimize");
         let maximize = builder.getAttribute("maximize");
         let resize = builder.getAttribute("resize");
         let shortcut = builder.getAttribute("shortcut");
@@ -62,12 +63,12 @@ function generateApps(){
         }
 
         if (title != null){
-            newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, startMenu, isInstalled, i+1);
+            newApp(builder, width, height, title, icon, backgroundImage, backgroundColor, scroll, minimize, maximize, resize, shortcut, startMenu, isInstalled, i+1);
         }
     }
 }
 
-function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, maximize, resize, shortcut, startMenu, isInstalled, appID){
+function newApp(appBuild, width, height, title, icon, backgroundImage, backgroundColor, scroll, minimize, maximize, resize, shortcut, startMenu, isInstalled, appID){
     let contentDisplay = document.getElementById("app_container");
     /*add to system register*/
     addToSystemRegister(appID, title);
@@ -126,10 +127,12 @@ function newApp(appBuild, width, height, title, icon, backgroundImage, backgroun
         windowHeader.appendChild(windowTitle);
 
         const windowMinimize = document.createElement("div");
-        windowMinimize.className = "windowMinimize unselectable";
-        windowMinimize.innerHTML = "<p class='winControls'>—</p>";
-        windowMinimize.setAttribute("onclick", 'minimizeWindow('+appID+')');
-        windowHeader.appendChild(windowMinimize);
+        if (minimize != "false"){
+            windowMinimize.className = "windowMinimize unselectable";
+            windowMinimize.innerHTML = "<p class='winControls'>—</p>";
+            windowMinimize.setAttribute("onclick", 'minimizeWindow('+appID+')');
+            windowHeader.appendChild(windowMinimize);
+        }
 
         if (maximize != "false"){
             windowMinimize.style.right = "100px";
@@ -373,7 +376,6 @@ function installApp(appID){
     let appList = document.getElementById("appList"+appID);
     app.style.display = "unset";
     appList.style.display = "flex";
-    console.log("App installed: " + appID)
 }
 
 function uninstallApp(appID){

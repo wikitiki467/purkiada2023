@@ -4,6 +4,10 @@ function getCountDeletedFiles() {
     return countDeletedFiles;
 }
 
+function resetCountDeletedFiles() {
+    countDeletedFiles = 0;
+}
+
 function deleteFileInFE(target) {
     if(document.getElementById(target.id)){
         document.getElementById(target.id).remove();

@@ -34,22 +34,50 @@ function AVInstall(){
     }
     //je místo
     else if(ongoing == false && deletedCount >= 6 && AVInstalled == false){
-        setTimeout(()=>{
-        document.getElementsByClassName("progress_bar")[0].style.transition="ease-in-out 5s";
-        document.getElementsByClassName("progress_bar_bg")[0].style.display="block";
-        document.getElementsByClassName("progress_bar")[0].style.width="300px";
-        }, 15);
-        
-        setTimeout(()=>{
-        document.getElementById("wizardErrorTitle").innerHTML = "Instalace dokončena!";
-        document.getElementById("wizardErrorText").innerHTML = "Nyní můžete zavřít čaroděje..";
-        document.getElementsByClassName("wizard_error_title")[0].style.display="block";
-        document.getElementsByClassName("wizard_error_text")[0].style.display="block";
-        installApp(getFromSystemRegister('Antivirus'));
-        AVInstalled = true;
-        completeLevel(2); //skip
-        completeLevel(3);
-        ongoing = false;
-        }, 1000);
+        if (document.getElementById("file3")){
+            resetCountDeletedFiles();
+
+            for (let i = 0; i < 6; i++){
+                const file = document.createElement("div");
+                file.className = "fe_files";
+                file.id = "file"+i;
+                file.setAttribute("onclick", "focusWindow('File'); changeFileText('"+i+"')");
+                
+                document.getElementById("fe_main").appendChild(file);
+
+                const image = document.createElement("img");
+                image.className = "fe_files_img";
+                image.src = "images/levelLogos/DARK/fileDefault.png";
+
+                file.appendChild(image);
+
+                const text = document.createElement("p");
+                text.innerHTML = i;
+
+                file.appendChild(text);
+            }
+        }else{
+            setTimeout(()=>{
+                document.getElementsByClassName("progress_bar")[0].style.transition="ease-in-out 5s";
+                document.getElementsByClassName("progress_bar_bg")[0].style.display="block";
+                document.getElementsByClassName("progress_bar")[0].style.width="300px";
+            }, 15);
+                
+            setTimeout(()=>{
+                document.getElementById("wizardErrorTitle").innerHTML = "Instalace dokončena!";
+                document.getElementById("wizardErrorText").innerHTML = "Nyní můžete zavřít čaroděje..";
+                document.getElementsByClassName("wizard_error_title")[0].style.display="block";
+                document.getElementsByClassName("wizard_error_text")[0].style.display="block";
+
+                installApp(getFromSystemRegister('Antivirus'));
+
+                AVInstalled = true;
+
+                completeLevel(2); //skip
+                completeLevel(3);
+
+                ongoing = false;
+            }, 1000);
+        }
     }
 }

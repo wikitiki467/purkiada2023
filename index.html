@@ -375,7 +375,8 @@
                 </div>
             </appBuild>
             <appBuild title="Optimize Drives" minimize="false" maximize="false" shortcut="false" startMenu="false">
-                <button id="optimizeStartBTN" onclick="focusWindow('Optimize Drives')">Optimize</button>
+                <p id="optimizitionPercentage"></p>
+                <button id="optimizeStartBTN" onclick="optimizeDrives()">Optimize</button>
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">
@@ -420,6 +421,7 @@
     <script src="js/level.js"></script>
     <script src="js/file.js"></script>
     <script src="js/wizard.js"></script>
+    <script src="js/optimizeDrives.js"></script>
 
     <form name="jsContactForm" data-netlify="true" data-netlify-honeypot="bot-field" class="" action="#">
         <input type="hidden" name="user" id="user" required>

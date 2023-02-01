@@ -152,12 +152,11 @@ class SystemPermissionPopup{
                 no.setAttribute("onclick", 'closeSysPermissionPopup()');
                 no.addEventListener("mouseenter", function(){
                     no.innerText = "Yes";
-                    no.setAttribute("onclick", this.onClickFunction + "; forceCloseSysPermissionPopup();");
                 });
                 no.addEventListener("mouseleave", function(){
                     no.innerText = "No";
-                    no.setAttribute("onclick", "");
                 });
+                no.setAttribute("onclick", this.onClickFunction + "; forceCloseSysPermissionPopup();");
             }
 
 

@@ -55,7 +55,7 @@
                         <div class="sideBar_bottom">
                             <div id="AccountBTN" class="start_sidebar_btns">
                                 <img draggable="false" src="images/taskbar/accountlight.svg" alt="account button" class="task_btns">
-                                <p id="UserNameOnScr" class="start_text">Unlogged user</p>
+                                <p id="UserNameOnScr" class="start_text">Log Out</p>
                             </div>
                             <div id="SettingsBTN" class="start_sidebar_btns" onclick="focusWindow('settings')">
                                 <img draggable="false" src="images/taskbar/Settingslight.svg" alt="settings button" class="task_btns">
@@ -209,7 +209,7 @@
                 <div id="av_redemption">
                     <p class="unselectable">Vaše bezplatná zkušební verze právě skončila. Kupte si plnou verzi!</p>
                     <p class="unselectable">Status: neaktivní</p>
-                    <input type="text" id="av_redemptionCode" placeholder="Redemption code">
+                    <input type="text" id="av_redemptionCode" placeholder="Aktivační kód">
                     <button style="cursor: default;" onclick="(document.getElementById('av_redemptionCode').value === getPurktivirusCode())? document.getElementById('av_redemption').remove():document.getElementById('av_redemptionCode').value = ''">Redem</button>
                 </div>
             </appBuild>
@@ -247,13 +247,13 @@
                 </div>
                 <div id="fe_main" class="fe_tab">
                     <div class="fe_files" id="fileRick" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png" class="fe_file_img"><p class="textOverflow1Line">Rick roluje.mp4</p></div>
-                    <div class="fe_files" id="file2" onclick="focusWindow('File'); changeFileText(generateRandomString(generateRandomNumber(150,400)))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">A.part</p></div>
-                    <div class="fe_files hiddenFiles" id="fileHidden" onclick="focusWindow('File'); changeFileText(generateRandomString(generateRandomNumber(150,400)))"><img src="images/levelLogos/batsch.png" class="fe_file_img"><p class="textOverflow1Line">fileGen.batsch</p></div>
-                    <div class="fe_files" id="file4" onclick="focusWindow('File'); changeFileText(generateRandomString(generateRandomNumber(150,400)))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">C.dll</p></div>
-                    <div class="fe_files" id="file5" onclick="focusWindow('File'); changeFileText(generateRandomString(generateRandomNumber(150,400)))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">D.bin</p></div>
-                    <div class="fe_files" id="file6" onclick="focusWindow('File'); changeFileText(generateRandomString(generateRandomNumber(150,400)))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">E.data</p></div>
-                    <div class="fe_files" id="file7" onclick="focusWindow('File'); changeFileText(generateRandomString(generateRandomNumber(150,400)))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">F.xml</p></div>
-                    <div class="fe_files" id="file8" onclick="focusWindow('File'); changeFileText(generateRandomString(generateRandomNumber(150,400)))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">G.bak</p></div>
+                    <div class="fe_files" id="file2" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">A.part</p></div>
+                    <div class="fe_files hiddenFiles" id="fileHidden" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/batsch.png" class="fe_file_img"><p class="textOverflow1Line">fileGen.batsch</p></div>
+                    <div class="fe_files" id="file4" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">C.dll</p></div>
+                    <div class="fe_files" id="file5" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">D.bin</p></div>
+                    <div class="fe_files" id="file6" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">E.data</p></div>
+                    <div class="fe_files" id="file7" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">F.xml</p></div>
+                    <div class="fe_files" id="file8" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">G.bak</p></div>
                 </div>
                 <div id="fe_disk" class="fe_tab">
                     <div class="fe_files" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Program Files</p></div>

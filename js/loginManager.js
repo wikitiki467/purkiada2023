@@ -9,7 +9,7 @@ function checkLoginInfo(){
             localStorage.setItem("loginDetail", username);
             let loginscreen = document.getElementById("loginscreen");
             loginscreen.parentNode.removeChild(loginscreen);
-            document.getElementById("UserNameOnScr").innerHTML = username;
+            // document.getElementById("UserNameOnScr").innerHTML = username;
             localStorage.setItem("warningTextKey", "");
             validUser = true;
             startVirusGame();
@@ -56,7 +56,7 @@ function checkLoggedUser(){
     let logInfo = localStorage.getItem("loginSuccessful");
     if (logInfo){
         let loginscreen = document.getElementById("loginscreen");
-        document.getElementById("UserNameOnScr").innerHTML = localStorage.getItem("loginDetail");
+        // document.getElementById("UserNameOnScr").innerHTML = localStorage.getItem("loginDetail");
         loginscreen.parentNode.removeChild(loginscreen);
         startVirusGame();
     }else{

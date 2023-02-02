@@ -216,7 +216,7 @@ function loadEmailData(){
 
 loadEmailData();
 
-let purktivirusCode = "";
+let purktivirusCode = Math.random().toString(36).substring(5);
 function getPurktivirusCode(){
     return purktivirusCode;
 }

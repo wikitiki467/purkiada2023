@@ -108,3 +108,9 @@
         background-color: rgba(34, 52, 59, 0.418);
     }
 }
+
+/* text files */
+#fileText {
+    text-align: left;
+    overflow-wrap: break-word;
+}

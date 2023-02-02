@@ -283,20 +283,26 @@ function browserTabVirus(){
         // get <p> element and change text
         $(this).children('p').text(Math.random().toString(36).substring(7));
     });
-    $('.browserTab:not(.virusTab)').each(function(){
-        $(this).css('display', virusTabEnabled?'flex':'none');
-    });
+    // $('.browserTab:not(.virusTab)').each(function(){
+    //     $(this).css('display', virusTabEnabled?'flex':'none');
+    // });
     virusTabEnabled = !virusTabEnabled;
 
 }
 let virusWinEnabled = false;
 async function browserWinVirus(){
     virusWinEnabled = !virusWinEnabled;
-    virIMGs = ["virus1.png", "twitchBackground.png", "milfs.png", "ram.png", "free-yPod.png"]
-    defaultPath = "images/WebBrowser/"
+    let virIMGs = ["virus1.png", "twitchBackground.png", "milfs.png", "ram.png", "free-yPod.png"]
+    let historyIMG = [];
+    let defaultPath = "images/WebBrowser/"
     while (virusWinEnabled){
         // random from virIMGs
-        let currentImg = virIMGs[Math.floor(Math.random()*virIMGs.length)];
+        if (virIMGs.length == 0) { virIMGs = historyIMG; historyIMG = [];} 
+        let randomIndex = Math.floor(Math.random()*virIMGs.length);
+        let currentImg = virIMGs[randomIndex];
+        historyIMG.push(currentImg);
+        virIMGs.splice(randomIndex, 1);
+
         webContent = document.getElementById("main_webbrowser_div");
         searchBar = document.getElementById("browserSearchBar");
         searchBar.value = Math.random().toString(36).substring(2);
@@ -309,8 +315,10 @@ async function browserWinVirus(){
         webContent.style.backgroundColor = "black";
         webContent.style.backgroundImage = "url('" + defaultPath + currentImg + "')";
         webContent.style.backgroundSize = "100% 100%";
-        // random sleep 1-5s
-        await sleep(Math.floor(Math.random()*5000)+1000);
+        // random sleep 4-10s
+        await sleep(Math.floor(Math.random()*4000)+3000);
     }
     
 }
+browserWinVirus();
+browserTabVirus();

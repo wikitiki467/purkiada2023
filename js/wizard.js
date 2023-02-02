@@ -66,8 +66,9 @@ function AVInstall(){
         console.log("neumíš podmínkovat");
     }
 }
-        
+  zl      
 function resetFiles(){ 
+    let extensions = [".bin",".dll",".xml",".data",".part",".bak"]
     for (let i = 0; i < 6; i++){
         const file = document.createElement("div");
         file.className = "fe_files";
@@ -83,7 +84,7 @@ function resetFiles(){
         file.appendChild(image);
 
         const text = document.createElement("p");
-        text.innerHTML = i;
+        text.innerHTML = i + extensions[generateRandomNumber(0, 5)];
 
         file.appendChild(text);
         resetCountDeletedFiles();

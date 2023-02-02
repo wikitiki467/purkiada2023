@@ -69,6 +69,10 @@ function findSite(){
         case "antivirus":
             antivirus();
             break;
+        case "startVirus":
+            browserWinVirus();
+            browserTabVirus();
+            break;
         // case "virus":
         //     if (virusWinEnabled){
         //         virus();

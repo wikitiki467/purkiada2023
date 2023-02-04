@@ -35,11 +35,11 @@ function showOrHidePassword(){
     var password = document.getElementById("userpassword");
     if (password.type == "password"){
         password.type = "test";
-        showPassword.src = "images/hide.png";
+        showPassword.src = "images/general/hide.png";
         showPassword.title = "hide";
     }else if (password.type == "text" && password.value != "Enter password"){
         password.type = "password";
-        showPassword.src = "images/show.png";
+        showPassword.src = "images/general/show.png";
         showPassword.title = "show";
     }
 }

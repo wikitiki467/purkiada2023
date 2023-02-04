@@ -153,7 +153,7 @@ function email(){
         div.appendChild(newText);
         div.appendChild(newPasswordInput);
         div.appendChild(newButton);
-        setTimeout(() => { if (last_screen == "images/telefon-messages-menuBlank.svg"){changeTelephoneScreen("Messages")}}, 2000)
+        setTimeout(() => { if (last_screen == "images/telefon/telefon-messages-menuBlank.svg"){changeTelephoneScreen("Messages")}}, 2000)
     }
     webContent.style.backgroundSize = "100% 100%";
     webContent.style.backgroundRepeat = "no-repeat";
@@ -161,7 +161,7 @@ function email(){
 
 function enigmaManual(){
     searchBar.value = "www.enigmaManual.cz";
-    webContent.style.backgroundImage = "url('images/enigmaInfo.png')";
+    webContent.style.backgroundImage = "url('images/general/enigmaInfo.png')";
     webContent.style.backgroundSize = "100% 100%";
     webContent.style.backgroundRepeat = "no-repeat";
 }

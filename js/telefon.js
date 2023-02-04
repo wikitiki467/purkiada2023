@@ -1,17 +1,17 @@
 const telefon = document.getElementById("telephone");
 const sipka = document.getElementById("telephone-arrow");
 var button = document.getElementById("telephone-button-messages");
-var last_screen = "images/telefon.svg"
+var last_screen = "images/telefon/telefon.svg"
 var move = true;
 var bug = false;
 const blackscreen = document.getElementById("blackscreen");
 const openEmailConversation = document.getElementById("telephone-button-open-conversation");
 const screens = {
-    "Main" : ["images/telefon.svg","telephone-button-messages", "Messages"],
-    "Messages" : [["images/telefon-messages-menuBlank.svg", "telephone-button-messages-back", "Main"],
-                  ["images/telefon-messages-menuNewMessage.svg", "telephone-button-messages-back", "Main"]],
-    "MessagesEmail" : ["images/telefon-messages-email.svg", "telephone-button-messages-back", "Main"],
-    "OFF" : ["images/telefon-off.svg", "telephone-button-none", null],
+    "Main" : ["images/telefon/telefon.svg","telephone-button-messages", "Messages"],
+    "Messages" : [["images/telefon/telefon-messages-menuBlank.svg", "telephone-button-messages-back", "Main"],
+                  ["images/telefon/telefon-messages-menuNewMessage.svg", "telephone-button-messages-back", "Main"]],
+    "MessagesEmail" : ["images/telefon/telefon-messages-email.svg", "telephone-button-messages-back", "Main"],
+    "OFF" : ["images/telefon/telefon-off.svg", "telephone-button-none", null],
 }
 
 function telefonNahoru() {
@@ -25,7 +25,7 @@ function telefonNahoru() {
         sipka.style.zIndex= 103;
         sipka.setAttribute("onclick", "telefonDolu()");
         button.style.zIndex=103;
-        if (last_screen == "images/telefon-messages-menuNewMessage.svg") {openEmailConversation.style.zIndex = "103";}
+        if (last_screen == "images/telefon/telefon-messages-menuNewMessage.svg") {openEmailConversation.style.zIndex = "103";}
         setTimeout(() => { telefon.setAttribute("src", last_screen); }, 100);
     }
 
@@ -70,11 +70,11 @@ window.addEventListener('keydown', (event) => {
         telefonDolu();
         if ((blackscreen.style.zIndex == 1 || blackscreen.style.zIndex == "") && !bug){
             setTimeout(() => { congratsYouFoundABug() }, 200);
-        }else{setTimeout(() => { telefon.setAttribute("src", "images/telefon-off.svg");}, 100);}
+        }else{setTimeout(() => { telefon.setAttribute("src", "images/telefon/telefon-off.svg");}, 100);}
     }
 function congratsYouFoundABug(){
-    if (telefon.getAttribute("src") != "images/telefon-off.svg") {
-        telefon.setAttribute("src", "images/nosignal.gif");
+    if (telefon.getAttribute("src") != "images/telefon/telefon-off.svg") {
+        telefon.setAttribute("src", "images/telefon/nosignal.gif");
         move = false;
         telefon.style.zIndex= 102;
         telefon.style.bottom = "-40px";
@@ -86,7 +86,7 @@ function congratsYouFoundABug(){
         setTimeout(() => {
             a = document.getElementById("powerOffButton");
             b = document.getElementById("blackscreen");
-            b.style.backgroundImage = "url('../images/bluecreen.png')";
+            b.style.backgroundImage = "url('../images/general/bluecreen.png')";
             a.click();
         }, 2000);
         setTimeout(() => {

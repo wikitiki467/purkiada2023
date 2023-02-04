@@ -10,13 +10,13 @@ function turnOff(){
         // if (end){
         //     setTimeout(() => { generated_code_text.innerHTML = "Tento kód napište: „"+generateSafeCode(true)+"“"; }, 200);
         // }
-        powerOffButton.style.backgroundImage = 'url("./images/MONITORoff.svg")';
+        powerOffButton.style.backgroundImage = 'url("./images/general/MONITORoff.svg")';
         monitorTaskBar.style.filter = "brightness(0)";
         monitorScreen.style.filter = "brightness(0)";
         set = 0;
     } else{
         // generated_code_text.innerHTML = "";
-        powerOffButton.style.backgroundImage = 'url("./images/MONITORon.svg")';
+        powerOffButton.style.backgroundImage = 'url("./images/general/MONITORon.svg")';
         monitorTaskBar.style.filter = "brightness(1)";
         monitorScreen.style.filter = "brightness(1)";
         set = 1;
@@ -30,7 +30,7 @@ function firstTurnOn(){
 } firstTurnOn();
 function endingScreen() {
     setTimeout(() => { generated_code_text.innerHTML = "Tento kód napište: „"+generateSafeCode(true)+"“"; }, 200);
-    blackscreen_.style.backgroundImage = "url('./images/ending_sceen.png')";
+    blackscreen_.style.backgroundImage = "url('./images/general/ending_sceen.png')";
     end = true;
     powerOffButton.click();
 

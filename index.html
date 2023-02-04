@@ -24,15 +24,15 @@
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
     <canvas id="gradient-canvas" data-transition-in></canvas>
-        <img draggable="false" id="telephone" class="unselectable" src="images/telefon-off.svg"></img>
-        <img draggable="false" id="telephone-arrow" class="unselectable" style="rotate: 0deg;" src="images/arrow.svg" onclick="telefonNahoru()"></img>
+        <img draggable="false" id="telephone" class="unselectable" src="images/telefon/telefon-off.svg"></img>
+        <img draggable="false" id="telephone-arrow" class="unselectable" style="rotate: 0deg;" src="images/telefon/arrow.svg" onclick="telefonNahoru()"></img>
         <div id="telephone-button-messages" class="telephone-button" onclick="changeTelephoneScreen('Messages')"></div>
         <div id="twoFactorCode"></div>
         <div id="telephone-button-open-conversation" class="telephone-button" onclick="changeTelephoneScreen('MessagesEmail')"></div>
         <div class="monitor">
             <div id="loginscreen">
                 <form id="loginContent">
-                    <img draggable="false" id="ProfilePicture" src="images/LoginPP.png"><br>
+                    <img draggable="false" id="ProfilePicture" src="images/general/LoginPP.png"><br>
                     <div>
                         <p id="wrongLoginText"></p>
                         <input type="text" id="username" name="username" onfocus='this.value=""'  value="Name"><br>
@@ -40,7 +40,7 @@
                     </div>
                     <input type="submit" id="submitlogin" value="❯" onclick="checkLoginInfo()">
                     <div id="showButton">
-                        <img draggable="false" src="images/show.png" id="showPassword" onclick="showOrHidePassword()" title="show">
+                        <img draggable="false" src="images/general/show.png" id="showPassword" onclick="showOrHidePassword()" title="show">
                     </div>
                 </form>
             </div>
@@ -70,7 +70,7 @@
                     
                 </div>
                 <img draggable="false" src="images/taskbar/StartBTNlight.svg" alt="start button" id="StartBTN" class="task_btns">
-                <img draggable="false" src="images/BackorIcon.png" alt="Pan Bačkor button" id="PanBackorBTN" class="task_btns" onclick="panBackorBTN()">
+                <img draggable="false" src="images/Backor/BackorIcon.png" alt="Pan Bačkor button" id="PanBackorBTN" class="task_btns" onclick="panBackorBTN()">
                 <div id="backor_controls">
                     <div class="arrows arrow-left" onclick="switchPanBackorDialog(-1)"></div>
                     <div class="arrows arrow-right" onclick="switchPanBackorDialog(1)"></div>
@@ -80,10 +80,10 @@
             <div id="displayLeg"></div>
             <div class="displayFrame"></div>
             <div id="powerOffButton" onclick="turnOff()" class="unselectable" title="Power on/off"></div>
-                <img draggable="false" src="images/hand.svg" alt="hand.svg" id="hand">
+                <img draggable="false" src="images/general/hand.svg" alt="hand.svg" id="hand">
                 <div id="contentDisplay">
                     <div class="app_container" id="app_container" style="display: flex;margin: 2%;"></div>
-                    <img draggable="false" src="images/backorArrow.png" alt="Pan Bačkor pointer" id="PanBackorPointer">
+                    <img draggable="false" src="images/Backor/backorArrow.png" alt="Pan Bačkor pointer" id="PanBackorPointer">
                     <appBuild title="It's About Drive, It's About Power" icon="LIGHT/icon2.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)" isInstalled="false">
                         <p>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠛⠛⠛⠿⣿⣿⣿⣿⣿⣿⣿⣿
                             ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠉⠻⣿⣿⣿⣿⣿⣿
@@ -133,12 +133,12 @@
                 ⠀⠀⢀⣀⣀⡀⣼⣤⡟⣬⣿⣷⣤⣀⣄⣀⡀⠀⠀⠀⠀⠀⠀⠈⣿⣿⡄⣉⡀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⣿⣿⣄⠀⣀⣀⡀⠀
                 </p>
             </appBuild>
-            <appBuild title="Notepad" icon="DARK/notepad.png" scroll="XY" backgroundColor="white">
+            <appBuild title="Notepad" icon="notepad.png" scroll="XY" backgroundColor="white">
                 <p contenteditable="true" id="notepad" class="unselectable" style="width:100%;height:100%"></p>
             </appBuild>
             <appBuild title="Video přehrávač" backgroundColor="black" shortcut="false" icon="vlc.png">
                 <video width="100%" height="100%" onclick="if(paused){play()}else{pause()}">
-                    <source src="images/NeverGonnaGiveYouUp.mp4" type="video/mp4" id="videoPlayer">
+                    <source src="images/general/NeverGonnaGiveYouUp.mp4" type="video/mp4" id="videoPlayer">
                     Your browser does not support the video tag.
                 </video>
             </appBuild>
@@ -175,14 +175,14 @@
                             <p>Václav Klíma</p>
                         </div>
                         <div id="tab_bug" class="tab_container">
-                            <img src="images/noReportNoBug.jpg" alt="noReportNoBug.jpg" style="width: 100%;height: 100%;">
+                            <img src="images/general/noReportNoBug.jpg" alt="noReportNoBug.jpg" style="width: 100%;height: 100%;">
                         </div>
                     </div>
                 </div>
             </appBuild>
             <appBuild title="Antivirus" icon="antivirusLogo.png" backgroundImage="antivirus-background.jpg" resize="false" maximize="false" isInstalled="false">
                 <div id="av_header">
-                    <img src="/images/levelLogos/antivirusLogo.png" draggable="false" class="unselectable">
+                    <img src="/images/icons/antivirusLogo.png" draggable="false" class="unselectable">
                     <p class="unselectable">Purktivirus</p>
                 </div>
                 <div id="av_sideBar">
@@ -240,8 +240,8 @@
 
             <appBuild title="File explorer" backgroundImage="fileExplorer-background.jpg" icon="file_explorer.png">
                 <div id="fe_header">
-                    <img id="fe_icon" src="images/levelLogos/file_explorer.png">
-                    <img id="fe_hide" title="show hidden files ✗" src="images/fileHide.png" onclick="toggleHiddenFiles();this.title=(this.title=='show hidden files ✓')?'show hidden files ✗':'show hidden files ✓'">
+                    <img id="fe_icon" src="images/icons/file_explorer.png">
+                    <img id="fe_hide" title="show hidden files ✗" src="images/general/fileHide.png" onclick="toggleHiddenFiles();this.title=(this.title=='show hidden files ✓')?'show hidden files ✗':'show hidden files ✓'">
                 </div>
                 <div id="fe_sideBar">
                     <div class="side_folder" id="defaultFolderTab" onclick="activateFolderTab(this, 'fe_disk')"><img src="images/icons/hard-drive.png" class="fe_side_img"><p class="textOverflow1Line">Disk (C:)</p></div>
@@ -250,21 +250,21 @@
                     
                 </div>
                 <div id="fe_main" class="fe_tab">
-                    <div class="fe_files" id="fileRick" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/levelLogos/vlc.png" class="fe_file_img"><p class="textOverflow1Line">Rick roluje.mp4</p></div>
-                    <div class="fe_files" id="file2" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">A.part</p></div>
-                    <div class="fe_files hiddenFiles" id="fileHidden" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/batsch.png" class="fe_file_img"><p class="textOverflow1Line">fileGen.batsch</p></div>
-                    <div class="fe_files" id="file4" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">C.dll</p></div>
-                    <div class="fe_files" id="file5" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">D.bin</p></div>
-                    <div class="fe_files" id="file6" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">E.data</p></div>
-                    <div class="fe_files" id="file7" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">F.xml</p></div>
-                    <div class="fe_files" id="file8" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/levelLogos/DARK/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">G.bak</p></div>
+                    <div class="fe_files" id="fileRick" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/icons/vlc.png" class="fe_file_img"><p class="textOverflow1Line">Rick roluje.mp4</p></div>
+                    <div class="fe_files" id="file2" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">A.part</p></div>
+                    <div class="fe_files hiddenFiles" id="fileHidden" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/batsch.png" class="fe_file_img"><p class="textOverflow1Line">fileGen.batsch</p></div>
+                    <div class="fe_files" id="file4" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">C.dll</p></div>
+                    <div class="fe_files" id="file5" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">D.bin</p></div>
+                    <div class="fe_files" id="file6" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">E.data</p></div>
+                    <div class="fe_files" id="file7" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">F.xml</p></div>
+                    <div class="fe_files" id="file8" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">G.bak</p></div>
                 </div>
                 <div id="fe_disk" class="fe_tab">
                     <div class="fe_files" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Program Files</p></div>
                     <div class="fe_files" onclick="activateFolderTab(this, 'fe_downloads')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Downloads</p></div>
                 </div>  
                 <div id="fe_downloads" class="fe_tab">
-                    <div class="fe_files" id="av_installer_file" onclick="focusWindow('AV Wizard')" style="display: none;"><img src="images/levelLogos/wizardIcon.png"><p>AV_installer.exe</p></div>
+                    <div class="fe_files" id="av_installer_file" onclick="focusWindow('AV Wizard')" style="display: none;"><img src="images/icons/wizardIcon.png"><p>AV_installer.exe</p></div>
                 </div>  
             </appBuild>
 
@@ -274,7 +274,7 @@
 
             <appBuild title="BACKOR Store" icon="store.png" backgroundColor="#a0a5b7" scroll="" isInstalled="false">
                 <div id="store_header">
-                    <img id="store_icon" src="images/levelLogos/store.png" draggable="false">
+                    <img id="store_icon" src="images/icons/store.png" draggable="false">
                     <div id="store_header_text">
                         <p class="textOverflow1Line">BACKOR Store</p>
                     </div>
@@ -282,7 +282,7 @@
                 <div id="store_content">
                     <div id="store_content_left">
                         <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('av_installer_file').style.display = 'block'">
-                            <img src="images/levelLogos/antivirusLogo.png">
+                            <img src="images/icons/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>
                     </div>
@@ -321,8 +321,8 @@
                     <div id="browserTabs">
                         <div class="browserTab" class="unselectable" onclick="searchBarControler('email')"><img src="images/WebBrowser/email.png"><p class="textOverflow1Line">Email</p></div>
                         <div class="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('generatecode')"><img src="images/WebBrowser/lock.png"><p class="textOverflow1Line">Answer code</p></div>
-                        <div class="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('enigmaManual')"><img src="images/levelLogos/DARK/icon8.png"><p class="textOverflow1Line">Manuál pro enigmu</p></div>
-                        <div class="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('antivirus')"><img src="images//levelLogos/antivirusLogo.png"><p class="textOverflow1Line">Předplatné</p></div>
+                        <div class="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('enigmaManual')"><img src="images/icons/old/DArk/icon8.png"><p class="textOverflow1Line">Manuál pro enigmu</p></div>
+                        <div class="browserTab" class="unselectable textOverflow1Line" onclick="searchBarControler('antivirus')"><img src="images//icons/antivirusLogo.png"><p class="textOverflow1Line">Předplatné</p></div>
                         <div class="browserTab virusTab" onclick="searchBarControler(this.querySelector('p').innerText)"><p class="textOverflow1Line">vir.exe</p></div>
                         <div class="browserTab virusTab" onclick="searchBarControler(this.querySelector('p').innerText)"><p class="textOverflow1Line">vir.exe</p></div>
                         <div class="browserTab virusTab" onclick="searchBarControler(this.querySelector('p').innerText)"><p class="textOverflow1Line">vir.exe</p></div>
@@ -400,7 +400,7 @@
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">
                 <div class="Backor">
-                    <img class="PanBackorImg" draggable="false" src="images/Backor.png" title="Ahoj jsem pan Bačkor!">
+                    <img class="PanBackorImg" draggable="false" src="images/Backor/Backor.png" title="Ahoj jsem pan Bačkor!">
                     <div class="eye" id="eye1"></div>
                     <div class="eye" id="eye2"></div>
                     <div class="eyeLid" id="eyeLid1"></div>

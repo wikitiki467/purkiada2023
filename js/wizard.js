@@ -79,7 +79,7 @@ function resetFiles(){
 
         const image = document.createElement("img");
         image.className = "fe_files_img";
-        image.src = "images/levelLogos/DARK/fileDefault.png";
+        image.src = "images/icons/fileDefault.png";
 
         file.appendChild(image);
 

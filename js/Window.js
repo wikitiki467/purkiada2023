@@ -37,7 +37,7 @@ function generateApps(){
         let width = builder.getAttribute("width");
         let height = builder.getAttribute("height");
         let title = builder.getAttribute("title");
-        let icon = "../images/levelLogos/" + builder.getAttribute("icon");
+        let icon = "../images/icons/" + builder.getAttribute("icon");
         let backgroundImage = builder.getAttribute("backgroundImage");
         let backgroundColor = builder.getAttribute("backgroundColor");
         let scroll = builder.getAttribute("scroll");
@@ -60,7 +60,7 @@ function generateApps(){
             backgroundImage = "../images/levelBackground/" + backgroundImage;
         }
         if (builder.getAttribute("icon") == null){
-            icon = "../images/levelLogos/DARK/fileDefault.png";
+            icon = "../images/icons/fileDefault.png";
         }
 
         if (title != null){

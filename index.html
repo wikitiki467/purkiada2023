@@ -214,7 +214,7 @@
                     <p class="unselectable">Vaše bezplatná zkušební verze právě skončila. Kupte si plnou verzi!</p>
                     <p class="unselectable">Status: neaktivní</p>
                     <input type="text" id="av_redemptionCode" placeholder="Aktivační kód">
-                    <button style="cursor: default;" onclick="(document.getElementById('av_redemptionCode').value === getPurktivirusCode())? document.getElementById('av_redemption').remove():document.getElementById('av_redemptionCode').value = ''">Redem</button>
+                    <button style="cursor: default;" onclick="if (document.getElementById('av_redemptionCode').value === getPurktivirusCode()){document.getElementById('av_redemption').remove(); completeLevel(7)}else{document.getElementById('av_redemptionCode').value = ''}">Redem</button>
                 </div>
             </appBuild>
             <appBuild title="*jmeno_uzivatele*@spspurkynova" backgroundColor="#0c0c0c" scroll="Y" icon="Console.png" isInstalled="false">
@@ -281,7 +281,7 @@
                 </div>
                 <div id="store_content">
                     <div id="store_content_left">
-                        <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('av_installer_file').style.display = 'block'">
+                        <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('av_installer_file').style.display = 'block'; document.getElementById('application' + getFromSystemRegister('Antivirus')).setAttribute('onclick', 'focusWindow(\'Antivirus\'); completeLevel(6)')">
                             <img src="images/icons/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>

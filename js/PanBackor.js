@@ -128,7 +128,7 @@ $("#PanBackorDialogText").on('DOMSubtreeModified', function() {
     let text = $("#PanBackorGUI div.text");
     let elemList = [backor, text];
     if (text.text() != lastText) {
-        console.log("changed");
+        // console.log("changed");
         elemList.forEach(function(elem) {
             elem.css("background-color", "#DDDD");
         });

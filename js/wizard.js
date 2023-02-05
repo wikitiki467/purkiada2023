@@ -4,7 +4,7 @@ let AVInstalled = false;
 function AVInstall(){
     //udělat podmínku, která bude kontrolovat jestli "je místo"
     let countDeletedFiles = getCountDeletedFiles();
-    console.log(countDeletedFiles);
+    // console.log(countDeletedFiles);
 
     //nesmaže hidden
     if(ongoing == false && AVInstalled == false && countDeletedFiles == 6){ //smaže všechny soubory - rickroll se necheckuje
@@ -57,16 +57,15 @@ function AVInstall(){
         installApp(getFromSystemRegister('Antivirus'));
         }, 5000);
         
-    }else if(ongoing == true){ //spamuje
-        console.log("spam!!");
-    }else if(countDeletedFiles < 6){ //nesmaže všechny
+    }
+    // else if(ongoing == true){ //spamuje}
+    else if(countDeletedFiles < 6){ //nesmaže všechny
         failInstall("250px");
         setTimeout(()=>{completeLevel(2)}, 5000);
-    }else{
-        console.log("neumíš podmínkovat");
     }
+    // else{ console.log("neumíš podmínkovat"); }
 }
-  zl      
+  
 function resetFiles(){ 
     let extensions = [".bin",".dll",".xml",".data",".part",".bak"]
     for (let i = 0; i < 6; i++){

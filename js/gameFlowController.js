@@ -9,18 +9,6 @@ function startVirusGame() {
 function completeLevel(levelNumber) {
     if (levelNumber == getCurrentActiveLevel() + 1) {
         incrementCurrentActiveLevel();
-        let backor = document.getElementById('PanBackorGUI');
-        let backorText = document.querySelector("#PanBackorGUI div.text");
-        // backor.style.transition = 'backgroundColor 2s';
-        // backorText.style.transition = 'backgroundColor 2s';
-        backor.style.backgroundColor = 'red';
-        backorText.style.backgroundColor = 'red';
-        sleep(2000).then(() => {
-            // backor.style.transition = 'none';
-            // backorText.style.transition = 'none';
-            backor.style.backgroundColor = 'black';
-            backorText.style.backgroundColor = 'black';
-        });
     }
 }
 

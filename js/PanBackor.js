@@ -117,3 +117,36 @@ $(".Backor").mouseleave(function(event) {
         'display': 'block'
     });
 });
+
+let lastText = panBackorDialogy[0][0];
+$("#PanBackorDialogText").on('DOMSubtreeModified', function() {
+    let backor = $("#PanBackorGUI");
+    let text = $("#PanBackorGUI div.text");
+    let elemList = [backor, text];
+    if (text.text() != lastText) {
+        console.log("changed");
+        elemList.forEach(function(elem) {
+            elem.css("background-color", "#DDDD");
+        });
+        setTimeout(function() {
+            elemList.forEach(function(elem) {
+                elem.css("background-color", "black");
+            });
+        }, 1000);
+    }
+    levelHasAnotherDialog();
+    lastText = text.text();
+});
+function levelHasAnotherDialog(){
+    let text = $("#PanBackorGUI div.text");
+    if (panBackorDialogy[currentActiveLevel][currentDialog+1] != undefined) {
+        // add class .canChangeDialog to backor
+        text.addClass("canChangeDialog");
+        return true;
+    }
+    else {
+        text.removeClass("canChangeDialog");
+        return false;
+    }
+}
+levelHasAnotherDialog();

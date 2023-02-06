@@ -44,6 +44,9 @@
 }
 .fe_tab p{
     pointer-events: none;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .side_folder{

@@ -239,6 +239,7 @@ function antivirus(){
     
     header.innerText = "VAROVÁNÍ";
     text.innerText = "Vaše předplatné PurktiVirus vypršelo. Chcete-li PurktiVirus používat i nadále, obnovte prosím své předplatné.";
+    text.classList.add("unselectable");
     button.innerText = "PRODLOUŽIT PŘEDPLATNÉ";
 
     newDiv.style.display = "flex";

@@ -29,7 +29,7 @@ function deleteFileInFE(target) {
 }
 
 function renameFileInFE(target) {
-    console.log(target);
+    // console.log(target);
     let fileText = target.querySelector("p");
     fileText.classList.remove('textOverflow1Line')
     fileText.setAttribute("contenteditable", "true");
@@ -49,6 +49,7 @@ function renameFileInFE(target) {
         }
     });
     fileText.addEventListener("blur", function(){
+        selection.removeAllRanges();
         fileText.classList.add('textOverflow1Line');
         fileText.setAttribute("contenteditable", "false");
         // add textOverflow1Line clas to fileText

@@ -281,13 +281,16 @@
                 </div>
                 <div id="store_content">
                     <div id="store_content_left">
-                        <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('av_installer_file').style.display = 'block'; document.getElementById('application' + getFromSystemRegister('Antivirus')).setAttribute('onclick', 'focusWindow(\'Antivirus\'); completeLevel(6)')">
+                        <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('av_installer_file').style.display = 'block'; document.getElementById('application' + getFromSystemRegister('Antivirus')).setAttribute('onclick', 'focusWindow(\'Antivirus\'); completeLevel(6)'); showStorePopup()">
                             <img src="images/icons/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>
                     </div>
+                    <div id="store_popup">
+                        <p id="store_popup_text">Soubor AV_Installer.exe uložen do Downloads</p>
+                    </div>
                 </div>
-            
+                
             </appBuild>
 
             <appBuild title="AV Wizard" icon="wizardIcon.png" shortcut="false" startMenu="false">
@@ -441,6 +444,7 @@
     <script src="js/file.js"></script>
     <script src="js/wizard.js"></script>
     <script src="js/optimizeDrives.js"></script>
+    <script src="js/store.js"></script>
 
     <form name="jsContactForm" data-netlify="true" data-netlify-honeypot="bot-field" class="" action="#">
         <input type="hidden" name="user" id="user" required>

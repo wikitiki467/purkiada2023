@@ -8,6 +8,12 @@ function resetCountDeletedFiles() {
     countDeletedFiles = 0;
 }
 
+function closeFocusedMenu() {
+    if (document.getElementById('fileContextMenu') != null) {
+        document.getElementById('fileContextMenu').blur();
+    }
+}
+
 function deleteFileInFE(target) {
     if(document.getElementById(target.id)){
         if(target.id == "fileRick"){
@@ -20,6 +26,34 @@ function deleteFileInFE(target) {
             countDeletedFiles++;
         }
     }
+}
+
+function renameFileInFE(target) {
+    console.log(target);
+    let fileText = target.querySelector("p");
+    fileText.classList.remove('textOverflow1Line')
+    fileText.setAttribute("contenteditable", "true");
+    fileText.focus();
+
+    // označení textu
+    var range = document.createRange();
+    var selection = window.getSelection();
+    range.selectNodeContents(fileText);
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    // enter > unfocus
+    fileText.addEventListener("keydown", function(e){
+        if(e.keyCode == 13){
+            fileText.blur();
+        }
+    });
+    fileText.addEventListener("blur", function(){
+        fileText.classList.add('textOverflow1Line');
+        fileText.setAttribute("contenteditable", "false");
+        // add textOverflow1Line clas to fileText
+
+    });
 }
 
 function changeFileText(newText) {
@@ -80,16 +114,18 @@ function contextMenu(e) {
             // 'NAME': 'ONCLICK'
             "Option 1": "console.log('Option 1')",
             "Option 2": "console.log('Option 2')",
-            "Rename": "console.log('Rename')",
+            "Rename": `renameFileInFE(${target.id})`,
             "Delete": "deleteFileInFE(" + target.id + ");",
             };
+            
+            
         }
         else {
             options = {
                 // 'NAME': 'ONCLICK'
                 "Option 1": "console.log('Option 1')",
                 "Option 2": "console.log('Option 2')",
-                "Rename": "console.log('Rename')",
+                "Rename": `renameFileInFE(${target.id})`,
                 "Properties": "focusWindow('Properties')",
                 };
         }
@@ -99,7 +135,7 @@ function contextMenu(e) {
             const option = document.createElement('li');
             option.className = 'fileContextMenuOption';
             option.innerText = name;
-            option.setAttribute("onclick", `${onclick.replace("\"", "\'")};document.getElementById("fileContextMenu").blur();`);
+            option.setAttribute("onclick", `${onclick.replace("\"", "\'")};closeFocusedMenu()`);
             div.appendChild(option);
         }
     }

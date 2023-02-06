@@ -114,8 +114,8 @@ function contextMenu(e) {
             // 'NAME': 'ONCLICK'
             "Option 1": "console.log('Option 1')",
             "Option 2": "console.log('Option 2')",
-            "Rename": `renameFileInFE(${target.id})`,
-            "Delete": "deleteFileInFE(" + target.id + ");",
+            "Přejmenovat": `renameFileInFE(${target.id})`,
+            "Odstranit": "deleteFileInFE(" + target.id + ");",
             };
             
             
@@ -125,8 +125,8 @@ function contextMenu(e) {
                 // 'NAME': 'ONCLICK'
                 "Option 1": "console.log('Option 1')",
                 "Option 2": "console.log('Option 2')",
-                "Rename": `renameFileInFE(${target.id})`,
-                "Properties": "focusWindow('Properties')",
+                "Přejmenovat": `renameFileInFE(${target.id})`,
+                "Vlastnosti": "focusWindow('Properties')",
                 };
         }
         

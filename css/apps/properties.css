@@ -115,3 +115,9 @@
     color: #01c0fa;
     opacity: .75;
 }
+#properties_optimization {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}

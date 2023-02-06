@@ -39,6 +39,7 @@ function changeLang(lang_) {
         default:
             lang = "default";
             completeLevel(1);
+            document.getElementById("PanBackorPointer").style.display = "none";
             changeClassTextToAscii("winControls"); // change windows controls to ascii (temporarily)
             changeClassAsciiToText("windowTitle");
             document.querySelectorAll("p").forEach(element => {
@@ -53,7 +54,6 @@ function changeLang(lang_) {
             nextLevel();
             installApp(getFromSystemRegister('BACKOR Store'));
             break;
-        
     }
 }
 

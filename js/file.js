@@ -29,7 +29,7 @@ function deleteFileInFE(target) {
 }
 
 function renameFileInFE(target) {
-    console.log(target);
+    // console.log(target);
     let fileText = target.querySelector("p");
     fileText.classList.remove('textOverflow1Line')
     fileText.setAttribute("contenteditable", "true");

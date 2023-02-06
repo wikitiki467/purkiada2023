@@ -49,6 +49,7 @@ function renameFileInFE(target) {
         }
     });
     fileText.addEventListener("blur", function(){
+        selection.removeAllRanges();
         fileText.classList.add('textOverflow1Line');
         fileText.setAttribute("contenteditable", "false");
         // add textOverflow1Line clas to fileText

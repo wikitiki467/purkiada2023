@@ -9,5 +9,6 @@ function startVirusGame() {
 function completeLevel(levelNumber) {
     if (levelNumber == getCurrentActiveLevel() + 1) {
         incrementCurrentActiveLevel();
+        showPanBackor();
     }
 }

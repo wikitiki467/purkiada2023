@@ -71,13 +71,12 @@ align-items: center;
     bottom: -55%;
     height: 15%;
     width: 20vw;
-    background-color: black;
     transition: right 1.5s;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
-    transition: background 2s;
+    transition: background 2s, right 1.5s;
 
 }
 

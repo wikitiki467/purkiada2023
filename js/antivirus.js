@@ -32,7 +32,10 @@ function startScan(){
         }else{
             setTimeout(() => {text.innerHTML += "<p>Scanning memory</p>"; status.innerHTML = "<p>✓</p><p>✓</p><p>...</p>";}, 4000);
             setTimeout(() => {status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p>";}, 8000);
-            setTimeout(() => {button.innerHTML = "Virus found!"; button.style.background = "red"; button.style.display = "unset"; document.getElementById("av_scanBTN").innerHTML = document.getElementById("scan-type-options").value + " scan"; scanInProgress = false;}, 8500); /*✓✗*/
+            setTimeout(() => {button.innerHTML = "Virus found!"; button.style.background = "red"; button.style.display = "unset"; document.getElementById("av_scanBTN").innerHTML = document.getElementById("scan-type-options").value + " scan"; scanInProgress = false; setTimeout(() => {button.innerHTML = "Unable to remove!"}, 4500);}, 8500); /*✓✗*/
+            setTimeout(() => {text.innerHTML += "<br>"; status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p><p><br></p>";}, 8500);
+            setTimeout(() => {text.innerHTML += "Removing virus"; status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p><p><br></p><p>...</p>";}, 8500);
+            setTimeout(() => {status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p><p><br></p><p>✗</p>";}, 13000);
         }
         
         }, 3200);

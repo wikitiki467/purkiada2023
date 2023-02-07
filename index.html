@@ -224,7 +224,7 @@
                         (c) Purkiada Uloha -1. All rights reserved.
                     </div>
                     <div class="console_output">
-                        <div class="console_output_text" id="console_output_text">
+                        <div class="console_output_text" id="console_output_text" style="white-space: pre-wrap;">
                             <!-- ZDE JE OUTPUT A ZAPISUJÍ SE TU POUŽITÉ COMMANDY -->
                             &nbsp;&nbsp;
                         </div>
@@ -284,6 +284,10 @@
                         <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('av_installer_file').style.display = 'block'; document.getElementById('application' + getFromSystemRegister('Antivirus')).setAttribute('onclick', 'focusWindow(\'Antivirus\'); completeLevel(6)'); showStorePopup()">
                             <img src="images/icons/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
+                        </div>
+                         <div class="store_content_right_item" style="display: flex;" onclick="style.display = 'none'; installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')); document.getElementById('application' + getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')).setAttribute('onclick', 'focusWindow(\'*jmeno_uzivatele*@spspurkynova\'); completeLevel(11)');">
+                            <img src="images\icons\console.png">
+                            <p class="textOverflow1Line">Terminal</p>
                         </div>
                     </div>
                     <div id="store_popup">
@@ -400,7 +404,7 @@
                 <p id="optimizationPercentage"></p>
                 <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizationPercentage'), 0, 100, 5000)">Optimize</button>
             </appBuild>
-            <appBuild title="Decrypt.exe" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false">
+            <appBuild title="Decrypt.exe" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false" onClickFunction="completeLevel(10)">
                 <input type="text" id="decrypt1" placeholder="první část">
                 <input type="text" id="decrypt2" placeholder="druhá část">
                 <input type="text" id="decrypt3" placeholder="třetí část">

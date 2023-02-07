@@ -36,7 +36,9 @@ function startScan(){
             setTimeout(() => {text.innerHTML += "<br>"; status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p><p><br></p>";}, 8500);
             setTimeout(() => {text.innerHTML += "Removing virus"; status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p><p><br></p><p>...</p>";}, 8500);
             setTimeout(() => {status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p><p><br></p><p>✗</p>";}, 13000);
-            setTimeout(() => {completeLevel(8); completeLevel(9); installApp(getFromSystemRegister('Decrypt.exe').setAttribute('onclick', 'completeLevel(10)'));}, 13000);
+            setTimeout(() => {completeLevel(8); completeLevel(9);}, 13000);
+            setTimeout(() => {document.getElementById('application' + getFromSystemRegister('Decrypt.exe')).setAttribute('onclick', 'focusWindow("Decrypt.exe"); completeLevel(10)'); installApp(getFromSystemRegister('Decrypt.exe'));}, 13000);
+            setTimeout(() => {document.getElementsByClassName("store_content_right_item")[0].style.display="flex";}, 13000);
         }
         
         }, 3200);

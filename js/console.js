@@ -7,6 +7,34 @@ IPv4 Address. . . . . . . . . . . : 192.168.420.69
 Subnet Mask . . . . . . . . . . . : 255.255.252.0
 Default Gateway . . . . . . . . . : 192.168.0.1`
 
+let helpText = `List of commands:
+ECHO                                Zobrazí napsanou zprávu
+CLEAR                               Vyčistí obsah terminálu
+SHUTDOWN                            Vypne počítač
+IPCONFIG                            Zobrazí síťové informace
+PING                                Pingne zvolenou doménu       
+EXIT                                Zavře terminál
+COLOR                               Nastaví barvu pozadí terminálu
+s̵̼͙̒ÿ̶͕š̶̢̟͎͂̓ṭ̷̨̙̀͝e̷͎͈͚͝m̴̪̲̃͛͝info                         Zobrazí hardware počítače
+a̵̳̾͊̉͘ş̶̬̝͇̰̄́̃f̶̗̳̣̫̗͗͌̈d̷̬̰͇̤͝ͅḷ̷̢̠̆ų̸̝͙̊̏k̵̞̏j̶̢̻̉̈̒̄̄ĵ̵̛̺̠̖̞͊́̀d̵͕̘́̇̀͗̓                         Zobrazí aktivní procesy
+j̵̧͖͕͝l̸̯̤̀̏̉f̸̯͉̤͠k̴͉͛d̵̝̬̈́͊͝g̸̠̱͙͗͆ĩ̴̡̍̀n̴̮͚̈́f̴̰͔̥̐j̶̠͛̐ͅg̷͕͈̅                         Ukončí vybraný proces
+ `
+let systeminfoText = `Systémové specifikace:
+OS NAME                             BackorOS
+OS VERSION                          2023
+OS BUILD                            dneska
+OS DIRECTORY                        C:\\
+SYSTEM TYPE                         x8-based PC
+SYSTEM MANUFACTURER                 wikitiki
+CPU                                 Intel 8080
+RAM                                 256MB
+GPU                                 STG-2000
+TIMEZONE                            UTC +1:00
+TOTAL PHYSICAL MEMORY               512MB
+AVAILABLE PHYSICAL MEMORY           159MB
+MONITOR                             RTC 4:3
+`
+//comandy: exit a systeminfo
 function consoleInput(event) {
     let input = document.getElementById("console_input");
     let output = document.getElementById("console_output_text");
@@ -22,7 +50,8 @@ function consoleInput(event) {
         const commandSplitFirst = commandSplit[0];
         switch (true) {
             case commandStartsWith("help"): // ------------------- help
-                addConsoleLine("Nah, to zvladneš sam");
+                completeLevel(12);
+                addConsoleLine(helpText);
                 break;
             case commandStartsWith("clear"): // ------------------ clear
                 clearConsole();
@@ -43,11 +72,21 @@ function consoleInput(event) {
             case commandStartsWith("ping"): // ------------------- ping
                 ping(commandSplit[1]);
                 break;
+            case commandStartsWith("color"):
+                document.getElementById("window" + getFromSystemRegister("*jmeno_uzivatele*@spspurkynova")).getElementsByClassName("main_div")[0].style.background = commandSplit[1];
+                document.getElementById("window" + getFromSystemRegister("*jmeno_uzivatele*@spspurkynova")).getElementsByClassName("console")[0].style.background = commandSplit[1];
+                break;
+            case commandStartsWith("systeminfo"):
+                addConsoleLine(systeminfoText);
+                break;
+            case commandStartsWith("exit"):
+                exitWindow(getFromSystemRegister("*jmeno_uzivatele*@spspurkynova"));
+                clearConsole();
+                break;
             default: // ------------------------------------------ unknown command
                 if (commandTrim.length === 0) break;
                 addConsoleLine(`'${commandSplitFirst}' is not recognized as an internal or external command, operable program or batsch file.`);
         }
-          
     }
 }
 

@@ -127,7 +127,7 @@ function contextMenu(e) {
                 "Option 1": "console.log('Option 1')",
                 "Option 2": "console.log('Option 2')",
                 "Přejmenovat": `renameFileInFE(${target.id})`,
-                "Vlastnosti": "focusWindow('Properties')",
+                "Vlastnosti": "focusWindow('Vlastnosti')",
                 };
         }
         

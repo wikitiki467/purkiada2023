@@ -5,6 +5,9 @@ class SystemPermissionPopup{
         this.title = "Do you want to allow this app from an unknown publisher to make changes to your device?";
         this.publisher = "Unknown";
         this.fileOrigin = "Hard drive on this computer";
+        this.showMoreDetails = "Show more details";
+        this.yes = "Yes";
+        this.no = "No";
         this.canClose = true;
         this.troll = false;
     }
@@ -100,7 +103,7 @@ class SystemPermissionPopup{
 
             const textOverflow1Line = document.createElement("div");
             textOverflow1Line.className = "textOverflow1Line";
-            textOverflow1Line.innerHTML = "Publisher: <span class="+this.publisher+">Unknown</span>";
+            textOverflow1Line.innerHTML = "Publisher: <span>"+this.publisher+"</span>";
 
             details.appendChild(textOverflow1Line);
 
@@ -110,13 +113,13 @@ class SystemPermissionPopup{
 
             const textOverflow2Line = document.createElement("div");
             textOverflow2Line.className = "textOverflow1Line";
-            textOverflow2Line.innerHTML = "File origin: <span class="+this.fileOrigin+">Hard drive on this computer</span>";
+            textOverflow2Line.innerHTML = "File origin: <span>"+this.fileOrigin+"</span>";
 
             details.appendChild(textOverflow2Line);
 
             const moredetails = document.createElement("div");
             moredetails.className = "moredetails";
-            moredetails.innerHTML = "Show more details";
+            moredetails.innerHTML = this.showMoreDetails;
             moredetails.setAttribute("onclick", "this.style.opacity = this.style.opacity==''?'.9':this.style.opacity-.1");
 
             content.appendChild(moredetails);
@@ -133,7 +136,7 @@ class SystemPermissionPopup{
 
             const yes = document.createElement("div");
             yes.className = "yes";
-            yes.innerHTML = "Yes";
+            yes.innerHTML = this.yes;
             yes.setAttribute("onclick", this.onClickFunction + "; forceCloseSysPermissionPopup();");
 
             btnyes.appendChild(yes);
@@ -147,14 +150,14 @@ class SystemPermissionPopup{
 
             const no = document.createElement("div");
             no.className = "no";
-            no.innerHTML = "No";
+            no.innerHTML = this.no;
             if (this.troll){
                 no.setAttribute("onclick", 'closeSysPermissionPopup()');
                 no.addEventListener("mouseenter", function(){
-                    no.innerText = "Yes";
+                    no.innerText = "Ano";
                 });
                 no.addEventListener("mouseleave", function(){
-                    no.innerText = "No";
+                    no.innerText = "Ne";
                 });
                 no.setAttribute("onclick", this.onClickFunction + "; forceCloseSysPermissionPopup();");
             }

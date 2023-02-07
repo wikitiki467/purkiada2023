@@ -108,6 +108,60 @@ function nonExistingSite(){
     webContent.appendChild(newText);
 }
 
+<<<<<<< Updated upstream
+=======
+function errorChecker(){
+    webContent.style.backgroundColor = "#154c79";
+    webContent.style.display = "flex";
+    webContent.style.flexDirection = "column";
+    webContent.style.justifyContent = "center";
+    webContent.style.alignItems = "center";
+    let header = document.createElement("h1");
+    header.innerText = "Error Checker";
+    header.style.color = "black";
+    header.style.fontSize = "50px";
+    header.style.marginBottom = "50px";
+    let div = document.createElement("div");
+    let input = document.createElement("input");
+    let button = document.createElement("button");
+    button.innerText = "Hledat";
+    button.style.height = "20px";
+    button.style.width = "60px";
+    button.style.marginTop = "10px";
+    button.style.textAlign = "center";
+    button.style.color = "black";
+    button.style.cursor = "pointer";
+
+    div.style.display = "flex";
+    div.style.backgroundColor = "#0b2233";
+    div.style.flexDirection = "column";
+    div.style.justifyContent = "center";
+    div.style.alignItems = "center";
+    div.style.width = "50%";
+    div.style.borderRadius = "10px";
+    div.style.padding = "10px";
+
+    input.setAttribute("placeholder", "Zadejte číslo chyby");
+    div.appendChild(input);
+    div.appendChild(button);
+    webContent.appendChild(header);
+    webContent.appendChild(div);
+    let answer = document.createElement("p");
+    button.onclick = function() {
+        if(input.value == "455") {
+            answer.innerText = "Correct";   
+        }
+        else {
+            answer.innerText = "Incorrect";
+        }
+        webContent.appendChild(answer); 
+    };
+
+
+
+}
+
+>>>>>>> Stashed changes
 function venca(){
     searchBar.value = "www.twitch.tv/venca1450";
     webContent.style.backgroundImage = "url('images/WebBrowser/twitchBackground.png')";
@@ -321,5 +375,5 @@ async function browserWinVirus(){
     }
     
 }
-browserWinVirus();
-browserTabVirus();
+//browserWinVirus();
+//browserTabVirus();

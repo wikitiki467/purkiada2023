@@ -26,3 +26,9 @@ function generateRandomNumber(min, max) {
 function generateRandomStringOfRandomLength(min, max) {
     return generateRandomString(generateRandomNumber(min, max));
 }
+
+function setAttributes(el, attrs) { //pro nastavení více atributů najednou
+    for(var key in attrs) {
+      el.setAttribute(key, attrs[key]);
+    }
+  }

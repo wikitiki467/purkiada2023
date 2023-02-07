@@ -60,6 +60,9 @@ function findSite(){
         case "email":
             email();
             break;
+        case "error":
+            errorChecker();
+            break;
         // case "generatecode":
         //     generatecode();
         //     break;
@@ -106,6 +109,21 @@ function nonExistingSite(){
     newText.style.color = "white";
     webContent.style.cssText = "display: flex; justify-content: center; align-items: center;"
     webContent.appendChild(newText);
+}
+
+function errorChecker(){
+    webContent.style.backgroundColor = "#0d4e64";
+    let form = document.createElement("form");
+    let header = document.createElement("h1");
+    let input = document.createElement("input");
+    let button = document.createElement("input");
+    header.innerHTML = "ERROR Checker 9000";
+    button.innerHTML = "Hledat";
+    input.setAttribute("placeholder", "Zadejte číslo chyby");
+    setAttributes(button, {"type" : "submit"});
+    form.appendChild()
+
+
 }
 
 function venca(){

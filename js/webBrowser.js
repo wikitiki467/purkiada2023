@@ -60,6 +60,9 @@ function findSite(){
         case "email":
             email();
             break;
+        case "error":
+            errorChecker();
+            break;
         // case "generatecode":
         //     generatecode();
         //     break;
@@ -108,8 +111,6 @@ function nonExistingSite(){
     webContent.appendChild(newText);
 }
 
-<<<<<<< Updated upstream
-=======
 function errorChecker(){
     webContent.style.backgroundColor = "#154c79";
     webContent.style.display = "flex";
@@ -156,12 +157,8 @@ function errorChecker(){
         }
         webContent.appendChild(answer); 
     };
-
-
-
 }
 
->>>>>>> Stashed changes
 function venca(){
     searchBar.value = "www.twitch.tv/venca1450";
     webContent.style.backgroundImage = "url('images/WebBrowser/twitchBackground.png')";

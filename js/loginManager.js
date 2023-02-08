@@ -12,7 +12,7 @@ function checkLoginInfo(){
             // document.getElementById("UserNameOnScr").innerHTML = username;
             localStorage.setItem("warningTextKey", "");
             validUser = true;
-            startVirusGame();
+            loadGame();
         }
     }
     if (!validUser){
@@ -58,7 +58,7 @@ function checkLoggedUser(){
         let loginscreen = document.getElementById("loginscreen");
         // document.getElementById("UserNameOnScr").innerHTML = localStorage.getItem("loginDetail");
         loginscreen.parentNode.removeChild(loginscreen);
-        startVirusGame();
+        loadGame();
     }else{
         changePPandSetText();
     }

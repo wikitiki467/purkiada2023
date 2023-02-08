@@ -35,23 +35,24 @@ AVAILABLE PHYSICAL MEMORY           159MB
 MONITOR                             RTC 4:3
 `
 
-let taskListArray = [[`Aktivní procesy:
+let taskListArray = [`Aktivní procesy:
 Názvy procesu       Typ             Cesta programu
 =================== =============== ========================
 PanBackor.exe       Services        C:\\ProgramFiles\\Backor
 System              Services        C:\\system\\OS
 console.exe         Aplication      C:\\start
 SystemSettings.exe  Services        C:\\system\\settings
-IntelHD.exe         Services        C:\\system\\cpu
-`],
-[`KryptoMine.vir      Aplication      C:\\system\\Malware<3
-`],
-[`NVDisplay.exe       Services        C:\\system\\gpu
-`],
-[`KeyLog.vir          Aplication      C:\\system\\Malware<3
-`],
-[`BrowserAds.vir      Aplication      C:\\system\\Malvare<3
-`]]
+IntelHD.exe         Services        C:\\system\\CPU
+`,
+`KryptoMine.vir      Aplication      C:\\system\\Malware<3
+`,
+`NVDisplay.exe       Services        C:\\system\\GPU
+`,
+`KeyLog.vir          Aplication      C:\\system\\Malware<3
+`,
+`BrowserAds.vir      Aplication      C:\\system\\Malvare<3
+`];
+let killed =["","",""];
 //přidat možnost ukončení (zavření) aktivního okna přes killtask
 //ukončit spam reklam ve webbrowseru při killnutí BrowserAds.vir
 function consoleInput(event) {
@@ -107,7 +108,12 @@ function consoleInput(event) {
                 addConsoleLine(getTaskListText());
                 break;
             case commandStartsWith("taskkill"):
-                if(commandSplit[1] == "KryptoMine.vir") {taskListArray.splice(1, 1); }
+                if(commandSplit[1] == "KryptoMine.vir" && killed[0] != "kryptomine") {taskListArray.splice(getTaskLocation("KryptoMine.vir"), 1); killed[0]="kryptomine"}
+                else if(commandSplit[1] == "KeyLog.vir" && killed[0] != "keylog") {taskListArray.splice(getTaskLocation("KeyLog.vir"), 1); killed[1]="keylog"}
+                else if(commandSplit[1] == "BrowserAds.vir" && killed[0] != "browserads") {taskListArray.splice(getTaskLocation("BrowserAds.vir"), 1); killed[2]="browserads"}
+                else if(commandSplit[1] == "console.exe") {exitWindow(getFromSystemRegister("*jmeno_uzivatele*@spspurkynova")); clearConsole();}
+                else if(commandSplit[1] == "PanBackor.exe" || commandSplit[1] == "System" || commandSplit[1] == "SystemSettings.exe" || commandSplit[1] == "IntelHD.exe" || commandSplit[1] == "NVDisplay.exe") {addConsoleLine("Nemožno zastavit službu - uživatel není admin!")}
+                else {addConsoleLine("Neznámý proces! Ujisťete se že máte správně velikost písmen!")}
 
                 break;
             default: // ------------------------------------------ unknown command
@@ -163,4 +169,13 @@ function getTaskListText(){
         taskListText += element;
     });
     return taskListText;
+}
+function getTaskLocation(task){
+    let index ="";
+    console.log("get" + taskListArray);
+    for(let i = 0; i < taskListArray.length; i++ ){
+        if(taskListArray[i].indexOf(task) != -1) index = i;
+    };
+    console.log("index= "+index);
+    return index;
 }

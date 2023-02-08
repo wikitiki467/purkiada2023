@@ -10,6 +10,6 @@ function completeLevel(levelNumber) {
     if (levelNumber == getCurrentActiveLevel() + 1) {
         incrementCurrentActiveLevel();
         showPanBackor();
-        console.log(levelNumber);
+        //console.log(levelNumber);
     }
 }

@@ -8,6 +8,10 @@ function resetCountDeletedFiles() {
     countDeletedFiles = 0;
 }
 
+function loadCountDeletedFiles() {
+    countDeletedFiles = 7;
+}
+
 function closeFocusedMenu() {
     if (document.getElementById('fileContextMenu') != null) {
         document.getElementById('fileContextMenu').blur();

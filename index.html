@@ -253,13 +253,13 @@
                 <div id="fe_main" class="fe_tab">
                     <div class="fe_files" id="backorFolder" onclick="activateFolderTab(this, 'fe_backor')"><img src="images/icons/folder.png"><p class="textOverflow1Line">Backor</p></div>
                     <div class="fe_files" id="fileRick" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/icons/vlc.png" class="fe_file_img"><p class="textOverflow1Line">Rick roluje.mp4</p></div>
-                    <div class="fe_files" id="file2" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">A.part</p></div>
+                    <div class="fe_files" id="file0" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">A.part</p></div>
                     <div class="fe_files hiddenFiles" id="fileHidden" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/batsch.png" class="fe_file_img"><p class="textOverflow1Line">fileGen.batsch</p></div>
-                    <div class="fe_files" id="file4" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">C.dll</p></div>
-                    <div class="fe_files" id="file5" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">D.bin</p></div>
-                    <div class="fe_files" id="file6" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">E.data</p></div>
-                    <div class="fe_files" id="file7" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">F.xml</p></div>
-                    <div class="fe_files" id="file8" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">G.bak</p></div>
+                    <div class="fe_files" id="file1" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">C.dll</p></div>
+                    <div class="fe_files" id="file2" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">D.bin</p></div>
+                    <div class="fe_files" id="file3" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">E.data</p></div>
+                    <div class="fe_files" id="file4" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">F.xml</p></div>
+                    <div class="fe_files" id="file5" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">G.bak</p></div>
                 </div>
                 <div id="fe_disk" class="fe_tab">
                     <div class="fe_files" onclick="popup('System Manager', 'Nedostačné přístupové oprávnění');"><img src="images/icons/folder.png" class="fe_folder_img"><p>system</p></div>
@@ -294,7 +294,7 @@
                 </div>
                 <div id="store_content">
                     <div id="store_content_left">
-                        <div class="store_content_left_item" onclick="this.style.display = 'none'; document.getElementById('av_installer_file').style.display = 'block'; document.getElementById('application' + getFromSystemRegister('Antivirus')).setAttribute('onclick', 'focusWindow(\'Antivirus\'); completeLevel(6)'); showStorePopup()">
+                        <div class="store_content_left_item" id="store_antivirus" onclick="this.style.display = 'none'; document.getElementById('av_installer_file').style.display = 'block'; document.getElementById('application' + getFromSystemRegister('Antivirus')).setAttribute('onclick', 'focusWindow(\'Antivirus\'); completeLevel(6)'); showStorePopup()">
                             <img src="images/icons/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>

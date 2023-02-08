@@ -14,7 +14,7 @@ function AVInstall(){
         setTimeout(()=>{
         resetFiles();
         resetDriverOptimization();
-        completeLevel(2);
+        completeLevel(2); //skip
         completeLevel(3);
         }, 5000);
     }
@@ -26,7 +26,6 @@ function AVInstall(){
             completeLevel(3); //skip
             completeLevel(4);
             ongoing = false}, 5000);
-       
     }
     //smaže všechno a defragmentuje
     else if(ongoing == false && AVInstalled == false && countDeletedFiles == 7 && driverOptimized() == true){

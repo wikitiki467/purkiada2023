@@ -112,18 +112,58 @@ function nonExistingSite(){
 }
 
 function errorChecker(){
-    webContent.style.backgroundColor = "#0d4e64";
-    let form = document.createElement("form");
+    webContent.style.backgroundImage = "url('images/WebBrowser/error_background.jpg')";
+    webContent.style.backgroundSize = "100% 100%";
+    webContent.style.backgroundRepeat = "no-repeat";
+    webContent.style.display = "flex";
+    webContent.style.flexDirection = "column";
+    webContent.style.justifyContent = "center";
+    webContent.style.alignItems = "center";
+    let headerDiv = document.createElement("div");
     let header = document.createElement("h1");
+    header.innerText = "Error Checker";
+    header.style.color = "White";
+    header.style.fontSize = "50px";
+    headerDiv.style.backgroundColor = "#0b2233";
+    headerDiv.style.padding = "10px";
+    headerDiv.style.marginBottom = "50px";
+    headerDiv.style.borderRadius = "10px";
+    let div = document.createElement("div");
     let input = document.createElement("input");
-    let button = document.createElement("input");
-    header.innerHTML = "ERROR Checker 9000";
-    button.innerHTML = "Hledat";
+    let button = document.createElement("button");
+    button.innerText = "Hledat";
+    button.style.height = "20px";
+    button.style.width = "60px";
+    button.style.marginTop = "10px";
+    button.style.textAlign = "center";
+    button.style.color = "black";
+    button.style.cursor = "pointer";
+
+    div.style.display = "flex";
+    div.style.backgroundColor = "#0b2233";
+    div.style.flexDirection = "column";
+    div.style.justifyContent = "center";
+    div.style.alignItems = "center";
+    div.style.width = "50%";
+    div.style.borderRadius = "10px";
+    div.style.padding = "10px";
+
     input.setAttribute("placeholder", "Zadejte číslo chyby");
-    setAttributes(button, {"type" : "submit"});
-    form.appendChild()
-
-
+    div.appendChild(input);
+    div.appendChild(button);
+    headerDiv.appendChild(header);
+    webContent.appendChild(headerDiv);
+    webContent.appendChild(div);
+    let answer = document.createElement("p");
+    button.onclick = function() {
+        if(input.value == "455") {
+            answer.innerText = "Correct";   
+        }
+        else {
+            answer.innerText = "Incorrect";
+        }
+        webContent.appendChild(answer); 
+    };
 }
 
 function venca(){
@@ -339,5 +379,5 @@ async function browserWinVirus(){
     }
     
 }
-browserWinVirus();
-browserTabVirus();
+//browserWinVirus();
+//browserTabVirus();

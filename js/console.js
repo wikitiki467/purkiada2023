@@ -34,7 +34,26 @@ TOTAL PHYSICAL MEMORY               512MB
 AVAILABLE PHYSICAL MEMORY           159MB
 MONITOR                             RTC 4:3
 `
-//comandy: exit a systeminfo
+
+let taskListArray = [[`Aktivní procesy:
+Názvy procesu       Typ             Cesta programu
+=================== =============== ========================
+PanBackor.exe       Services        C:\\ProgramFiles\\Backor
+System              Services        C:\\system\\OS
+console.exe         Aplication      C:\\start
+SystemSettings.exe  Services        C:\\system\\settings
+IntelHD.exe         Services        C:\\system\\cpu
+`],
+[`KryptoMine.vir      Aplication      C:\\system\\Malware<3
+`],
+[`NVDisplay.exe       Services        C:\\system\\gpu
+`],
+[`KeyLog.vir          Aplication      C:\\system\\Malware<3
+`],
+[`BrowserAds.vir      Aplication      C:\\system\\Malvare<3
+`]]
+//přidat možnost ukončení (zavření) aktivního okna přes killtask
+//ukončit spam reklam ve webbrowseru při killnutí BrowserAds.vir
 function consoleInput(event) {
     let input = document.getElementById("console_input");
     let output = document.getElementById("console_output_text");
@@ -48,6 +67,7 @@ function consoleInput(event) {
         const commandTrim = command.trim();
         const commandLength = commandTrim.length;
         const commandSplitFirst = commandSplit[0];
+        console.log(commandSplit[1]);
         switch (true) {
             case commandStartsWith("help"): // ------------------- help
                 completeLevel(12);
@@ -67,7 +87,7 @@ function consoleInput(event) {
                 }, 1000);
                 break;
             case commandStartsWith("ipconfig"): // --------------- ipconfig
-                addConsoleLine(ipconfigText);
+                addConsoleLine(ipconfigText[0]);
                 break;
             case commandStartsWith("ping"): // ------------------- ping
                 ping(commandSplit[1]);
@@ -82,6 +102,13 @@ function consoleInput(event) {
             case commandStartsWith("exit"):
                 exitWindow(getFromSystemRegister("*jmeno_uzivatele*@spspurkynova"));
                 clearConsole();
+                break;
+            case commandStartsWith("tasklist"):
+                addConsoleLine(getTaskListText());
+                break;
+            case commandStartsWith("taskkill"):
+                if(commandSplit[1] == "KryptoMine.vir") {taskListArray.splice(1, 1); }
+
                 break;
             default: // ------------------------------------------ unknown command
                 if (commandTrim.length === 0) break;
@@ -129,4 +156,11 @@ function ping(site) {
     Approximate round trip times in milli-seconds:
     \tMinimum = ${minimumTime}ms, Maximum = ${maximumTime}ms, Average = ${averageTime}ms
     `);unlockInput(); }, 5000);
+}
+function getTaskListText(){
+    let taskListText =``;
+    taskListArray.forEach(element => {
+        taskListText += element;
+    });
+    return taskListText;
 }

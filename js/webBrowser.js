@@ -112,16 +112,22 @@ function nonExistingSite(){
 }
 
 function errorChecker(){
-    webContent.style.backgroundColor = "#154c79";
+    webContent.style.backgroundImage = "url('images/WebBrowser/error_background.jpg')";
+    webContent.style.backgroundSize = "100% 100%";
+    webContent.style.backgroundRepeat = "no-repeat";
     webContent.style.display = "flex";
     webContent.style.flexDirection = "column";
     webContent.style.justifyContent = "center";
     webContent.style.alignItems = "center";
+    let headerDiv = document.createElement("div");
     let header = document.createElement("h1");
     header.innerText = "Error Checker";
-    header.style.color = "black";
+    header.style.color = "White";
     header.style.fontSize = "50px";
-    header.style.marginBottom = "50px";
+    headerDiv.style.backgroundColor = "#0b2233";
+    headerDiv.style.padding = "10px";
+    headerDiv.style.marginBottom = "50px";
+    headerDiv.style.borderRadius = "10px";
     let div = document.createElement("div");
     let input = document.createElement("input");
     let button = document.createElement("button");
@@ -145,7 +151,8 @@ function errorChecker(){
     input.setAttribute("placeholder", "Zadejte číslo chyby");
     div.appendChild(input);
     div.appendChild(button);
-    webContent.appendChild(header);
+    headerDiv.appendChild(header);
+    webContent.appendChild(headerDiv);
     webContent.appendChild(div);
     let answer = document.createElement("p");
     button.onclick = function() {

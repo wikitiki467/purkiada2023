@@ -303,7 +303,7 @@
                             <img src="images/icons/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>
-                         <div class="store_content_right_item" style="display: flex;" onclick="style.display = 'none'; installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')); document.getElementById('application' + getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')).setAttribute('onclick', 'focusWindow(\'*jmeno_uzivatele*@spspurkynova\'); completeLevel(11)');">
+                         <div class="store_content_right_item" style="display: none;" onclick="style.display = 'none'; installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')); document.getElementById('application' + getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')).setAttribute('onclick', 'focusWindow(\'*jmeno_uzivatele*@spspurkynova\'); completeLevel(11)');">
                             <img src="images\icons\console.png">
                             <p class="textOverflow1Line">Terminal</p>
                         </div>
@@ -428,6 +428,9 @@
                 <input type="text" id="decrypt2" placeholder="druhá část">
                 <input type="text" id="decrypt3" placeholder="třetí část">
                 <button style="cursor: default;" onclick="">Spustit</button>
+            </appBuild>
+            <appBuild title="CrashNote.txt" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false" onClickFunction="completeLevel(17)">
+                <div class="crashText"></div>
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">

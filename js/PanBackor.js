@@ -14,7 +14,12 @@ let panBackorDialogy = [["Zdravím, jsem pan Bačkor. Vypadá to, že tvůj poč
 ["Ale né, antivirus nedokázal virus smazat  celý, vypadá to že to budeme muset udělat sami!", "Antivirus nám alespoň vytvořil dekrypční soubor s jehož pomocí virus smažeme."],
 ["Vypadá to že pro zapnutí programu potřebujeme 3 části kódu.", "Každá část bude pravděpodobně někde jinde v počítači, pojďme najít tu první!", "Začal bych zastavením procesu viru - nejdříve si stáhni terminál z BACKOR Storu!"],
 ["Terminál je úžasné a velmi užitečné místo, můžeme skrz něj zjistit všelijaké věci.", "Bohužel je to taky místo velmi obsáhlé a pro lajka nepřehledné a navíc si musíš pamatovat různé příkazy.", "Příkaz 'help' by nám mohl pomoci zjistit příkaz pro zobrazení aktivních procesů... Zavolej ho!"],
-["Ale ne, virus koruptoval grafiku terminálu a příkaz je teď nečitelný! Naštěstí online máme help centrum se všemi důležitými příkazy."]];
+["Ale ne, virus koruptoval grafiku terminálu a příkaz je teď nečitelný! Naštěstí online máme help centrum se všemi důležitými příkazy, najdiho a použij příkaz pro zobrazení bežících programů"],
+["Teď když vidíme všechny procesy bude jednoduché ukončit procesy viru"],
+["Výborně! První proces ukončen.. Zbývají ještě 2."],
+["Ještě 1 proces a tady jsme hotovi."],
+["Virus crashnul a jeho chybová zpráva byla napsána do souboru na ploše. Zpráva obsahuje kus kódu pro aktivaci dekrypčního souboru!"],
+["Další úkol"]];
 
 let currentDialog = 0;
 /*Current level*/

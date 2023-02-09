@@ -53,6 +53,7 @@ IntelHD.exe         Services        C:\\system\\CPU
 `BrowserAds.vir      Aplication      C:\\system\\Malvare<3
 `];
 let killed =["","",""];
+let killedCount = 0;
 //přidat možnost ukončení (zavření) aktivního okna přes killtask
 //ukončit spam reklam ve webbrowseru při killnutí BrowserAds.vir
 function consoleInput(event) {
@@ -106,11 +107,12 @@ function consoleInput(event) {
                 break;
             case commandStartsWith("tasklist"):
                 addConsoleLine(getTaskListText());
+                completeLevel(13);
                 break;
             case commandStartsWith("taskkill"):
-                if(commandSplit[1] == "KryptoMine.vir" && killed[0] != "kryptomine") {taskListArray.splice(getTaskLocation("KryptoMine.vir"), 1); killed[0]="kryptomine"}
-                else if(commandSplit[1] == "KeyLog.vir" && killed[0] != "keylog") {taskListArray.splice(getTaskLocation("KeyLog.vir"), 1); killed[1]="keylog"}
-                else if(commandSplit[1] == "BrowserAds.vir" && killed[0] != "browserads") {taskListArray.splice(getTaskLocation("BrowserAds.vir"), 1); killed[2]="browserads"}
+                if(commandSplit[1] == "KryptoMine.vir" && killed[0] != "kryptomine") {taskListArray.splice(getTaskLocation("KryptoMine.vir"), 1); killed[0]="kryptomine"; consoleLevelProgress()}
+                else if(commandSplit[1] == "KeyLog.vir" && killed[0] != "keylog") {taskListArray.splice(getTaskLocation("KeyLog.vir"), 1); killed[1]="keylog"; consoleLevelProgress()}
+                else if(commandSplit[1] == "BrowserAds.vir" && killed[0] != "browserads") {taskListArray.splice(getTaskLocation("BrowserAds.vir"), 1); killed[2]="browserads"; consoleLevelProgress()}
                 else if(commandSplit[1] == "console.exe") {exitWindow(getFromSystemRegister("*jmeno_uzivatele*@spspurkynova")); clearConsole();}
                 else if(commandSplit[1] == "PanBackor.exe" || commandSplit[1] == "System" || commandSplit[1] == "SystemSettings.exe" || commandSplit[1] == "IntelHD.exe" || commandSplit[1] == "NVDisplay.exe") {addConsoleLine("Nemožno zastavit službu - uživatel není admin!")}
                 else {addConsoleLine("Neznámý proces! Ujisťete se že máte správně velikost písmen!")}
@@ -178,4 +180,9 @@ function getTaskLocation(task){
     };
     console.log("index= "+index);
     return index;
+}
+function consoleLevelProgress(){
+    if (killedCount == 0) {killedCount += 1; completeLevel(14)}
+    else if (killedCount == 1) {killedCount += 1; completeLevel(15)}
+    else if (killedCount == 2) {killedCount += 1; completeLevel(16); installApp(getFromSystemRegister("CrashNote.txt"))};
 }

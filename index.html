@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/apps/browser.css">
     <link rel="stylesheet" href="css/apps/properties.css">
     <link rel="stylesheet" href="css/apps/settings.css">
+    <link rel="stylesheet" href="css/apps/decrypt.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
@@ -423,9 +424,24 @@
                 <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizationPercentage'), 0, 100, 5000)">Optimalizovat</button>
             </appBuild>
             <appBuild title="Decrypt.exe" icon="key.png" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false" onClickFunction="completeLevel(10)">
-                <input type="text" id="decrypt1" placeholder="Bypass Code">
-                <button style="cursor: default;" onclick="decrypt()">Spustit</button>
-                <p id="decryptmsg" style="color: white;"></p>
+                <div id="divDecrypt1">
+                    <label for="decrypt1">Code 1/3</label>
+                    <input type="text" id="decrypt1" name="decrypt1" placeholder="Bypass Code">
+                    <p id="decryptmsg" style="color: white;"></p>
+                    <button id="decryptBTN1" style="cursor: default;" onclick="decrypt1()">Spustit</button>
+                </div>
+                <div id="divDecrypt2">
+                    <label for="decrypt2">Code 2/3</label>
+                    <input type="text" id="decrypt2" name="decrypt2" placeholder="Bypass Code">
+                    <p id="decryptmsg" style="color: white;"></p>
+                    <button id="decryptBTN2" style="cursor: default;" onclick="decrypt2()">Spustit</button>
+                </div>
+                <div id="divDecrypt3">
+                    <label for="decrypt3">Code 3/3</label>
+                    <input type="text" id="decrypt3" name="decrypt" placeholder="Bypass Code">
+                    <p id="decryptmsg" style="color: white;"></p>
+                    <button id="decryptBTN3" style="cursor: default;" onclick="decrypt3()">Spustit</button>
+                </div>
             </appBuild>
             <appBuild title="CrashNote.txt" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false">
                 <div id="crashText"></div>

@@ -23,14 +23,7 @@ function getFromSystemRegister(appID){
 
 /*Register*/
 function addToRegister(key, value){
-    if (localStorage.getItem(key) != null){
-        localStorage.setItem(key, value);
-        return true;
-    }
-    else{
-        console.warn("[Register] Key: " + key + " already exists in register");
-        return false;
-    }
+    localStorage.setItem(key, value);
 }
 
 function getFromRegister(key){

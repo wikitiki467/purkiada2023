@@ -1,10 +1,11 @@
 function popup(title, text){
-    let contentDisplay = document.getElementById("app_container");
+    let contentDisplay = document.getElementById("contentDisplay");
     const popup = document.createElement("div");
     popup.className = "window popup";
     popup.style.height = "180px";
     popup.style.width = "400px";
     popup.style.background = "white";
+    popup.style.zIndex = "99";
     contentDisplay.appendChild(popup);
 
     const popupHeader = document.createElement("div");

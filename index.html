@@ -424,10 +424,9 @@
                 <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizationPercentage'), 0, 100, 5000)">Optimalizovat</button>
             </appBuild>
             <appBuild title="Decrypt.exe" icon="key.png" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false" onClickFunction="completeLevel(10)">
-                <input type="text" id="decrypt1" placeholder="první část">
-                <input type="text" id="decrypt2" placeholder="druhá část">
-                <input type="text" id="decrypt3" placeholder="třetí část">
+                <input type="text" id="decrypt1" placeholder="Bypass Code">
                 <button style="cursor: default;" onclick="">Spustit</button>
+                <p id="deryptmsg"></p>
             </appBuild>
             <appBuild title="CrashNote.txt" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false">
                 <div class="crashText"></div>
@@ -477,6 +476,7 @@
     <script src="js/wizard.js"></script>
     <script src="js/optimizeDrives.js"></script>
     <script src="js/store.js"></script>
+    <script src="js/decrypt.js"></script>
 
     <!-- zatim nechávám kdyby jsme to chtěli řešit přes forms -->
     <!-- <script src="js/forms.js"></script> -->

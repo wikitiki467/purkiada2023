@@ -5,8 +5,28 @@
     align-items: flex-start;
     padding: 10px;
     box-sizing: border-box;
-    width: 100%;
-    height: 100%;
     overflow-y: auto;
 
+}
+#general-lang {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+}
+/* add styling for #tab-general select and option */
+#tab-general select {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+#tab-general option {
+    padding: 5px;
+    box-sizing: border-box;
 }

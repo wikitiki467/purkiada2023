@@ -109,12 +109,13 @@ function consoleInput(event) {
                 completeLevel(13);
                 break;
             case commandStartsWith("taskkill"):
-                if(commandSplit[1] == "KryptoMine.vir" && killed[0] != "kryptomine") {taskListArray.splice(getTaskLocation("KryptoMine.vir"), 1); killed[0]="kryptomine"; consoleLevelProgress()}
-                else if(commandSplit[1] == "KeyLog.vir" && killed[0] != "keylog") {taskListArray.splice(getTaskLocation("KeyLog.vir"), 1); killed[1]="keylog"; consoleLevelProgress()}
-                else if(commandSplit[1] == "BrowserAds.vir" && killed[0] != "browserads") {taskListArray.splice(getTaskLocation("BrowserAds.vir"), 1); killed[2]="browserads"; consoleLevelProgress()}
+                if(commandSplit[1] == "KryptoMine.vir" && killed[0] != "KryptoMine") {taskListArray.splice(getTaskLocation("KryptoMine.vir"), 1); killed[0]="KryptoMine"; consoleLevelProgress()}
+                else if(commandSplit[1] == "KeyLog.vir" && killed[0] != "KeyLog") {taskListArray.splice(getTaskLocation("KeyLog.vir"), 1); killed[1]="KeyLog"; consoleLevelProgress()}
+                else if(commandSplit[1] == "BrowserAds.vir" && killed[0] != "BrowserAds") {taskListArray.splice(getTaskLocation("BrowserAds.vir"), 1); killed[2]="BrowserAds"; consoleLevelProgress()}
                 else if(commandSplit[1] == "console.exe") {exitWindow(getFromSystemRegister("*jmeno_uzivatele*@spspurkynova")); clearConsole();}
                 else if(commandSplit[1] == "PanBackor.exe" || commandSplit[1] == "System" || commandSplit[1] == "SystemSettings.exe" || commandSplit[1] == "IntelHD.exe" || commandSplit[1] == "NVDisplay.exe") {addConsoleLine("Nemožno zastavit službu - uživatel není admin!")}
                 else {addConsoleLine("Neznámý proces! Ujisťete se že máte správně velikost písmen!")}
+                addToRegister("killedList", killed); addToRegister("killedCount", killedCount);
                 break;
             //jsem línej pak to smažu :D
                 case commandStartsWith("skip"):
@@ -196,4 +197,13 @@ function consoleLevelProgress(){
 function skipConsoleLevels(){
     for (let level = 12; level < 17; level++){completeLevel(level)};
     completeLevel(17);
+}
+
+function loadProgress(newkilledList, newkilledCount){
+    newkilledList.split(",").forEach(function (item) {
+        if (item != ""){
+            taskListArray.splice(getTaskLocation(item + ".vir"), 1);
+        }
+    });
+    killedCount = newkilledCount;
 }

@@ -69,6 +69,14 @@ function loadGame() {
             document.getElementById("store_terminal").style.display = 'none';
             installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova'));
         }
+        if (savedLevel >= 13) {
+            let killedList = getFromRegister("killedList");
+            let killedCount = getFromRegister("killedCount");
+            if (killedList == null) {
+                killedList = "";
+            }
+            loadProgress(killedList, killedCount)
+        }
         if (savedLevel >= 16) {
             document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()');
             installApp(getFromSystemRegister("CrashNote.txt"));

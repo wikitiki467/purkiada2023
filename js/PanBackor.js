@@ -23,7 +23,9 @@ let panBackorDialogy = [["Zdravím, jsem pan Bačkor. Vypadá to, že tvůj poč
 ["Tak jednoduché to nikdy nebude co? Nevím co tento chybový kód znamená, ale naštěstí si to můžeme zjistit na internetu"], //18
 ["Zkus dát tenhle kód do toho dekryptačního souboru... tentokrát snad bude fungovat.."], //19
 ["Proč tu nikdy nic nefunguje?! Zkusím se podívat do systémových složek, kam nemůžeš, jestli nenajdu něco tam.", " "], //20 
-["Mám ho rychle ho tam zadej! Vir mi napadl složku a co nevidět se zhroutím! Ten kód je-", "njdforenh"]];  //21
+["Mám ho rychle ho tam zadej! Vir mi napadl složku a co nevidět se zhroutím! Ten kód je-", "njdforenh"], //21
+["Děkuji, zachránil jsi mě! Jak jsem říkal kód je "+getCode(2)],
+["konec pičo"]];  
 
 let currentDialog = 0;
 /*Current level*/
@@ -74,6 +76,8 @@ function switchPanBackorDialog(direction){
         currentDialog += direction;
         changePanBackorDialog(panBackorDialogy[currentActiveLevel][currentDialog]);
         PanBackor20(); //na 20lvl jde hledat kód :/
+        PanBackor21();
+        console.log(currentActiveLevel, currentDialog);
         /*make PanBackorPointer visible*/
         if(currentActiveLevel == 0 && currentDialog == 1){
             document.getElementById("PanBackorPointer").style.display = "block";
@@ -172,5 +176,11 @@ function PanBackor20(){
     if (currentActiveLevel == 20){
         hidePanBackor();
         setTimeout(()=>{completeLevel(21)}, 5000);
+    }
+}
+function PanBackor21(){
+    if (currentActiveLevel == 21 && currentDialog == 1){
+        //console.log("jis negr");
+        document.getElementsByClassName("eyeLid")[0].style.background="gray";
     }
 }

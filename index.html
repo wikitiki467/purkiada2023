@@ -429,7 +429,7 @@
                 <p id="decryptmsg" style="color: white;"></p>
             </appBuild>
             <appBuild title="CrashNote.txt" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false">
-                <div id="crashText"><script>document.getElementById("crashText").innerHTML=getCode(0);</script></div>
+                <div id="crashText"></div>
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">
@@ -448,9 +448,9 @@
     </div>
     <script src="js/javascriptTools.js"></script>
     <script src="js/register.js"></script>
+    <script src="js/decrypt.js"></script>
     <script src="js/PanBackor.js"></script>
     <script src="js/explorer.js"></script>
-    <script src="js/decrypt.js"></script>
     <script src="js/console.js"></script>
     <script src="js/SystemPermissionPopup.js"></script>
     <script src="js/SystemUsingPopup.js"></script>
@@ -478,7 +478,8 @@
     <script src="js/wizard.js"></script>
     <script src="js/optimizeDrives.js"></script>
     <script src="js/store.js"></script>
-
+    <script>document.getElementById("crashText").innerHTML=getCode(0);</script>
+    
     <!-- zatim nechávám kdyby jsme to chtěli řešit přes forms -->
     <!-- <script src="js/forms.js"></script> -->
     <!-- <form name="kamoProsim" data-netlify="true" data-netlify-honeypot="bot-field" class="" action="#">

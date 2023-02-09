@@ -190,7 +190,7 @@ function consoleLevelProgress(){
         killedCount += 1; completeLevel(16);
         document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()');
         installApp(getFromSystemRegister("CrashNote.txt"));
-        document.getElementById("crashText").innerHTML=getCode(0);
+        //document.getElementById("crashText").innerHTML=getCode(0);
     };
 }
 function skipConsoleLevels(){

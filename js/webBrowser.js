@@ -159,6 +159,7 @@ function errorChecker(){
     webContent.appendChild(div);
     let answer = document.createElement("p");
     answer.style.color="white";
+    answer.style.marginTop = "5px";
     button.onclick = function() {
         if(input.value == getErrorCode()) {
             answer.innerText = "Vyzkoušejte tohle: " + getCode(1);
@@ -167,7 +168,7 @@ function errorChecker(){
         else {
             answer.innerText = "Neznámý kód";
         }
-        webContent.appendChild(answer); 
+        div.appendChild(answer); 
     };
 }
 

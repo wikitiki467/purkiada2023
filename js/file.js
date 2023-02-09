@@ -122,40 +122,41 @@ function contextMenu(e) {
         document.getElementById('contentDisplay').appendChild(div);
         div.focus();
         let status = getFromRegister("currentActiveLevel");
-        console.log(status);
         if (target.className.includes("fe_files")) {
-            if (status >= 7) {
-                options = {
-                // 'NAME': 'ONCLICK'
-                "Skenovat" : "startFileScan(true)",
-                "Přejmenovat": `renameFileInFE(${target.id})`,
-                "Odstranit": "deleteFileInFE(" + target.id + ");",
-                };
-            }
-
-            else {
+            if (status < 7) {
                 options = {
                     // 'NAME': 'ONCLICK'
                     "Přejmenovat": `renameFileInFE(${target.id})`,
                     "Odstranit": "deleteFileInFE(" + target.id + ");",
                     };
             }
-            
-            
+            else if (status == 21 && target.id == "backorFolder") {
+                options = {
+                "Skenovat" : "startFileScan(true)",
+                "Přejmenovat": `renameFileInFE(${target.id})`,
+                "Odstranit": "deleteFileInFE(" + target.id + ");",
+                };
+            }
+            else {
+                options = {
+                    "Skenovat" : "startFileScan(false)",
+                    "Přejmenovat": `renameFileInFE(${target.id})`,
+                    "Odstranit": "deleteFileInFE(" + target.id + ");",
+                    };
+                
+            }
             
         }
         else {
             if (status >= 7) {
                 options = {
-                    // 'NAME': 'ONCLICK'
-                    "Skenovat" : "console.log('scan')",
+                    "Skenovat" : "startFileScan(false)",
                     "Přejmenovat": `renameFileInFE(${target.id})`,
                     "Vlastnosti": "focusWindow('Vlastnosti')",
                     };
                 }
             else {
                 options = {
-                    // 'NAME': 'ONCLICK'
                     "Přejmenovat": `renameFileInFE(${target.id})`,
                     "Vlastnosti": "focusWindow('Vlastnosti')",
                     };

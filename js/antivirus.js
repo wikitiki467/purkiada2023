@@ -1,5 +1,5 @@
 function changeScanningType(scanType){   
-    document.getElementById("av_scanBTN").innerHTML = scanType + " scan";
+    document.getElementById("av_scanBTN").innerHTML = scanType + " sken";
 }
 
 var scanInProgress = false;
@@ -67,7 +67,7 @@ function startFileScan(isVir){
 
         if (isVir){
             setTimeout(() => {status.innerHTML = "<p>✗</p>";}, 2000);
-            setTimeout(() => {button.innerHTML = "Virus found!"; button.style.background = "red"; button.style.display = "unset"; document.getElementById("av_scanBTN").innerHTML = document.getElementById("scan-type-options").value + " scan"; scanInProgress = false; setTimeout(() => {button.innerHTML = "Unable to remove!"}, 4500);}, 2500); /*✓✗*/
+            setTimeout(() => {button.innerHTML = "Virus found!"; button.style.background = "red"; button.style.display = "unset"; document.getElementById("av_scanBTN").innerHTML = document.getElementById("scan-type-options").value + " scan"; scanInProgress = false; setTimeout(() => {button.innerHTML = "Virus removed succesfully!"}, 4500);}, 2500); /*✓✗*/
         }else{
             setTimeout(() => {status.innerHTML = "<p>✓</p>";}, 2000);
             setTimeout(() => {button.innerHTML = "Everything is OK"; button.style.background = "rgb(59, 221, 59)"; button.style.display = "unset"; document.getElementById("av_scanBTN").innerHTML = document.getElementById("scan-type-options").value + " scan"; scanInProgress = false; completeLevel(8);}, 2500); /*✓✗*/
@@ -82,5 +82,5 @@ function stopScan(){
     document.getElementById('av_footer').setAttribute('height', '20%');
     document.getElementById('av_scanInfo').style.display = "none";
     document.getElementById('av_footer').style.height = '20%';
-    document.getElementById('av_scanBTN').innerHTML = document.getElementById('scan-type-options').value + " scan";
+    document.getElementById('av_scanBTN').innerHTML = document.getElementById('scan-type-options').value + " sken";
 }

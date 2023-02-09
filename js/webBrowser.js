@@ -136,7 +136,7 @@ function errorChecker(){
     button.style.width = "60px";
     button.style.marginTop = "10px";
     button.style.textAlign = "center";
-    button.style.color = "black";
+    button.style.color = "white";
     button.style.cursor = "pointer";
 
     div.style.display = "flex";

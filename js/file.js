@@ -121,25 +121,45 @@ function contextMenu(e) {
 
         document.getElementById('contentDisplay').appendChild(div);
         div.focus();
+        let status = getFromRegister("currentActiveLevel");
+        console.log(status);
         if (target.className.includes("fe_files")) {
-            options = {
-            // 'NAME': 'ONCLICK'
-            "Option 1": "console.log('Option 1')",
-            "Option 2": "console.log('Option 2')",
-            "Přejmenovat": `renameFileInFE(${target.id})`,
-            "Odstranit": "deleteFileInFE(" + target.id + ");",
-            };
+            if (status >= 7) {
+                options = {
+                // 'NAME': 'ONCLICK'
+                "Skenovat" : "startFileScan(true)",
+                "Přejmenovat": `renameFileInFE(${target.id})`,
+                "Odstranit": "deleteFileInFE(" + target.id + ");",
+                };
+            }
+
+            else {
+                options = {
+                    // 'NAME': 'ONCLICK'
+                    "Přejmenovat": `renameFileInFE(${target.id})`,
+                    "Odstranit": "deleteFileInFE(" + target.id + ");",
+                    };
+            }
+            
             
             
         }
         else {
-            options = {
-                // 'NAME': 'ONCLICK'
-                "Option 1": "console.log('Option 1')",
-                "Option 2": "console.log('Option 2')",
-                "Přejmenovat": `renameFileInFE(${target.id})`,
-                "Vlastnosti": "focusWindow('Vlastnosti')",
-                };
+            if (status >= 7) {
+                options = {
+                    // 'NAME': 'ONCLICK'
+                    "Skenovat" : "console.log('scan')",
+                    "Přejmenovat": `renameFileInFE(${target.id})`,
+                    "Vlastnosti": "focusWindow('Vlastnosti')",
+                    };
+                }
+            else {
+                options = {
+                    // 'NAME': 'ONCLICK'
+                    "Přejmenovat": `renameFileInFE(${target.id})`,
+                    "Vlastnosti": "focusWindow('Vlastnosti')",
+                    };
+            }
         }
         
         e.preventDefault();

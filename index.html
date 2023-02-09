@@ -209,10 +209,10 @@
                     </div>
                 </div>
                 <div id="av_settings">
-                    <label for="scan-type">Scanning type:</label>
+                    <label for="scan-type">Typ skenování:</label>
                     <select name="scan-type" id="scan-type-options" onchange="changeScanningType(this.value)">
-                        <option value="Fast">Fast</option>
-                        <option value="Full">Full</option>
+                        <option value="Fast">Rychlé</option>
+                        <option value="Full">Plné</option>
                     </select>
                 </div>
                 <div id="av_redemption">
@@ -221,6 +221,7 @@
                     <input type="text" id="av_redemptionCode" placeholder="Aktivační kód">
                     <button style="cursor: default;" onclick="if (document.getElementById('av_redemptionCode').value === getPurktivirusCode()){document.getElementById('av_redemption').remove(); completeLevel(7)}else{document.getElementById('av_redemptionCode').value = ''}">Redem</button>
                 </div>
+                
             </appBuild>
             <appBuild title="*jmeno_uzivatele*@spspurkynova" backgroundColor="#0c0c0c" scroll="Y" icon="Console.png" isInstalled="false">
                 <div class="console">
@@ -303,7 +304,7 @@
                             <img src="images/icons/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>
-                         <div class="store_content_right_item" style="display: none;" onclick="style.display = 'none'; installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')); document.getElementById('application' + getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')).setAttribute('onclick', 'focusWindow(\'*jmeno_uzivatele*@spspurkynova\'); completeLevel(10); completeLevel(11)');">
+                         <div class="store_content_right_item" id="store_terminal" style="display: none;" onclick="style.display = 'none'; installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')); document.getElementById('application' + getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')).setAttribute('onclick', 'focusWindow(\'*jmeno_uzivatele*@spspurkynova\'); completeLevel(10); completeLevel(11)');">
                             <img src="images\icons\console.png">
                             <p class="textOverflow1Line">Terminal</p>
                         </div>
@@ -452,6 +453,7 @@
     <script src="js/explorer.js"></script>
     <script src="js/console.js"></script>
     <script src="js/SystemPermissionPopup.js"></script>
+    <script src="js/SystemUsingPopup.js"></script>
     <script src="js/SystemPopup.js"></script>
     <script src="js/Gradient.js"></script>
     <!-- <script src="js/storageManager.js"></script> -->

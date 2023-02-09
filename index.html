@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/apps/help.css">
     <link rel="stylesheet" href="css/apps/browser.css">
     <link rel="stylesheet" href="css/apps/properties.css">
+    <link rel="stylesheet" href="css/apps/settings.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="generateApps(); getCountOfApplications(); checkLoggedUser();">
@@ -152,15 +153,19 @@
                       </ul>
                     <div class="tabs">
                         <div id="tab_general" class="tab_container">
-                            <label for="sys-lang">Systémový jazyk:</label>
-                            <select name="sys-lang" id="sys-lang-options" onchange="changeLang(this.value)">
-                                <option value="ascii">Ascii</option>
-                                <option value="default">Výchozí</option>
-                            </select>
-                            <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider round"></span>
-                            </label>
+                            <div id="general-lang">
+                                <label for="sys-lang">Systémový jazyk:</label>
+                                <select name="sys-lang" id="sys-lang-options" onchange="changeLang(this.value)">
+                                    <option value="ascii">Ascii</option>
+                                    <option value="default">Výchozí</option>
+                                </select>
+                            </div>
+                            <div id="general-cmd">
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                         </div>
                         <div id="tab_appearance" class="tab_container"></div>
                         <div id="tab_about" class="tab_container">

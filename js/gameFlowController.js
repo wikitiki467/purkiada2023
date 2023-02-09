@@ -81,6 +81,11 @@ function loadGame() {
             document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()');
             installApp(getFromSystemRegister("CrashNote.txt"));
         }
+        if (savedLevel >= 17) {
+            document.getElementById("decrypt1").value = getCode(0);
+            decrypt1();
+        }
+        
 
         showPanBackor();
         //console.log(levelNumber);

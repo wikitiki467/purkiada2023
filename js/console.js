@@ -203,7 +203,18 @@ function loadProgress(newkilledList, newkilledCount){
     newkilledList.split(",").forEach(function (item) {
         if (item != ""){
             taskListArray.splice(getTaskLocation(item + ".vir"), 1);
+            switch (item) {
+                case "KryptoMine":
+                    killed[0]="KryptoMine";
+                    break;
+                case "KeyLog":
+                    killed[1]="KeyLog";
+                    break;
+                case "BrowserAds":
+                    killed[2]="BrowserAds";
+                    break;
+            }
         }
     });
-    killedCount = newkilledCount;
+    killedCount = parseInt(newkilledCount);
 }

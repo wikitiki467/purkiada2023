@@ -19,6 +19,12 @@ function closeFocusedMenu() {
 }
 
 function deleteFileInFE(target) {
+    console.log(target)
+    if (target.length > 0) {
+        target = target[0];
+    }
+    console.log(target);
+    console.log(target.id);
     if(document.getElementById(target.id)){
         if(target.id == "fileRick"){
             document.getElementById(target.id).remove();
@@ -33,7 +39,12 @@ function deleteFileInFE(target) {
 }
 
 function renameFileInFE(target) {
-    // console.log(target);
+    console.log(target)
+    if (target.length > 0) {
+        target = target[0];
+    }
+    console.log(target);
+    console.log(target.id);
     let fileText = target.querySelector("p");
     fileText.classList.remove('textOverflow1Line')
     fileText.setAttribute("contenteditable", "true");

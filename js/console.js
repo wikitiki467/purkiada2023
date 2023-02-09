@@ -7,6 +7,54 @@ IPv4 Address. . . . . . . . . . . : 192.168.420.69
 Subnet Mask . . . . . . . . . . . : 255.255.252.0
 Default Gateway . . . . . . . . . : 192.168.0.1`
 
+let helpText = `List of commands:
+ECHO                                Zobrazí napsanou zprávu
+CLEAR                               Vyčistí obsah terminálu
+SHUTDOWN                            Vypne počítač
+IPCONFIG                            Zobrazí síťové informace
+PING                                Pingne zvolenou doménu       
+EXIT                                Zavře terminál
+COLOR                               Nastaví barvu pozadí terminálu
+s̵̼͙̒ÿ̶͕š̶̢̟͎͂̓ṭ̷̨̙̀͝e̷͎͈͚͝m̴̪̲̃͛͝info                         Zobrazí hardware počítače
+a̵̳̾͊̉͘ş̶̬̝͇̰̄́̃f̶̗̳̣̫̗͗͌̈d̷̬̰͇̤͝ͅḷ̷̢̠̆ų̸̝͙̊̏k̵̞̏j̶̢̻̉̈̒̄̄ĵ̵̛̺̠̖̞͊́̀d̵͕̘́̇̀͗̓                         Zobrazí aktivní procesy
+j̵̧͖͕͝l̸̯̤̀̏̉f̸̯͉̤͠k̴͉͛d̵̝̬̈́͊͝g̸̠̱͙͗͆ĩ̴̡̍̀n̴̮͚̈́f̴̰͔̥̐j̶̠͛̐ͅg̷͕͈̅                         Ukončí vybraný proces
+ `
+let systeminfoText = `Systémové specifikace:
+OS NAME                             BackorOS
+OS VERSION                          2023
+OS BUILD                            dneska
+OS DIRECTORY                        C:\\
+SYSTEM TYPE                         x8-based PC
+SYSTEM MANUFACTURER                 wikitiki
+CPU                                 Intel 8080
+RAM                                 256MB
+GPU                                 STG-2000
+TIMEZONE                            UTC +1:00
+TOTAL PHYSICAL MEMORY               512MB
+AVAILABLE PHYSICAL MEMORY           159MB
+MONITOR                             RTC 4:3
+`
+
+let taskListArray = [`Aktivní procesy:
+Názvy procesu       Typ             Cesta programu
+=================== =============== ========================
+PanBackor.exe       Services        C:\\ProgramFiles\\Backor
+System              Services        C:\\system\\OS
+console.exe         Aplication      C:\\start
+SystemSettings.exe  Services        C:\\system\\settings
+IntelHD.exe         Services        C:\\system\\CPU
+`,
+`KryptoMine.vir      Aplication      C:\\system\\Malware<3
+`,
+`NVDisplay.exe       Services        C:\\system\\GPU
+`,
+`KeyLog.vir          Aplication      C:\\system\\Malware<3
+`,
+`BrowserAds.vir      Aplication      C:\\system\\Malvare<3
+`];
+let killed =["","",""];
+//přidat možnost ukončení (zavření) aktivního okna přes killtask
+//ukončit spam reklam ve webbrowseru při killnutí BrowserAds.vir
 function consoleInput(event) {
     let input = document.getElementById("console_input");
     let output = document.getElementById("console_output_text");
@@ -20,9 +68,11 @@ function consoleInput(event) {
         const commandTrim = command.trim();
         const commandLength = commandTrim.length;
         const commandSplitFirst = commandSplit[0];
+        console.log(commandSplit[1]);
         switch (true) {
             case commandStartsWith("help"): // ------------------- help
-                addConsoleLine("Nah, to zvladneš sam");
+                completeLevel(12);
+                addConsoleLine(helpText);
                 break;
             case commandStartsWith("clear"): // ------------------ clear
                 clearConsole();
@@ -38,16 +88,38 @@ function consoleInput(event) {
                 }, 1000);
                 break;
             case commandStartsWith("ipconfig"): // --------------- ipconfig
-                addConsoleLine(ipconfigText);
+                addConsoleLine(ipconfigText[0]);
                 break;
             case commandStartsWith("ping"): // ------------------- ping
                 ping(commandSplit[1]);
+                break;
+            case commandStartsWith("color"):
+                document.getElementById("window" + getFromSystemRegister("*jmeno_uzivatele*@spspurkynova")).getElementsByClassName("main_div")[0].style.background = commandSplit[1];
+                document.getElementById("window" + getFromSystemRegister("*jmeno_uzivatele*@spspurkynova")).getElementsByClassName("console")[0].style.background = commandSplit[1];
+                break;
+            case commandStartsWith("systeminfo"):
+                addConsoleLine(systeminfoText);
+                break;
+            case commandStartsWith("exit"):
+                exitWindow(getFromSystemRegister("*jmeno_uzivatele*@spspurkynova"));
+                clearConsole();
+                break;
+            case commandStartsWith("tasklist"):
+                addConsoleLine(getTaskListText());
+                break;
+            case commandStartsWith("taskkill"):
+                if(commandSplit[1] == "KryptoMine.vir" && killed[0] != "kryptomine") {taskListArray.splice(getTaskLocation("KryptoMine.vir"), 1); killed[0]="kryptomine"}
+                else if(commandSplit[1] == "KeyLog.vir" && killed[0] != "keylog") {taskListArray.splice(getTaskLocation("KeyLog.vir"), 1); killed[1]="keylog"}
+                else if(commandSplit[1] == "BrowserAds.vir" && killed[0] != "browserads") {taskListArray.splice(getTaskLocation("BrowserAds.vir"), 1); killed[2]="browserads"}
+                else if(commandSplit[1] == "console.exe") {exitWindow(getFromSystemRegister("*jmeno_uzivatele*@spspurkynova")); clearConsole();}
+                else if(commandSplit[1] == "PanBackor.exe" || commandSplit[1] == "System" || commandSplit[1] == "SystemSettings.exe" || commandSplit[1] == "IntelHD.exe" || commandSplit[1] == "NVDisplay.exe") {addConsoleLine("Nemožno zastavit službu - uživatel není admin!")}
+                else {addConsoleLine("Neznámý proces! Ujisťete se že máte správně velikost písmen!")}
+
                 break;
             default: // ------------------------------------------ unknown command
                 if (commandTrim.length === 0) break;
                 addConsoleLine(`'${commandSplitFirst}' is not recognized as an internal or external command, operable program or batsch file.`);
         }
-          
     }
 }
 
@@ -90,4 +162,20 @@ function ping(site) {
     Approximate round trip times in milli-seconds:
     \tMinimum = ${minimumTime}ms, Maximum = ${maximumTime}ms, Average = ${averageTime}ms
     `);unlockInput(); }, 5000);
+}
+function getTaskListText(){
+    let taskListText =``;
+    taskListArray.forEach(element => {
+        taskListText += element;
+    });
+    return taskListText;
+}
+function getTaskLocation(task){
+    let index ="";
+    console.log("get" + taskListArray);
+    for(let i = 0; i < taskListArray.length; i++ ){
+        if(taskListArray[i].indexOf(task) != -1) index = i;
+    };
+    console.log("index= "+index);
+    return index;
 }

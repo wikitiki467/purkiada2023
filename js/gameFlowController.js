@@ -53,5 +53,6 @@ function loadGame() {
         }
 
         showPanBackor();
+        //console.log(levelNumber);
     }
 }

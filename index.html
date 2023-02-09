@@ -209,10 +209,10 @@
                     </div>
                 </div>
                 <div id="av_settings">
-                    <label for="scan-type">Scanning type:</label>
+                    <label for="scan-type">Typ skenování:</label>
                     <select name="scan-type" id="scan-type-options" onchange="changeScanningType(this.value)">
-                        <option value="Fast">Fast</option>
-                        <option value="Full">Full</option>
+                        <option value="Fast">Rychlé</option>
+                        <option value="Full">Plné</option>
                     </select>
                 </div>
                 <div id="av_redemption">
@@ -221,6 +221,7 @@
                     <input type="text" id="av_redemptionCode" placeholder="Aktivační kód">
                     <button style="cursor: default;" onclick="if (document.getElementById('av_redemptionCode').value === getPurktivirusCode()){document.getElementById('av_redemption').remove(); completeLevel(7)}else{document.getElementById('av_redemptionCode').value = ''}">Redem</button>
                 </div>
+                
             </appBuild>
             <appBuild title="*jmeno_uzivatele*@spspurkynova" backgroundColor="#0c0c0c" scroll="Y" icon="Console.png" isInstalled="false">
                 <div class="console">

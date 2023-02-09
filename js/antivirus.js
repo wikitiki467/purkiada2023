@@ -46,6 +46,7 @@ function startScan(){
 }
 
 function startFileScan(isVir){
+    focusWindow("Antivirus");
     if(!scanInProgress){
         scanInProgress = true;
         let text = document.getElementById('av_scanInfo_text');

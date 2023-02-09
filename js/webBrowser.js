@@ -81,6 +81,9 @@ function findSite(){
         //         virus();
         //         break;
         //     }
+        case "dokumentace":
+            dokumentace();
+            break;
         default:
             nonExistingSite();
     }
@@ -165,6 +168,53 @@ function errorChecker(){
         }
         webContent.appendChild(answer); 
     };
+}
+
+function dokumentace(){
+    let newH1 = document.createElement("h1");
+    newH1.innerHTML = "BackorOS - příručka příkazů";
+    webContent.appendChild(newH1);
+
+    let newDiv = document.createElement("div");
+    newDiv.style.display = "flex";
+    newDiv.style.justifyContent = "space-evenly";
+    webContent.appendChild(newDiv);
+
+    let newParagraph = document.createElement("div");
+    newParagraph.style.display = "flex";
+    newParagraph.style.whiteSpace = "pre-wrap";
+    newParagraph.style.textAlign = "left";
+    newParagraph.innerHTML = `
+    ECHO
+    CLEAR
+    SHUTDOWN
+    IPCONFIG
+    PING
+    EXIT
+    COLOR
+    SYSTEMINFO
+    TASKLIST
+    TASKKILL
+    `;
+    newDiv.appendChild(newParagraph);
+
+    let newParagraph2 = document.createElement("div");
+    newParagraph2.style.display = "flex";
+    newParagraph2.style.whiteSpace = "pre-wrap";
+    newParagraph2.style.textAlign = "left";
+    newParagraph2.innerHTML = `
+    Zobrazí napsanou zprávu
+    Vyčistí obsah terminálu
+    Vypne počítač
+    Zobrazí síťové informace
+    Pingne zvolenou doménu
+    Zavře terminál
+    Nastaví barvu pozadí terminálu
+    Zobrazí hardware počítače
+    Zobrazí aktivní procesy
+    Ukončí vybraný proces
+    `;
+    newDiv.appendChild(newParagraph2);
 }
 
 function venca(){

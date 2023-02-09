@@ -157,7 +157,7 @@ function errorChecker(){
     let answer = document.createElement("p");
     button.onclick = function() {
         if(input.value == getErrorCode()) {
-            answer.innerText = "Correct";
+            answer.innerText = "Vyzkoušejte tohle: " + getCode(1);
             completeLevel(19);
         }
         else {

@@ -15,7 +15,7 @@ let panBackorDialogy = [["Zdravím, jsem pan Bačkor. Vypadá to, že tvůj poč
 ["Vypadá to že pro zapnutí programu potřebujeme nějaký kód. Napadá mě, že bychom mohli zastavit procesy viru.. možná nám to pomůže.", "K tomu budeme potřebovat terminál - stáhni si ho z BACKOR Storu!"],
 ["Terminál je úžasné a velmi užitečné místo, můžeme skrz něj zjistit všelijaké věci.", "Bohužel je to taky místo velmi obsáhlé a pro lajka nepřehledné a navíc si musíš pamatovat různé příkazy.", "Příkaz 'help' by nám mohl pomoci zjistit příkaz pro zobrazení aktivních procesů... Zavolej ho!"],
 ["Ale ne, virus koruptoval grafiku terminálu a příkaz je teď nečitelný! Naštěstí online máme help centrum se všemi důležitými příkazy, najdi ho a použij příkaz pro zobrazení bežících programů"],
-["Teď když vidíme všechny procesy bude jednoduché ukončit procesy viru"], 
+["Teď když vidíme všechny procesy bude jednoduché ukončit procesy viru"], //13 
 ["Výborně! První proces ukončen.. Zbývají ještě 2."], //14
 ["Ještě 1 proces a tady jsme hotovi."], //15
 ["Virus crashnul a jeho chybová zpráva byla napsána do souboru na ploše. Zpráva obsahuje kus kódu pro aktivaci dekryptačního souboru!"], //16
@@ -24,8 +24,8 @@ let panBackorDialogy = [["Zdravím, jsem pan Bačkor. Vypadá to, že tvůj poč
 ["Zkus dát tenhle kód do toho dekryptačního souboru... tentokrát snad bude fungovat.."], //19
 ["Proč tu nikdy nic nefunguje?! Zkusím se podívat do systémových složek, kam nemůžeš, jestli nenajdu něco tam.", " "], //20 
 ["Mám ho rychle ho tam zadej! Vir mi napadl složku a co nevidět se zhroutím! Ten kód je-", "njdforenh"], //21
-["Děkuji, zachránil jsi mě! Jak jsem říkal kód je "+getCode(2)],
-["konec pičo"]];  
+["Děkuji, zachránil jsi mě! Jak jsem říkal kód je "+getCode(2)], //22
+["konec hry"]];  
 
 let currentDialog = 0;
 /*Current level*/

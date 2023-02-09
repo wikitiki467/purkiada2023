@@ -184,5 +184,9 @@ function getTaskLocation(task){
 function consoleLevelProgress(){
     if (killedCount == 0) {killedCount += 1; completeLevel(14)}
     else if (killedCount == 1) {killedCount += 1; completeLevel(15)}
-    else if (killedCount == 2) {killedCount += 1; completeLevel(16); installApp(getFromSystemRegister("CrashNote.txt"))};
+    else if (killedCount == 2) {killedCount += 1; completeLevel(16); document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()'); installApp(getFromSystemRegister("CrashNote.txt"))};
+}
+function skipConsoleLevels(){
+    for (let level = 12; level < 17; level++){completeLevel(level)};
+    completeLevel(17);
 }

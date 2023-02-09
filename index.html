@@ -250,13 +250,13 @@
                 </div>
                 <div id="fe_sideBar">
                     <div class="side_folder" id="defaultFolderTab" onclick="activateFolderTab(this, 'fe_disk')"><img src="images/icons/hard-drive.png" class="fe_side_img"><p class="textOverflow1Line">Disk (C:)</p></div>
-                    <div class="side_folder" onclick="popup('System Manager', 'Nedostačné přístupové oprávnění')"><img src="images/icons/folder.png" class="fe_side_img"><p class="textOverflow1Line">system</p></div>
+                    <div class="side_folder limited" onclick="popup('System Manager', 'Nedostačné přístupové oprávnění')"><img src="images/icons/folder.png" class="fe_side_img"><p class="textOverflow1Line">system</p></div>
                     <div class="side_folder" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png" class="fe_side_img"><p class="textOverflow1Line">Program Files</p></div>
                     <div class="side_folder" onclick="activateFolderTab(this, 'fe_downloads')"><img src="images/icons/folder.png" class="fe_side_img"><p class="textOverflow1Line">Downloads</p></div>
                     
                 </div>
                 <div id="fe_main" class="fe_tab">
-                    <div class="fe_files" id="backorFolder" onclick="activateFolderTab(this, 'fe_backor')"><img src="images/icons/folder.png"><p class="textOverflow1Line">Backor</p></div>
+                    <div class="fe_files inUse" id="backorFolder" onclick="activateFolderTab(this, 'fe_backor')"><img src="images/icons/folder.png"><p class="textOverflow1Line">Backor</p></div>
                     <div class="fe_files" id="fileRick" onclick="openVideo('images/NeverGonnaGiveYouUp.mp4')"><img src="images/icons/vlc.png" class="fe_file_img"><p class="textOverflow1Line">Rick roluje.mp4</p></div>
                     <div class="fe_files" id="file0" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">A.part</p></div>
                     <div class="fe_files hiddenFiles" id="fileHidden" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/batsch.png" class="fe_file_img"><p class="textOverflow1Line">fileGen.batsch</p></div>
@@ -267,7 +267,7 @@
                     <div class="fe_files" id="file5" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png" class="fe_file_img"><p class="textOverflow1Line">G.bak</p></div>
                 </div>
                 <div id="fe_disk" class="fe_tab">
-                    <div class="fe_files" onclick="popup('System Manager', 'Nedostačné přístupové oprávnění');"><img src="images/icons/folder.png" class="fe_folder_img"><p>system</p></div>
+                    <div class="fe_files limited" onclick="popup('System Manager', 'Nedostačné přístupové oprávnění');"><img src="images/icons/folder.png" class="fe_folder_img"><p>system</p></div>
                     <div class="fe_files" onclick="activateFolderTab(this, 'fe_main')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Program Files</p></div>
                     <div class="fe_files" onclick="activateFolderTab(this, 'fe_downloads')"><img src="images/icons/folder.png" class="fe_folder_img"><p>Downloads</p></div>
                 </div> 
@@ -275,14 +275,14 @@
                     <div class="fe_files" id="av_installer_file" onclick="focusWindow('AV Wizard')" style="display: none;"><img src="images/icons/wizardIcon.png"><p>AV_installer.exe</p></div>
                 </div> 
                 <div id="fe_backor" class="fe_tab">
-                    <div class="fe_files" id="backorFolder" onclick="activateFolderTab(this, 'fe_backorData')"><img src="images/icons/folder.png"><p class="textOverflow1Line">Data</p></div>
-                    <div class="fe_files" id="backorBatsch" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/Backor/BackorIcon.png"><p class="textOverflow1Line">PanBackor.exe</p></div>
-                    <div class="fe_files" id="backorDll" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png"><p class="textOverflow1Line">Backor.dll</p></div>
+                    <div class="fe_files inUse" id="backorFolder" onclick="activateFolderTab(this, 'fe_backorData')"><img src="images/icons/folder.png"><p class="textOverflow1Line">Data</p></div>
+                    <div class="fe_files inUse" id="backorBatsch" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/Backor/BackorIcon.png"><p class="textOverflow1Line">PanBackor.exe</p></div>
+                    <div class="fe_files inUse" id="backorDll" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png"><p class="textOverflow1Line">Backor.dll</p></div>
                 </div> 
                 <div id="fe_backorData" class="fe_tab">
-                    <div class="fe_files" id="backorBin1" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png"><p class="textOverflow1Line">part1.bin</p></div>
-                    <div class="fe_files" id="backorBin2" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png"><p class="textOverflow1Line">part2.bin</p></div>
-                    <div class="fe_files" id="backorBin3" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png"><p class="textOverflow1Line">part3.bin</p></div>
+                    <div class="fe_files inUse" id="backorBin1" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png"><p class="textOverflow1Line">part1.bin</p></div>
+                    <div class="fe_files inUse" id="backorBin2" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png"><p class="textOverflow1Line">part2.bin</p></div>
+                    <div class="fe_files inUse" id="backorBin3" onclick="focusWindow('File'); changeFileText(generateRandomStringOfRandomLength(500,1000))"><img src="images/icons/fileDefault.png"><p class="textOverflow1Line">part3.bin</p></div>
                 </div>
             </appBuild>
 
@@ -423,7 +423,7 @@
                 <p id="optimizationPercentage"></p>
                 <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizationPercentage'), 0, 100, 5000)">Optimalizovat</button>
             </appBuild>
-            <appBuild title="Decrypt.exe" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false" onClickFunction="completeLevel(10)">
+            <appBuild title="Decrypt.exe" icon="key.png" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false" onClickFunction="completeLevel(10)">
                 <input type="text" id="decrypt1" placeholder="první část">
                 <input type="text" id="decrypt2" placeholder="druhá část">
                 <input type="text" id="decrypt3" placeholder="třetí část">

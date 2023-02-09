@@ -62,6 +62,9 @@ function loadGame() {
             document.getElementById('application' + getFromSystemRegister('Decrypt.exe')).setAttribute('onclick', 'focusWindow("Decrypt.exe"); completeLevel(10)');
             installApp(getFromSystemRegister('Decrypt.exe'));
         }
+        if (savedLevel >= 10) {
+            document.getElementById("store_terminal").style.display = 'flex';
+        }
         if (savedLevel >= 11) {
             document.getElementById("store_terminal").style.display = 'none';
             installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova'));

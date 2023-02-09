@@ -303,7 +303,7 @@
                             <img src="images/icons/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>
-                         <div class="store_content_right_item" style="display: flex;" onclick="style.display = 'none'; installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')); document.getElementById('application' + getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')).setAttribute('onclick', 'focusWindow(\'*jmeno_uzivatele*@spspurkynova\'); completeLevel(11)');">
+                         <div class="store_content_right_item" id="store_terminal" style="display: flex;" onclick="style.display = 'none'; installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')); document.getElementById('application' + getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')).setAttribute('onclick', 'focusWindow(\'*jmeno_uzivatele*@spspurkynova\'); completeLevel(11)');">
                             <img src="images\icons\console.png">
                             <p class="textOverflow1Line">Terminal</p>
                         </div>
@@ -450,6 +450,7 @@
     <script src="js/explorer.js"></script>
     <script src="js/console.js"></script>
     <script src="js/SystemPermissionPopup.js"></script>
+    <script src="js/SystemUsingPopup.js"></script>
     <script src="js/SystemPopup.js"></script>
     <script src="js/Gradient.js"></script>
     <!-- <script src="js/storageManager.js"></script> -->

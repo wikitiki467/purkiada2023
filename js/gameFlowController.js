@@ -1,3 +1,5 @@
+buildVersion = "alpha 2.9h1.17";
+
 function startVirusGame() {
     let popup = new SystemPermissionPopup("Virus.exe", "changeLang('ascii');showPanBackor()");
     popup.title = "Chcete povolit této aplikaci od neznámého vydavatele provádět změny ve vašem zařízení?";
@@ -20,6 +22,11 @@ function completeLevel(levelNumber) {
 }
 
 function loadGame() {
+    /*Check buildVersion*/
+    if (getFromRegister("buildVersion") != buildVersion) {
+        removeFromRegister("currentActiveLevel");
+        addToRegister("buildVersion", buildVersion);
+    }
     if (getFromRegister("currentActiveLevel") == null) {
         startVirusGame();
     }
@@ -50,6 +57,14 @@ function loadGame() {
         }
         if (savedLevel >= 7) {
             document.getElementById('av_redemption').remove();
+        }
+        if (savedLevel >= 9) {
+            document.getElementById('application' + getFromSystemRegister('Decrypt.exe')).setAttribute('onclick', 'focusWindow("Decrypt.exe"); completeLevel(10)');
+            installApp(getFromSystemRegister('Decrypt.exe'));
+        }
+        if (savedLevel >= 11) {
+            document.getElementById("store_terminal").style.display = 'none';
+            installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova'));
         }
 
         showPanBackor();

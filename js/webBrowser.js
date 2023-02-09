@@ -156,11 +156,12 @@ function errorChecker(){
     webContent.appendChild(div);
     let answer = document.createElement("p");
     button.onclick = function() {
-        if(input.value == "455") {
-            answer.innerText = "Correct";   
+        if(input.value == getErrorCode()) {
+            answer.innerText = "Correct";
+            completeLevel(19);
         }
         else {
-            answer.innerText = "Incorrect";
+            answer.innerText = "Neznámý kód";
         }
         webContent.appendChild(answer); 
     };

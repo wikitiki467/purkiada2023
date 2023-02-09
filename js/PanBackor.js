@@ -12,14 +12,16 @@ let panBackorDialogy = [["Zdravím, jsem pan Bačkor. Vypadá to, že tvůj poč
 ["Teď už stačí jen zapnout skenování."], 
 ["Rychlý sken nic nedetekuje. Potřebujeme něco důkladnějšího."],
 ["Ale né, antivirus nedokázal virus smazat  celý, vypadá to že to budeme muset udělat sami!", "Antivirus nám alespoň vytvořil dekrypční soubor s jehož pomocí virus smažeme."],
-["Vypadá to že pro zapnutí programu potřebujeme 3 části kódu.", "Každá část bude pravděpodobně někde jinde v počítači, pojďme najít tu první!", "Začal bych zastavením procesu viru - nejdříve si stáhni terminál z BACKOR Storu!"],
+["Vypadá to že pro zapnutí programu potřebujeme nějaký kód. Napadá mě, že bochom mohli zastavit procesy viru.. možná nám to pomůže.", "K tomu budeme potřebovat terminál - stáhni si ho z BACKOR Storu!"],
 ["Terminál je úžasné a velmi užitečné místo, můžeme skrz něj zjistit všelijaké věci.", "Bohužel je to taky místo velmi obsáhlé a pro lajka nepřehledné a navíc si musíš pamatovat různé příkazy.", "Příkaz 'help' by nám mohl pomoci zjistit příkaz pro zobrazení aktivních procesů... Zavolej ho!"],
 ["Ale ne, virus koruptoval grafiku terminálu a příkaz je teď nečitelný! Naštěstí online máme help centrum se všemi důležitými příkazy, najdiho a použij příkaz pro zobrazení bežících programů"],
-["Teď když vidíme všechny procesy bude jednoduché ukončit procesy viru"],
-["Výborně! První proces ukončen.. Zbývají ještě 2."],
-["Ještě 1 proces a tady jsme hotovi."],
-["Virus crashnul a jeho chybová zpráva byla napsána do souboru na ploše. Zpráva obsahuje kus kódu pro aktivaci dekrypčního souboru!"],
-["Další úkol"]];
+["Teď když vidíme všechny procesy bude jednoduché ukončit procesy viru"], //14
+["Výborně! První proces ukončen.. Zbývají ještě 2."], //15
+["Ještě 1 proces a tady jsme hotovi."], //16
+["Virus crashnul a jeho chybová zpráva byla napsána do souboru na ploše. Zpráva obsahuje kus kódu pro aktivaci dekryptačního souboru!"], //17
+["Teď když máme kód můžeme zappnout dekryptační soubor!"], //18
+["Tak jednoduché to nikdy nebude co? Nevím co tento chybový kód znamená, ale naštěstí si to můžeme zjistit na internetu"], //19
+["Zkus dát tenhle kód do toho dekryptačního souboru... tentokrát snad bude fungovat.."]]; //20 [19]
 
 let currentDialog = 0;
 /*Current level*/

@@ -28,6 +28,8 @@ function deleteFileInFE(target) {
         } //nevezme rickroll
         if(target.id == "av_installer_file"){    
         }
+        if(target.className.includes("limited")) {popup("System Manager", "Nedostatečné oprávnění pro smazání tohoto souboru.")}
+        if(target.className.includes("inUse")) {popup("System Manager", "Akci nelze dokončit, protože je soubor otevřený v jiném programu.")}
         else{
             document.getElementById(target.id).remove();
             countDeletedFiles++;

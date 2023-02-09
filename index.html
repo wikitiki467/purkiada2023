@@ -430,7 +430,7 @@
                 <p id="decryptmsg" style="color: white;"></p>
             </appBuild>
             <appBuild title="CrashNote.txt" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false">
-                <div id="crashText"></div>
+                <div id="crashText"><script>document.getElementById("crashText").innerHTML=getCode(0);</script></div>
             </appBuild>
             
             <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">

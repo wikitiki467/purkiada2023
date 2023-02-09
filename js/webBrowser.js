@@ -155,6 +155,7 @@ function errorChecker(){
     webContent.appendChild(headerDiv);
     webContent.appendChild(div);
     let answer = document.createElement("p");
+    answer.style.color="white";
     button.onclick = function() {
         if(input.value == getErrorCode()) {
             answer.innerText = "Vyzkoušejte tohle: " + getCode(1);

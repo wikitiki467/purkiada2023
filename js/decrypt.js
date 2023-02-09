@@ -9,9 +9,9 @@ function decrypt(){
     if(input == getCode(0)){
         document.getElementById("decryptmsg").innerHTML = "Chyba - kód chyby " + errorCode;
         completeLevel(18);
-        document.getElementById("decryptmsg").innerHTML = "Chyba - chyba v části kódu";
     }else if (input == getCode(1)){
         completeLevel(20);
+        document.getElementById("decryptmsg").innerHTML = "Chyba - nesprávný kód!";
     }else if (input == getCode(2)){
 
     }else{

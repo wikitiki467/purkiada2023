@@ -7,7 +7,7 @@ IPv4 Address. . . . . . . . . . . : 192.168.420.69
 Subnet Mask . . . . . . . . . . . : 255.255.252.0
 Default Gateway . . . . . . . . . : 192.168.0.1`
 
-let helpText = `List of commands:
+let helpText = `Seznam příkazů:
 ECHO                                Zobrazí napsanou zprávu
 CLEAR                               Vyčistí obsah terminálu
 SHUTDOWN                            Vypne počítač
@@ -69,7 +69,6 @@ function consoleInput(event) {
         const commandTrim = command.trim();
         const commandLength = commandTrim.length;
         const commandSplitFirst = commandSplit[0];
-        console.log(commandSplit[1]);
         switch (true) {
             case commandStartsWith("help"): // ------------------- help
                 completeLevel(12);
@@ -116,7 +115,12 @@ function consoleInput(event) {
                 else if(commandSplit[1] == "console.exe") {exitWindow(getFromSystemRegister("*jmeno_uzivatele*@spspurkynova")); clearConsole();}
                 else if(commandSplit[1] == "PanBackor.exe" || commandSplit[1] == "System" || commandSplit[1] == "SystemSettings.exe" || commandSplit[1] == "IntelHD.exe" || commandSplit[1] == "NVDisplay.exe") {addConsoleLine("Nemožno zastavit službu - uživatel není admin!")}
                 else {addConsoleLine("Neznámý proces! Ujisťete se že máte správně velikost písmen!")}
-
+                break;
+            //jsem línej pak to smažu :D
+                case commandStartsWith("skip"):
+                killedCount = 2;
+                consoleLevelProgress();
+                skipConsoleLevels()
                 break;
             default: // ------------------------------------------ unknown command
                 if (commandTrim.length === 0) break;
@@ -174,17 +178,20 @@ function getTaskListText(){
 }
 function getTaskLocation(task){
     let index ="";
-    console.log("get" + taskListArray);
     for(let i = 0; i < taskListArray.length; i++ ){
         if(taskListArray[i].indexOf(task) != -1) index = i;
     };
-    console.log("index= "+index);
     return index;
 }
 function consoleLevelProgress(){
     if (killedCount == 0) {killedCount += 1; completeLevel(14)}
     else if (killedCount == 1) {killedCount += 1; completeLevel(15)}
-    else if (killedCount == 2) {killedCount += 1; completeLevel(16); document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()'); installApp(getFromSystemRegister("CrashNote.txt"))};
+    else if (killedCount == 2) {
+        killedCount += 1; completeLevel(16);
+        document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()');
+        installApp(getFromSystemRegister("CrashNote.txt"));
+        document.getElementById("crashText").innerHTML=getCode(0);
+    };
 }
 function skipConsoleLevels(){
     for (let level = 12; level < 17; level++){completeLevel(level)};

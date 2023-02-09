@@ -12,16 +12,18 @@ let panBackorDialogy = [["Zdravím, jsem pan Bačkor. Vypadá to, že tvůj poč
 ["Teď už stačí jen zapnout skenování."], 
 ["Rychlý sken nic nedetekuje. Potřebujeme něco důkladnějšího."],
 ["Ale né, antivirus nedokázal virus smazat  celý, vypadá to že to budeme muset udělat sami!", "Antivirus nám alespoň vytvořil dekrypční soubor s jehož pomocí virus smažeme."],
-["Vypadá to že pro zapnutí programu potřebujeme nějaký kód. Napadá mě, že bochom mohli zastavit procesy viru.. možná nám to pomůže.", "K tomu budeme potřebovat terminál - stáhni si ho z BACKOR Storu!"],
+["Vypadá to že pro zapnutí programu potřebujeme nějaký kód. Napadá mě, že bychom mohli zastavit procesy viru.. možná nám to pomůže.", "K tomu budeme potřebovat terminál - stáhni si ho z BACKOR Storu!"],
 ["Terminál je úžasné a velmi užitečné místo, můžeme skrz něj zjistit všelijaké věci.", "Bohužel je to taky místo velmi obsáhlé a pro lajka nepřehledné a navíc si musíš pamatovat různé příkazy.", "Příkaz 'help' by nám mohl pomoci zjistit příkaz pro zobrazení aktivních procesů... Zavolej ho!"],
-["Ale ne, virus koruptoval grafiku terminálu a příkaz je teď nečitelný! Naštěstí online máme help centrum se všemi důležitými příkazy, najdiho a použij příkaz pro zobrazení bežících programů"],
-["Teď když vidíme všechny procesy bude jednoduché ukončit procesy viru"], //14
-["Výborně! První proces ukončen.. Zbývají ještě 2."], //15
-["Ještě 1 proces a tady jsme hotovi."], //16
-["Virus crashnul a jeho chybová zpráva byla napsána do souboru na ploše. Zpráva obsahuje kus kódu pro aktivaci dekryptačního souboru!"], //17
-["Teď když máme kód můžeme zappnout dekryptační soubor!"], //18
-["Tak jednoduché to nikdy nebude co? Nevím co tento chybový kód znamená, ale naštěstí si to můžeme zjistit na internetu"], //19
-["Zkus dát tenhle kód do toho dekryptačního souboru... tentokrát snad bude fungovat.."]]; //20 [19]
+["Ale ne, virus koruptoval grafiku terminálu a příkaz je teď nečitelný! Naštěstí online máme help centrum se všemi důležitými příkazy, najdi ho a použij příkaz pro zobrazení bežících programů"],
+["Teď když vidíme všechny procesy bude jednoduché ukončit procesy viru"], 
+["Výborně! První proces ukončen.. Zbývají ještě 2."], //14
+["Ještě 1 proces a tady jsme hotovi."], //15
+["Virus crashnul a jeho chybová zpráva byla napsána do souboru na ploše. Zpráva obsahuje kus kódu pro aktivaci dekryptačního souboru!"], //16
+["Teď když máme kód můžeme zapnout dekryptační soubor!"], //17
+["Tak jednoduché to nikdy nebude co? Nevím co tento chybový kód znamená, ale naštěstí si to můžeme zjistit na internetu"], //18
+["Zkus dát tenhle kód do toho dekryptačního souboru... tentokrát snad bude fungovat.."], //19
+["Proč tu nikdy nic nefunguje?! Zkusím se podívat do systémových složek, kam nemůžeš, jestli nenajdu něco tam.", " "], //20 
+["Mám ho rychle ho tam zadej! Vir mi napadl složku a co nevidět se zhroutím! Ten kód je-", "njdforenh"]];  //21
 
 let currentDialog = 0;
 /*Current level*/
@@ -71,6 +73,7 @@ function switchPanBackorDialog(direction){
     if (currentDialog + direction < panBackorDialogy[currentActiveLevel].length && currentDialog + direction >= 0) {
         currentDialog += direction;
         changePanBackorDialog(panBackorDialogy[currentActiveLevel][currentDialog]);
+        PanBackor20(); //na 20lvl jde hledat kód :/
         /*make PanBackorPointer visible*/
         if(currentActiveLevel == 0 && currentDialog == 1){
             document.getElementById("PanBackorPointer").style.display = "block";
@@ -164,3 +167,10 @@ function levelHasAnotherDialog(){
     }
 }
 levelHasAnotherDialog();
+
+function PanBackor20(){
+    if (currentActiveLevel == 20){
+        hidePanBackor();
+        setTimeout(()=>{completeLevel(21)}, 5000);
+    }
+}

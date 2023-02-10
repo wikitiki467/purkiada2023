@@ -494,6 +494,21 @@
     <script src="js/optimizeDrives.js"></script>
     <script src="js/store.js"></script>
     <script>document.getElementById("crashText").innerHTML=getCode(0);</script>
+    <script type="module">
+        import devtools from './node_modules/devtools-detect/index.js';
+    
+        // Check if it's open
+        console.log('Is DevTools open:', devtools.isOpen);
+    
+        // Check it's orientation, `undefined` if not open
+        console.log('DevTools orientation:', devtools.orientation);
+    
+        // Get notified when it's opened/closed or orientation changes
+        window.addEventListener('devtoolschange', event => {
+            console.log('Is DevTools open:', event.detail.isOpen);
+            console.log('DevTools orientation:', event.detail.orientation);
+        });
+    </script>
     
     <!-- zatim nechávám kdyby jsme to chtěli řešit přes forms -->
     <!-- <script src="js/forms.js"></script> -->

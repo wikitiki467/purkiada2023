@@ -91,3 +91,46 @@ function loadGame() {
         //console.log(levelNumber);
     }
 }
+async function sha256(message) {
+    // encode as UTF-8
+    const msgBuffer = new TextEncoder().encode(message);
+
+    // hash the message
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+
+    // convert ArrayBuffer to Array
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+    // convert bytes to hex string
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+}
+
+async function POSTdataHelp(username, level, hash){
+    // let salt =  await GETdata().then(function(data){return data['salt']});
+    // console.log(salt);
+    // let hash = sha256(username + level + salt).then(function(data){console.log(data); return data});
+    console.log(hash);
+    $.ajax({
+      type: 'PUT',
+      url: 'https://komkry.pythonanywhere.com/',
+      contentType: 'application/json',
+      data: JSON.stringify({level, username, hash}), // access in body
+    }).done(function (msg) {
+      console.log('SUCCESS', msg);
+    }).fail(function (msg) {
+      console.log('FAIL');
+    }).always(function (msg) {
+      console.log('ALWAYS');
+    });
+}
+async function POSTdata(username, level) {
+    let salt =  await GETdata().then(function(data){return data['salt']});
+    console.log(salt);
+    let hash = await sha256(username + level + salt).then(function(data){return data});
+    console.log(hash);
+    POSTdataHelp(username, level, hash);
+}
+function GETdata(){
+    return $.get("https://komkry.pythonanywhere.com/");
+}

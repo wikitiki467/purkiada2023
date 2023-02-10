@@ -124,6 +124,9 @@ align-items: center;
     animation: 10s infinite linear delejMrkni;
     z-index: 1;
 }
+#PanBackorGUI .eyeLid.eyesClosed{
+    background: rgba(75, 82, 92, 1);    
+}
 
 #eyeLid2 {
     top: 23% !important;
@@ -177,5 +180,21 @@ align-items: center;
 
     100% {
         background: linear-gradient(180deg, rgba(75, 82, 92, 1) 0%, rgba(75, 82, 92, 1) 1%, transparent 2%, transparent 100%);
+    }
+}
+/* add media query for less then 500x500 */
+@media only screen and (max-width: 500px) and (max-height: 500px) {
+    body *:not(#gradient-canvas, .monitor){
+        display: none;
+    }
+    .monitor::after{
+        content: "Okno je příliš malé, zvětši ho prosím";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 2em;
+        font-weight: bold;
     }
 }

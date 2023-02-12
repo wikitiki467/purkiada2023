@@ -495,19 +495,30 @@
     <script src="js/store.js"></script>
     <script>document.getElementById("crashText").innerHTML=getCode(0);</script>
     <script type="module">
-        import devtools from './node_modules/devtools-detect/index.js';
-    
+        import devtools from './devtools-detect/index.js';
+        let devtoolsOpen = devtools.isOpen;
+        checkDevTools();
         // Check if it's open
-        console.log('Is DevTools open:', devtools.isOpen);
+        // console.log('Is DevTools open:', devtools.isOpen);
     
         // Check it's orientation, `undefined` if not open
-        console.log('DevTools orientation:', devtools.orientation);
+        // console.log('DevTools orientation:', devtools.orientation);
     
         // Get notified when it's opened/closed or orientation changes
         window.addEventListener('devtoolschange', event => {
-            console.log('Is DevTools open:', event.detail.isOpen);
-            console.log('DevTools orientation:', event.detail.orientation);
+            // console.log('Is DevTools open:', event.detail.isOpen);
+            devtoolsOpen = event.detail.isOpen;
+            // console.log('DevTools orientation:', event.detail.orientation); 
+            checkDevTools();       
         });
+        async function checkDevTools() {
+            if (devtoolsOpen && localStorage.getItem("loginDetail")!= "admin") {
+                console.log("DevTools are open!");
+                console.log("You can't cheat!");
+                await sleep(1000);
+                checkDevTools();
+            }
+        }
     </script>
     
     <!-- zatim nechávám kdyby jsme to chtěli řešit přes forms -->

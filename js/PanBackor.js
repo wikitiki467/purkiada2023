@@ -22,10 +22,10 @@ let panBackorDialogy = [["Zdravím, jsem pan Bačkor. Vypadá to, že tvůj poč
 ["Teď když máme kód můžeme zapnout dekryptační soubor!"], //17
 ["Tak jednoduché to nikdy nebude co? Nevím co tento chybový kód znamená, ale naštěstí si to můžeme zjistit na internetu"], //18
 ["Zkus dát tenhle kód do toho dekryptačního souboru... tentokrát snad bude fungovat.."], //19
-["Proč tu nikdy nic nefunguje?! Zkusím se podívat do systémových složek, kam nemůžeš, jestli nenajdu něco tam.", " "], //20 
-["Mám ho rychle ho tam zadej! Vir mi napadl složku a co nevidět se zhroutím! Ten kód je-", "njdforenh"], //21
+["Proč tu nikdy nic nefunguje?! Zkusím se podívat do systémových složek, kam nemůžeš, jestli nenajdu něco tam... Počkej na mě! Kdybych se dlouho nevracel tak mi proskenuj složku antivirem.", " "], //20 
+["Mám ten kód! Rychle ho tam zadej! Vir mi napadl složku a co nevidět se zhroutím! Ten kód je-", "..."], //21
 ["Děkuji, zachránil jsi mě! Jak jsem říkal kód je "+getCode(2)], //22
-["konec hry"]];  
+["Výborně, úspěšně jsi odviroval počítač a naše cesta tady skončila. Budu se na tebe těšit až v září nastoupíš na purkyňku!"]];
 
 let currentDialog = 0;
 /*Current level*/

@@ -482,7 +482,7 @@
                 <div id="crashText"></div>
             </appBuild>
             
-            <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">
+            <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)" style="background-color: black;">
                 <div class="Backor">
                     <img class="PanBackorImg" draggable="false" src="images/Backor/Backor.png" title="Ahoj jsem pan Bačkor!">
                     <div class="eye" id="eye1"></div>
@@ -528,7 +528,7 @@
     <script src="js/wizard.js"></script>
     <script src="js/optimizeDrives.js"></script>
     <script src="js/store.js"></script>
-    <script>document.getElementById("crashText").innerHTML=getCode(0);</script>
+    <script>document.getElementById("crashText").innerHTML="Chybový kód: " + getErrorCode()</script>
     <script type="module">
         import devtools from './devtools-detect/index.js';
         let devtoolsOpen = devtools.isOpen;

@@ -189,14 +189,12 @@ function consoleLevelProgress(){
     else if (killedCount == 1) {killedCount += 1; completeLevel(15)}
     else if (killedCount == 2) {
         killedCount += 1; completeLevel(16); POSTdata(localStorage.getItem('loginDetail'), "0000000000010000");
-        document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()');
-        installApp(getFromSystemRegister("CrashNote.txt"));
-        //document.getElementById("crashText").innerHTML=getCode(0);
+        addConsoleLine(getCode(0));
     };
 }
 function skipConsoleLevels(){
-    for (let level = 12; level < 17; level++){completeLevel(level)};
-    completeLevel(17);
+    for (let level = 12; level < 16; level++){completeLevel(level)};
+    completeLevel(16);
 }
 
 function loadProgress(newkilledList, newkilledCount){

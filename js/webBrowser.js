@@ -163,7 +163,7 @@ function errorChecker(){
     button.onclick = function() {
         if(input.value == getErrorCode()) {
             answer.innerText = "Vyzkoušejte tohle: " + getCode(1);
-            completeLevel(19);
+            completeLevel(18);
         }
         else {
             answer.innerText = "Neznámý kód";

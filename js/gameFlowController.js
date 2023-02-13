@@ -1,4 +1,4 @@
-buildVersion = "alpha 2.9h1.17";
+buildVersion = "purkiada14.2h8.0";
 
 function startVirusGame() {
     let popup = new SystemPermissionPopup("Virus.exe", "changeLang('ascii');showPanBackor()");

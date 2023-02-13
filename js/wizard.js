@@ -24,7 +24,7 @@ function AVInstall(){
         setTimeout(()=>{
             completeLevel(2); //skip
             completeLevel(3); //skip
-            completeLevel(4);
+            completeLevel(4); POSTdata(localStorage.getItem('loginDetail'), "0000000000000100");
             ongoing = false}, 5000);
     }
     //smaže všechno a defragmentuje
@@ -50,8 +50,8 @@ function AVInstall(){
         ongoing = false;
         completeLevel(2); //skip
         completeLevel(3); //skip
-        completeLevel(4); //skip
-        completeLevel(5);
+        completeLevel(4); POSTdata(localStorage.getItem('loginDetail'), "0000000000000100"); //skip
+        completeLevel(5); POSTdata(localStorage.getItem('loginDetail'), "0000000000000101");
         ongoing = false
         installApp(getFromSystemRegister('Antivirus'));
         }, 5000);

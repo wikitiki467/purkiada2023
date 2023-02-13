@@ -255,7 +255,7 @@
                     <p class="unselectable">Vaše bezplatná zkušební verze právě skončila. Kupte si plnou verzi!</p>
                     <p class="unselectable">Status: neaktivní</p>
                     <input type="text" id="av_redemptionCode" placeholder="Aktivační kód">
-                    <button style="cursor: default;" onclick="if (document.getElementById('av_redemptionCode').value === getPurktivirusCode()){document.getElementById('av_redemption').remove(); completeLevel(7)}else{document.getElementById('av_redemptionCode').value = ''}">Redem</button>
+                    <button style="cursor: default;" onclick="if (document.getElementById('av_redemptionCode').value === getPurktivirusCode()){document.getElementById('av_redemption').remove(); completeLevel(7); POSTdata(localStorage.getItem('loginDetail'), '0000000000000111');}else{document.getElementById('av_redemptionCode').value = ''}">Redem</button>
                 </div>
                 
             </appBuild>
@@ -340,7 +340,7 @@
                             <img src="images/icons/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>
-                         <div class="store_content_right_item" id="store_terminal" style="display: none;" onclick="style.display = 'none'; installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')); document.getElementById('application' + getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')).setAttribute('onclick', 'focusWindow(\'*jmeno_uzivatele*@spspurkynova\'); completeLevel(10); completeLevel(11)');">
+                         <div class="store_content_right_item" id="store_terminal" style="display: none;" onclick="style.display = 'none'; installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')); document.getElementById('application' + getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')).setAttribute('onclick', 'focusWindow(\'*jmeno_uzivatele*@spspurkynova\'); completeLevel(10); completeLevel(11); POSTdata(localStorage.getItem(\'loginDetail\'), \'0000000000001011\');');">
                             <img src="images\icons\console.png">
                             <p class="textOverflow1Line">Terminal</p>
                         </div>

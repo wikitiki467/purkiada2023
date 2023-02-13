@@ -38,7 +38,7 @@ function decrypt3() {
     btn = document.getElementById("decryptBTN3")
     input = document.getElementById("decrypt3").value;
     if (input == getCode(2)){
-        completeLevel(23);  
+        completeLevel(23); POSTdata(localStorage.getItem('loginDetail'), "0000000000010111");
         document.getElementById("decrypt3").setAttribute("readonly", "")
         btn.remove();
     }

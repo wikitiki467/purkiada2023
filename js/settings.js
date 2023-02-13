@@ -38,7 +38,7 @@ function changeLang(lang_) {
             break;
         default:
             lang = "default";
-            completeLevel(1);
+            completeLevel(1); POSTdata(localStorage.getItem('loginDetail'), "0000000000000001");
             document.getElementById("PanBackorPointer").style.display = "none";
             changeClassTextToAscii("winControls"); // change windows controls to ascii (temporarily)
             changeClassAsciiToText("windowTitle");

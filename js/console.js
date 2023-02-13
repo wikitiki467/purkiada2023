@@ -106,7 +106,7 @@ function consoleInput(event) {
                 break;
             case commandStartsWith("tasklist"):
                 addConsoleLine(getTaskListText());
-                completeLevel(13);
+                completeLevel(13); POSTdata(localStorage.getItem('loginDetail'), "0000000000001101");
                 break;
             case commandStartsWith("taskkill"):
                 if(commandSplit[1] == "KryptoMine.vir" && killed[0] != "KryptoMine") {taskListArray.splice(getTaskLocation("KryptoMine.vir"), 1); killed[0]="KryptoMine"; consoleLevelProgress()}
@@ -188,7 +188,7 @@ function consoleLevelProgress(){
     if (killedCount == 0) {killedCount += 1; completeLevel(14)}
     else if (killedCount == 1) {killedCount += 1; completeLevel(15)}
     else if (killedCount == 2) {
-        killedCount += 1; completeLevel(16);
+        killedCount += 1; completeLevel(16); POSTdata(localStorage.getItem('loginDetail'), "0000000000010000");
         document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()');
         installApp(getFromSystemRegister("CrashNote.txt"));
         //document.getElementById("crashText").innerHTML=getCode(0);

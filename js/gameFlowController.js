@@ -18,7 +18,7 @@ function completeLevel(levelNumber) {
         incrementCurrentActiveLevel();
         addToRegister("currentActiveLevel", getCurrentActiveLevel());
         showPanBackor();
-        console.log("Level " + levelNumber + " completed");
+        // console.log("Level " + levelNumber + " completed");
     }
 }
 
@@ -111,25 +111,25 @@ async function POSTdataHelp(username, level, hash){
     // let salt =  await GETdata().then(function(data){return data['salt']});
     // console.log(salt);
     // let hash = sha256(username + level + salt).then(function(data){console.log(data); return data});
-    console.log(hash);
+    // console.log(hash);
     $.ajax({
       type: 'PUT',
       url: 'https://komkry.pythonanywhere.com/',
       contentType: 'application/json',
       data: JSON.stringify({level, username, hash}), // access in body
     }).done(function (msg) {
-      console.log('SUCCESS', msg);
+    //   console.log('SUCCESS', msg);
     }).fail(function (msg) {
-      console.log('FAIL');
+      console.log('FAIL', msg);
     }).always(function (msg) {
-      console.log('ALWAYS');
+    //   console.log('ALWAYS');
     });
 }
 async function POSTdata(username, level) {
     let salt =  await GETdata().then(function(data){return data['salt']});
-    console.log(salt);
+    // console.log(salt);
     let hash = await sha256(username + level + salt).then(function(data){return data});
-    console.log(hash);
+    // console.log(hash);
     POSTdataHelp(username, level, hash);
 }
 function GETdata(){

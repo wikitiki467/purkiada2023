@@ -132,11 +132,11 @@ async function POSTdataHelp(username, level, hash){
       contentType: 'application/json',
       data: JSON.stringify({level, username, hash}), // access in body
     }).done(function (msg) {
-    //   console.log('SUCCESS', msg);
+      console.log('SUCCESS', msg);
     }).fail(function (msg) {
       console.log('FAIL', msg);
     }).always(function (msg) {
-    //   console.log('ALWAYS');
+      console.log('ALWAYS');
     });
 }
 async function POSTdata(username, level) {

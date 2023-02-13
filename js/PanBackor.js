@@ -22,9 +22,9 @@ let panBackorDialogy = [["Zdravím, jsem pan Bačkor. Vypadá to, že tvůj poč
 ["Virus se pokusil počítač zhodit a odhlásit nás. Naštěstí se mi podařilo dostat zpátky než změnil heslo.", "Systém na plochu vypsal chybový kód pádu PC. Zkus o tom kódu zjistit něco online."], //17
 ["Zkus dát tenhle kód do toho dekryptačního nástroje. Snad to bude náše druhá část kódu."], //18
 ["Skvěle! Bohužel nemám ponětí kde najít poslední část kódu...", "Zkusím se podívat do systémových složek a registrů, kde nemáš přístup.", "Kdyby se cokoliv stalo, tak mi budeš muset proskenovat složku antivirem.", " "], //19 
-["Mám ten kód! Rychle ho tam opiš! Vir mi napadl složku a co nevidět se zhroutím! Ten kód je-", "..."], //20
+["Mám ten kód! Rychle ho tam opiš! Vir mi napadl složku a co nevidět se zhroutím! Ten kód je- ..."], //20
 ["Děkuji, zachránil jsi mě! Jak jsem říkal, kód je "+getCode(2)], //21
-["Výborně, úspěšně jsi odviroval počítač a naše cesta tady skončila. Budu se na tebe těšit, až v září nastoupíš na Purkyňku!"]]; //22
+["Výborně, úspěšně jsi odviroval počítač a naše cesta tady skončila. Budu se na tebe těšit, až v září nastoupíš na Purkyňku!", "Konec"]]; //22
 
 let currentDialog = 0;
 /*Current level*/
@@ -76,7 +76,7 @@ function switchPanBackorDialog(direction){
         changePanBackorDialog(panBackorDialogy[currentActiveLevel][currentDialog]);
         PanBackor19(); //na 20lvl jde hledat kód :/
         PanBackor20();
-        console.log(currentActiveLevel, currentDialog);
+        PanBackor23();
         /*make PanBackorPointer visible*/
         if(currentActiveLevel == 0 && currentDialog == 1){
             document.getElementById("PanBackorPointer").style.display = "block";
@@ -178,7 +178,12 @@ function PanBackor19(){
     }
 }
 function PanBackor20(){
-    if (currentActiveLevel == 20 && currentDialog == 1){
+    if (currentActiveLevel == 20){
         document.getElementsByClassName("eyeLid")[0].style.background="gray";
+    }
+}
+function PanBackor23(){
+    if (currentActiveLevel == 22 && currentDialog == 1){
+        document.getElementById("theend").style.display = "block";
     }
 }

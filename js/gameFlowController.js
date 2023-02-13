@@ -78,15 +78,29 @@ function loadGame() {
             }
             loadProgress(killedList, killedCount)
         }
-        if (savedLevel >= 16) {
-            document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()');
-            installApp(getFromSystemRegister("CrashNote.txt"));
+        if (savedLevel >= 15) {
+            addConsoleLine(getCode(0));
         }
-        if (savedLevel >= 17) {
+        if (savedLevel >= 16) {
             document.getElementById("decrypt1").value = getCode(0);
             decrypt1();
         }
-        
+        if (savedLevel >= 17) {
+            document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()');
+            installApp(getFromSystemRegister("CrashNote.txt"));
+        }
+        if (savedLevel >= 18) {
+            document.getElementById("decrypt2").value = getCode(1);
+            decrypt2();
+        }
+        if (savedLevel >= 20) {
+            PanBackor20();
+        }
+        if (savedLevel >= 22) {
+            document.getElementById("decrypt3").value = getCode(2);
+            decrypt3();
+            document.getElementById("theend").style.display = "block";
+        }    
 
         showPanBackor();
         //console.log(levelNumber);

@@ -86,6 +86,7 @@
             <div id="powerOffButton" onclick="turnOff()" class="unselectable" title="Power on/off"></div>
                 <img draggable="false" src="images/general/hand.svg" alt="hand.svg" id="hand">
                 <div id="contentDisplay">
+                    
                     <div class="app_container" id="app_container" style="display: flex;margin: 2%;"></div>
                     <img draggable="false" src="images/Backor/backorArrow.png" alt="Pan Bačkor pointer" id="PanBackorPointer">
                     <appBuild title="It's About Drive, It's About Power" icon="old/LIGHT/icon2.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)" isInstalled="false">
@@ -454,7 +455,7 @@
                     </div>
                 </div>
             </appBuild>
-            <appBuild title="Optimalizace jednotek" minimize="false" maximize="false" shortcut="false" startMenu="false" taskBarHidden="true">
+            <appBuild title="Optimalizace jednotek" minimize="false" backgroundColor="gray" maximize="false" width="400px" height="300px" shortcut="false" startMenu="false" taskBarHidden="true">
                 <p id="optimizationPercentage"></p>
                 <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizationPercentage'), 0, 100, 5000)">Optimalizovat</button>
             </appBuild>
@@ -496,6 +497,8 @@
             </div>
         </div>
     </div>
+    <img src="images/Backor/theend.png" id="theend">
+    
     <script src="js/javascriptTools.js"></script>
     <script src="js/register.js"></script>
     <script src="js/decrypt.js"></script>

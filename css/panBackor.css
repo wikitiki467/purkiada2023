@@ -19,8 +19,8 @@ align-items: center;
     position: absolute;
     display: block;
     padding: 2% 2% 2% 24%;
-    background-color: black;
     min-height: 100%;
+    background-color: transparent !important;
     /* min-width: 85%; */
     text-align: left;
     font-size: 1.8vh;

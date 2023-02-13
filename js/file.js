@@ -98,7 +98,7 @@ function contextMenu(e) {
     /*get mouse target*/
     let target = e.target;
 
-    if (target.className.includes("fe_files") || target.className.includes("side_folder")){
+    if (target.className.includes("fe_files") || target.className.includes("side_folder disk")){
         const div = document.createElement('div');
         div.className = 'fileContextMenu';
         div.id = 'fileContextMenu';
@@ -145,7 +145,6 @@ function contextMenu(e) {
                     };
                 
             }
-            
         }
         else {
             if (status >= 7) {

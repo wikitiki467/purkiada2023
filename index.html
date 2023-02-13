@@ -449,16 +449,19 @@
                     </div>
                     <div id="properties_optimization">
                         <img id="defragmentation_img" src="images/icons/defragmentation.png">
-                        <button id="optimizeBTN" onclick="focusWindow('Optimalizace jednotek')" role="button">
-                            <span class="asciiHash textOverflow1Line">Optimalizovat</span>
+                        <button id="optimizeBTN" onclick="optimizeDrives(document.getElementById('optimizeBTNtext'), 0, 100, 5000);
+                                                        sleep(6500).then(() => document.getElementById('optimizeBTNtext').innerHTML = 'HOTOVO');
+                                                        sleep(10000).then(() => document.getElementById('optimizeBTNtext').innerHTML = 'Optimalizovat');
+                        " role="button">
+                            <span class="asciiHash textOverflow1Line" id="optimizeBTNtext">Optimalizovat</span>
                         </button>
                     </div>
                 </div>
             </appBuild>
-            <appBuild title="Optimalizace jednotek" minimize="false" backgroundColor="gray" maximize="false" width="400px" height="300px" shortcut="false" startMenu="false" taskBarHidden="true">
+            <!-- <appBuild title="Optimalizace jednotek" minimize="false" backgroundColor="gray" maximize="false" width="250px" height="300px" shortcut="false" startMenu="false" taskBarHidden="true">
                 <p id="optimizationPercentage"></p>
-                <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizationPercentage'), 0, 100, 5000)">Optimalizovat</button>
-            </appBuild>
+                <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizeBTNtext'), 0, 100, 5000)">Optimalizovat</button>
+            </appBuild> -->
             <appBuild title="Decrypt.exe" icon="key.png" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false" onClickFunction="completeLevel(10)">
                 <div id="divDecrypt1">
                     <label for="decrypt1">Code 1/3</label>

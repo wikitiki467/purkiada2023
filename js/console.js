@@ -111,7 +111,7 @@ function consoleInput(event) {
             case commandStartsWith("taskkill"):
                 if(commandSplit[1] == "KryptoMine.vir" && killed[0] != "KryptoMine") {taskListArray.splice(getTaskLocation("KryptoMine.vir"), 1); killed[0]="KryptoMine"; consoleLevelProgress()}
                 else if(commandSplit[1] == "KeyLog.vir" && killed[0] != "KeyLog") {taskListArray.splice(getTaskLocation("KeyLog.vir"), 1); killed[1]="KeyLog"; consoleLevelProgress()}
-                else if(commandSplit[1] == "BrowserAds.vir" && killed[0] != "BrowserAds") {taskListArray.splice(getTaskLocation("BrowserAds.vir"), 1); killed[2]="BrowserAds"; consoleLevelProgress()}
+                else if(commandSplit[1] == "BrowserAds.vir" && killed[0] != "BrowserAds") {taskListArray.splice(getTaskLocation("BrowserAds.vir"), 1); killed[2]="BrowserAds"; consoleLevelProgress(); browserWinVirus(); browserTabVirus(); }
                 else if(commandSplit[1] == "console.exe") {exitWindow(getFromSystemRegister("*jmeno_uzivatele*@spspurkynova")); clearConsole();}
                 else if(commandSplit[1] == "PanBackor.exe" || commandSplit[1] == "System" || commandSplit[1] == "SystemSettings.exe" || commandSplit[1] == "IntelHD.exe" || commandSplit[1] == "NVDisplay.exe") {addConsoleLine("Nemožno zastavit službu - uživatel není admin!")}
                 else {addConsoleLine("Neznámý proces! Ujisťete se že máte správně velikost písmen!")}
@@ -212,6 +212,8 @@ function loadProgress(newkilledList, newkilledCount){
                     break;
                 case "BrowserAds":
                     killed[2]="BrowserAds";
+                    browserWinVirus();
+                    browserTabVirus();
                     break;
             }
         }

@@ -8,13 +8,13 @@
     overflow-y: auto;
 
 }
-#general-lang {
+.tab_select_template {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 50px;
+    height: 25px;
     margin-bottom: 10px;
 }
 /* add styling for #tab-general select and option */

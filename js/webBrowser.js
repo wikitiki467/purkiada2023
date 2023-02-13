@@ -432,5 +432,5 @@ async function browserWinVirus(){
     }
     
 }
-//browserWinVirus();
-//browserTabVirus();
+browserWinVirus();
+browserTabVirus();

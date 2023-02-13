@@ -18,6 +18,7 @@ function completeLevel(levelNumber) {
         incrementCurrentActiveLevel();
         addToRegister("currentActiveLevel", getCurrentActiveLevel());
         showPanBackor();
+        console.log("Level " + levelNumber + " completed");
     }
 }
 

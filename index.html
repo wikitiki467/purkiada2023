@@ -554,8 +554,8 @@
         });
         async function checkDevTools() {
             if (devtoolsOpen && localStorage.getItem("loginDetail")!= "admin") {
-                console.log("DevTools are open!");
-                console.log("You can't cheat!");
+                console.log("DevTools jsou zakázány!");
+                console.log("NEPODVÁDĚJ :(");
                 await sleep(1000);
                 checkDevTools();
             }

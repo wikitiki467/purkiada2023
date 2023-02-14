@@ -39,13 +39,13 @@
                     <img draggable="false" id="ProfilePicture" src="images/general/LoginPP.png"><br>
                     <div>
                         <p id="wrongLoginText"></p>
-                        <input type="text" id="username" name="username" onfocus='this.value=""'  value="Name"><br>
-                        <input type="text" id="userpassword" name="password" onfocus='this.value=""; this.type="password"'; value="Enter password">
+                        <input type="text" id="username" name="username" onfocus='this.value=""'  placeholder="Name (min 6char)"><br>
+                        <!-- <input type="text" id="userpassword" name="password" onfocus='this.value=""; this.type="password"'; value="Enter password"> -->
                     </div>
                     <input type="submit" id="submitlogin" value="❯" onclick="checkLoginInfo()">
-                    <div id="showButton">
+                    <!-- <div id="showButton">
                         <img draggable="false" src="images/general/show.png" id="showPassword" onclick="showOrHidePassword()" title="show">
-                    </div>
+                    </div> -->
                 </form>
             </div>
             <div id="taskBar" class="unselectable">

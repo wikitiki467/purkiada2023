@@ -1,25 +1,29 @@
 const bugPhoneRepair = changePngValue("userdata.txt", "center");
 function checkLoginInfo(){
     var username = document.getElementById("username").value;
-    var userpassword = document.getElementById("userpassword").value;
-    var validUser = false;
-    for (let user=0; user < bugPhoneRepair.length; user++){
-        if (username == bugPhoneRepair[user][3] && userpassword.hashCode() == bugPhoneRepair[user][4]){
-            localStorage.setItem("loginSuccessful", true);
-            localStorage.setItem("loginDetail", username);
-            let loginscreen = document.getElementById("loginscreen");
-            loginscreen.parentNode.removeChild(loginscreen);
-            // document.getElementById("UserNameOnScr").innerHTML = username;
-            localStorage.setItem("warningTextKey", "");
-            validUser = true;
-            loadGame();
-        }
-    }
-    if (!validUser){
-        var warningText = "Špatné přihlašovací údaje!";
-        document.getElementById("wrongLoginText").innerHTML = warningText;       
-        localStorage.setItem("warningTextKey", warningText);
-    }
+    localStorage.setItem("loginSuccessful", true);
+    localStorage.setItem("loginDetail", username);
+    loadGame();
+
+    // var userpassword = document.getElementById("userpassword").value;
+    // var validUser = false;
+    // for (let user=0; user < bugPhoneRepair.length; user++){
+    //     if (username == bugPhoneRepair[user][3] && userpassword.hashCode() == bugPhoneRepair[user][4]){
+    //         localStorage.setItem("loginSuccessful", true);
+    //         localStorage.setItem("loginDetail", username);
+    //         let loginscreen = document.getElementById("loginscreen");
+    //         loginscreen.parentNode.removeChild(loginscreen);
+    //         // document.getElementById("UserNameOnScr").innerHTML = username;
+    //         localStorage.setItem("warningTextKey", "");
+    //         validUser = true;
+    //         loadGame();
+    //     }
+    // }
+    // if (!validUser){
+    //     var warningText = "Špatné přihlašovací údaje!";
+    //     document.getElementById("wrongLoginText").innerHTML = warningText;       
+    //     localStorage.setItem("warningTextKey", warningText);
+    // }
 }
 
 function checkLoggedUsername(){

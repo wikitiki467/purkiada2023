@@ -118,11 +118,11 @@ function consoleInput(event) {
                 addToRegister("killedList", killed); addToRegister("killedCount", killedCount);
                 break;
             //jsem línej pak to smažu :D
-                case commandStartsWith("skip"):
+                /*case commandStartsWith("skip"):
                 killedCount = 2;
                 consoleLevelProgress();
                 skipConsoleLevels()
-                break;
+                break;*/
             default: // ------------------------------------------ unknown command
                 if (commandTrim.length === 0) break;
                 addConsoleLine(`'${commandSplitFirst}' is not recognized as an internal or external command, operable program or batsch file.`);

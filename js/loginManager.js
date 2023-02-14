@@ -1,9 +1,18 @@
 const bugPhoneRepair = changePngValue("userdata.txt", "center");
 function checkLoginInfo(){
     var username = document.getElementById("username").value;
-    localStorage.setItem("loginSuccessful", true);
-    localStorage.setItem("loginDetail", username);
-    loadGame();
+    if (username.length < 6){
+        var warningText = "Přihlašovací jméno musí mít alespoň 6 znaků!";
+        document.getElementById("wrongLoginText").innerHTML = warningText;       
+        localStorage.setItem("warningTextKey", warningText);
+        return;
+    }
+    else{
+        localStorage.setItem("loginSuccessful", true);
+        localStorage.setItem("loginDetail", username);
+        localStorage.setItem("warningTextKey", "");
+        loadGame();
+    }
 
     // var userpassword = document.getElementById("userpassword").value;
     // var validUser = false;

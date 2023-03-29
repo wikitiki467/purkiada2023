@@ -106,7 +106,7 @@ function consoleInput(event) {
                 break;
             case commandStartsWith("tasklist"):
                 addConsoleLine(getTaskListText());
-                completeLevel(13);
+                completeLevel(13); POSTdata(localStorage.getItem('loginDetail'), "0000000000001101");
                 break;
             case commandStartsWith("taskkill"):
                 if(commandSplit[1] == "KryptoMine.vir" && killed[0] != "KryptoMine") {taskListArray.splice(getTaskLocation("KryptoMine.vir"), 1); killed[0]="KryptoMine"; consoleLevelProgress()}
@@ -118,11 +118,11 @@ function consoleInput(event) {
                 addToRegister("killedList", killed); addToRegister("killedCount", killedCount);
                 break;
             //jsem línej pak to smažu :D
-                case commandStartsWith("skip"):
+                /*case commandStartsWith("skip"):
                 killedCount = 2;
                 consoleLevelProgress();
                 skipConsoleLevels()
-                break;
+                break;*/
             default: // ------------------------------------------ unknown command
                 if (commandTrim.length === 0) break;
                 addConsoleLine(`'${commandSplitFirst}' is not recognized as an internal or external command, operable program or batsch file.`);
@@ -188,15 +188,13 @@ function consoleLevelProgress(){
     if (killedCount == 0) {killedCount += 1; completeLevel(14)}
     else if (killedCount == 1) {killedCount += 1; completeLevel(15)}
     else if (killedCount == 2) {
-        killedCount += 1; completeLevel(16);
-        document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()');
-        installApp(getFromSystemRegister("CrashNote.txt"));
-        //document.getElementById("crashText").innerHTML=getCode(0);
+        killedCount += 1; completeLevel(16); POSTdata(localStorage.getItem('loginDetail'), "0000000000010000");
+        addConsoleLine(getCode(0));
     };
 }
 function skipConsoleLevels(){
-    for (let level = 12; level < 17; level++){completeLevel(level)};
-    completeLevel(17);
+    for (let level = 12; level < 16; level++){completeLevel(level)};
+    completeLevel(16);
 }
 
 function loadProgress(newkilledList, newkilledCount){

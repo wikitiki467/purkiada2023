@@ -36,7 +36,7 @@ function startScan(){
             setTimeout(() => {text.innerHTML += "<br>"; status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p><p><br></p>";}, 8500);
             setTimeout(() => {text.innerHTML += "Removing virus"; status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p><p><br></p><p>...</p>";}, 8500);
             setTimeout(() => {status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p><p><br></p><p>✗</p>";}, 13000);
-            setTimeout(() => {completeLevel(8); completeLevel(9);}, 13000);
+            setTimeout(() => {completeLevel(8); completeLevel(9); POSTdata(localStorage.getItem('loginDetail'), "0000000000001001");}, 13000);
             setTimeout(() => {document.getElementById('application' + getFromSystemRegister('Decrypt.exe')).setAttribute('onclick', 'focusWindow("Decrypt.exe"); completeLevel(10)'); installApp(getFromSystemRegister('Decrypt.exe'));}, 13000);
             setTimeout(() => {document.getElementsByClassName("store_content_right_item")[0].style.display="flex";}, 13000);
         }
@@ -68,9 +68,10 @@ function startFileScan(isVir){
         if (isVir){
             setTimeout(() => {status.innerHTML = "<p>✗</p>";}, 2000);
             setTimeout(() => {button.innerHTML = "Virus nalezen!"; button.style.background = "red"; button.style.display = "unset"; document.getElementById("av_scanBTN").innerHTML = document.getElementById("scan-type-options").value + " scan"; scanInProgress = false; }, 2500); /*✓✗*/
-            setTimeout(() => {text.innerHTML += "Removing virus"; status.innerHTML = "<p>✓</p><p>✓</p><p>✗</p><p><br></p><p>...</p>";}, 3000);
+            setTimeout(() => {text.innerHTML += "<br>Removing virus"; status.innerHTML = "<p>✗</p><p><br></p><p>...</p>";}, 3000);
+            setTimeout(() => {status.innerHTML = "<p>✗</p><p><br></p><p>✓</p>";}, 4500);
             setTimeout(() => {button.innerHTML = "Virus removed succesfully!"}, 4500);
-            setTimeout(() => {completeLevel(22); }, 7000);
+            setTimeout(() => {completeLevel(21); POSTdata(localStorage.getItem('loginDetail'), "0000000000010110");}, 7000);
         }else{
             setTimeout(() => {status.innerHTML = "<p>✓</p>";}, 2000);
             setTimeout(() => {button.innerHTML = "Všechno v pořádku"; button.style.background = "rgb(59, 221, 59)"; button.style.display = "unset"; document.getElementById("av_scanBTN").innerHTML = document.getElementById("scan-type-options").value + " scan"; scanInProgress = false; completeLevel(8);}, 2500); /*✓✗*/

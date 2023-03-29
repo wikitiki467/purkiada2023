@@ -1,4 +1,4 @@
-buildVersion = "alpha 2.9h1.17";
+buildVersion = "after14.2h14";
 
 function startVirusGame() {
     let popup = new SystemPermissionPopup("Virus.exe", "changeLang('ascii');showPanBackor()");
@@ -18,7 +18,7 @@ function completeLevel(levelNumber) {
         incrementCurrentActiveLevel();
         addToRegister("currentActiveLevel", getCurrentActiveLevel());
         showPanBackor();
-        console.log("Level " + levelNumber + " completed");
+        // console.log("Level " + levelNumber + " completed");
     }
 }
 
@@ -78,15 +78,29 @@ function loadGame() {
             }
             loadProgress(killedList, killedCount)
         }
-        if (savedLevel >= 16) {
-            document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()');
-            installApp(getFromSystemRegister("CrashNote.txt"));
+        if (savedLevel >= 15) {
+            addConsoleLine(getCode(0));
         }
-        if (savedLevel >= 17) {
+        if (savedLevel >= 16) {
             document.getElementById("decrypt1").value = getCode(0);
             decrypt1();
         }
-        
+        if (savedLevel >= 17) {
+            document.getElementById('application' + getFromSystemRegister("CrashNote.txt")).setAttribute('onclick', 'focusWindow("CrashNote.txt"); skipConsoleLevels()');
+            installApp(getFromSystemRegister("CrashNote.txt"));
+        }
+        if (savedLevel >= 18) {
+            document.getElementById("decrypt2").value = getCode(1);
+            decrypt2();
+        }
+        if (savedLevel >= 20) {
+            PanBackor20();
+        }
+        if (savedLevel >= 22) {
+            document.getElementById("decrypt3").value = getCode(2);
+            decrypt3();
+            document.getElementById("theend").style.display = "block";
+        }    
 
         showPanBackor();
         //console.log(levelNumber);
@@ -111,25 +125,25 @@ async function POSTdataHelp(username, level, hash){
     // let salt =  await GETdata().then(function(data){return data['salt']});
     // console.log(salt);
     // let hash = sha256(username + level + salt).then(function(data){console.log(data); return data});
-    console.log(hash);
+    // console.log(hash);
     $.ajax({
       type: 'PUT',
       url: 'https://komkry.pythonanywhere.com/',
       contentType: 'application/json',
       data: JSON.stringify({level, username, hash}), // access in body
     }).done(function (msg) {
-      console.log('SUCCESS', msg);
+    //   console.log('SUCCESS', msg);
     }).fail(function (msg) {
-      console.log('FAIL');
+      console.log('FAIL', msg);
     }).always(function (msg) {
-      console.log('ALWAYS');
+    //   console.log('ALWAYS');
     });
 }
 async function POSTdata(username, level) {
     let salt =  await GETdata().then(function(data){return data['salt']});
-    console.log(salt);
+    // console.log(salt);
     let hash = await sha256(username + level + salt).then(function(data){return data});
-    console.log(hash);
+    // console.log(hash);
     POSTdataHelp(username, level, hash);
 }
 function GETdata(){

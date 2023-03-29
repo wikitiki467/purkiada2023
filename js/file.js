@@ -130,7 +130,7 @@ function contextMenu(e) {
                     "Odstranit": "deleteFileInFE(" + target.id + ");",
                     };
             }
-            else if (status == 21 && target.id == "backorFolder") {
+            else if (status == 20 && target.id == "backorFolder") {
                 options = {
                 "Skenovat" : "startFileScan(true)",
                 "Přejmenovat": `renameFileInFE(${target.id})`,

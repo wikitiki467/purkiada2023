@@ -39,13 +39,13 @@
                     <img draggable="false" id="ProfilePicture" src="images/general/LoginPP.png"><br>
                     <div>
                         <p id="wrongLoginText"></p>
-                        <input type="text" id="username" name="username" onfocus='this.value=""'  value="Name"><br>
-                        <input type="text" id="userpassword" name="password" onfocus='this.value=""; this.type="password"'; value="Enter password">
+                        <input type="text" id="username" name="username" onfocus='this.value=""'  placeholder="Name (min 6char)"><br>
+                        <!-- <input type="text" id="userpassword" name="password" onfocus='this.value=""; this.type="password"'; value="Enter password"> -->
                     </div>
                     <input type="submit" id="submitlogin" value="❯" onclick="checkLoginInfo()">
-                    <div id="showButton">
+                    <!-- <div id="showButton">
                         <img draggable="false" src="images/general/show.png" id="showPassword" onclick="showOrHidePassword()" title="show">
-                    </div>
+                    </div> -->
                 </form>
             </div>
             <div id="taskBar" class="unselectable">
@@ -86,6 +86,7 @@
             <div id="powerOffButton" onclick="turnOff()" class="unselectable" title="Power on/off"></div>
                 <img draggable="false" src="images/general/hand.svg" alt="hand.svg" id="hand">
                 <div id="contentDisplay">
+                    
                     <div class="app_container" id="app_container" style="display: flex;margin: 2%;"></div>
                     <img draggable="false" src="images/Backor/backorArrow.png" alt="Pan Bačkor pointer" id="PanBackorPointer">
                     <appBuild title="It's About Drive, It's About Power" icon="old/LIGHT/icon2.png" backgroundColor="linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)" isInstalled="false">
@@ -255,7 +256,7 @@
                     <p class="unselectable">Vaše bezplatná zkušební verze právě skončila. Kupte si plnou verzi!</p>
                     <p class="unselectable">Status: neaktivní</p>
                     <input type="text" id="av_redemptionCode" placeholder="Aktivační kód">
-                    <button style="cursor: default;" onclick="if (document.getElementById('av_redemptionCode').value === getPurktivirusCode()){document.getElementById('av_redemption').remove(); completeLevel(7)}else{document.getElementById('av_redemptionCode').value = ''}">Redem</button>
+                    <button style="cursor: default;" onclick="if (document.getElementById('av_redemptionCode').value === getPurktivirusCode()){document.getElementById('av_redemption').remove(); completeLevel(7); POSTdata(localStorage.getItem('loginDetail'), '0000000000000111');}else{document.getElementById('av_redemptionCode').value = ''}">Redem</button>
                 </div>
                 
             </appBuild>
@@ -340,7 +341,7 @@
                             <img src="images/icons/antivirusLogo.png">
                             <p class="textOverflow1Line">Antivirus</p>
                         </div>
-                         <div class="store_content_right_item" id="store_terminal" style="display: none;" onclick="style.display = 'none'; installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')); document.getElementById('application' + getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')).setAttribute('onclick', 'focusWindow(\'*jmeno_uzivatele*@spspurkynova\'); completeLevel(10); completeLevel(11)');">
+                         <div class="store_content_right_item" id="store_terminal" style="display: none;" onclick="style.display = 'none'; installApp(getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')); document.getElementById('application' + getFromSystemRegister('*jmeno_uzivatele*@spspurkynova')).setAttribute('onclick', 'focusWindow(\'*jmeno_uzivatele*@spspurkynova\'); completeLevel(10); completeLevel(11); POSTdata(localStorage.getItem(\'loginDetail\'), \'0000000000001011\');');">
                             <img src="images\icons\console.png">
                             <p class="textOverflow1Line">Terminal</p>
                         </div>
@@ -448,16 +449,19 @@
                     </div>
                     <div id="properties_optimization">
                         <img id="defragmentation_img" src="images/icons/defragmentation.png">
-                        <button id="optimizeBTN" onclick="focusWindow('Optimalizace jednotek')" role="button">
-                            <span class="asciiHash textOverflow1Line">Optimalizovat</span>
+                        <button id="optimizeBTN" onclick="optimizeDrives(document.getElementById('optimizeBTNtext'), 0, 100, 5000);
+                                                        sleep(6500).then(() => document.getElementById('optimizeBTNtext').innerHTML = 'HOTOVO');
+                                                        sleep(10000).then(() => document.getElementById('optimizeBTNtext').innerHTML = 'Optimalizovat');
+                        " role="button">
+                            <span class="asciiHash textOverflow1Line" id="optimizeBTNtext">Optimalizovat</span>
                         </button>
                     </div>
                 </div>
             </appBuild>
-            <appBuild title="Optimalizace jednotek" minimize="false" maximize="false" shortcut="false" startMenu="false" taskBarHidden="true">
+            <!-- <appBuild title="Optimalizace jednotek" minimize="false" backgroundColor="gray" maximize="false" width="250px" height="300px" shortcut="false" startMenu="false" taskBarHidden="true">
                 <p id="optimizationPercentage"></p>
-                <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizationPercentage'), 0, 100, 5000)">Optimalizovat</button>
-            </appBuild>
+                <button id="optimizeStartBTN" onclick="optimizeDrives(document.getElementById('optimizeBTNtext'), 0, 100, 5000)">Optimalizovat</button>
+            </appBuild> -->
             <appBuild title="Decrypt.exe" icon="key.png" isInstalled="false" backgroundColor="gray" width="250px" height="300px" resize="false" onClickFunction="completeLevel(10)">
                 <div id="divDecrypt1">
                     <label for="decrypt1">Code 1/3</label>
@@ -482,7 +486,7 @@
                 <div id="crashText"></div>
             </appBuild>
             
-            <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)">
+            <div id="PanBackorGUI" onclick="switchPanBackorDialog(1)" style="background-color: black;">
                 <div class="Backor">
                     <img class="PanBackorImg" draggable="false" src="images/Backor/Backor.png" title="Ahoj jsem pan Bačkor!">
                     <div class="eye" id="eye1"></div>
@@ -496,6 +500,8 @@
             </div>
         </div>
     </div>
+    <img src="images/Backor/theend.png" id="theend">
+    
     <script src="js/javascriptTools.js"></script>
     <script src="js/register.js"></script>
     <script src="js/decrypt.js"></script>
@@ -528,7 +534,7 @@
     <script src="js/wizard.js"></script>
     <script src="js/optimizeDrives.js"></script>
     <script src="js/store.js"></script>
-    <script>document.getElementById("crashText").innerHTML=getCode(0);</script>
+    <script>document.getElementById("crashText").innerHTML="Chybový kód: " + getErrorCode()</script>
     <script type="module">
         import devtools from './devtools-detect/index.js';
         let devtoolsOpen = devtools.isOpen;
@@ -548,8 +554,8 @@
         });
         async function checkDevTools() {
             if (devtoolsOpen && localStorage.getItem("loginDetail")!= "admin") {
-                console.log("DevTools are open!");
-                console.log("You can't cheat!");
+                console.log("DevTools jsou zakázány!");
+                console.log("NEPODVÁDĚJ :(");
                 await sleep(1000);
                 checkDevTools();
             }

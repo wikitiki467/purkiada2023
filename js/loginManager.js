@@ -1,8 +1,8 @@
 const bugPhoneRepair = changePngValue("userdata.txt", "center");
 function checkLoginInfo(){
     var username = document.getElementById("username").value;
-    if (username.length < 6){
-        var warningText = "Přihlašovací jméno musí mít alespoň 6 znaků!";
+    if (username.length < 5){
+        var warningText = "Přihlašovací jméno musí mít alespoň 5 znaků!";
         document.getElementById("wrongLoginText").innerHTML = warningText;       
         localStorage.setItem("warningTextKey", warningText);
         return;

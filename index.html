@@ -39,7 +39,7 @@
                     <img draggable="false" id="ProfilePicture" src="images/general/LoginPP.png"><br>
                     <div>
                         <p id="wrongLoginText"></p>
-                        <input type="text" id="username" name="username" onfocus='this.value=""'  placeholder="Name (min 6char)"><br>
+                        <input type="text" id="username" name="username" onfocus='this.value=""'  placeholder="Name (min 5char)"><br>
                         <!-- <input type="text" id="userpassword" name="password" onfocus='this.value=""; this.type="password"'; value="Enter password"> -->
                     </div>
                     <input type="submit" id="submitlogin" value="❯" onclick="checkLoginInfo()">
@@ -139,7 +139,7 @@
                 </p>
             </appBuild>
             <appBuild title="Notepad" icon="notepad.png" scroll="XY" backgroundColor="white">
-                <p contenteditable="true" id="notepad" class="unselectable" style="width:100%;height:100%"></p>
+                <input contenteditable="true" id="notepad" class="unselectable" style="width:100%;height:100%"></input>
             </appBuild>
             <appBuild title="Video přehrávač" backgroundColor="black" shortcut="false" icon="vlc.png">
                 <video width="100%" height="100%" onclick="if(paused){play()}else{pause()}">

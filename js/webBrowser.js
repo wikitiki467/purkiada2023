@@ -124,7 +124,7 @@ function errorChecker(){
     webContent.style.alignItems = "center";
     let headerDiv = document.createElement("div");
     let header = document.createElement("h1");
-    header.innerText = "Error Checker";
+    header.innerText = "Vyhledáváč chyb";
     header.style.color = "White";
     header.style.fontSize = "50px";
     headerDiv.style.backgroundColor = "#0b2233";
@@ -151,7 +151,7 @@ function errorChecker(){
     div.style.borderRadius = "10px";
     div.style.padding = "10px";
 
-    input.setAttribute("placeholder", "Zadejte číslo chyby");
+    input.setAttribute("placeholder", "Zadejte kód chyby");
     div.appendChild(input);
     div.appendChild(button);
     headerDiv.appendChild(header);

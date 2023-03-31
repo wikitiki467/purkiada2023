@@ -72,6 +72,9 @@ function changeFileText(newText) {
     document.getElementById("fileText").innerHTML = newText;
 }
 
+let tabBackHistory = [];
+let tabForwardHistory = [];
+
 function changeFolderTab(tabID) {
     let allTabs = document.querySelectorAll(".fe_tab");
     allTabs.forEach(element => {
@@ -84,8 +87,26 @@ function activateFolderTab(self, tabID) {
     document.querySelectorAll(".active").forEach(element => {
         element.classList.remove("active");
     });
+    if (tabForwardHistory.length > 0 && tabID != tabForwardHistory[0][1]) {
+        tabForwardHistory = [];
+    }
+    tabBackHistory.unshift([self, tabID]);
     self.classList.add("active");
     changeFolderTab(tabID);
+}
+
+function tabBack() {
+    if (tabBackHistory.length > 1) {
+        tabForwardHistory.unshift(tabBackHistory.shift())
+        activateFolderTab(tabBackHistory[0][0], tabBackHistory[0][1])
+    }
+}
+
+function tabForward() {
+    if (tabForwardHistory,length > 0) {
+        tabBackHistory.unshift(tabForwardHistory.shift())
+        activateFolderTab(tabBackHistory[0][0], tabBackHistory[0][1]) 
+    }
 }
 
 activateFolderTab(document.getElementById('defaultFolderTab'), 'fe_main')

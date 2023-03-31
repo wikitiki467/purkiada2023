@@ -10,8 +10,12 @@
     top: 35px;
 }
 
-#fe_icon{
+#fe_left{
     left: 10px;
+}
+
+#fe_right{
+    left: 70px;
 }
 
 #fe_hide{

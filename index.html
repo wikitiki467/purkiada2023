@@ -283,7 +283,8 @@
 
             <appBuild title="File explorer" backgroundImage="fileExplorer-background.jpg" icon="file_explorer.png">
                 <div id="fe_header">
-                    <img id="fe_icon" src="images/icons/file_explorer.png">
+                    <img id="fe_left" src="images/general/LeftArrowWhite.png" onclick="tabBack()">
+                    <img id="fe_right" src="images/general/RightArrowWhite.png" onclick="tabForward()">
                     <img id="fe_hide" title="show hidden files ✗" src="images/general/fileHide.png" onclick="toggleHiddenFiles();this.title=(this.title=='show hidden files ✓')?'show hidden files ✗':'show hidden files ✓'">
                 </div>
                 <div id="fe_sideBar">

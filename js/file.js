@@ -88,25 +88,41 @@ function activateFolderTab(self, tabID) {
         element.classList.remove("active");
     });
     if (tabForwardHistory.length > 0 && tabID != tabForwardHistory[0][1]) {
+        console.log("Forward reset")
         tabForwardHistory = [];
     }
     tabBackHistory.unshift([self, tabID]);
+    console.log("Back history " + tabBackHistory.length);
+    console.log("Forward history " + tabForwardHistory.length);
     self.classList.add("active");
     changeFolderTab(tabID);
 }
 
 function tabBack() {
     if (tabBackHistory.length > 1) {
-        tabForwardHistory.unshift(tabBackHistory.shift())
-        activateFolderTab(tabBackHistory[0][0], tabBackHistory[0][1])
+        tabForwardHistory.unshift(tabBackHistory.shift());
+        document.querySelectorAll(".active").forEach(element => {
+            element.classList.remove("active");
+        });
+        tabBackHistory[0][0].classList.add("active");
+        changeFolderTab(tabBackHistory[0][1]);
     }
+    console.log("Back history " + tabBackHistory.length);
+    console.log("Forward history " + tabForwardHistory.length);
+    
 }
 
 function tabForward() {
-    if (tabForwardHistory,length > 0) {
+    if (tabForwardHistory.length > 0) {
         tabBackHistory.unshift(tabForwardHistory.shift())
-        activateFolderTab(tabBackHistory[0][0], tabBackHistory[0][1]) 
+        document.querySelectorAll(".active").forEach(element => {
+            element.classList.remove("active");
+        });
+        tabBackHistory[0][0].classList.add("active");
+        changeFolderTab(tabBackHistory[0][1]); 
     }
+    console.log("Back history " + tabBackHistory.length);
+    console.log("Forward history " + tabForwardHistory.length);
 }
 
 activateFolderTab(document.getElementById('defaultFolderTab'), 'fe_main')

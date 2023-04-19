@@ -54,13 +54,32 @@ IntelHD.exe         Services        C:\\system\\CPU
 `];
 let killed =["","",""];
 let killedCount = 0;
-//přidat možnost ukončení (zavření) aktivního okna přes killtask
-//ukončit spam reklam ve webbrowseru při killnutí BrowserAds.vir
+let history = [];
+let historyIndex = -1;
 function consoleInput(event) {
     let input = document.getElementById("console_input");
     let output = document.getElementById("console_output_text");
+    //dodělat mazání prázdných příkazů z historie
+
+    if (event.keyCode != 38 && event.keyCode != 40){
+        historyIndex = -1;
+    }
+    if (event.keyCode == 38) {
+        if (history.length >= -1){
+            if(historyIndex == history.length - 1) input.value = history[historyIndex] 
+            else input.value = history[++historyIndex];
+        }
+    }
+    if (event.keyCode == 40) {
+        if (history.length > -1){
+            if (historyIndex > 0) input.value = history[--historyIndex];
+            else if (historyIndex == 0) input.value = "", historyIndex--;
+        }
+    }
+    console.log("index po:", historyIndex);
     if (event.keyCode == 13) {
         let command = stripSpacesFromStart(input.value);
+        history.push(input.value);
         input.value = "";
         addConsoleLine(`C:\\LevelProgress> ${command}`);
         const commandLowerCase = command.toLowerCase();

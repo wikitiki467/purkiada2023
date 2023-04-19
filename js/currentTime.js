@@ -8,7 +8,7 @@ function display_ct() {
     let hours = date.getHours();
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
-    let day = date.getDay()+1;
+    let day = date.getDate();
     let month = (date.getMonth()+1);
     let year = date.getFullYear();
     if (hours < 10) {hours = `0${hours}`};

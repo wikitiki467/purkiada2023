@@ -183,12 +183,16 @@ align-items: center;
     }
 }
 /* add media query for less then 500x500 */
-@media only screen and (max-width: 800px) and (max-height: 600px) {
+@media only screen and (max-width: 800px) and (orientation: portrait),
+(max-height: 600px) and (orientation: landscape),
+(max-width: 600px) and (max-height: 800px) and (orientation: portrait),
+(max-width: 800px) and (max-height: 600px) and (orientation: landscape),
+(pointer: coarse) {
     body *:not(#gradient-canvas, .monitor){
         display: none;
     }
     .monitor::after{
-        content: "Okno je příliš malé, zvětši ho prosím";
+        content: "Nepodporované zařízení nebo jeho velikost displeje.";
         position: absolute;
         top: 50%;
         left: 50%;

@@ -57,6 +57,8 @@ Obsah aplikace se nachází uvnitř tagu v tomto tvaru: `<appBuild title=""> Obs
 | `resize`                  |    `boolean`    |     `true`      | Zapne/Vypne možnost uživateli manipulovat s velikostí okna aplikace|
 | `shortcut`                |    `boolean`    |     `true`      | Zapne/Vypne shortcut na ploše                                      |
 | `startMenu`               |    `boolean`    |     `true`      | Zapne/Vypne shortcut v start menu                                  |
+| `taskBarHidden`           |    `boolean`    |    `false`      | Zapne/Vypne viditelnost aplikace v hlavním panelu                  |
+| `isInstalled`             |    `boolean`    |     `true`      | Zapne/Vypne viditelnost všech prvků aplikace                       |
 
 > [ ! ] Pro nastavení jakéhokoliv obrázku v aplikaci mužete používat **pouze** obrázky uložené v patřičné složce!
 

@@ -91,14 +91,14 @@ popup.show();
 
 
 ### Použitelné Proměnné této třídy:
-| Proměnná                  |      Typ        |  Výchozí nastavení  | Popis atributu                                                     |
-| :------------------------ | :-------------: | :-----------------: | :----------------------------------------------------------------- |
-| `appName`                 |    `String`     |`1. vstupní proměnná`| Nastaví text jména aplikace                                        |
-| `onClickFunction`         |    `String`     |`2. vstupní proměnná`| Nastaví vlastní funkci, která se má spustit po zakliknutí tlačítka 'Yes'                                            |
-| `title`                   |    `String`     |   `Default text`    | Nastaví hlavní text                                                |
-| `publisher`               |    `String`     |   `Default text`    | Nastaví text tvůrce aplikace/processu                              |
-| `fileOrigin`              |    `String`     |   `Default text`    | Nastaví text umístění aplikace/processu                            |
-| `canClose`                |    `Bolean`     |       `true`        | Povolí/Zakáže možnost uzavřít popup pro speciální oprávnění        |
+| Proměnná                  |      Typ        |  Výchozí nastavení  | Popis atributu                                                          |
+| :------------------------ | :-------------: | :-----------------: | :---------------------------------------------------------------------- |
+| `appName`                 |    `String`     |`1. vstupní proměnná`| Nastaví text jména aplikace                                             |
+| `onClickFunction`         |    `String`     |`2. vstupní proměnná`| Nastaví vlastní funkci, která se má spustit po zakliknutí tlačítka 'Yes'|
+| `title`                   |    `String`     |   `Default text`    | Nastaví hlavní text                                                     |
+| `publisher`               |    `String`     |   `Default text`    | Nastaví text tvůrce aplikace/processu                                   |
+| `fileOrigin`              |    `String`     |   `Default text`    | Nastaví text umístění aplikace/processu                                 |
+| `canClose`                |    `Bolean`     |       `true`        | Povolí/Zakáže možnost uzavřít popup pro speciální oprávnění             |
 
 ## Vyvolání popupu (SystemPopup):
 Pro vyvolání popupu slouží funkce `popup()`.
@@ -113,6 +113,17 @@ popup("Virus", "Haha tvůj počítač je zavirován!");
 | :------------------------ | :-------------: | :----------------------------------------------------------------- |
 | `title`                   |    `String`     | Nastaví text v hlavičce popupu                                     |
 | `text`                    |    `String`     | Nastaví text v těle popupu                                         |
+
+## Otevření okna aplikace (focusWindow):
+
+Pro otevření okna aplikace slouží funkce `focusWindow()`.
+Tato funkce **musí** obsahovat 1 vstupní proměnnou `title`. Proměnná `title` reprezentuje jméno aplikace, kterou chceme otevřít.
+
+**Příklad použití základní formy této funkce:**
+```
+focusWindow('moje aplikace 1');
+```
+> [ 💡 ] Funkce hledá vložené jméno aplikace v registru. 
 
 ## Contributors 🙏
 

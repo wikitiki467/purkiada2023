@@ -68,7 +68,7 @@ Tato třída **musí** obsahovat 2 vstupní proměnné `appName` a `onClickFunct
 
 **Příklad použití základní formy této třídy:**
 ```
-let popup = new SystemPermissionPopup("moje aplikace 1", "moveWindow(1); openWindow(1); window_z_index(1)");
+let popup = new SystemPermissionPopup("moje aplikace 1", "focusWindow('moje aplikace 1')");
 popup.show();
 ```
 Pro vstupní proměnnou `appName` pužijte jméno aplikace/processu.
@@ -76,7 +76,7 @@ Pro vstupní proměnnou `onClickFunction` použijte vlastní funkci ve Stringu, 
 
 **Přenastavení textu v systémovém popupu pro speciální oprávnění pak funguje následovně:**
 ```
-let popup = new SystemPermissionPopup("moje aplikace 1", "moveWindow(1); openWindow(1); window_z_index(1)");
+let popup = new SystemPermissionPopup("moje aplikace 1", "focusWindow('moje aplikace 1')");
 popup.title = "Do you want to allow this app from an unknown publisher to make changes to your device?";
 popup.publisher = "Unknown";
 popup.fileOrigin = "Hard drive on this computer";
